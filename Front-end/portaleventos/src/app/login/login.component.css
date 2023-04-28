@@ -1,0 +1,89 @@
+h1{
+    color: green;
+    margin-top: 40px;
+    size: 38px;
+    font-weight: bold;
+
+}
+
+.flex-box{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 90px;
+    
+    
+}
+
+.BotaoEntrar{
+    background: #FF9F10;
+    color: white;
+    border-radius: 50px;
+    width: 132px;
+    height: 45px;
+}
+
+.left{
+    display: flex;
+    justify-content: left;
+    flex-direction: column ;
+    
+    
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 70px;
+    margin-top: 50px;
+    
+}
+
+
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+   
+}
+
+.letra_verde {
+    color: green;
+}
+
+.icone{
+    width: 94px;;
+    height: 81px;
+    align-items: center;
+}
+
+.botoes{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.form-control{
+    background: #F1F0F5;
+    width: 447px;
+    height: 45px;
+    border-radius: 50px;
+}
+
+.parte-de-baixo{
+    margin-top: 70px;
+    text-align: center;
+}
+
+.right{
+    width: 872px;
+    height: 855px;
+}
+
+.right img{
+    width: 100%;
+    height: 100%;
+}
+
+
+

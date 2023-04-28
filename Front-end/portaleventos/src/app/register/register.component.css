@@ -63,7 +63,6 @@
 }
     
 .flex-box .left form .row input::placeholder{
-    height: 16px;
     font-weight: 400;
     font-size: 16px;
     line-height: 100%;
@@ -119,3 +118,84 @@
 }
 
 
+
+.flex-box {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+  }
+  
+  /* Estilos para telas grandes */
+
+  
+@media only screen and (min-width: 992px) {
+    .flex-box .left {
+        margin: 0 10px;
+    }
+    .flex-box .right .image-register img {
+        height: 100vh;
+        position: absolute;
+        right: 0;
+        top: 0;
+        position: fixed;
+    }
+}
+
+/* Estilos para telas médias */
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+    .flex-box .left {
+        margin: 0;
+        height: auto;
+    }
+    .flex-box .left form .row input {
+        width: 100%;
+    }
+    .flex-box .left form .row label {
+        width: 100%;
+    }
+    .flex-box .right .image-register img {
+        display: none;
+    }
+    
+}
+  
+/* Estilos para telas pequenas */
+@media only screen and (max-width: 767px) {
+    .flex-box .right .image-register img {
+        display: none;
+    }
+    .flex-box .left .tittle-register h1 {
+        font-size: 24px;
+    }
+    .flex-box .left .tittle-register img {
+        height: 50px;
+        width: 57px;
+    }
+    .flex-box .left .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .flex-box .left .footer img {
+        width: 150px;
+    }
+    .flex-box .left .footer .tittle-footer {
+        width: 100%;
+        text-align: center;
+    }
+    .flex-box .left form {
+        margin-top: 30px;
+    }
+    .flex-box .left form .row input {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .flex-box .left form .row label {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .btn-primary {
+        width: 100%;
+        margin-top: 20px;
+    }
+}

@@ -22,5 +22,6 @@ router.get("/empresas", EmpresaController.getAll);
 router.get("/empresas/:id_empresa", EmpresaController.getById);
 router.post("/empresas", EmpresaController.addEmpresa);
 router.put("/empresas/:empresa", EmpresaController.updateEmpresa);
+router.delete("/empresas/:empresa", EmpresaController.delEmpresa);
 
 module.exports = router;

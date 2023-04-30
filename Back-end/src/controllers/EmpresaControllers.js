@@ -58,6 +58,14 @@ module.exports = {
            res.json(error); 
         }
         res.json(json);
-      },
+    },
+
+    delEmpresa: async (req, res) => {
+        let json = { error: "", result: {} };
+
+        await EmpresaService.delEmpresa(req.params.empresa);
+        res.status(204);
+        res.json(json);
+    },
 
 }

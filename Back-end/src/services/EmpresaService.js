@@ -13,6 +13,7 @@ module.exports = {
             });
         });
     },
+
     getById: (empresa) => {
         return new Promise((acepted, rejected) => {
           db.query("SELECT nome FROM empresa WHERE id = ?",[empresa],(error, results) => {
@@ -29,6 +30,7 @@ module.exports = {
           );
         });
     },
+
     addEmpresa: (empresa) => {
         return new Promise((acepted, rejected) =>{
             db.query("INSERT INTO empresa (nome) VALUES (?)",[empresa],(error,results) => {
@@ -40,16 +42,29 @@ module.exports = {
             });
         });
     },
+
     updateEmpresa: (empresa,empresas) => {
         return new Promise((acepted, rejected) => {
-          db.query("UPDATE empresa SET nome=? WHERE nome =?",[empresa,empresas],(error, results) => {
+            db.query("UPDATE empresa SET nome=? WHERE nome =?",[empresa,empresas],(error, results) => {
               if (error) {
                 rejected(error);
                 return;
               }
               acepted(results);
-            }
-          );
+            });
         });
-      },
+    },
+
+    delEmpresa: (empresa) => {
+        return new Promise((acepted, rejected) => {
+            db.query("DELETE FROM empresa WHERE nome =?",[empresa],(error,results)=>{
+                if (error) {
+                    rejected(error);
+                    return;
+                }
+                acepted(results);
+            });
+        })
+    },
+    
 }

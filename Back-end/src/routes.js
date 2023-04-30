@@ -19,5 +19,6 @@ router.delete("/convidados/:nome", ConvidadoController.delConvidado);
 //EMPRESA -----
 const EmpresaController = require("./controllers/EmpresaControllers");
 router.get("/empresas", EmpresaController.getAll);
+router.get("/empresas/:id_empresa", EmpresaController.getById);
 
 module.exports = router;

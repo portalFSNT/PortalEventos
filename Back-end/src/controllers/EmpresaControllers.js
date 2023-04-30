@@ -1,6 +1,7 @@
 const EmpresaService = require("../services/EmpresaService");
 
 module.exports = {
+
     getAll: async(req, res) => {
         let json = { error: "", result: [] };
         let empresas = await EmpresaService.getAll();
@@ -11,5 +12,20 @@ module.exports = {
             });
         }
         res.json(json);
-    }
+    },
+
+    getById: async (req, res) => {
+        let json = { error: "", result: {} };
+    
+        let empresa = req.params.id_empresa; //para pegar o parametro
+        let empresas = await EmpresaService.getById(empresa);
+    
+        if (empresas) {
+          json.result = empresas;
+        }
+
+        res.status(200);
+        res.json(json);
+    },
+
 }

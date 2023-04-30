@@ -3,15 +3,30 @@ const db = require("../db");
 module.exports = { 
 
     getAll: () => {
-        return new Promise((acepted, reject)=>{
-            db.query("SELECT empresa.nome FROM empresa", (error, results) => {
+        return new Promise((acepted, rejected) => {
+            db.query("SELECT nome FROM empresa", (error, results) => {
                 if(error){
-                    reject(error);
+                    rejected(error);
                     return;
                 }
                 acepted(results)
             });
         });
-    }
-    
+    },
+    getById: (empresa) => {
+        return new Promise((acepted, rejected) => {
+          db.query("SELECT nome FROM empresa WHERE id = ?",[empresa],(error, results) => {
+              if (error) {
+                rejected(error);
+                return;
+              }
+              if (results.length > 0) {
+                acepted(results[0]);
+              } else {
+                acepted(false);
+              }
+            }
+          );
+        });
+      },
 }

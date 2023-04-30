@@ -16,4 +16,8 @@ router.post("/convidados/", ConvidadoController.addConvidado);
 router.put("/convidados/:nomes", ConvidadoController.updateConvidado);
 router.delete("/convidados/:nome", ConvidadoController.delConvidado);
 
+//EMPRESA -----
+const EmpresaController = require("./controllers/EmpresaControllers");
+router.get("/empresas", EmpresaController.getAll);
+
 module.exports = router;

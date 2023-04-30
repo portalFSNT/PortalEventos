@@ -43,4 +43,21 @@ module.exports = {
         res.status(201);
         res.json(json);
     },
+
+    updateEmpresa: async (req, res) => {
+        let json = { error: "", result: {} };
+        let empresas = req.params.empresa;
+        let empresa = req.body.nome;
+      
+        try {
+            await EmpresaService.updateEmpresa(empresa,empresas);
+            json.result = {
+                empresa,
+            }; 
+        } catch (error) {
+           res.json(error); 
+        }
+        res.json(json);
+      },
+
 }

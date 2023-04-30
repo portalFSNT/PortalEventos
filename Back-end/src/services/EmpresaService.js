@@ -39,5 +39,17 @@ module.exports = {
                 acepted(results.addEmpresa);
             });
         });
-    }
+    },
+    updateEmpresa: (empresa,empresas) => {
+        return new Promise((acepted, rejected) => {
+          db.query("UPDATE empresa SET nome=? WHERE nome =?",[empresa,empresas],(error, results) => {
+              if (error) {
+                rejected(error);
+                return;
+              }
+              acepted(results);
+            }
+          );
+        });
+      },
 }

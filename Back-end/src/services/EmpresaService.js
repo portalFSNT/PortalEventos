@@ -28,5 +28,16 @@ module.exports = {
             }
           );
         });
-      },
+    },
+    addEmpresa: (empresa) => {
+        return new Promise((acepted, rejected) =>{
+            db.query("INSERT INTO empresa (nome) VALUES (?)",[empresa],(error,results) => {
+                if (error) {
+                    rejected(error);
+                    return;
+                }
+                acepted(results.addEmpresa);
+            });
+        });
+    }
 }

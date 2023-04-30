@@ -21,5 +21,6 @@ const EmpresaController = require("./controllers/EmpresaControllers");
 router.get("/empresas", EmpresaController.getAll);
 router.get("/empresas/:id_empresa", EmpresaController.getById);
 router.post("/empresas", EmpresaController.addEmpresa);
+router.put("/empresas/:empresa", EmpresaController.updateEmpresa);
 
 module.exports = router;

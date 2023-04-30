@@ -32,7 +32,7 @@ module.exports = {
                 [nome,email,cargo,telefone,empresa],
                 (error, results)=>{
                     if(error){ rejected(error); return; }
-                    acepted(results.insertid_convidado); 
+                    acepted(results.addConvidado); 
                 }
             );
         });

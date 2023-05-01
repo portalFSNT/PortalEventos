@@ -36,4 +36,32 @@ module.exports = {
         res.json(json);
     },
 
+    addEvento: async(req, res) => {
+        let json = { error: "", result: {} };
+        let nome = req.body.nome;
+        let data_hora = req.body.data_hora;
+        let descricao = req.body.descricao;
+        let id_usuario = req.body.id_usuario;
+
+        if(nome && data_hora && descricao && id_usuario){
+            let eventoCodigo = await EventoService.addEvento(
+                nome,
+                data_hora,
+                descricao,
+                id_usuario
+            );
+            json.result = {
+                id_evento: eventoCodigo,
+                nome,
+                data_hora,
+                descricao,
+                id_usuario,
+            };
+            res.status(201);
+            res.json(json);
+        }else {
+            res.status(400);
+            res.json({ error: "Campos não enviados ou inválidos." });
+        }            
+    },
 }

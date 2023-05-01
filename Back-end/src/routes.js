@@ -38,5 +38,5 @@ router.get("/evento_convidado", EventoConvidadoController.getAll);
 router.get("/evento_convidado/:id_evento", EventoConvidadoController.getById);
 router.post("/evento_convidado/:id_evento", EventoConvidadoController.addEventoConvidado);
 router.patch("/evento_convidado/:id_evento", EventoConvidadoController.updateEventoConvidado);
-
+router.delete("/evento_convidado/:id_evento", EventoConvidadoController.delEventoConvidado);
 module.exports = router;

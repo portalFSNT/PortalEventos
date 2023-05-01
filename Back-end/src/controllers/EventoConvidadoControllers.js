@@ -93,5 +93,15 @@ module.exports = {
             res.json({ error: "Campos não enviados ou inválidos." });
         }
         res.json(json);
-    }
+    },
+
+    delEventoConvidado: async(req, res) => {
+        let json = { error: "", result: [] };
+        let id_evento = req.params.id_evento;
+        let id_convidado = req.body.id_convidado;
+
+        await EventoConvidadoService.delEventoConvidado(id_evento, id_convidado);
+        res.status(204);
+        res.json(json); 
+    },
 }

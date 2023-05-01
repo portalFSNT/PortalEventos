@@ -54,4 +54,17 @@ module.exports = {
             });
         });
     },
+
+    delEventoConvidado: (id_evento, id_convidado) => {
+        return new Promise((acepted, rejected) => {
+           db.query(`DELETE  FROM  evento_convidado  WHERE id_presenca= ? AND id_convidado =?`,
+           [ id_evento, id_convidado ],(error, results)=>{
+                if(error){
+                    rejected(error);
+                    return;
+                }
+                acepted(results);
+           });
+        });
+    },
 }

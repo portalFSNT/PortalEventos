@@ -88,4 +88,12 @@ module.exports = {
         res.json(json);
     },
 
+    delEvento: async(req,res)=>{
+        let json = { error: "", result: {} };
+        
+        await EventoService.delEvento(req.params.id_evento);
+        res.status(204);
+        res.json(json);
+    },
+    
 }

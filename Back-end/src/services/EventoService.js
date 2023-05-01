@@ -58,7 +58,19 @@ module.exports = {
                     return;
                 }
                 acepted(results.updateEvento); 
-            })
+            });
         });
     },
+
+    delEvento: (id_evento) => {
+        return new Promise((acepted, rejected) => {
+            db.query(`DELETE FROM evento_presenca WHERE id = ?`,[id_evento],(error, results) => {
+                if(error){
+                    rejected(error);
+                    return;
+                }
+                acepted(results);
+            });
+        });
+    }
 }

@@ -13,7 +13,7 @@ const ConvidadoController = require("./controllers/ConvidadoControllers");
 router.get("/convidados", ConvidadoController.getAll);
 router.get("/convidados/:nome", ConvidadoController.getById);
 router.post("/convidados/", ConvidadoController.addConvidado);
-router.put("/convidados/:nomes", ConvidadoController.updateConvidado);
+router.patch("/convidados/:nomes", ConvidadoController.updateConvidado);
 router.delete("/convidados/:nome", ConvidadoController.delConvidado);
 
 //EMPRESA -----
@@ -21,7 +21,7 @@ const EmpresaController = require("./controllers/EmpresaControllers");
 router.get("/empresas", EmpresaController.getAll);
 router.get("/empresas/:id_empresa", EmpresaController.getById);
 router.post("/empresas", EmpresaController.addEmpresa);
-router.put("/empresas/:empresa", EmpresaController.updateEmpresa);
+router.patch("/empresas/:empresa", EmpresaController.updateEmpresa);
 router.delete("/empresas/:empresa", EmpresaController.delEmpresa);
 
 //EVENTO -----

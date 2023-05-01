@@ -24,4 +24,8 @@ router.post("/empresas", EmpresaController.addEmpresa);
 router.put("/empresas/:empresa", EmpresaController.updateEmpresa);
 router.delete("/empresas/:empresa", EmpresaController.delEmpresa);
 
+//EVENTO -----
+const EventoController = require("./controllers/EventoControllers");
+router.get("/evento", EventoController.getAll);
+
 module.exports = router;

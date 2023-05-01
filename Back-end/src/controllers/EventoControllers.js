@@ -25,7 +25,6 @@ module.exports = {
 
     getById: async(req,res) =>{
         let json = { error: "", result: {} };
-
         let id_evento = req.params.id_evento;
         let evento = await EventoService.getById(id_evento);
 

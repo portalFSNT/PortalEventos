@@ -30,5 +30,6 @@ router.get("/evento", EventoController.getAll);
 router.get("/evento/:id_evento", EventoController.getById);
 router.post("/evento", EventoController.addEvento);
 router.patch("/evento/:id_evento", EventoController.updateEvento);
+router.delete("/evento/:id_evento", EventoController.delEvento);
 
 module.exports = router;

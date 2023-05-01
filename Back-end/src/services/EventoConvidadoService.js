@@ -14,4 +14,18 @@ module.exports = {
             });
         });
     },
+
+    getById: (id_evento) => {
+        return new Promise((acepted, rejected) => {
+            db.query(`SELECT * FROM evento_convidado ec INNER JOIN convidado c  ON c.id=ec.id_convidado 
+            INNER JOIN  evento_presenca e ON e.id = ec.id_presenca WHERE e.id=?`,[id_evento], (error, results) => {
+                if(error) { rejected(error); return; }
+                if(results.length > 0){ 
+                    acepted(results[0]);
+                }else {
+                    acepted(false);
+                }
+            });
+        });
+    }
 }

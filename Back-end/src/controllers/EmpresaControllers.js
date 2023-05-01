@@ -17,7 +17,7 @@ module.exports = {
     getById: async (req, res) => {
         let json = { error: "", result: {} };
     
-        let empresa = req.params.id_empresa; //para pegar o parametro
+        let empresa = req.params.id_empresa; 
         let empresas = await EmpresaService.getById(empresa);
     
         if (empresas) {

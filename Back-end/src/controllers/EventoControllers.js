@@ -21,6 +21,19 @@ module.exports = {
         }
         res.status(200);
         res.json(json);
-    }
+    },
+
+    getById: async(req,res) =>{
+        let json = { error: "", result: {} };
+
+        let id_evento = req.params.id_evento;
+        let evento = await EventoService.getById(id_evento);
+
+        if (evento) {
+            json.result = evento;
+          }
+        res.status(200);
+        res.json(json);
+    },
 
 }

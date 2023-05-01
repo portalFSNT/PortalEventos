@@ -29,4 +29,6 @@ const EventoController = require("./controllers/EventoControllers");
 router.get("/evento", EventoController.getAll);
 router.get("/evento/:id_evento", EventoController.getById);
 router.post("/evento", EventoController.addEvento);
+router.patch("/evento/:id_evento", EventoController.updateEvento);
+
 module.exports = router;

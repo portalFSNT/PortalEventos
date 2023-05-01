@@ -35,5 +35,6 @@ router.delete("/evento/:id_evento", EventoController.delEvento);
 //EVENTO_CONVIDADO -----
 const EventoConvidadoController = require("./controllers/EventoConvidadoControllers");
 router.get("/evento_convidado", EventoConvidadoController.getAll);
+router.get("/evento_convidado/:id_evento", EventoConvidadoController.getById);
 
 module.exports = router;

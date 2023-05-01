@@ -64,5 +64,34 @@ module.exports = {
         }
         res.json(json);
     },
-    
+
+    updateEventoConvidado: async(req, res) => {
+        let json = { error: "", result: [] };
+        let id_evento = req.params.id_evento;
+        let id_convidado = req.body.id_convidado;
+        let condicao  = req.body.condicao;
+        let anunciado = req.body.anunciado;
+        let presenca = req.body.presenca;
+
+        if (id_evento && id_convidado && condicao && anunciado && presenca){
+            await EventoConvidadoService.updateEventoConvidado(
+                id_evento,
+                id_convidado,
+                condicao,
+                anunciado,
+                presenca
+            );
+            json.result = {
+                id_evento,
+                id_convidado,
+                condicao,
+                anunciado,
+                presenca,
+            };
+        }else{
+            res.status(400);
+            res.json({ error: "Campos não enviados ou inválidos." });
+        }
+        res.json(json);
+    }
 }

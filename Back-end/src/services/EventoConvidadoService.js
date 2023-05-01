@@ -41,4 +41,17 @@ module.exports = {
             });
         });
     },
+
+    updateEventoConvidado: (id_evento,id_convidado,condicao,anunciados,presenca) => {
+        return new Promise((acepted, rejected) => {
+            db.query(`UPDATE evento_convidado SET id_convidado=?,condicao=?,anunciado=?,presenca=? WHERE id_presenca=?`,
+            [ id_convidado, condicao, anunciados, presenca, id_evento], (error, results) => {
+                if(error){ 
+                    rejected(error); 
+                    return; 
+                }
+                acepted(results);
+            });
+        });
+    },
 }

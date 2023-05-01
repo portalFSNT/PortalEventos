@@ -27,5 +27,6 @@ router.delete("/empresas/:empresa", EmpresaController.delEmpresa);
 //EVENTO -----
 const EventoController = require("./controllers/EventoControllers");
 router.get("/evento", EventoController.getAll);
+router.get("/evento/:id_evento", EventoController.getById);
 
 module.exports = router;

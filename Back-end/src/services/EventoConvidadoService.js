@@ -27,5 +27,18 @@ module.exports = {
                 }
             });
         });
-    }
+    },
+
+    addEventoConvidado: (id_evento, id_convidado, condicao, anunciado, presenca) => {
+        return new Promise((acepted, rejected) => {
+            db.query(`INSERT INTO evento_convidado (id_presenca, id_convidado,condicao,anunciado,presenca) VALUES (?,?,?,?,?)`,
+            [id_evento, id_convidado, condicao, anunciado, presenca],(error, results) => {
+                if (error) {
+                    rejected(error);
+                    return;
+                }
+                acepted(results.addEvento);
+            });
+        });
+    },
 }

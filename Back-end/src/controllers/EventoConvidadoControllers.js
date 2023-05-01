@@ -27,11 +27,42 @@ module.exports = {
         let id_evento = req.params.id_evento;
 
         let evento = await EventoConvidadoService.getById(id_evento);
-        
+
         if (evento) {
             json.result = evento;
           }
         res.status(200);
         res.json(json);
     },
+
+    addEventoConvidado: async(req,res) => {
+        let json = { error: "", result: [] };
+        let id_evento = req.params.id_evento;
+        let id_convidado = req.body.id_convidado;
+        let condicao  = req.body.condicao;
+        let anunciado = req.body.anunciado;
+        let presenca = req.body.presenca;
+
+        if (id_evento && id_convidado && condicao && anunciado && presenca){
+            let evento_convidados = await EventoConvidadoService.addEventoConvidado(
+                id_evento,
+                id_convidado,
+                condicao,
+                anunciado,
+                presenca
+            );
+            json.result = {
+                nome:evento_convidados,
+                id_evento,
+                id_convidado,
+                condicao,
+                anunciado,
+                presenca,
+            };
+        }else{
+            json.error = 'Campos não enviados';
+        }
+        res.json(json);
+    },
+    
 }

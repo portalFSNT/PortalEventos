@@ -49,4 +49,16 @@ module.exports = {
             });
         });
     },
+
+    updateEvento: (id_evento, data_hora, descricao) => {
+        return new Promise((acepted, rejected) => {
+            db.query(`UPDATE evento_presenca SET data_hora=?,descricao=? WHERE id = ?`,[data_hora,descricao,id_evento],(error,results) => {
+                if(error){
+                    rejected(error);
+                    return;
+                }
+                acepted(results.updateEvento); 
+            })
+        });
+    },
 }

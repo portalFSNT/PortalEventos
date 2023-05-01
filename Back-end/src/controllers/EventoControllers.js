@@ -64,4 +64,29 @@ module.exports = {
             res.json({ error: "Campos não enviados ou inválidos." });
         }            
     },
+
+    updateEvento: async(req, res) => {
+        let json = { error: "", result: {} };
+        let id_evento = req.params.id_evento;
+        let data_hora = req.body.data_hora;
+        let descricao = req.body.descricao;
+
+        if(id_evento && data_hora && descricao){
+            await EventoService.updateEvento(
+                id_evento,
+                data_hora,
+                descricao
+            );
+            json.result = {
+                id_evento,
+                data_hora,
+                descricao,
+            };
+        }else {
+            res.status(400);
+            res.json({ error: "Campos não enviados ou inválidos." });
+        }
+        res.json(json);
+    },
+
 }

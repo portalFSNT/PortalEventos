@@ -128,7 +128,7 @@
   /* Estilos para telas grandes */
 
   
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1300px) {
     .flex-box .left {
         margin: 0 10px;
     }
@@ -142,7 +142,7 @@
 }
 
 /* Estilos para telas médias */
-@media only screen and (max-width: 991px) and (min-width: 768px) {
+@media only screen and (max-width: 1300px) and (min-width: 768px) {
     .flex-box .left {
         margin: 0;
         height: auto;

@@ -13,6 +13,8 @@
     justify-content: space-between;
     height: 95vh;
     margin: 0 10px;
+    position: absolute;
+    top: 0;
 }
 .flex-box .left .tittle-register{
     align-items: center;
@@ -128,7 +130,7 @@
   /* Estilos para telas grandes */
 
   
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: a\) {
     .flex-box .left {
         margin: 0 10px;
     }

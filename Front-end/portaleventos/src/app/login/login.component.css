@@ -1,66 +1,38 @@
-h1{
-    color: green;
-    margin-top: 40px;
-    size: 38px;
-    font-weight: bold;
-
-}
-
-.flex-box{
-    display: flex;
-    justify-content: space-between;
-    margin-left: 90px;
-    
-    
-}
-
 .BotaoEntrar{
     background: #FF9F10;
     color: white;
     border-radius: 50px;
     width: 132px;
     height: 45px;
+    border: none;
 }
-
-.left{
-    display: flex;
-    justify-content: left;
-    flex-direction: column ;
-    
-    
-}
-
-.header{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 70px;
-    margin-top: 50px;
-    
-}
-
 
 form{
     display: flex;
     align-items: center;
     flex-direction: column;
-   
+   margin-bottom: 70px;
 }
 
 .letra_verde {
-    color: green;
+    color: #00A54E;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
 }
 
 .icone{
     width: 94px;;
     height: 81px;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .botoes{
     display: flex;
     flex-direction: column;
     margin-top: 30px;
+    gap: 24px;
 }
 
 .form-control{
@@ -68,22 +40,152 @@ form{
     width: 447px;
     height: 45px;
     border-radius: 50px;
+    border: none;
 }
 
-.parte-de-baixo{
-    margin-top: 70px;
-    text-align: center;
+
+
+
+
+input::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    padding-left: 20px;
+    color: #7D7D81;
+}
+.flex-box .left .botoes button{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+}
+
+.flex-box .left .botoes button .BotaoEntrar{
+    color: #FFFFFF;
+}
+.flex-box .left .botoes button .btn-default{
+    color: #5F5C6B;
+}
+
+
+
+
+/* ----------CONTAINER -------------- */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.flex-box{
+    display: flex;
+}
+
+.left{
+    width: 50%;
+    height: 100vh;
+    padding: 60px;
 }
 
 .right{
-    width: 872px;
-    height: 855px;
+    width: 50%;
+    height: 100vh;position: relative;
 }
 
 .right img{
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: 100vh;
+}
+
+h1{
+    color: #00A54E;
+    size: 38px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+.flex-box .left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-box .left form .botoes .btn-default{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    text-align: center;
+    color: #5F5C6B;
+}
+
+.flex-box .left .footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.flex-box .left .footer img{
+    height: 50px  ;
+}
+
+.flex-box .left .footer .info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flex-box .left .footer .info .contato{
+    display: flex;
+    gap: 16px
 }
 
 
 
+/* -------------RESPONSIVO GPT ----------- */
+
+/* Estilos para telas com largura até 768px */
+@media screen and (max-width: 768px) {
+    .flex-box {
+      flex-direction: column;
+    }
+    .left {
+      width: 100%;
+      height: auto;
+      padding: 40px;
+    }
+    .right {
+      display: none;
+    }
+    h1 {
+      margin-bottom: 40px;
+    }
+    .form-control {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+  
+  /* Estilos para telas com largura entre 768px e 1024px */
+  @media screen and (min-width: 768px) and (max-width: 1200px) {
+    .left {
+      padding: 40px;
+      width: 100%;
+    }
+    .right{
+        display: none;
+        width: 0;
+    }
+    .flex-box{
+        align-items: center;
+    }
+  }
+  
+  /* Estilos para telas com largura acima de 1024px */
+  @media screen and (min-width: 1200px) {
+    .form-control {
+      width: 447px;
+      max-width: none;
+    }
+  }
+  

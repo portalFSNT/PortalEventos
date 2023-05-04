@@ -1,4 +1,4 @@
-const ImageService = require('../services/ImageService');
+const ImageService = require('../../services/evento/ImageService');
 
 module.exports = {
     getAllImages: async (req, res) => {

@@ -1,4 +1,4 @@
-const EventService = require("../services/EventService");
+const EventService = require("../../services/evento/EventoAgendaService");
 
 module.exports = {
     getAllEvents: async (req, res) => {

@@ -1,0 +1,72 @@
+.flex-box{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 1000px;
+
+}
+
+.left{
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.right{
+    display: flex;
+    justify-content: right;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.right .sair{
+    color: #F1F0F5;
+    background: #00A54E;
+    width: 70px;
+    height: 28px;
+    border-radius: 16px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+select{
+    border: none;
+}
+
+.left-b{
+   display: flex;
+   flex-direction: column;
+   gap: 23px;
+   
+}
+
+.left-b .img{
+    width: 600px;
+    height: 200px;
+}
+
+.right-b .fundo{
+    width: 800px;
+    height: 650px;
+}
+
+.right-b .logo{
+    width: 614px;
+    height: 134px;
+}
+
+.right-b{
+    position:relative;
+    width: 500px;
+    height: 500px;
+}
+
+.right-b img:last-child {
+    position: absolute;
+    top: 250px;
+    left: 50px;
+}
+

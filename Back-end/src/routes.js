@@ -5,8 +5,12 @@ const login = require('./middleware/login');
 
 //USER -----   
 const UserController = require("./controllers/UserControllers");
+router.get('/users', UserController.getAll);
+router.get('/user/:email', UserController.getById);
+router.post('/user', UserController.addUser);
+router.patch('/user/:email', UserController.updateUser);
+router.delete('/user/:email', UserController.delUser);
 router.post('/login', UserController.login);
-router.get('/login', UserController.login); 
 
 //CONVIDADO -----
 const ConvidadoController = require("./controllers/ConvidadoControllers");

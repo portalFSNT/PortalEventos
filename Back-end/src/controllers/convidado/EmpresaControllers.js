@@ -1,4 +1,4 @@
-const EmpresaService = require("../services/EmpresaService");
+const EmpresaService = require("../../services/convidado/EmpresaService");
 
 module.exports = {
 

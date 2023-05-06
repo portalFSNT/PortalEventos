@@ -1,4 +1,4 @@
-const EventoConvidadoService = require("../services/EventoConvidadoService");
+const EventoConvidadoService = require("../../services/convidado/EventoConvidadoService");
 
 module.exports = {
     getAll: async(req, res) => {

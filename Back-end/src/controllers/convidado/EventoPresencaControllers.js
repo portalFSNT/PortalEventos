@@ -1,4 +1,4 @@
-const EventoService = require("../services/EventoPresencaService");
+const EventoService = require("../../services/convidado/EventoPresencaService");
 
 module.exports = {
 

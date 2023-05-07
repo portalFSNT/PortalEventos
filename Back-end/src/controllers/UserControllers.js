@@ -140,7 +140,7 @@ module.exports = {
                     },
                     process.env.JWT_KEY,
                     {
-                        expiresIn: "6d"
+                        expiresIn: "6 days"
                     }); 
                     return res.status(200).send({
                         message: 'Autenticado com sucesso',

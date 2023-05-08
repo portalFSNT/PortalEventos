@@ -15,6 +15,7 @@ const storage = multer.diskStorage({
     }
 });
 
+
 const upload = multer({
     storage: storage,
     limits: {
@@ -78,8 +79,8 @@ router.delete('/event/:id_evento',roles.adminRole, EventoAgendaController.delEve
 const ImageController = require("./controllers/evento/ImageController");
 router.get('/images',roles.adminRole, ImageController.getAllImages);
 router.get('/image/:id_imagem',roles.adminRole, ImageController.getImageById);
-router.post('/image',roles.adminRole, upload.single('imagem'), ImageController.addImage);
-router.patch('/image/:id_imagem',roles.adminRole, upload.single('imagem'), ImageController.updateImage);
+router.post('/image', upload.single('imagem'),roles.adminRole, ImageController.addImage);
+router.patch('/image/:id_imagem', upload.single('imagem'),roles.adminRole, ImageController.updateImage);
 router.delete('/image/:id_imagem',roles.adminRole, ImageController.delImage);
 
 module.exports = router;

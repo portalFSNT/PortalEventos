@@ -23,21 +23,19 @@ const upload = multer({
     }
 });
 
-//, UserController.getAll
-
 //USER -----   
 const UserController = require("./controllers/UserControllers");
 router.get('/users',roles.adminRole, UserController.getAll);
 router.get('/user/:email', UserController.getById);
-router.post('/user',roles.adminRole, UserController.addUser);
+router.post('/user', UserController.addUser);
 router.patch('/user/:email', UserController.updateUser);
 router.delete('/user/:email', UserController.delUser);
 router.post('/login', UserController.login);
 
 //CONVIDADO -----
 const ConvidadoController = require("./controllers/convidado/ConvidadoControllers");
-router.get("/convidados",roles.adminRole, ConvidadoController.getAll);
-router.get("/convidados/:nome",roles.adminRole, ConvidadoController.getById);
+router.get("/convidados",roles.admin_visualizadorRole, ConvidadoController.getAll);
+router.get("/convidados/:nome",roles.admin_visualizadorRole, ConvidadoController.getById);
 router.post("/convidados/",roles.adminRole, ConvidadoController.addConvidado);
 router.patch("/convidados/:nomes",roles.adminRole, ConvidadoController.updateConvidado);
 router.delete("/convidados/:nome",roles.adminRole, ConvidadoController.delConvidado);
@@ -61,11 +59,10 @@ router.delete("/evento/:id_evento",roles.adminRole, EventoPresencaController.del
 //EVENTO_CONVIDADO -----
 const EventoConvidadoController = require("./controllers/convidado/EventoConvidadoControllers");
 router.get("/evento_convidado",roles.admin_visualizadorRole, EventoConvidadoController.getAll);
-router.get("/evento_convidado/:id_evento",roles.adminRole, EventoConvidadoController.getById);
+router.get("/evento_convidado/:id_evento",roles.admin_visualizadorRole, EventoConvidadoController.getById);
 router.post("/evento_convidado/:id_evento",roles.adminRole, EventoConvidadoController.addEventoConvidado);
 router.patch("/evento_convidado/:id_evento",roles.adminRole, EventoConvidadoController.updateEventoConvidado);
 router.delete("/evento_convidado/:id_evento",roles.adminRole, EventoConvidadoController.delEventoConvidado);
-
 
 //EVENTO_AGENDA -----
 const EventoAgendaController = require("./controllers/evento/EventoAgendaController");
@@ -79,24 +76,24 @@ router.delete('/event/:id_evento',roles.adminRole, EventoAgendaController.delEve
 const ImageController = require("./controllers/evento/ImageController");
 router.get('/images',roles.adminRole, ImageController.getAllImages);
 router.get('/image/:id_imagem',roles.adminRole, ImageController.getImageById);
-router.post('/image', upload.single('imagem'),roles.adminRole, ImageController.addImage);
-router.patch('/image/:id_imagem', upload.single('imagem'),roles.adminRole, ImageController.updateImage);
+router.post('/image',roles.adminRole, upload.single('imagem'), ImageController.addImage);
+router.patch('/image/:id_imagem',roles.adminRole, upload.single('imagem'), ImageController.updateImage);
 router.delete('/image/:id_imagem',roles.adminRole, ImageController.delImage);
 
 //ESPAÇO ----- 
 const EspacoController = require("./controllers/espaco/EspacoController");
-router.get("/espacos", EspacoController.getAllEspacos);
-router.get("/espaco/:id_espaco", EspacoController.getEspacoById);
-router.post("/espaco", EspacoController.addEspaco);
-router.patch("/espaco/:id_espaco", EspacoController.updateEspaco);
-router.delete("/espaco/:id_espaco", EspacoController.delEspaco);
+router.get("/espacos",roles.admin_solicitanteRole, EspacoController.getAllEspacos);
+router.get("/espaco/:id_espaco",roles.admin_solicitanteRole, EspacoController.getEspacoById);
+router.post("/espaco",roles.adminRole, EspacoController.addEspaco);
+router.patch("/espaco/:id_espaco",roles.adminRole, EspacoController.updateEspaco);
+router.delete("/espaco/:id_espaco",roles.adminRole, EspacoController.delEspaco);
 
 // SOLICITAÇÃO -----
 const SolicitacaoController = require("./controllers/espaco/SolicitacaoController");
-router.get("/solicitacao", SolicitacaoController.getAllSolicitacoes);
-router.get("/solicitacao/:id_solicitacao", SolicitacaoController.getSolicitacaoById);
-router.post("/solicitacao", SolicitacaoController.addSolicitacao);
-router.patch("/solicitacao/:id_solicitacao", SolicitacaoController.updateSolicitacao);
-router.delete("/solicitacao/:id_solicitacao", SolicitacaoController.delSolicitacao);
+router.get("/solicitacao",roles.adminRole, SolicitacaoController.getAllSolicitacoes);
+router.get("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.getSolicitacaoById);
+router.post("/solicitacao",roles.admin_solicitanteRole, SolicitacaoController.addSolicitacao);
+router.patch("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.updateSolicitacao);
+router.delete("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.delSolicitacao);
 
 module.exports = router;

@@ -26,11 +26,11 @@ module.exports = {
     addImage: async (req, res) => {
         let json = {error:'', result:{}};
 
-        let link = req.body.link;
-        let nome = req.body.nome;
-        let tipo = req.body.tipo;
+        let link = req.file.path;
+        let nome = req.file.originalname;
+        let tipo = req.file.mimetype;
         let id_agenda = req.body.id_agenda;
-        let id_instituicao = req.body.id_instituicao;
+        let id_instituicao = req.body.id_instituicao
 
         try{
             await ImageService.addImage(link, nome, tipo, id_agenda, id_instituicao);
@@ -52,11 +52,11 @@ module.exports = {
         let json = {error:'', result:{}};
 
         let id = req.body.id_imagem;
-        let link = req.body.link;
-        let nome = req.body.nome;
-        let tipo = req.body.tipo;
+        let link = req.file.path;
+        let nome = req.file.originalname;
+        let tipo = req.file.mimetype;
         let id_agenda = req.body.id_agenda;
-        let id_instituicao = req.body.id_instituicao;
+        let id_instituicao = req.body.id_instituicao
 
         try{
             await ImageService.updateImage(id, link, nome, tipo, id_agenda, id_instituicao);

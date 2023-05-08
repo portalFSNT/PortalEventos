@@ -83,4 +83,20 @@ router.post('/image', upload.single('imagem'),roles.adminRole, ImageController.a
 router.patch('/image/:id_imagem', upload.single('imagem'),roles.adminRole, ImageController.updateImage);
 router.delete('/image/:id_imagem',roles.adminRole, ImageController.delImage);
 
+//ESPAÇO ----- 
+const EspacoController = require("./controllers/espaco/EspacoController");
+router.get("/espacos", EspacoController.getAllEspacos);
+router.get("/espaco/:id_espaco", EspacoController.getEspacoById);
+router.post("/espaco", EspacoController.addEspaco);
+router.patch("/espaco/:id_espaco", EspacoController.updateEspaco);
+router.delete("/espaco/:id_espaco", EspacoController.delEspaco);
+
+// SOLICITAÇÃO -----
+const SolicitacaoController = require("./controllers/espaco/SolicitacaoController");
+router.get("/solicitacao", SolicitacaoController.getAllSolicitacoes);
+router.get("/solicitacao/:id_solicitacao", SolicitacaoController.getSolicitacaoById);
+router.post("/solicitacao", SolicitacaoController.addSolicitacao);
+router.patch("/solicitacao/:id_solicitacao", SolicitacaoController.updateSolicitacao);
+router.delete("/solicitacao/:id_solicitacao", SolicitacaoController.delSolicitacao);
+
 module.exports = router;

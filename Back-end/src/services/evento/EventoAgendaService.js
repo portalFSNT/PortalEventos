@@ -12,7 +12,7 @@ module.exports = {
 
     getEventById: (id_evento) => {
         return new Promise((acepted, rejected) => {
-            db.query(`SELECT evento_agenda.id, evento_agenda.nome as nome_evento, evento_agenda.descricao, evento_agenda.data_hora, evento_agenda.id_usuario, evento_agenda.id_lugar, evento_agenda.id_tipo, lugar.nome as nome_lugar, tipo.tipo
+            db.query(`SELECT evento_agenda.id, evento_agenda.nome as nome_evento, evento_agenda.descricao, evento_agenda.data_inicio, evento_agenda.data_termino, evento_agenda.hora_inicio, evento_agenda.hora_termino, evento_agenda.id_usuario, evento_agenda.id_lugar, evento_agenda.id_tipo, lugar.nome as nome_lugar, tipo.tipo
             FROM evento_agenda
       INNER JOIN lugar 
               ON (lugar.id = evento_agenda.id_lugar)
@@ -30,22 +30,22 @@ module.exports = {
         });
     },
 
-    addEvent: (nome, descricao, data_hora, id_usuario, id_lugar, id_tipo, id_instituicao) => {
+    addEvent: (nome, descricao, data_inicio, data_termino, hora_inicio, hora_termino, id_usuario, id_lugar, id_tipo, id_instituicao) => {
         return new Promise((acepted, rejected) => {
 
-            db.query('INSERT INTO evento_agenda (nome, descricao, data_hora, id_usuario, id_lugar, id_tipo, id_instituicao) VALUES (?,?,?,?,?,?,?)',
-            [nome, descricao, data_hora, id_usuario, id_lugar, id_tipo, id_instituicao], (error, results) => {
+            db.query('INSERT INTO evento_agenda (nome, descricao, data_inicio, data_termino, hora_inicio, hora_termino, id_usuario, id_lugar, id_tipo, id_instituicao) VALUES (?,?,?,?,?,?,?,?,?,?)',
+            [nome, descricao, data_inicio, data_termino, hora_inicio, hora_termino, id_usuario, id_lugar, id_tipo, id_instituicao], (error, results) => {
                 if(error) { rejected(error); return;}
                 acepted(results.insertId);
             });
         });
     },
 
-    updateEvent: (nome, descricao, data_hora, id_usuario, id_lugar, id_tipo, id_instituicao, id_evento) => {
+    updateEvent: (nome, descricao, data_inicio, data_termino, hora_inicio, hora_termino, id_usuario, id_lugar, id_tipo, id_instituicao, id_evento) => {
         return new Promise((acepted, rejected) => {
 
-            db.query('UPDATE evento_agenda SET nome = ?, descricao = ?, data_hora = ?, id_usuario = ?, id_lugar = ?, id_tipo = ?, id_instituicao = ? WHERE id = ?',
-            [nome, descricao, data_hora, id_usuario, id_lugar, id_tipo, id_instituicao, id_evento], (error, results) => {
+            db.query('UPDATE evento_agenda SET nome = ?, descricao = ?, data_inicio = ?, data_termino = ?, hora_inicio = ?, hora_termino = ?, id_usuario = ?, id_lugar = ?, id_tipo = ?, id_instituicao = ? WHERE id = ?',
+            [nome, descricao, data_inicio, data_termino, hora_inicio, hora_termino, id_usuario, id_lugar, id_tipo, id_instituicao, id_evento], (error, results) => {
                 if(error) { rejected(error); return;}
                 acepted(results);
             });

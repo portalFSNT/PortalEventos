@@ -7,4 +7,11 @@ module.exports = {
             acepted(results);
         });
     },
+
+    updateTipo: (id) => {
+        db(`UPDATE tipo SET tipo =? WHERE id =?`,[id],(error, results) => {
+            if(error) { rejected(error); return;}
+            acepted(results);
+        });
+    },
 }

@@ -15,7 +15,7 @@ module.exports = {
       },
     getById: (nome) => {
         return new Promise((acepted, rejected)=>{
-            db.query("SELECT * FROM convidado WHERE nome =?;", [nome], (error, results) => {
+            db.query("SELECT id, nome, email, cargo, telefone, id_empresa FROM convidado WHERE nome =?;", [nome], (error, results) => {
                 if(error) { rejected(error); return; }
                 if(results.length > 0){ 
                     acepted(results[0]);

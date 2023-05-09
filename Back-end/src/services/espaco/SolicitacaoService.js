@@ -4,7 +4,7 @@ module.exports = {
     getAllSolicitacoes: () => {
         return new Promise((acepted, rejected) => {
 
-            db.query('SELECT * FROM solicitacao', (error, results) => {
+            db.query('SELECT id, status_solicitacao, data_hora, descricao, id_espaco, id_usuario FROM solicitacao', (error, results) => {
                 if(error) { rejected(error); return;}
                 acepted(results);
             });

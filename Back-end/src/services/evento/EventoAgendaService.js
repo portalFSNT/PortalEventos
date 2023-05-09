@@ -3,7 +3,8 @@ const db = require('../../db');
 module.exports = {
     getAllEvents: () => {
         return new Promise((acepted, rejected) => {
-            db.query('SELECT * FROM evento_agenda', (error, results)=>{
+            db.query(`SELECT id, nome, descricao, data, hora_inicio, hora_termino, 
+            id_usuario, id_lugar, id_tipo, id_instituicao FROM evento_agenda`, (error, results)=>{
                 if(error) { rejected(error); return; }
                 acepted(results);
             });

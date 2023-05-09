@@ -4,7 +4,8 @@ module.exports = {
 
     getAll: () => {
         return new Promise((acepted, rejected) => {
-            db.query(`SELECT e.*,SUM(if(ec.condicao = 'Pendente', 1, 0)) AS nao_confirmados,
+            db.query(`SELECT e.id, e.nome, e.data_hora, e.descricao, e.id_usuario,
+            SUM(if(ec.condicao = 'Pendente', 1, 0)) AS nao_confirmados,
             SUM(if(ec.condicao = 'Confirmado', 1, 0)) AS confirmados,
             SUM(if(ec.condicao = 'Negado', 1, 0)) AS nao_respondeu,
             SUM(if(ec.condicao is not null, 1, 0)) AS total  
@@ -21,7 +22,7 @@ module.exports = {
 
     getById: (id_evento) => {
         return new Promise((acepted, rejected) => {
-            db.query(`SELECT e.*, 
+            db.query(`SELECT e.id, e.nome, e.data_hora, e.descricao, e.id_usuario, 
             SUM(if(ec.condicao = 'Não confirmado', 1, 0)) AS nao_confirmados,        
             SUM(if(ec.condicao = 'Confirmado', 1, 0)) AS confirmados,        
             SUM(if(ec.condicao = 'Não respondeu', 1, 0)) AS nao_respondeu,        

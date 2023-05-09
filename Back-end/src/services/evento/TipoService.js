@@ -11,6 +11,19 @@ module.exports = {
         });
     },
 
+    getById: (id) => {
+        return new Promise((acepted, rejected) => {
+            db.query(`SELECT id, tipo FROM tipo WHERE id =?`,[id],(error, results) => {
+                if (error) { rejected(error); return; }
+                if(results.length > 0) {
+                    acepted(results[0]);
+                }else{
+                    acepted(false);
+                }
+            });
+        });
+    },
+
     addTipo: (tipo) => {
         return new Promise((acepted, rejected) => {
             db.query(`INSERT INTO tipo (tipo) VALUES (?)`,[tipo],(error, results) => {
@@ -37,4 +50,5 @@ module.exports = {
             });
         });
     },
+    
 }

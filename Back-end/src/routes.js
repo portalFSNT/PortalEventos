@@ -95,7 +95,6 @@ router.post("/solicitacao",roles.admin_solicitanteRole, SolicitacaoController.ad
 router.patch("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.updateSolicitacao);
 router.delete("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.delSolicitacao);
 
-
 // TIPO -----
 const TipoController = require("./controllers/evento/TipoController");
 router.get("/tipos",roles.adminRole, TipoController.getAll);

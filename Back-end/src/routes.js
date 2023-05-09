@@ -95,4 +95,13 @@ router.post("/solicitacao",roles.admin_solicitanteRole, SolicitacaoController.ad
 router.patch("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.updateSolicitacao);
 router.delete("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.delSolicitacao);
 
+
+// TIPO -----
+const TipoController = require("./controllers/evento/TipoController");
+router.get("/tipos",roles.adminRole, TipoController.getAll);
+router.get("/tipo/:id",roles.adminRole, TipoController.getById);
+router.post("/tipo",roles.adminRole, TipoController.addTipo);
+router.patch("/tipo/:id",roles.adminRole, TipoController.updateTipo);
+router.delete("/tipo/:id",roles.adminRole, TipoController.delTipo);
+
 module.exports = router;

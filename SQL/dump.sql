@@ -80,7 +80,7 @@ CREATE TABLE `espaco` (
   `ponto_referencia` varchar(120) DEFAULT NULL,
   `descricao` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,6 +89,7 @@ CREATE TABLE `espaco` (
 
 LOCK TABLES `espaco` WRITE;
 /*!40000 ALTER TABLE `espaco` DISABLE KEYS */;
+INSERT INTO `espaco` VALUES (1,'Casa do Kleber','Perto da casa do Kleber','O Kleber mora Aqui'),(2,'Recanto do Vardemar','Perto da Esquina','Aqui tu faz de tudo... Ah, e tem o Verdemar'),(4,'Casa do Kleber','Perto da casa do Kleber','O Kleber mora Aqui');
 /*!40000 ALTER TABLE `espaco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +104,10 @@ CREATE TABLE `evento_agenda` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(80) NOT NULL,
   `descricao` varchar(400) NOT NULL,
-  `data_hora` datetime NOT NULL,
+  `data_inicio` date NOT NULL,
+  `data_termino` date NOT NULL,
+  `hora_inicio` time NOT NULL,
+  `hora_termino` time NOT NULL,
   `id_usuario` int NOT NULL,
   `id_lugar` int NOT NULL,
   `id_tipo` int NOT NULL,
@@ -117,7 +121,7 @@ CREATE TABLE `evento_agenda` (
   CONSTRAINT `fk_evento_agenda_tipo` FOREIGN KEY (`id_tipo`) REFERENCES `tipo` (`id`),
   CONSTRAINT `fk_evento_agenda_usuario` FOREIGN KEY (`id_instituicao`) REFERENCES `usuario` (`id_instituicao`),
   CONSTRAINT `fk_evento_agenda_usuario_code` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -205,7 +209,7 @@ CREATE TABLE `imagem` (
   KEY `fk_imagem_usuario` (`id_instituicao`),
   CONSTRAINT `fk_imagem_evento_agenda` FOREIGN KEY (`id_agenda`) REFERENCES `evento_agenda` (`id`),
   CONSTRAINT `fk_imagem_usuario` FOREIGN KEY (`id_instituicao`) REFERENCES `usuario` (`id_instituicao`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,7 +232,7 @@ CREATE TABLE `instituicao` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(80) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -237,7 +241,7 @@ CREATE TABLE `instituicao` (
 
 LOCK TABLES `instituicao` WRITE;
 /*!40000 ALTER TABLE `instituicao` DISABLE KEYS */;
-INSERT INTO `instituicao` VALUES (1,'Fundacao');
+INSERT INTO `instituicao` VALUES (1,'Fundacao'),(2,'Fundacao');
 /*!40000 ALTER TABLE `instituicao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,7 +256,7 @@ CREATE TABLE `lugar` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(80) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,6 +265,7 @@ CREATE TABLE `lugar` (
 
 LOCK TABLES `lugar` WRITE;
 /*!40000 ALTER TABLE `lugar` DISABLE KEYS */;
+INSERT INTO `lugar` VALUES (1,'Anfiteatro'),(2,'Anfiteatro');
 /*!40000 ALTER TABLE `lugar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -283,7 +288,7 @@ CREATE TABLE `solicitacao` (
   KEY `fk_solicitacao_espaco` (`id_espaco`),
   CONSTRAINT `fk_solicitacao_espaco` FOREIGN KEY (`id_espaco`) REFERENCES `espaco` (`id`),
   CONSTRAINT `fk_solicitacao_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -292,6 +297,7 @@ CREATE TABLE `solicitacao` (
 
 LOCK TABLES `solicitacao` WRITE;
 /*!40000 ALTER TABLE `solicitacao` DISABLE KEYS */;
+INSERT INTO `solicitacao` VALUES (1,1,'2023-03-01 11:44:22','Solicitas',1,1),(3,1,'2027-12-05 00:00:00','Evento Suspeito a Meia Noite na Casa do Kleber',1,3),(5,1,'2023-03-01 11:44:22','Solicitas',1,1);
 /*!40000 ALTER TABLE `solicitacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -306,7 +312,7 @@ CREATE TABLE `tipo` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tipo` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -315,6 +321,7 @@ CREATE TABLE `tipo` (
 
 LOCK TABLES `tipo` WRITE;
 /*!40000 ALTER TABLE `tipo` DISABLE KEYS */;
+INSERT INTO `tipo` VALUES (1,'Formatura'),(2,'Formatura');
 /*!40000 ALTER TABLE `tipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -339,7 +346,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`id`),
   KEY `fk_instituicao_usuario` (`id_instituicao`),
   CONSTRAINT `fk_instituicao_usuario` FOREIGN KEY (`id_instituicao`) REFERENCES `instituicao` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -348,7 +355,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Benevenuto','benevenuto@gmail.com','123456','Benevenuto','Administrador','12345-6789',1,1,1);
+INSERT INTO `usuario` VALUES (1,'Benevenuto','benevenuto@gmail.com','123456','Benevenuto','Administrador','12345-6789',1,1,1),(3,'Glauber Souza Pinto','glauberpinto@hotmail.com','$2b$08$CePXcDwnvah1kFdAGbQWWerAMHn8IY4Dri.T8jzuiJYhsZoAHUtpi','Glauber','ADM Online','4002-8922',1,1,1),(4,'Benevenuto','benevenuto@gmail.com','123456','Benevenuto','Administrador','12345-6789',1,1,1),(5,'Umberto Doiberto','umdoisberto@gmail.com','$2b$08$vLPna3Uih4IqUZyVlAjs8uDnkP1hQz1r44koENCDqHbHuLiMyzgc6','Berto','Cargo Berto','77899-1234',1,1,1),(6,'Thomas el Train','tremthomas@gmail.com','$2b$08$y61pNqimA8gVhU8GIfvtQeS2d/84YhayUFgydG4h94AIv.Lty.lo.','Thomas','Trem Piui Piui','666-666',2,1,1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -361,4 +368,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-29 11:41:03
+-- Dump completed on 2023-05-08 11:03:22

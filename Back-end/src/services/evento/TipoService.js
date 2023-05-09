@@ -33,9 +33,9 @@ module.exports = {
         });
     },
 
-    updateTipo: (id) => {
+    updateTipo: (tipo, id) => {
         return new Promise((acepted, rejected) => {
-            db.query(`UPDATE tipo SET tipo =? WHERE id =?`,[id],(error, results) => {
+            db.query(`UPDATE tipo SET tipo =? WHERE id =?`,[tipo, id],(error, results) => {
                 if(error) { rejected(error); return;}
                 acepted(results);
             });

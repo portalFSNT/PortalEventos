@@ -43,9 +43,9 @@ module.exports = {
         });
     },
 
-    updateEmpresa: (empresa,empresas) => {
+    updateEmpresa: (empresa,id_empresa) => {
         return new Promise((acepted, rejected) => {
-            db.query("UPDATE empresa SET nome=? WHERE nome =?",[empresa,empresas],(error, results) => {
+            db.query("UPDATE empresa SET nome=? WHERE id =?",[empresa,id_empresa],(error, results) => {
               if (error) {
                 rejected(error);
                 return;
@@ -55,9 +55,9 @@ module.exports = {
         });
     },
 
-    delEmpresa: (empresa) => {
+    delEmpresa: (id_empresa) => {
         return new Promise((acepted, rejected) => {
-            db.query("DELETE FROM empresa WHERE nome =?",[empresa],(error,results)=>{
+            db.query("DELETE FROM empresa WHERE id =?",[id_empresa],(error,results)=>{
                 if (error) {
                     rejected(error);
                     return;

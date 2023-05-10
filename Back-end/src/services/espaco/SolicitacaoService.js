@@ -4,7 +4,7 @@ module.exports = {
     getAllSolicitacoes: () => {
         return new Promise((acepted, rejected) => {
 
-            db.query('SELECT id, status_solicitacao, data_hora, descricao, id_espaco, id_usuario FROM solicitacao', (error, results) => {
+            db.query('SELECT * FROM solicitacao', (error, results) => {
                 if(error) { rejected(error); return;}
                 acepted(results);
             });
@@ -15,7 +15,7 @@ module.exports = {
         return new Promise((acepted, rejected) => {
 
             db.query(`
-      SELECT solicitacao.id, solicitacao.status_solicitacao, solicitacao.data_hora, solicitacao.descricao, solicitacao.id_espaco, solicitacao.id_usuario, espaco.nome as espaco_nome, usuario.nome as usuario_nome
+      SELECT solicitacao.id, solicitacao.status_solicitacao, solicitacao.data_inicio, solicitacao.data_termino, solicitacao.hora_inicio, solicitacao.hora_termino, solicitacao.descricao, solicitacao.id_espaco, solicitacao.id_usuario, espaco.nome as espaco_nome, usuario.nome as usuario_nome
             FROM solicitacao
       INNER JOIN espaco
               ON (espaco.id = solicitacao.id_espaco)
@@ -28,22 +28,22 @@ module.exports = {
         });
     },
 
-    addSolicitacao: (status_solicitacao, data_hora, descricao, id_espaco, id_usuario) => {
+    addSolicitacao: (status_solicitacao, data_inicio, data_termino, hora_inicio, hora_termino, descricao, id_espaco, id_usuario) => {
         return new Promise((acepted, rejected) => {
 
-            db.query('INSERT INTO solicitacao (status_solicitacao, data_hora, descricao, id_espaco, id_usuario) VALUE (?,?,?,?,?)',
-            [status_solicitacao, data_hora, descricao, id_espaco, id_usuario], (error, results) => {
+            db.query('INSERT INTO solicitacao (status_solicitacao, data_inicio, data_termino, hora_inicio, hora_termino, descricao, id_espaco, id_usuario) VALUE (?,?,?,?,?,?,?,?)',
+            [status_solicitacao, data_inicio, data_termino, hora_inicio, hora_termino, descricao, id_espaco, id_usuario], (error, results) => {
                 if(error) { rejected(error); return;}
                 acepted(results.insertId);
             });
         });
     },
 
-    updateSolicitacao: (id_solicitacao, status_solicitacao, data_hora, descricao, id_espaco, id_usuario) => {
+    updateSolicitacao: (id_solicitacao, status_solicitacao, data_inicio, data_termino, hora_inicio, hora_termino, descricao, id_espaco, id_usuario) => {
         return new Promise((acepted, rejected) => {
 
-            db.query('UPDATE solicitacao SET status_solicitacao = ?, data_hora = ?, descricao = ?, id_espaco = ?, id_usuario = ? WHERE id = ?',
-            [status_solicitacao, data_hora, descricao, id_espaco, id_usuario, id_solicitacao], (error, results) => {
+            db.query('UPDATE solicitacao SET status_solicitacao = ?, data_inicio = ?, data_termino = ?, hora_inicio = ?, hora_termino = ?, descricao = ?, id_espaco = ?, id_usuario = ? WHERE id = ?',
+            [status_solicitacao, data_inicio, data_termino, hora_inicio, hora_termino, descricao, id_espaco, id_usuario, id_solicitacao], (error, results) => {
                 if(error) { rejected(error); return;}
                 acepted(results.updateId);
             });

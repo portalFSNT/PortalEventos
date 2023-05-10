@@ -1,5 +1,13 @@
 const EventService = require("../../services/evento/EventoAgendaService");
 
+function convertDate(date) {
+    const parts = date.split('/');
+    const year = parts[2];
+    const month = parts[1];
+    const day = parts[0];
+    return year + '/' + month + '/' + day;
+}
+
 module.exports = {
     getAllEvents: async (req, res) => {
         let json = {error:'', result:[]};
@@ -28,18 +36,27 @@ module.exports = {
 
         let nome = req.body.nome;
         let descricao = req.body.descricao;
-        let data_hora = req.body.data_hora;
+        let data_i = req.body.data_inicio;
+        let data_t = req.body.data_termino;
+        let hora_inicio = req.body.hora_inicio;
+        let hora_termino = req.body.hora_termino;
         let id_usuario = req.body.id_usuario;
         let id_lugar = req.body.id_lugar;
         let id_tipo = req.body.id_tipo;
         let id_instituicao = req.body.id_instituicao;
 
+        let data_inicio = convertDate(data_i);
+        let data_termino = convertDate(data_t); 
+
         try{
-            await EventService.addEvent(nome, descricao, data_hora, id_usuario, id_lugar, id_tipo, id_instituicao);
+            await EventService.addEvent(nome, descricao, data_inicio, data_termino, hora_inicio, hora_termino, id_usuario, id_lugar, id_tipo, id_instituicao);
             json.result = {
                 nome,
                 descricao,
-                data_hora,
+                data_inicio,
+                data_termino,
+                hora_inicio,
+                hora_termino,
                 id_usuario,
                 id_lugar,
                 id_tipo,
@@ -56,7 +73,10 @@ module.exports = {
 
         let nome = req.body.nome;
         let descricao = req.body.descricao;
-        let data_hora = req.body.data_hora;
+        let data_inicio = req.body.data_inicio;
+        let data_termino = req.body.data_termino;
+        let hora_inicio = req.body.hora_inicio;
+        let hora_termino = req.body.hora_termino;
         let id_usuario = req.body.id_usuario;
         let id_lugar = req.body.id_lugar;
         let id_tipo = req.body.id_tipo;
@@ -64,11 +84,26 @@ module.exports = {
         let id = req.body.id_evento;
 
         try{
-            await EventService.updateEvent(id, nome, descricao, data_hora, id_usuario, id_lugar, id_tipo, id_instituicao);
+            await EventService.updateEvent(
+                id, 
+                nome, 
+                descricao, 
+                data_inicio,
+                data_termino,
+                hora_inicio,
+                hora_termino, 
+                id_usuario, 
+                id_lugar, 
+                id_tipo, 
+                id_instituicao
+            );
             json.result = {
                 nome,
                 descricao,
-                data_hora,
+                data_inicio,
+                data_termino,
+                hora_inicio,
+                hora_termino,
                 id_usuario,
                 id_lugar,
                 id_tipo,

@@ -7,6 +7,7 @@ module.exports = {
 
     for (let i in convidados) {
         json.result.push({
+            id: convidados[i].id,
             nome: convidados[i].nome,
             cargo: convidados[i].cargo,
             empresa:convidados[i].nome_empresa,
@@ -19,8 +20,8 @@ module.exports = {
 
   getById: async (req, res) => {
     let json = { error: "", result: {} };
-    let nome = req.params.nome;
-    let convidado = await ConvidadoService.getById(nome);
+    let id = req.params.id;
+    let convidado = await ConvidadoService.getById(id);
 
     if (convidado) {
         json.result = convidado;
@@ -58,7 +59,7 @@ module.exports = {
   updateConvidado: async (req, res) => {
     let json = { error: "", result: {} };
 
-    let nomes = req.params.nomes;
+    let id = req.params.id;
     let nome = req.body.nome;
     let email = req.body.email;
     let cargo = req.body.cargo;
@@ -66,9 +67,9 @@ module.exports = {
     let empresa = req.body.empresa;
 
     try {
-        await ConvidadoService.updateConvidado(nomes,nome,email,cargo,telefone,empresa);
+        await ConvidadoService.updateConvidado(id,nome,email,cargo,telefone,empresa);
         json.result = {
-            nomes,
+            nome,
             email,
             cargo,
             telefone,
@@ -85,7 +86,7 @@ module.exports = {
   delConvidado: async (req, res) => {
     let json = { error: "", result: {} };
 
-    await ConvidadoService.delConvidado(req.params.nome);
+    await ConvidadoService.delConvidado(req.params.id);
     res.json(json);
   },
 };

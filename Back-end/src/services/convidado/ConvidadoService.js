@@ -13,9 +13,9 @@ module.exports = {
           });
         });
       },
-    getById: (nome) => {
+    getById: (id) => {
         return new Promise((acepted, rejected)=>{
-            db.query("SELECT id, nome, email, cargo, telefone, id_empresa FROM convidado WHERE nome =?;", [nome], (error, results) => {
+            db.query("SELECT id, nome, email, cargo, telefone, id_empresa FROM convidado WHERE id =?", [id], (error, results) => {
                 if(error) { rejected(error); return; }
                 if(results.length > 0){ 
                     acepted(results[0]);
@@ -37,10 +37,10 @@ module.exports = {
             );
         });
     },
-    updateConvidado:(nomes,nome,email,cargo,telefone,empresa)=> {
+    updateConvidado:(id,nome,email,cargo,telefone,empresa)=> {
         return new Promise((acepted, rejected)=> {
-            db.query("UPDATE convidado SET nome =?, email =?, cargo =?, telefone =?, id_empresa =? WHERE nome =?;",
-                [nome,email,cargo,telefone,empresa,nomes],
+            db.query("UPDATE convidado SET nome =?, email =?, cargo =?, telefone =?, id_empresa =? WHERE id =?;",
+                [nome,email,cargo,telefone,empresa,id],
                 (error, results) => {
                     if(error){ rejected(error); return; }
                     acepted(results);
@@ -49,9 +49,9 @@ module.exports = {
         });
     },
 
-    delConvidado: (nome)=> {
+    delConvidado: (id)=> {
         return new Promise((acepted, rejected)=> {
-            db.query('DELETE FROM convidado WHERE nome =?',[nome], (error, results ) =>{
+            db.query('DELETE FROM convidado WHERE id =?',[id], (error, results ) =>{
                 if(error){ rejected(error); return; }
                 acepted(results);
             });

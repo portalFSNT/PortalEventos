@@ -37,7 +37,7 @@ module.exports = {
 
     addEventoConvidado: async(req,res) => {
         let json = { error: "", result: [] };
-        let id_evento = req.params.id_evento;
+        let id_evento = req.body.id_evento;
         let id_convidado = req.body.id_convidado;
         let condicao  = req.body.condicao;
         let anunciado = req.body.anunciado;
@@ -73,7 +73,7 @@ module.exports = {
         let anunciado = req.body.anunciado;
         let presenca = req.body.presenca;
 
-        if (id_evento && id_convidado && condicao && anunciado && presenca){
+        try {
             await EventoConvidadoService.updateEventoConvidado(
                 id_evento,
                 id_convidado,
@@ -88,7 +88,7 @@ module.exports = {
                 anunciado,
                 presenca,
             };
-        }else{
+        } catch (error) {
             res.status(400);
             res.json({ error: "Campos não enviados ou inválidos." });
         }

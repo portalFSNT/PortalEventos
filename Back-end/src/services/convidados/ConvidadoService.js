@@ -13,7 +13,7 @@ module.exports = {
           });
         });
       },
-    ggetById: (id) => {
+    getById: (id) => {
         return new Promise((acepted, rejected)=>{
             db.query("SELECT id, nome, email, cargo, telefone, id_empresa FROM convidado WHERE id =?", [id], (error, results) => {
                 if(error) { rejected(error); return; }

@@ -23,7 +23,7 @@ const upload = multer({
 });
 
 //USER -----   
-const UserController = require("./controllers/UserControllers");
+const UserController = require("./controllers/UserController");
 router.get('/users',roles.adminRole, UserController.getAll);
 router.get('/user/:email', UserController.getById);
 router.post('/user', UserController.addUser);
@@ -32,7 +32,7 @@ router.delete('/user/:email', UserController.delUser);
 router.post('/login', UserController.login);
 
 //CONVIDADO -----
-const ConvidadoController = require("./controllers/convidado/ConvidadoControllers");
+const ConvidadoController = require("./controllers/convidados/ConvidadoControllers");
 router.get("/convidados",roles.admin_visualizadorRole, ConvidadoController.getAll);
 router.get("/convidado/:id",roles.admin_visualizadorRole, ConvidadoController.getById);
 router.post("/convidado/",roles.adminRole, ConvidadoController.addConvidado);
@@ -40,7 +40,7 @@ router.patch("/convidado/:id",roles.adminRole, ConvidadoController.updateConvida
 router.delete("/convidado/:id",roles.adminRole, ConvidadoController.delConvidado);
 
 //EMPRESA -----
-const EmpresaController = require("./controllers/convidado/EmpresaControllers");
+const EmpresaController = require("./controllers/convidados/EmpresaControllers");
 router.get("/empresas",roles.adminRole, EmpresaController.getAll);
 router.get("/empresas/:id_empresa",roles.adminRole, EmpresaController.getById);
 router.post("/empresas",roles.adminRole, EmpresaController.addEmpresa);
@@ -48,7 +48,7 @@ router.patch("/empresas/:id_empresa",roles.adminRole, EmpresaController.updateEm
 router.delete("/empresas/:id_empresa",roles.adminRole, EmpresaController.delEmpresa);
 
 //EVENTO_PRESENCA -----
-const EventoPresencaController = require("./controllers/convidado/EventoPresencaControllers");
+const EventoPresencaController = require("./controllers/convidados/EventoPresencaControllers");
 router.get("/evento",roles.adminRole, EventoPresencaController.getAll);
 router.get("/evento/:id_evento",roles.adminRole, EventoPresencaController.getById);
 router.post("/evento",roles.adminRole, EventoPresencaController.addEvento);
@@ -56,7 +56,7 @@ router.patch("/evento/:id_evento",roles.adminRole, EventoPresencaController.upda
 router.delete("/evento/:id_evento",roles.adminRole, EventoPresencaController.delEvento);
 
 //EVENTO_CONVIDADO -----
-const EventoConvidadoController = require("./controllers/convidado/EventoConvidadoControllers");
+const EventoConvidadoController = require("./controllers/convidados/EventoConvidadoControllers");
 router.get("/evento_convidado",roles.admin_visualizadorRole, EventoConvidadoController.getAll);
 router.get("/evento_convidado/:id_evento",roles.admin_visualizadorRole, EventoConvidadoController.getById);
 router.post("/evento_convidado",roles.adminRole, EventoConvidadoController.addEventoConvidado);

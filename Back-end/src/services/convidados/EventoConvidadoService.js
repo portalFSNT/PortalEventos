@@ -29,10 +29,10 @@ module.exports = {
         });
     },
 
-    addEventoConvidado: (id_evento, id_convidado, condicao, anunciado, presenca) => {
+    addEventoConvidado: (id_presenca, id_convidado, condicao, anunciado, presenca) => {
         return new Promise((acepted, rejected) => {
             db.query(`INSERT INTO evento_convidado (id_presenca, id_convidado,condicao,anunciado,presenca) VALUES (?,?,?,?,?)`,
-            [id_evento, id_convidado, condicao, anunciado, presenca],(error, results) => {
+            [id_presenca, id_convidado, condicao, anunciado, presenca],(error, results) => {
                 if (error) {
                     rejected(error);
                     return;
@@ -44,11 +44,11 @@ module.exports = {
 
     updateEventoConvidado: (id_evento, id_convidado, condicao, anunciado, presenca) => {
         return new Promise((acepted, rejected) => {
-            db.query(UPDATE `evento_convidado SET id_convidado=?,condicao=?,anunciado=?,presenca=? WHERE id_presenca=?`,
-            [ id_convidado, condicao, anunciado, presenca, id_evento], (error, results) => {
+            db.query(`UPDATE evento_convidado SET id_convidado=?,condicao=?,anunciado=?,presenca=? WHERE id_presenca=?`,
+            [id_convidado, condicao, anunciado, presenca, id_evento], (error, results) => {
                 if(error){ 
                     rejected(error); 
-                    return; 
+                    return(error); 
                 }
                 acepted(results);
             });

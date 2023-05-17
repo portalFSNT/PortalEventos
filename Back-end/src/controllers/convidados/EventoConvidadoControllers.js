@@ -37,15 +37,15 @@ module.exports = {
 
     addEventoConvidado: async(req,res) => {
         let json = { error: "", result: [] };
-        let id_evento = req.params.id_evento;
+        let id_presenca = req.body.id_presenca;
         let id_convidado = req.body.id_convidado;
         let condicao  = req.body.condicao;
         let anunciado = req.body.anunciado;
         let presenca = req.body.presenca;
-
-        if (id_evento && id_convidado && condicao && anunciado && presenca){
+        
+        try {
             let evento_convidados = await EventoConvidadoService.addEventoConvidado(
-                id_evento,
+                id_presenca,
                 id_convidado,
                 condicao,
                 anunciado,
@@ -53,16 +53,19 @@ module.exports = {
             );
             json.result = {
                 nome:evento_convidados,
-                id_evento,
+                id_presenca,
                 id_convidado,
                 condicao,
                 anunciado,
                 presenca,
-            };
-        }else{
-            json.error = 'Campos não enviados';
+            };    
+            res.status(201);
+            res.json(json);
+        } catch (error) {
+            res.status(400);
+            res.json({error: "Campos não enviados ou inválidos."});
         }
-        res.json(json);
+
     },
 
     updateEventoConvidado: async(req, res) => {
@@ -88,11 +91,11 @@ module.exports = {
                 anunciado,
                 presenca,
             };
+            res.json(json);
         } catch (error) {
             res.status(400);
-            res.json({ error: "Campos não enviados ou inválidos." });
+            res.json({ error: error });
         }
-        res.json(json);
     },
 
 

@@ -8,7 +8,7 @@ const conn = mysql.createConnection({
 });
 conn.connect((error)=>{
     if(error) throw error;
-    console.log(`Conectado ao banco: ${process.env.DB_NAME}`)
+    console.log(`Conectado ao banco: ${process.env.DB_NAME}`);
 });
 
 exports.execute = (query, params=[]) => {

@@ -1,0 +1,86 @@
+// IMPORT DAS FONTES
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+// RESET
+*{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+
+
+// VARIAVEIS DE COR
+:root{
+    --font-primary: 'Montserrat', sans-serif;
+    --color-one: #00A54E;
+    --color-two: #FFAE10;
+    --color-three: #89C400;
+    --color-four: #F1D302;
+    --color-five: #EC3137;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --gray-100: #33303E;
+    --gray-200: #7A7A7A;
+    --gray-300: #C6C5CE;
+    --gray-400: #C1C1C1;
+    --gray-500: #E5E5E5;
+    --gray-600: #F1F0F5;
+}
+
+
+
+// VARIÁVEIS DE TEXTO
+
+//Texto
+.text{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+}
+.text-bold{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+}
+
+//Titulo
+.title-h1-bold{
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 100%;
+}
+.title-h1{
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 100%;
+}
+
+
+.title-h2{
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 100%;
+}
+.title-h2-bold{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 100%;
+}
+
+.title-h3{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+}
+.title-h3-bold{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+}

@@ -1,0 +1,156 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+#body{
+    width: 1432px;
+    height: 100vh;
+}
+
+.left{
+    display: flex;
+    gap: 10px;
+    justify-content: left;
+}
+
+.usuarios{
+    border-radius: 16px;
+    font-weight: 600;
+    width: 92px;
+    height: 36px;
+    background: #00A54E;
+    color:white;
+    border: 2px solid #00A54E;
+    font-size: 16px;
+}
+
+
+.pendente{
+    width: 101px;
+    height: 36px;
+    font-weight: 600;
+    gap: 10px;
+    border-radius: 16px;
+    color: #FFAE10;
+    border: 2px solid #FFAE10;
+    background: white;
+    font-size: 16px;
+}
+
+.cadastrar{
+    width: 223px;
+    height: 36px;
+    font-weight: 600;
+    border: 2px solid #F1D302;
+    border-radius: 16px;
+    color:#F1D302;
+    background: white;
+    font-size: 16px;
+}
+
+/*botões da direita*/
+
+
+.right{
+    display: flex;
+    align-items: center;
+    gap: 26px; 
+}
+
+
+select{
+    display: flex;
+    width: 60   px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: #7A7786;
+    
+}
+
+option{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: #7A7786;
+    
+}
+
+.search-box{
+    width: 244px;
+    height: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px;
+    padding: 10px;
+    border: 2px solid rgba(78, 75, 89, 1)
+}
+
+
+.search-text{
+    background: none;
+    border: 0;
+    outline: 0;
+}
+
+/* Tabela */
+
+.tabela{
+    height: 84px;
+    width: 1432px;
+    border-radius: 16px 16px 0px 0px;
+}
+
+td{
+    border: none;
+}
+
+
+.principal{
+    background: #00A54E;
+    text-align: center;
+    color: white;
+    height: 48px;
+    width: 1432px;
+    border-radius: 16px 16px 0px 0px;
+   
+}
+
+
+.dados{
+    text-align: center;
+    height: 48px;
+    width: 1432px;
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+}
+
+
+table {
+    border-collapse: collapse;
+    border-radius: 25px 25px 0 0;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+  
+  th, td {
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+
+

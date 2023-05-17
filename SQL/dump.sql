@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.29, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.32, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: portal_eventos
 -- ------------------------------------------------------
@@ -121,7 +121,7 @@ CREATE TABLE `evento_agenda` (
   CONSTRAINT `fk_evento_agenda_tipo` FOREIGN KEY (`id_tipo`) REFERENCES `tipo` (`id`),
   CONSTRAINT `fk_evento_agenda_usuario` FOREIGN KEY (`id_instituicao`) REFERENCES `usuario` (`id_instituicao`),
   CONSTRAINT `fk_evento_agenda_usuario_code` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,6 +130,7 @@ CREATE TABLE `evento_agenda` (
 
 LOCK TABLES `evento_agenda` WRITE;
 /*!40000 ALTER TABLE `evento_agenda` DISABLE KEYS */;
+INSERT INTO `evento_agenda` VALUES (6,'Folia na casa do Jacinto','Hoje o Jacinto chora kkkkkkk','2023-05-10','2024-05-11','00:00:00','01:01:01',6,3,3,1),(7,'Convenção dos Desinteressados','Vamos conversar sobre nossos desinteresses em comum','2028-10-05','2028-12-07','10:30:00','05:00:00',5,1,4,1);
 /*!40000 ALTER TABLE `evento_agenda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,7 +257,7 @@ CREATE TABLE `lugar` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(80) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -265,7 +266,7 @@ CREATE TABLE `lugar` (
 
 LOCK TABLES `lugar` WRITE;
 /*!40000 ALTER TABLE `lugar` DISABLE KEYS */;
-INSERT INTO `lugar` VALUES (1,'Anfiteatro'),(2,'Anfiteatro');
+INSERT INTO `lugar` VALUES (1,'Anfiteatro'),(2,'Anfiteatro'),(3,'Casa do Jacinto');
 /*!40000 ALTER TABLE `lugar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,7 +280,10 @@ DROP TABLE IF EXISTS `solicitacao`;
 CREATE TABLE `solicitacao` (
   `id` int NOT NULL AUTO_INCREMENT,
   `status_solicitacao` tinyint(1) NOT NULL,
-  `data_hora` datetime NOT NULL,
+  `data_inicio` date NOT NULL,
+  `data_termino` date NOT NULL,
+  `hora_inicio` time NOT NULL,
+  `hora_termino` time NOT NULL,
   `descricao` varchar(400) DEFAULT NULL,
   `id_espaco` int NOT NULL,
   `id_usuario` int NOT NULL,
@@ -297,7 +301,6 @@ CREATE TABLE `solicitacao` (
 
 LOCK TABLES `solicitacao` WRITE;
 /*!40000 ALTER TABLE `solicitacao` DISABLE KEYS */;
-INSERT INTO `solicitacao` VALUES (1,1,'2023-03-01 11:44:22','Solicitas',1,1),(3,1,'2027-12-05 00:00:00','Evento Suspeito a Meia Noite na Casa do Kleber',1,3),(5,1,'2023-03-01 11:44:22','Solicitas',1,1);
 /*!40000 ALTER TABLE `solicitacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -312,7 +315,7 @@ CREATE TABLE `tipo` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tipo` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -321,7 +324,7 @@ CREATE TABLE `tipo` (
 
 LOCK TABLES `tipo` WRITE;
 /*!40000 ALTER TABLE `tipo` DISABLE KEYS */;
-INSERT INTO `tipo` VALUES (1,'Formatura'),(2,'Formatura');
+INSERT INTO `tipo` VALUES (1,'Formatura'),(2,'Formatura'),(3,'Folia'),(4,'Convencao');
 /*!40000 ALTER TABLE `tipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -368,4 +371,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-08 11:03:22
+-- Dump completed on 2023-05-10  9:35:00

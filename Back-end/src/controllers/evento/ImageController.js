@@ -30,7 +30,7 @@ module.exports = {
         let nome = req.file.originalname;
         let tipo = req.file.mimetype;
         let id_agenda = req.body.id_agenda;
-        let id_instituicao = req.body.id_instituicao;
+        let id_instituicao = req.body.id_instituicao
 
         try{
             await ImageService.addImage(link, nome, tipo, id_agenda, id_instituicao);
@@ -56,7 +56,7 @@ module.exports = {
         let nome = req.file.originalname;
         let tipo = req.file.mimetype;
         let id_agenda = req.body.id_agenda;
-        let id_instituicao = req.body.id_instituicao;
+        let id_instituicao = req.body.id_instituicao
 
         try{
             await ImageService.updateImage(id, link, nome, tipo, id_agenda, id_instituicao);

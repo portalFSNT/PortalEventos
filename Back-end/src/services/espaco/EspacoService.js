@@ -4,7 +4,7 @@ module.exports = {
     getAllEspacos: () => {
         return new Promise((acepted, rejected) => {
 
-            db.query('SELECT * FROM espaco', (error, results) => {
+            db.query('SELECT id, nome, ponto_referencia, descricao FROM espaco', (error, results) => {
                 if(error) { rejected(error); return;}
                 acepted(results);
             });
@@ -14,7 +14,7 @@ module.exports = {
     getEspacoById: (id_espaco) => {
         return new Promise((acepted, rejected) => {
 
-            db.query('SELECT * FROM espaco WHERE id = ?', [id_espaco], (error, results) => {
+            db.query('SELECT id, nome, ponto_referencia, descricao FROM espaco WHERE id = ?', [id_espaco], (error, results) => {
                 if(error) { rejected(error); return;}
                 acepted(results);
             });

@@ -15,8 +15,7 @@ exports.adminRole = (req, res, next) => {
         }  
     }catch{
         return res.status(401).send({ mensagem: 'Falha na autenticação ' });
-    }
-        
+    }   
 },
 
 exports.solicitanteRole = (req, res, next) => {

@@ -1,7 +1,6 @@
 const mysql = require('mysql2');
 
 const conn = mysql.createConnection({
-
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
@@ -10,7 +9,7 @@ const conn = mysql.createConnection({
 });
 
 
-conn.connect((error) => {
+conn.connect((error)=>{
     if(error) throw error;
     console.log(`Conectado ao banco: ${process.env.DB_NAME}`)
 });

@@ -84,7 +84,19 @@ module.exports = {
         let id = req.body.id_evento;
 
         try{
-            await EventService.updateEvent(id, nome, descricao, data_inicio, data_termino, hora_inicio, hora_termino, id_usuario, id_lugar, id_tipo, id_instituicao);
+            await EventService.updateEvent(
+                id, 
+                nome, 
+                descricao, 
+                data_inicio,
+                data_termino,
+                hora_inicio,
+                hora_termino, 
+                id_usuario, 
+                id_lugar, 
+                id_tipo, 
+                id_instituicao
+            );
             json.result = {
                 nome,
                 descricao,

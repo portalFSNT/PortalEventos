@@ -1,9 +1,10 @@
 const db = require('../db');
 
 module.exports = {
+
     getAll: () => {
         return new Promise((acepted, rejected) => {
-            db.query(`SELECT * FROM usuario;`, (error, results)=>{
+            db.query(`SELECT id, nome, email, senha, login, cargo, telefone, nivel_acesso, status_usuario, id_instituicao FROM usuario;`, (error, results)=>{
                 if(error) { rejected(error); return;}
                 acepted(results);
             });
@@ -13,7 +14,7 @@ module.exports = {
     getById: (email) => {
         return new Promise((acepted, rejected) => {
 
-            db.query('SELECT * FROM usuario WHERE email = ?', [email], (error, results) => {
+            db.query(`SELECT id, nome, email, senha, login, cargo, telefone, nivel_acesso, status_usuario, id_instituicao FROM usuario WHERE email = ?`, [email], (error, results) => {
                 if (error) { rejected(error); return; }
                 if(results.length > 0) {
                     acepted(results[0]);
@@ -65,11 +66,12 @@ module.exports = {
 
     login: (email) =>{
         return new Promise((acepted, rejected)=>{
-            db.query(`SELECT email, senha, status_usuario, nivel_acesso FROM usuario WHERE email=?`, [email], (error, results)=>{
+            db.query(`SELECT email, senha, status_usuario, nivel_acesso 
+            FROM usuario WHERE email=?`, [email], (error, results)=>{
                 if(error) { rejected(error); return;}
                 return acepted(results);
             })
         })
     }
 
-}
+};

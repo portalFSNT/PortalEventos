@@ -1,3 +1,4 @@
 /node_modules
 /upload
 variaveis.env
+package-lock.json

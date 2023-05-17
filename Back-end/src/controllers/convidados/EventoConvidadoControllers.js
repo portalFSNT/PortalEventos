@@ -73,7 +73,7 @@ module.exports = {
         let anunciado = req.body.anunciado;
         let presenca = req.body.presenca;
 
-        if (id_evento && id_convidado && condicao && anunciado && presenca){
+        try {
             await EventoConvidadoService.updateEventoConvidado(
                 id_evento,
                 id_convidado,
@@ -88,12 +88,13 @@ module.exports = {
                 anunciado,
                 presenca,
             };
-        }else{
+        } catch (error) {
             res.status(400);
             res.json({ error: "Campos não enviados ou inválidos." });
         }
         res.json(json);
     },
+
 
     delEventoConvidado: async(req, res) => {
         let json = { error: "", result: [] };

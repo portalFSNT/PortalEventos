@@ -19,8 +19,8 @@ module.exports = {
 
   getById: async (req, res) => {
     let json = { error: "", result: {} };
-    let nome = req.params.nome;
-    let convidado = await ConvidadoService.getById(nome);
+    let id = req.params.id;
+    let convidado = await ConvidadoService.getById(id);
 
     if (convidado) {
         json.result = convidado;
@@ -56,36 +56,36 @@ module.exports = {
   },
 
   updateConvidado: async (req, res) => {
-    let json = { error: "", result: {} };
+      let json = { error: "", result: {} };
 
-    let nomes = req.params.nomes;
-    let nome = req.body.nome;
-    let email = req.body.email;
-    let cargo = req.body.cargo;
-    let telefone = req.body.telefone;
-    let empresa = req.body.empresa;
+      let id = req.params.id;
+      let nome = req.body.nome;
+      let email = req.body.email;
+      let cargo = req.body.cargo;
+      let telefone = req.body.telefone;
+      let empresa = req.body.empresa;
 
-    try {
-        await ConvidadoService.updateConvidado(nomes,nome,email,cargo,telefone,empresa);
-        json.result = {
-            nomes,
-            email,
-            cargo,
-            telefone,
-            empresa
-        };
-    } 
-    catch (error) {
-        console.log(error);
-        json.error("Campos não enviados"); 
-    }
-    res.json(json);
-  },
+      try {
+          await ConvidadoService.updateConvidado(id,nome,email,cargo,telefone,empresa);
+          json.result = {
+              nome,
+              email,
+              cargo,
+              telefone,
+              empresa
+          };
+      } 
+      catch (error) {
+          console.log(error);
+          json.error("Campos não enviados"); 
+      }
+      res.json(json);
+    },
 
   delConvidado: async (req, res) => {
     let json = { error: "", result: {} };
 
-    await ConvidadoService.delConvidado(req.params.nome);
+    await ConvidadoService.delConvidado(req.params.id);
     res.json(json);
   },
 };

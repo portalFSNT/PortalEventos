@@ -57,34 +57,34 @@ router.delete('/image/:id_imagem',roles.adminRole, ImageController.delImage);
 
 const ConvidadoController = require("./controllers/convidados/ConvidadoControllers");
 const EmpresaController = require("./controllers/convidados/EmpresaControllers");
-const EventoController = require("./controllers/convidados/EventoPresencaControllers");
+const EventoPresencaController = require("./controllers/convidados/EventoPresencaControllers");
 const EventoConvidadoController = require("./controllers/convidados/EventoConvidadoControllers");
 
 // Convidados Routes
 router.get("/convidados",roles.admin_visualizadorRole, ConvidadoController.getAll);
-router.get("/convidados/:nome",roles.admin_visualizadorRole, ConvidadoController.getById);
-router.post("/convidados/",roles.adminRole, ConvidadoController.addConvidado);
-router.patch("/convidados/:nomes",roles.adminRole, ConvidadoController.updateConvidado);
-router.delete("/convidados/:nome",roles.adminRole, ConvidadoController.delConvidado);
+router.get("/convidado/:id",roles.admin_visualizadorRole, ConvidadoController.getById);
+router.post("/convidado/",roles.adminRole, ConvidadoController.addConvidado);
+router.patch("/convidado/:id",roles.adminRole, ConvidadoController.updateConvidado);
+router.delete("/convidado/:id",roles.adminRole, ConvidadoController.delConvidado);
 
 // Empresa Routes
 router.get("/empresas",roles.adminRole, EmpresaController.getAll);
 router.get("/empresas/:id_empresa",roles.adminRole, EmpresaController.getById);
 router.post("/empresas",roles.adminRole, EmpresaController.addEmpresa);
-router.patch("/empresas/:empresa",roles.adminRole, EmpresaController.updateEmpresa);
-router.delete("/empresas/:empresa",roles.adminRole, EmpresaController.delEmpresa);
+router.patch("/empresas/:id_empresa",roles.adminRole, EmpresaController.updateEmpresa);
+router.delete("/empresas/:id_empresa",roles.adminRole, EmpresaController.delEmpresa);
 
 // Evento Routes
-router.get("/evento",roles.adminRole, EventoController.getAll);
-router.get("/evento/:id_evento",roles.adminRole, EventoController.getById);
-router.post("/evento",roles.adminRole, EventoController.addEvento);
-router.patch("/evento/:id_evento",roles.adminRole, EventoController.updateEvento);
-router.delete("/evento/:id_evento",roles.adminRole, EventoController.delEvento);
+router.get("/evento",roles.adminRole, EventoPresencaController.getAll);
+router.get("/evento/:id_evento",roles.adminRole, EventoPresencaController.getById);
+router.post("/evento",roles.adminRole, EventoPresencaController.addEvento);
+router.patch("/evento/:id_evento",roles.adminRole, EventoPresencaController.updateEvento);
+router.delete("/evento/:id_evento",roles.adminRole, EventoPresencaController.delEvento);
 
 // Evento_Convidado Routes
 router.get("/evento_convidado",roles.admin_visualizadorRole, EventoConvidadoController.getAll);
 router.get("/evento_convidado/:id_evento",roles.admin_visualizadorRole, EventoConvidadoController.getById);
-router.post("/evento_convidado/:id_evento",roles.adminRole, EventoConvidadoController.addEventoConvidado);
+router.post("/evento_convidado",roles.adminRole, EventoConvidadoController.addEventoConvidado);
 router.patch("/evento_convidado/:id_evento",roles.adminRole, EventoConvidadoController.updateEventoConvidado);
 router.delete("/evento_convidado/:id_evento",roles.adminRole, EventoConvidadoController.delEventoConvidado);
 

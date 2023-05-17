@@ -16,10 +16,10 @@ module.exports = {
 
     getById: async (req, res) => {
         let json = { error: "", result: {} };
-    
+
         let empresa = req.params.id_empresa; 
         let empresas = await EmpresaService.getById(empresa);
-    
+
         if (empresas) {
           json.result = empresas;
         }
@@ -46,11 +46,11 @@ module.exports = {
 
     updateEmpresa: async (req, res) => {
         let json = { error: "", result: {} };
-        let empresas = req.params.empresa;
+        let id_empresa = req.params.id_empresa;
         let empresa = req.body.nome;
-      
+
         try {
-            await EmpresaService.updateEmpresa(empresa,empresas);
+            await EmpresaService.updateEmpresa(empresa,id_empresa);
             json.result = {
                 empresa,
             }; 
@@ -63,7 +63,7 @@ module.exports = {
     delEmpresa: async (req, res) => {
         let json = { error: "", result: {} };
 
-        await EmpresaService.delEmpresa(req.params.empresa);
+        await EmpresaService.delEmpresa(req.params.id_empresa);
         res.status(204);
         res.json(json);
     },

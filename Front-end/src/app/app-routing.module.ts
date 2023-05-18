@@ -12,6 +12,7 @@ import { UsersComponent } from './Portal/users/users.component';
 //======= IMPORTS DE ESPAÇOS ==============
 import { SolicitarComponent } from './Espaços/Solicitantes/solicitar/solicitar.component';
 import { VisualizarComponent } from './Espaços/Solicitantes/visualizar/visualizar.component';
+import { SolicitacoesComponent } from './Espaços/Adiministrador/solicitacoes/solicitacoes.component';
 
 // ====== IMPORTS DE EVENTOS ===================
 
@@ -27,7 +28,8 @@ const routes: Routes = [
 
   // ROTAS DO SISTEMA DE ESPAÇOS
   { path: 'solicitar', component: SolicitarComponent},
-  { path: 'visualizar', component: VisualizarComponent}
+  { path: 'visualizar', component: VisualizarComponent},
+  { path: 'solicitacoes', component: SolicitacoesComponent}
   // { path: 'solicitacoes', component: SolicitacoesComponent},
   // { path: 'solicitantes', component: SolicitantesComponent},
   // { path: 'solicitante-novo', component: SolicitanteNovoComponent},

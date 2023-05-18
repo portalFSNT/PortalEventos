@@ -8,10 +8,10 @@
 
 }
 .container{
-    display: flex;
-    height: 100vh;
-    width: 1422px;
-    justify-content: center;
+  display: flex;
+  height: 100vh;
+  width: 1422px;
+  justify-content: center;
 }
 
 .logo{  
@@ -28,7 +28,7 @@
   width: 340px;
   margin-top: -15px;
   padding: 20px;
-  padding-bottom: 780px;
+  padding-bottom: 710px;
   background-color: #F1F0F5;
   box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
 }
@@ -69,8 +69,8 @@
   color: #2F3033;
   font-weight: 400;
 }
-.lists .nav-link:hover .icon,
-.lists .nav-link:hover .link {
+
+.lists .nav-link:hover .link{
   color: #FFF;
   
 }
@@ -78,8 +78,8 @@ hr{
   margin-top: 60px;
   margin-left: 35px;
   margin-bottom: 130px;
-  background-color: var(--gray-color-scale6);
-  width: 230px;}
+  background-color: var(--gray-600);
+  width: 280px;}
 
 
 
@@ -181,7 +181,7 @@ footer{
   display: flex;
   flex-direction: row;
   justify-content:space-around;
-  padding-top: 20px;}
+  padding-top: 0px;}
   
 .logo_fsnt{
 width: 190px;
@@ -199,14 +199,14 @@ padding-bottom: -20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 250px;
+    margin-bottom: 350px;
     margin-left: 40px;
 }
 
 .content-table {
     
     border-collapse: collapse;
-    margin:      0;
+    margin:      5;
     font-size: 0.9em;
     width: 930px;
     border-radius: 25px 25px 0 0;
@@ -229,14 +229,30 @@ padding-bottom: -20px;
     background-color: #f3f3f3;
 }
 
+
+// .content-table tbody tr.active-row {
+//     font-weight: bold;
+//     color: #009879;} 
+
+
 td,th{
   font-weight: 500;
   text-transform: uppercase;
 }
 td{
-  color: var(--gray-color-scale1);
+  color: var(--gray-100);
   text-transform: initial;
 }
+
+
+.table{
+  margin-bottom: 350px;
+}
+
+.sidebar {
+padding-bottom: 800px;
+}
+
 .line{
   padding: 0;
   margin: 0;

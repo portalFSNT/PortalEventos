@@ -5,7 +5,7 @@ import { VisualizarService } from './visualizar.service';
 @Component({
   selector: 'app-visualizar',
   templateUrl: './visualizar.component.html',
-  styleUrls: ['./visualizar.component.scss']
+  styleUrls: ['./visualizar.component.scss', '../../style.scss']
 })
 export class VisualizarComponent implements OnInit {
 
@@ -19,5 +19,4 @@ export class VisualizarComponent implements OnInit {
       console.log(event)
     })
   }
-
 }

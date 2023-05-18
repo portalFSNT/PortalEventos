@@ -26,6 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HeaderSolicitanteComponent } from './Portal/header-solicitante/header-solicitante.component';
+import { ModalAceitarComponent } from './Espaços/Adiministrador/modal-aceitar/modal-aceitar.component';
+import { SolicitacoesComponent } from './Espaços/Adiministrador/solicitacoes/solicitacoes.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { HeaderSolicitanteComponent } from './Portal/header-solicitante/header-s
     SolicitarComponent,
     VisualizarComponent,
     Modal1Component,
-    HeaderSolicitanteComponent
+    HeaderSolicitanteComponent,
+    ModalAceitarComponent,
+    SolicitacoesComponent
   ],
   imports: [
     BrowserModule,

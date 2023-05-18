@@ -49,21 +49,7 @@ table {
 
 /*Varição de cores & Fontes*/
 
-:root{
---font-family-primary: 'Opens Sans', sans-serif;
---font-family-second: 'Montserrat', sans-serif;
---color-primary: #398414;
---color-secondary: #FF9F10;
---color-first: #FF0000;
---color-second: #4EA926;
---gray-color-scale1: #33303E;
---gray-color-scale2: #7A7A7A;
---gray-color-scale3: #C6C5CE;
---gray-color-scale4: #C1C1C1;
---gray-color-scale5: #E5E5E5;
---gray-color-scale6: #F1F0F5;
---gray-color-scale7: #FFFFFF;
-}
+
  //Estilização do botão
 button{
     width: 132px;
@@ -78,7 +64,7 @@ button{
 
 /*Estilização de títulos 'H1'*/
 h1{
-    color:var(--color-primary);
+    color:var(--color-one);
     font-weight: 700;
     text-align: center;
     font-size: 26px; 
@@ -86,7 +72,7 @@ h1{
 
 /*Estilização de títulos 'H3'*/
 h3{
-    color:var(--color-primary);
+    color:var(--color-one);
     font-weight: 600;
     text-align: center;
     font-size: 18px; 
@@ -94,7 +80,7 @@ h3{
 }
 h2{
     /*Estilização de títulos 'H2'*/
-    color:var(--gray-color-scale1);
+    color:var(--gray-100);
     font-weight: 700;
     font-size: 18px; 
 
@@ -120,7 +106,7 @@ td,th{
     text-transform: uppercase;
   }
   td{
-    color: var(--gray-color-scale1);
+    color: var(--gray-100);
     text-transform: initial;
    
   }
@@ -132,7 +118,7 @@ ion-modal{
         --height:223px ;
         --border-radius: 32px;
         .num1{
-            color:var(--gray-color-scale1);
+            color:var(--gray-100);
             font-weight: 700;
             font-size: 18px; 
           
@@ -143,7 +129,7 @@ ion-modal{
             --height:223px ;
             --border-radius: 32px;
             .num1{
-                color:var(--gray-color-scale1);
+                color:var(--gray-100);
                 font-weight: 700;
                 font-size: 18px; 
               
@@ -154,7 +140,7 @@ ion-modal{
                 --height:223px ;
                 --border-radius: 32px;
                 .num1{
-                    color:var(--gray-color-scale1);
+                    color:var(--gray-100);
                     font-weight: 700;
                     font-size: 18px; 
                   
@@ -165,7 +151,7 @@ ion-modal{
                     --height:223px ;
                     --border-radius: 32px;
                     .num1{
-                        color:var(--gray-color-scale1);
+                        color:var(--gray-100);
                         font-weight: 700;
                         font-size: 18px; 
                       
@@ -176,7 +162,7 @@ ion-modal{
                     --height:223px ;
                     --border-radius: 32px;
                     .num1{
-                        color:var(--gray-color-scale1);
+                        color:var(--gray-100);
                         font-weight: 700;
                         font-size: 18px; 
                       
@@ -187,7 +173,7 @@ ion-modal{
                         --height:490px ;
                         --border-radius: 24px;
                         .num1{
-                            color:var(--gray-color-scale1);
+                            color:var(--gray-100);
                             font-weight: 700;
                             font-size: 18px; 
                           
@@ -198,7 +184,7 @@ ion-modal{
                         --height:400px ;
                         --border-radius: 24px;
                         .num1{
-                            color:var(--gray-color-scale1);
+                            color:var(--gray-100);
                             font-weight: 700;
                             font-size: 18px; 
                           
@@ -209,7 +195,7 @@ ion-modal{
                             --height:300px ;
                             --border-radius: 24px;
                             .num1{
-                                color:var(--gray-color-scale1);
+                                color:var(--gray-100);
                                 font-weight: 700;
                                 font-size: 18px; 
                               

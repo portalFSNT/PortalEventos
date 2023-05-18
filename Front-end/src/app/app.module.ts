@@ -16,6 +16,15 @@ import { TypeRegisterComponent } from './Portal/type-register/type-register.comp
 import { UsersComponent } from './Portal/users/users.component';
 import { ModalChangeDataUserComponent } from './Portal/modal-change-data-user/modal-change-data-user.component';
 
+
+// =========== imports de espaços ==============
+import { SolicitarComponent } from './Espaços/Solicitantes/solicitar/solicitar.component';
+import { VisualizarComponent } from './Espaços/Solicitantes/visualizar/visualizar.component';
+import { Modal1Component } from './Espaços/Solicitantes/modal1/modal1.component';
+import { IonicModule } from '@ionic/angular';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,12 +38,21 @@ import { ModalChangeDataUserComponent } from './Portal/modal-change-data-user/mo
     TypeRegisterComponent,
     UsersComponent,
     ModalChangeDataUserComponent,
-    
+
+    // ====DECLARAÇÃOD DE ESPAÇOS ======
+    SolicitarComponent,
+    VisualizarComponent,
+    Modal1Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+
+    // ====DECLARAÇÃOD DE ESPAÇOS ======
+    IonicModule.forRoot(),
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -105,6 +105,7 @@ router.delete("/tipo/:id",roles.adminRole, TipoController.delTipo);
 
 // INSTITUICAO -----
 const InstituicaoController = require("./controllers/evento/InstituicaoController");
+router.get("/instituicoes",roles.adminRole, InstituicaoController.getAll);
 router.post("/instituicao",roles.adminRole, InstituicaoController.addInstituicao);
 
 module.exports = router;

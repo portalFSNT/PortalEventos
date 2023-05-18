@@ -65,6 +65,7 @@ module.exports = {
     updateUser: async(req, res) => {
         let json = {error:'',result:{}};
 
+        let emailp = req.params.email;
         let nome = req.body.nome;
         let email = req.body.email;
         let senha = req.body.senha;
@@ -77,7 +78,7 @@ module.exports = {
 
         try{
             const hashedPassword = await bcrypt.hash(senha, 8);
-            await UserService.updateUser(nome, email, hashedPassword, login, cargo, telefone, nivelAcesso, statusUsuario, instituicao);
+            await UserService.updateUser(emailp, nome, email, hashedPassword, login, cargo, telefone, nivelAcesso, statusUsuario, instituicao);
             json.result = {
                 nome,
                 email,

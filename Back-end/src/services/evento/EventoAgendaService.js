@@ -42,13 +42,13 @@ module.exports = {
     },
 
     updateEvent: (nome, descricao, data_inicio, data_termino, hora_inicio, hora_termino, id_usuario, id_lugar, id_tipo, id_instituicao, id_evento) => {
-        return new Promise((acepted, rejected) => {
-
-            db.query('UPDATE evento_agenda SET nome = ?, descricao = ?, data_inicio = ?, data_termino = ?, hora_inicio = ?, hora_termino = ?, id_usuario = ?, id_lugar = ?, id_tipo = ?, id_instituicao = ? WHERE id = ?',
-            [nome, descricao, data_inicio, data_termino, hora_inicio, hora_termino, id_usuario, id_lugar, id_tipo, id_instituicao, id_evento], (error, results) => {
-                if(error) { rejected(error); return;}
-                acepted(results);
-            });
+        return new Promise((acepted, reject) => {
+            db.query(`UPDATE evento_agenda SET nome =?, descricao =?, data_inicio =?, data_termino =?, hora_inicio =?, hora_termino =?, id_usuario =?, id_lugar =?, id_tipo =?, id_instituicao =? WHERE id =?`,
+            [nome, descricao,data_inicio, data_termino, hora_inicio, hora_termino, id_usuario, id_lugar, id_tipo, id_instituicao, id_evento], (err, result) => {
+                if(err){ reject(err); result;}
+                acepted(result);
+            })
+            
         });
     },
 

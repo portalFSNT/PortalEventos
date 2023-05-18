@@ -68,7 +68,7 @@ const EventoAgendaController = require("./controllers/evento/EventoAgendaControl
 router.get('/events',roles.adminRole, EventoAgendaController.getAllEvents);
 router.get('/event/:id_evento',roles.adminRole, EventoAgendaController.getEventById);
 router.post('/event',roles.adminRole, EventoAgendaController.addEvent);
-router.put('/event/:id_evento',roles.adminRole, EventoAgendaController.updateEvent);
+router.patch('/event/:id_evento',roles.adminRole, EventoAgendaController.updateEvent);
 router.delete('/event/:id_evento',roles.adminRole, EventoAgendaController.delEvent);
 
 //IMAGE -----

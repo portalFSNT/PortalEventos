@@ -103,4 +103,8 @@ router.post("/tipo",roles.adminRole, TipoController.addTipo);
 router.patch("/tipo/:id",roles.adminRole, TipoController.updateTipo);
 router.delete("/tipo/:id",roles.adminRole, TipoController.delTipo);
 
+// INSTITUICAO -----
+const InstituicaoController = require("./controllers/evento/InstituicaoController");
+router.post("/instituicao",roles.adminRole, InstituicaoController.addInstituicao);
+
 module.exports = router;

@@ -13,6 +13,7 @@ import { UsersComponent } from './Portal/users/users.component';
 import { SolicitarComponent } from './Espaços/Solicitantes/solicitar/solicitar.component';
 import { VisualizarComponent } from './Espaços/Solicitantes/visualizar/visualizar.component';
 import { SolicitacoesComponent } from './Espaços/Adiministrador/solicitacoes/solicitacoes.component';
+import { SolicitacoesConfirmadasComponent } from './Espaços/Adiministrador/solicitacoes-confirmadas/solicitacoes-confirmadas.component';
 
 // ====== IMPORTS DE EVENTOS ===================
 
@@ -29,7 +30,7 @@ const routes: Routes = [
   // ROTAS DO SISTEMA DE ESPAÇOS
   { path: 'solicitar', component: SolicitarComponent},
   { path: 'visualizar', component: VisualizarComponent},
-  { path: 'solicitacoes', component: SolicitacoesComponent}
+  { path: 'solicitacoes', component: SolicitacoesComponent},
   // { path: 'solicitacoes', component: SolicitacoesComponent},
   // { path: 'solicitantes', component: SolicitantesComponent},
   // { path: 'solicitante-novo', component: SolicitanteNovoComponent},
@@ -37,7 +38,7 @@ const routes: Routes = [
   // { path: 'perfis-novo', component: PerfisNovoComponent},
   // { path: 'espacos', component: EspacosComponent  },
   // { path: 'espacos-novo', component: EspacosNovoComponent},
-  // { path: 'solicitacoes-confirmadas', component: SolicitacoesConfirmadasComponent}
+  { path: 'solicitacoes-confirmadas', component: SolicitacoesConfirmadasComponent}
   
 ];
 

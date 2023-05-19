@@ -28,6 +28,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HeaderSolicitanteComponent } from './Portal/header-solicitante/header-solicitante.component';
 import { ModalAceitarComponent } from './Espaços/Adiministrador/modal-aceitar/modal-aceitar.component';
 import { SolicitacoesComponent } from './Espaços/Adiministrador/solicitacoes/solicitacoes.component';
+import { SolicitacoesConfirmadasComponent } from './Espaços/Adiministrador/solicitacoes-confirmadas/solicitacoes-confirmadas.component';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { SolicitacoesComponent } from './Espaços/Adiministrador/solicitacoes/so
     Modal1Component,
     HeaderSolicitanteComponent,
     ModalAceitarComponent,
-    SolicitacoesComponent
+    SolicitacoesComponent,
+    SolicitacoesConfirmadasComponent
   ],
   imports: [
     BrowserModule,

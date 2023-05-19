@@ -14,6 +14,8 @@ import { SolicitarComponent } from './Espaços/Solicitantes/solicitar/solicitar.
 import { VisualizarComponent } from './Espaços/Solicitantes/visualizar/visualizar.component';
 import { SolicitacoesComponent } from './Espaços/Adiministrador/solicitacoes/solicitacoes.component';
 import { SolicitacoesConfirmadasComponent } from './Espaços/Adiministrador/solicitacoes-confirmadas/solicitacoes-confirmadas.component';
+import { EspacosComponent } from './Espaços/Adiministrador/espacos/espacos.component';
+import { EspacosNovoComponent } from './Espaços/Adiministrador/espacos-novo/espacos-novo.component';
 
 // ====== IMPORTS DE EVENTOS ===================
 
@@ -36,8 +38,8 @@ const routes: Routes = [
   // { path: 'solicitante-novo', component: SolicitanteNovoComponent},
   // { path: 'perfis', component: PerfisComponent},
   // { path: 'perfis-novo', component: PerfisNovoComponent},
-  // { path: 'espacos', component: EspacosComponent  },
-  // { path: 'espacos-novo', component: EspacosNovoComponent},
+  { path: 'espacos', component: EspacosComponent  },
+  { path: 'espacos-novo', component: EspacosNovoComponent},
   { path: 'solicitacoes-confirmadas', component: SolicitacoesConfirmadasComponent}
   
 ];

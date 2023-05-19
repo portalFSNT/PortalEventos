@@ -29,6 +29,10 @@ import { HeaderSolicitanteComponent } from './Portal/header-solicitante/header-s
 import { ModalAceitarComponent } from './Espaços/Adiministrador/modal-aceitar/modal-aceitar.component';
 import { SolicitacoesComponent } from './Espaços/Adiministrador/solicitacoes/solicitacoes.component';
 import { SolicitacoesConfirmadasComponent } from './Espaços/Adiministrador/solicitacoes-confirmadas/solicitacoes-confirmadas.component';
+import { EspacosComponent } from './Espaços/Adiministrador/espacos/espacos.component';
+import { ModalDeletarEspacoComponent } from './Espaços/Adiministrador/modal-deletar-espaco/modal-deletar-espaco.component';
+import { EspacosNovoComponent } from './Espaços/Adiministrador/espacos-novo/espacos-novo.component';
+import { Modal4Component } from './Espaços/Adiministrador/modal4/modal4.component';
 
 
 @NgModule({
@@ -52,7 +56,11 @@ import { SolicitacoesConfirmadasComponent } from './Espaços/Adiministrador/soli
     HeaderSolicitanteComponent,
     ModalAceitarComponent,
     SolicitacoesComponent,
-    SolicitacoesConfirmadasComponent
+    SolicitacoesConfirmadasComponent,
+    EspacosComponent,
+    ModalDeletarEspacoComponent,
+    EspacosNovoComponent,
+    Modal4Component
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 .container{
-    width: 100vw;
+    width: 1422px;
     height: 100vh;
     display: flex;
     justify-content: center;
 }
 #body{
-    width: 1432px;
+    width: 1422px;
     height: 100vh;
 }
 
@@ -103,12 +103,25 @@ option{
 
 .tabela{
     height: 84px;
-    width: 1432px;
+    width: 1000px;
     border-radius: 16px 16px 0px 0px;
+
 }
 
 td{
     border: none;
+    color: var(--gray-200);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #7A7786;
+}
+
+.title-table{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
 }
 
 
@@ -117,7 +130,7 @@ td{
     text-align: center;
     color: white;
     height: 48px;
-    width: 1432px;
+    width: 1422px;
     border-radius: 16px 16px 0px 0px;
    
 }
@@ -126,7 +139,11 @@ td{
 .dados{
     text-align: center;
     height: 48px;
-    width: 1432px;
+    width: 1422px;
+}
+
+.dados:nth-of-type(even){
+    background-color: #f3f3f3;
 }
 
 .botoes{
@@ -151,6 +168,35 @@ table {
   th {
     background-color: #f2f2f2;
   }
+
+  .table-nome{
+    text-align:start;
+  }
+
+  .lista{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
   
+
+  .adm{
+    padding: 5px 10px;
+    background: #00A54E;
+    border-radius: 18px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: #F1F0F5;
+  }
+  .soli{
+    padding: 5px 10px;
+    background: #F1D302;
+    border-radius: 18px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: #F1F0F5;
+  }
 
 

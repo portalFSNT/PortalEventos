@@ -1,0 +1,109 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1422px;
+    min-width: 1422px;
+}
+
+#body{
+    width: 100%;
+}
+
+// ===== BOTÕES DO TITLE =======
+
+.buttons{
+    margin-top: 32px;
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+}
+.users{
+    padding: 10px;
+    gap: 10px;
+    border: 2.5px solid #00A54E;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: #00A54E;
+    background-color: transparent;
+}
+.users{
+    padding: 10px;
+    gap: 10px;
+    border: 2.5px solid var(--color-one);
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--color-one);
+    background-color: transparent;
+}
+.pending{
+    padding: 10px;
+    gap: 10px;
+    border: 2.5px solid var(--color-two);
+    background-color: var(--color-two);
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: #FFFFFF;
+}
+.register-adm{
+    padding: 10px;
+    gap: 10px;
+    border: 2.5px solid var(--color-three);
+    background-color: transparent;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--color-three);
+}
+
+
+
+// ===== ESTILIZAÇÃO DA TABELA ==========
+
+table {
+    border-collapse: collapse;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 1422px;
+    margin-top: 32px;
+}
+
+thead{
+    background: var(--color-one);
+    color: var(--color-white);
+}
+
+th{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+th, td{
+    height: 48px;
+}
+
+td{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--gray-200);
+}
+
+tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+
+.row-name{
+    padding-left: 40px;
+}

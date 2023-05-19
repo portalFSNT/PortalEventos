@@ -1,0 +1,59 @@
+<app-header></app-header>
+<div class="container">
+    <section id="body">
+        <div class="buttons">
+            <button class="users">Usuários</button>
+            <button class="pending">Pendente</button>
+            <button class="register-adm">Cadastrar Adiministrador</button>
+        </div>
+    </section>
+
+    <section id="list">
+        <table>
+            <thead>
+              <tr>
+                <th class="row-name">NOME</th>
+                <th>INSTITUIÇÃO</th>
+                <th>E-MAIL</th>
+                <th>CARGO</th>
+                <th>CONTATO</th>
+                <th>TIPO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr (click)="openModalWithComponent()">
+                <td class="row-name">Jaqueline Nakagawa</td>
+                <td>Jacto Agrícola</td>
+                <td>jaqueline@jacto.com</td>
+                <td>Diretora RH</td>
+                <td>(14) 99876-5432</td>
+                <td>Solicitante</td>
+              </tr>
+              <tr>
+                <td class="row-name">Daniel Matsunoshita</td>
+                <td>Syntegra</td>
+                <td>daniel@syntegra.com</td>
+                <td>Analista de Dados</td>
+                <td>(14) 98653-5432</td>
+                <td>Solicitante</td>
+              </tr>
+              <tr>
+                <td class="row-name">Jaqueline Nakagawa</td>
+                <td>Jacto Agrícola</td>
+                <td>jaqueline@jacto.com</td>
+                <td>Diretora RH</td>
+                <td>(14) 99876-5432</td>
+                <td>Solicitante</td>
+              </tr>
+              <tr>
+                <td class="row-name">Daniel Matsunoshita</td>
+                <td>Syntegra</td>
+                <td>daniel@syntegra.com</td>
+                <td>Analista de Dados</td>
+                <td>(14) 98653-5432</td>
+                <td>Solicitante</td>
+              </tr>
+            </tbody>
+          </table>
+    </section>
+</div>

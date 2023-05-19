@@ -15,30 +15,6 @@ import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 })
 export class UsersComponent {
 
-
-//   // modalRef!: BsModalRef;
-
-//   // constructor(private modalService: BsModalService) {}
-
-//   // abrirModal() {
-//   //   this.modalRef = this.modalService.show(ModalChangeDataUserComponent);
-//   // }
-
-//   modalRef!: BsModalRef;
-
-//   constructor(private modalService: BsModalService) {}
-
-//   abrirModal() {
-//     this.modalRef = this.modalService.show(ModalChangeDataUserComponent);
-//   }
-
-//   fecharModal() {
-//     this.modalRef.hide();
-//   }
-// }
-
-
-
   bsModalRef?: BsModalRef;
   constructor(private modalService: BsModalService) {}
  
@@ -57,6 +33,7 @@ export class UsersComponent {
     this.bsModalRef = this.modalService.show(ModalChangeDataUserComponent, initialState);
     this.bsModalRef.content.closeBtnName = 'Close';
   }
+  
 }
  
 /* This is a component which we pass in modal*/

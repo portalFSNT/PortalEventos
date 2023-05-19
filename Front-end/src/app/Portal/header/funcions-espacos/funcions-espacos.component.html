@@ -1,14 +1,29 @@
-<div class="espacos">
-  <div class="dropdown" id="dropdown" data-open="false">
-      <label for="dropdown-espacos" class="dropdown-active button">
-          <img src="../../../../assets/Icons/icon-mapa.svg" alt="">
-          <span id="dropdown-selected" class="text">Espacos</span>
-      </label>
-      <input class="dropdown-espacos" type="checkbox" name="dropdown-espacos" id="dropdown-espacos" aria-controls="dropdown-list">
-      <ul class="dropdown-list" id="dropdown-list">
-          <li data-option="home" class="button"><img src="../../../../assets/Icons/icon-clock.svg" alt="">Solicitações</li>
-          <li data-option="convidados" class="button"><img src="../../../../assets/Icons/icon-aprovado.svg" alt="">Agendamento</li>
-          <li data-option="empresas" class="button"><img src="../../../../assets/Icons/icon-espacos.svg" alt="">Espaços</li>
-      </ul>
-  </div>
+
+<div class="btn-group" dropdown>
+    <button id="button-basic" dropdownToggle type="button" class="dropdown-active button-dropdown"
+            aria-controls="dropdown-basic">
+            <img src="../../../../assets/Icons/icon-mapa.svg" alt="">
+            Espaços
+    </button>
+    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-basic">
+        <li role="menuitem">
+            <a routerLink="/solicitacoes" class="dropdown-item">
+                <img src="../../../../assets/Icons/icon-clock.svg" alt="">
+                Solicitações Pendentes
+            </a>
+        </li>
+        <li role="menuitem">
+            <a routerLink="/solicitacoes-confirmadas" class="dropdown-item">
+                <img src="../../../../assets/Icons/icon-clock.svg" alt="">
+                Solicitações Confirmadas
+            </a>
+        </li>
+        <li role="menuitem">
+            <a routerLink="/espacos" class="dropdown-item">
+                <img src="../../../../assets/Icons/icon-espacos.svg" alt="">
+                Espaços
+            </a>
+        </li>
+    </ul>
 </div>

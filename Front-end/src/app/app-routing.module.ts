@@ -7,7 +7,15 @@ import { RegisterComponent } from './Portal/register/register.component';
 import { HomeComponent } from './Portal/home/home.component';
 import { TypeRegisterComponent } from './Portal/type-register/type-register.component';
 import { UsersComponent } from './Portal/users/users.component';
-import { ModalChangeDataUserComponent } from './Portal/modal-change-data-user/modal-change-data-user.component';
+
+
+//======= IMPORTS DE ESPAÇOS ==============
+import { SolicitarComponent } from './Espaços/Solicitantes/solicitar/solicitar.component';
+import { VisualizarComponent } from './Espaços/Solicitantes/visualizar/visualizar.component';
+import { SolicitacoesComponent } from './Espaços/Adiministrador/solicitacoes/solicitacoes.component';
+import { SolicitacoesConfirmadasComponent } from './Espaços/Adiministrador/solicitacoes-confirmadas/solicitacoes-confirmadas.component';
+import { EspacosComponent } from './Espaços/Adiministrador/espacos/espacos.component';
+import { EspacosNovoComponent } from './Espaços/Adiministrador/espacos-novo/espacos-novo.component';
 
 // ====== IMPORTS DE EVENTOS ===================
 
@@ -19,12 +27,21 @@ const routes: Routes = [
   { path: 'type-register', component: TypeRegisterComponent },
   { path: 'home', component: HomeComponent},
   { path: 'users', component: UsersComponent},
-  { path: 'modal', component: ModalChangeDataUserComponent},
-  
-  
 
 
-  // -----ROTAS DO EVENTOS --------
+  // ROTAS DO SISTEMA DE ESPAÇOS
+  { path: 'solicitar', component: SolicitarComponent},
+  { path: 'visualizar', component: VisualizarComponent},
+  { path: 'solicitacoes', component: SolicitacoesComponent},
+  // { path: 'solicitacoes', component: SolicitacoesComponent},
+  // { path: 'solicitantes', component: SolicitantesComponent},
+  // { path: 'solicitante-novo', component: SolicitanteNovoComponent},
+  // { path: 'perfis', component: PerfisComponent},
+  // { path: 'perfis-novo', component: PerfisNovoComponent},
+  { path: 'espacos', component: EspacosComponent  },
+  { path: 'espacos-novo', component: EspacosNovoComponent},
+  { path: 'solicitacoes-confirmadas', component: SolicitacoesConfirmadasComponent}
+  
 ];
 
 @NgModule({

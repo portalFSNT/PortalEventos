@@ -1,0 +1,254 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1422px;
+    min-width: 1422px;
+}
+
+#body{
+    width: 100%;
+    display: flex;
+    gap: 32px;
+    align-items: baseline;
+}
+
+// ===== BOTÕES DO TITLE =======
+
+.buttons{
+    margin-top: 32px;
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.users{
+    padding: 10px;
+    gap: 10px;
+    border: 2.5px solid var(--color-one);
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--color-one);
+    background-color: transparent;
+    transition: 0.1s;
+}
+
+.users:hover{
+    padding: 10px;
+    background-color: var(--color-one);
+    color: var(--color-white);
+}
+
+
+.register-adm{
+    padding: 10px;
+    gap: 10px;
+    border: 2.5px solid var(--color-three);
+    background-color: var(--color-three);
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: #FFFFFF;
+    transition: 0.1s;
+}
+
+.register-adm:hover{
+    padding: 10px;
+    color: var(--color-white);
+    border: 2.5px solid var(--color-three);
+    color: var(--color-three);
+    background-color: transparent;
+}
+
+.pending{
+    padding: 10px;
+    gap: 10px;
+    border: 2.5px solid var(--color-two);
+    background-color: transparent;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--color-two);
+    transition: 0.1s;
+}
+
+.pending:hover{
+    padding: 10px;
+    background-color: var(--color-two);
+    color: var(--color-white);
+}
+
+
+
+// ===== ESTILIZAÇÃO DA TABELA ==========
+
+table {
+    border-collapse: collapse;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 1422px;
+    margin-top: 32px;
+}
+
+thead{
+    background: var(--color-one);
+    color: var(--color-white);
+}
+
+th{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+th, td{
+    height: 48px;
+}
+
+td{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--gray-200);
+}
+
+tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+
+.row-name{
+    padding-left: 40px;
+}
+
+tr{
+    cursor: pointer;
+}
+
+h3{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 39px;
+    color: var(--gray-200);
+    margin: 0;
+    width: 600px;
+}
+
+
+/* -----------FORM--------- */
+
+.flex-box-form{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 73px;
+}
+
+.forms{
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+.tittle-form{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: rgba(47, 48, 51, 0.6);
+    margin-left: 33px;
+}
+
+.input-form{
+    width: 392px;
+    height: 40px;
+    background: #F1F0F5;
+    border-radius: 50px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 36px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    color: #2F3033;
+}
+
+.input-form::placeholder{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    color: #C6C5CE;
+}
+
+.dados{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+
+.form-right{
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+}
+
+.form-left{
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+}
+
+.button-register{
+    background: #FF9F10;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: #FFFFFF;
+    height: 56px;
+    width: 154px;
+    border: none;
+}
+
+
+/* ------FOOTER------- */
+
+.image-footer{
+    width: 163px;
+    height: 50px;
+}
+
+.tittle-footer{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: #00A54E;
+}
+
+.contact{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.text{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}

@@ -4,11 +4,14 @@
   <section id="body">
     <div class="tittle">
       <div class="botoes">
-        <div class="left">
-          <button class="usuarios">Usuários</button>
-          <button class="pendente">Pendente</button>
-          <button class="cadastrar">Cadastrar Administrador</button>
-        </div>
+        <section id="buttons">
+          <h3>Lista de Usuários</h3>
+          <div class="buttons">
+            <button class="users"routerLink="/users">Usuários</button>
+            <button class="pending" routerLink="/users-pending" >Pendente</button>
+            <button class="register-adm" routerLink="/register-adm">Cadastrar Adiministrador</button>
+          </div>
+        </section>
         <div class="right">
           <div class="tipo">
             <select name="select">

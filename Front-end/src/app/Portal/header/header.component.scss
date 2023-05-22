@@ -4,13 +4,15 @@
     align-items: center;
     justify-content: center;
     border-bottom: 1px #eaeaea solid;
+    
 }
 
 .container{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 1422px;
+    width: 1432px;
+    max-width: 1422px;
 }
 
 .icon-header{
@@ -67,6 +69,10 @@ button{
     color: #F1F0F5;
 }
 
+// @media (min-width: 1400px)
+//     .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+//     max-width: 1422px;
+// }
 
 
 

@@ -1,0 +1,42 @@
+.container{
+    padding: 64px;
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+.button-accept{
+    background: #00A54E;
+    border-radius: 50px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #FFFFFF;
+    height: 48px;
+    width: 100px;
+    border: none;
+}
+.button-deny{
+    background: var(--color-five);
+    border-radius: 50px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #FFFFFF;
+    height: 48px;
+    width: 100px;
+    border: none;
+}
+img{
+    cursor: pointer;
+}

@@ -33,6 +33,9 @@ import { EspacosComponent } from './Espaços/Adiministrador/espacos/espacos.comp
 import { ModalDeletarEspacoComponent } from './Espaços/Adiministrador/modal-deletar-espaco/modal-deletar-espaco.component';
 import { EspacosNovoComponent } from './Espaços/Adiministrador/espacos-novo/espacos-novo.component';
 import { Modal4Component } from './Espaços/Adiministrador/modal4/modal4.component';
+import { UsersPendingComponent } from './Portal/users-pending/users-pending.component';
+import { ModalAcceptDenyUserComponent } from './Portal/modal-accept-deny-user/modal-accept-deny-user.component';
+import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
 
 
 @NgModule({
@@ -60,7 +63,10 @@ import { Modal4Component } from './Espaços/Adiministrador/modal4/modal4.compone
     EspacosComponent,
     ModalDeletarEspacoComponent,
     EspacosNovoComponent,
-    Modal4Component
+    Modal4Component,
+    UsersPendingComponent,
+    ModalAcceptDenyUserComponent,
+    NewAdmComponent
   ],
   imports: [
     BrowserModule,

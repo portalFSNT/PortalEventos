@@ -35,6 +35,7 @@ import { EspacosNovoComponent } from './Espaços/Adiministrador/espacos-novo/esp
 import { Modal4Component } from './Espaços/Adiministrador/modal4/modal4.component';
 import { UsersPendingComponent } from './Portal/users-pending/users-pending.component';
 import { ModalAcceptDenyUserComponent } from './Portal/modal-accept-deny-user/modal-accept-deny-user.component';
+import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { ModalAcceptDenyUserComponent } from './Portal/modal-accept-deny-user/mo
     EspacosNovoComponent,
     Modal4Component,
     UsersPendingComponent,
-    ModalAcceptDenyUserComponent
+    ModalAcceptDenyUserComponent,
+    NewAdmComponent
   ],
   imports: [
     BrowserModule,

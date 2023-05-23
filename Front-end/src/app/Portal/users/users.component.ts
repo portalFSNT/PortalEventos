@@ -35,6 +35,26 @@ export class UsersComponent {
   }
   
 }
+
+
+export class DemoModalServiceFromComponent {
+  bsModalRef?: BsModalRef;
+  constructor(private modalService: BsModalService) {}
  
-/* This is a component which we pass in modal*/
+  openModalWithComponent() {
+    const initialState: ModalOptions = {
+      initialState: {
+        list: [
+          'Open a modal with component',
+          'Pass your data',
+          'Do something else',
+          '...'
+        ],
+        title: 'Modal with component'
+      }
+    };
+    this.bsModalRef = this.modalService.show(ModalChangeDataUserComponent, initialState);
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
+}
  

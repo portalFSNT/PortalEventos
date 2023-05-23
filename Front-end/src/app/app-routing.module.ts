@@ -11,8 +11,13 @@ import { ModalChangeDataUserComponent } from './Portal/modal-change-data-user/mo
 
 // ====== IMPORTS DE EVENTOS ===================
 
+import { CadEventosComponent } from './Eventos/cad-eventos/cad-eventos.component';
+import { HomeEventosComponent } from './Eventos/home-eventos/home-eventos.component';
+
+
+
 const routes: Routes = [
-  // -----ROTAS DO RORTAL --------
+  // -----ROTAS DO PORTAL --------
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -25,6 +30,10 @@ const routes: Routes = [
 
 
   // -----ROTAS DO EVENTOS --------
+
+  {path: 'Eventos',component: HomeEventosComponent},
+  {path: 'login',component: LoginComponent},
+  {path: 'cad-eventos', component: CadEventosComponent}
 ];
 
 @NgModule({

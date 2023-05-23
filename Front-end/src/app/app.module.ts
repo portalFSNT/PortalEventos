@@ -15,6 +15,13 @@ import { FuncionsEspacosComponent } from './Portal/header/funcions-espacos/funci
 import { TypeRegisterComponent } from './Portal/type-register/type-register.component';
 import { UsersComponent } from './Portal/users/users.component';
 import { ModalChangeDataUserComponent } from './Portal/modal-change-data-user/modal-change-data-user.component';
+import { CardComponent } from './Eventos/card/card.component';
+import { CadEventosComponent } from './Eventos/cad-eventos/cad-eventos.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { IonicModule } from '@ionic/angular';
+import { HomeEventosComponent } from './Eventos/home-eventos/home-eventos.component';
+
 
 @NgModule({
   declarations: [
@@ -29,12 +36,19 @@ import { ModalChangeDataUserComponent } from './Portal/modal-change-data-user/mo
     TypeRegisterComponent,
     UsersComponent,
     ModalChangeDataUserComponent,
-    
+    CadEventosComponent,
+    CardComponent,
+    HomeEventosComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    IonicModule.forRoot(),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,65 @@
+<app-header></app-header>
+<header>
+    <div class="container">
+        <div class="imgHome"> 
+            <h1>Cadastro Eventos</h1>
+        </div>
+        
+    </div>
+</header>
+
+<form [formGroup]="inputsCadEvent" (submit)="enviarDados()" class="container-eventos">
+  <div class="input-icon">
+    <input formControlName="nome" id="input-cad-eventos" type="text" placeholder="Nome do evento" required>
+    <img src="./../../assets/Eventos/evento.svg">
+  </div>
+  <div class="align-input-eventos">
+    <div class="input-icon">
+      <input formControlName="hora_inicio" type="text" placeholder="Horário do inicio" required>
+      <img src="./../../assets/Eventos/hora.svg">
+    </div>
+    <div class="input-icon">
+      <input formControlName="hora_fim" type="text" placeholder="Horário do término" required>
+      <img src="./../../assets/Eventos/hora.svg">
+    </div>
+    <div class="input-icon">
+      <select name="text" formControlName="tipo" class="select" id="select">
+        <option value="">Tipo do evento</option>
+        <option value="Visita">Visita</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Palestra">Palestra</option>
+        <option value="Reunião">Reunião</option>
+        <option value="Apresentação">Apresentação</option>
+      </select>
+      <img src="./../../assets/Eventos/tipoEvento.svg">
+    </div>
+    <div class="input-icon">
+      <input formControlName="data_inicio" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Data do inicio" required>
+      <img src="./../../assets/Eventos/dataEvento.svg">
+    </div>
+
+    
+
+      <div class="input-icon">
+        <input class="lugar-input" formControlName="lugar" type="text" placeholder="Lugar do evento" required>
+        <img src="./../../assets/Eventos/lugar.svg">
+      </div>
+
+      <div class="input-icon">
+        <textarea formControlName="descricao" placeholder="Descrição" id="descricao" cols="55" rows="5"></textarea>
+        <img src="./../../assets/Eventos/descricao.svg">
+      </div>
+      <span>Adicionar imagens</span>
+
+      <div class="inputs-img">
+
+        <label for="img1"><img src="./../../assets/Eventos/mais.svg"></label>
+        <input type="file" name="img1" id="img1">
+      </div>
+
+      <div class="align-btn-cad-eventos1">
+        <button (click)="cancelar()">Cancelar</button>
+        <button  (click)="vazio()" class="btn btn-primary">Salvar</button>
+      </div>
+  </div>
+</form>

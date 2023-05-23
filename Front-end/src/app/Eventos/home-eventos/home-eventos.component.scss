@@ -1,0 +1,67 @@
+// @media (min-width: 864px) and (max-width: 1152px), (min-width: 768px) and (max-width: 1366px) {
+//   .card {
+//     width: 310px !important;
+//     height: 330px !important;
+//     .card-top {
+//       width: 310px !important;
+//       height: 140px !important;
+//       .align-btn-card-top {
+//         button {
+//           width: 100px !important;
+//           font-size: 12.3px !important;
+//           height: 23px !important;
+//         }
+//       }
+//     }
+//     h1 {
+//       font-size: 14px !important;
+//     }
+//     .date, .time {
+//       font-size: 14px !important;
+//     }
+//     .align-descricao-event {
+//       font-size: 12px !important;
+//     }
+//   }
+// }
+
+main{
+  .container{
+    .main-header{
+      display: flex;
+      justify-content: flex-end;
+      padding: 16px 0px;
+    }
+
+    .s-cards{
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+  }
+}
+
+footer {
+  padding-bottom: 24px;
+  .align-pagination {
+    display: flex;
+    justify-content: center;
+    margin: 29px;
+    gap: 16px;
+    button {
+      cursor: pointer;
+      width: 35px;
+      height: 40px;
+      background-color: var(--color-primary);
+      border: none;
+      border-radius: 8px;
+      color: #ffffff;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 29px;
+      text-align: center;
+    }
+  }
+}

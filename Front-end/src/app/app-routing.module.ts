@@ -43,7 +43,7 @@ const routes: Routes = [
 
   {path: 'Eventos',component: HomeEventosComponent},
   {path: 'login',component: LoginComponent},
-  {path: 'cad-eventos', component: CadEventosComponent}
+  {path: 'cad-eventos', component: CadEventosComponent},
 
   // ROTAS DO SISTEMA DE ESPAÇOS
   { path: 'solicitar', component: SolicitarComponent},

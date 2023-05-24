@@ -15,6 +15,13 @@ import { FuncionsEspacosComponent } from './Portal/header/funcions-espacos/funci
 import { TypeRegisterComponent } from './Portal/type-register/type-register.component';
 import { UsersComponent } from './Portal/users/users.component';
 import { ModalChangeDataUserComponent } from './Portal/modal-change-data-user/modal-change-data-user.component';
+import { CardComponent } from './Eventos/card/card.component';
+import { CadEventosComponent } from './Eventos/cad-eventos/cad-eventos.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { IonicModule } from '@ionic/angular';
+import { HomeEventosComponent } from './Eventos/home-eventos/home-eventos.component';
+
 
 
 // =========== imports de espaços ==============
@@ -52,6 +59,12 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
     UsersComponent,
     ModalChangeDataUserComponent,
 
+    CadEventosComponent,
+    CardComponent,
+    HomeEventosComponent
+
+
+
     // ====DECLARAÇÃOD DE ESPAÇOS ======
     SolicitarComponent,
     VisualizarComponent,
@@ -67,11 +80,18 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
     UsersPendingComponent,
     ModalAcceptDenyUserComponent,
     NewAdmComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ModalModule.forRoot(),
+
+    IonicModule.forRoot(),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+
 
     // ====DECLARAÇÃOD DE ESPAÇOS ======
     IonicModule.forRoot(),
@@ -79,6 +99,7 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
     FormsModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]

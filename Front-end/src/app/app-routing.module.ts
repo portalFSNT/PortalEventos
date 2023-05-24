@@ -21,8 +21,13 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
 
 // ====== IMPORTS DE EVENTOS ===================
 
+import { CadEventosComponent } from './Eventos/cad-eventos/cad-eventos.component';
+import { HomeEventosComponent } from './Eventos/home-eventos/home-eventos.component';
+
+
+
 const routes: Routes = [
-  // -----ROTAS DO RORTAL --------
+  // -----ROTAS DO PORTAL --------
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -33,6 +38,13 @@ const routes: Routes = [
   { path: 'register-adm', component: NewAdmComponent},
 
 
+
+  // -----ROTAS DO EVENTOS --------
+
+  {path: 'Eventos',component: HomeEventosComponent},
+  {path: 'login',component: LoginComponent},
+  {path: 'cad-eventos', component: CadEventosComponent}
+
   // ROTAS DO SISTEMA DE ESPAÇOS
   { path: 'solicitar', component: SolicitarComponent},
   { path: 'visualizar', component: VisualizarComponent},
@@ -41,6 +53,7 @@ const routes: Routes = [
   { path: 'espacos-novo', component: EspacosNovoComponent},
   { path: 'solicitacoes-confirmadas', component: SolicitacoesConfirmadasComponent}
   
+
 ];
 
 @NgModule({

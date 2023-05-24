@@ -6,16 +6,17 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   templateUrl: './modal-change-data-user.component.html',
   styleUrls: ['./modal-change-data-user.component.scss']
 })
-export class ModalChangeDataUserComponent {
-
-  // constructor() {}
-
-  // ngOnInit() {}
-  constructor(public modalRef: BsModalRef) {}
-
-  fecharModal() {
-    this.modalRef.hide();
-  }
-
   
+export class ModalChangeDataUserComponent implements OnInit {
+  title?: string;
+  closeBtnName?: string;
+  list: any[] = [];
+  
+  constructor(public bsModalRef: BsModalRef) {}
+  
+  ngOnInit() {
+    this.list.push('PROFIT!!!');
+  }
 }
+
+

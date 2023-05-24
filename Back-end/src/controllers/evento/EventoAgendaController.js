@@ -68,37 +68,40 @@ module.exports = {
         res.json(json);
     },
 
-    updateEvent: async (req, res) => {
+    updateEvent: async (req, res) =>{
         let json = {error:'', result:{}};
 
+        let id_evento = req.params.id_evento;
         let nome = req.body.nome;
         let descricao = req.body.descricao;
-        let data_inicio = req.body.data_inicio;
-        let data_termino = req.body.data_termino;
+        let data_i = req.body.data_inicio;
+        let data_t = req.body.data_termino;
         let hora_inicio = req.body.hora_inicio;
         let hora_termino = req.body.hora_termino;
         let id_usuario = req.body.id_usuario;
         let id_lugar = req.body.id_lugar;
         let id_tipo = req.body.id_tipo;
         let id_instituicao = req.body.id_instituicao;
-        let id = req.body.id_evento;
 
-        try{
+        let data_inicio = convertDate(data_i);
+        let data_termino = convertDate(data_t);
+
+        try {
             await EventService.updateEvent(
-                id, 
-                nome, 
-                descricao, 
+                nome,
+                descricao,
                 data_inicio,
                 data_termino,
                 hora_inicio,
-                hora_termino, 
-                id_usuario, 
+                hora_termino,
+                id_usuario,
                 id_lugar, 
-                id_tipo, 
-                id_instituicao
+                id_tipo,
+                id_instituicao,
+                id_evento
             );
             json.result = {
-                nome,
+                nome, 
                 descricao,
                 data_inicio,
                 data_termino,
@@ -107,14 +110,14 @@ module.exports = {
                 id_usuario,
                 id_lugar,
                 id_tipo,
-                id_instituicao,
-                id
-            };
-        }catch(error){
-            console.log(error)
+                id_instituicao
+            }
+            res.status(200);
+            res.json(json);
+        } catch (error) {
+            res.status(400);
+            res.json({error: error + " Campo(s) não enviado(s) ou inválido(s)."})
         }
-        res.json(json);
-        
     },
 
     delEvent: async (req, res) => {

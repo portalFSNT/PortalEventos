@@ -41,11 +41,11 @@ module.exports = {
         });
     },
 
-    updateUser: (nome, email, senha, login, cargo, telefone, nivelAcesso, statusUsuario, instituicao) => {
+    updateUser: (emailp, nome, email, senha, login, cargo, telefone, nivelAcesso, statusUsuario, instituicao) => {
         return new Promise((acepted, rejected) => {
             
             db.query('UPDATE usuario SET nome = ?, email = ?, senha = ?, login = ?, cargo = ?, telefone = ?, nivel_acesso = ?, status_usuario = ?, id_instituicao = ? WHERE email = ?',
-                [nome, email, senha, login, cargo, telefone, nivelAcesso, statusUsuario, instituicao, email],
+                [nome, email, senha, login, cargo, telefone, nivelAcesso, statusUsuario, instituicao, emailp],
                 (error, results) => {
                     if (error) { rejected(error); return; }
                     acepted(results);

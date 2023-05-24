@@ -1,13 +1,23 @@
-<div class="eventos">
-    <div class="dropdown" id="dropdown" data-open="false">
-        <label for="dropdown-toggle" class="dropdown-active button">
-            <img src="../../../../assets/Icons/icon-mapa.svg" alt="">
-            <span id="dropdown-selected" class="text">Eventos</span>
-        </label>
-        <input class="dropdown-toggle" type="checkbox" name="dropdown-toggle" id="dropdown-toggle" aria-controls="dropdown-list">
-        <ul class="dropdown-list" id="dropdown-list">
-            <li data-option="home" class="button"><img src="../../../../assets/Icons/icon-eventos-calendario.svg" alt="">Lista de Eventos</li>
-            <li data-option="convidados" class="button"><img src="../../../../assets/Icons/icon-eventos-novoevento.svg" alt="">Novo Evento</li>
-        </ul>
-    </div>
-  </div>
+<div class="btn-group" dropdown>
+    <button id="button-basic" dropdownToggle type="button" class="dropdown-active button-dropdown"
+            aria-controls="dropdown-basic">
+            <img src="../../../../assets/Icons/icon-eventos-calendario.svg" alt="">
+            Eventos
+    </button>
+    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-basic">
+        <li role="menuitem" class="li-dropdown">
+            <a class="dropdown-item" href="#">
+                <img src="../../../../assets/Icons/icon-eventos-calendario.svg" alt="">
+                Calendário
+            </a>
+        </li>
+        <li role="menuitem">
+            <a class="dropdown-item" href="#">
+                <img src="../../../../assets/Icons/icon-eventos-novoevento.svg" alt="">
+                Novo Evento
+            </a>
+        </li>
+    </ul>
+</div>
+

@@ -68,7 +68,7 @@ const EventoAgendaController = require("./controllers/evento/EventoAgendaControl
 router.get('/events',roles.adminRole, EventoAgendaController.getAllEvents);
 router.get('/event/:id_evento',roles.adminRole, EventoAgendaController.getEventById);
 router.post('/event',roles.adminRole, EventoAgendaController.addEvent);
-router.put('/event/:id_evento',roles.adminRole, EventoAgendaController.updateEvent);
+router.patch('/event/:id_evento',roles.adminRole, EventoAgendaController.updateEvent);
 router.delete('/event/:id_evento',roles.adminRole, EventoAgendaController.delEvent);
 
 //IMAGE -----
@@ -102,5 +102,13 @@ router.get("/tipo/:id",roles.adminRole, TipoController.getById);
 router.post("/tipo",roles.adminRole, TipoController.addTipo);
 router.patch("/tipo/:id",roles.adminRole, TipoController.updateTipo);
 router.delete("/tipo/:id",roles.adminRole, TipoController.delTipo);
+
+// INSTITUICAO -----
+const InstituicaoController = require("./controllers/evento/InstituicaoController");
+router.get("/instituicoes",roles.adminRole, InstituicaoController.getAll);
+router.get("/instituicao/:id",roles.adminRole, InstituicaoController.getById);
+router.post("/instituicao",roles.adminRole, InstituicaoController.addInstituicao);
+router.patch("/instituicao/:id",roles.adminRole, InstituicaoController.updateInstituicao);
+router.delete("/instituicao/:id",roles.adminRole, InstituicaoController.delInstituicao);
 
 module.exports = router;

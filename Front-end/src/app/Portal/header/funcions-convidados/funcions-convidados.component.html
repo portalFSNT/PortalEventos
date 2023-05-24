@@ -1,14 +1,28 @@
-<div class="convidados">
-    <div class="dropdown" id="dropdown" data-open="false">
-        <label for="dropdown-convi" class="dropdown-active button">
-            <img src="../../../../assets/Icons/icon-convidados.svg" alt="">
-            <span id="dropdown-selected" class="text">Convidados</span>
-        </label>
-        <input class="dropdown-convi" type="checkbox" name="dropdown-convi" id="dropdown-convi" aria-controls="dropdown-list">
-        <ul class="dropdown-convidados" id="dropdown-convidados">
-            <li data-option="home" class="button"><img src="../../../../assets/Icons/icon-espacos.svg" alt=""> Home</li>
-            <li data-option="convidados" class="button"><img src="../../../../assets/Icons/icon-convidados.svg" alt="">Convidados</li>
-            <li data-option="empresas" class="button"><img src="../../../../assets/Icons/icon-empresas.svg" alt="">Empresas</li>
-        </ul>
-    </div>
+<div class="btn-group" dropdown>
+    <button id="button-basic" dropdownToggle type="button" class="dropdown-active button-dropdown"
+            aria-controls="dropdown-basic">
+            <img src="../../../../assets/Icons/icon-convidados.svg" alt=""> 
+            Presença
+    </button>
+    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-basic">
+        <li role="menuitem" class="li-dropdown">
+            <a class="dropdown-item" href="#">
+                <img src="../../../../assets/Icons/icon-espacos.svg" alt=""> 
+                Home
+            </a>
+        </li>
+        <li role="menuitem" class="li-dropdown">
+            <a class="dropdown-item" href="#">
+                <img src="../../../../assets/Icons/icon-convidados.svg" alt="">
+                Convidados
+            </a>
+        </li>
+        <li role="menuitem">
+            <a class="dropdown-item" href="#">
+                <img src="../../../../assets/Icons/icon-empresas.svg" alt="">
+                Empresas
+            </a>
+        </li>
+    </ul>
 </div>

@@ -1,10 +1,15 @@
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { IonicModule } from '@ionic/angular';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+
+
 import { HeaderComponent } from './Portal/header/header.component';
 import { HomeComponent } from './Portal/home/home.component';
 import { RegisterComponent } from './Portal/register/register.component';
@@ -17,9 +22,6 @@ import { UsersComponent } from './Portal/users/users.component';
 import { ModalChangeDataUserComponent } from './Portal/modal-change-data-user/modal-change-data-user.component';
 import { CardComponent } from './Eventos/card/card.component';
 import { CadEventosComponent } from './Eventos/cad-eventos/cad-eventos.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { IonicModule } from '@ionic/angular';
 import { HomeEventosComponent } from './Eventos/home-eventos/home-eventos.component';
 
 
@@ -28,9 +30,6 @@ import { HomeEventosComponent } from './Eventos/home-eventos/home-eventos.compon
 import { SolicitarComponent } from './Espaços/Solicitantes/solicitar/solicitar.component';
 import { VisualizarComponent } from './Espaços/Solicitantes/visualizar/visualizar.component';
 import { Modal1Component } from './Espaços/Solicitantes/modal1/modal1.component';
-import { IonicModule } from '@ionic/angular';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HeaderSolicitanteComponent } from './Portal/header-solicitante/header-solicitante.component';
 import { ModalAceitarComponent } from './Espaços/Adiministrador/modal-aceitar/modal-aceitar.component';
@@ -61,7 +60,7 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
 
     CadEventosComponent,
     CardComponent,
-    HomeEventosComponent
+    HomeEventosComponent,
 
 
 
@@ -90,7 +89,7 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
     IonicModule.forRoot(),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
 
 
     // ====DECLARAÇÃOD DE ESPAÇOS ======

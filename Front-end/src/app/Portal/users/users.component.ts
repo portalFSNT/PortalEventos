@@ -25,9 +25,21 @@ export class UsersComponent {
 
   ngOnInit() {
       this.service.listUsers().subscribe((event) => {
-        this.table = event.result as Users[]
+        this.table = event.result.map((user: Users)=> ({...user, nomeTipo: this.substituiTipo(user.nivel_acesso!)})) as Users[]
         console.log(this.table);
       })
+  }
+
+  substituiTipo(nivel_acesso: number) : string {
+    if (nivel_acesso === 1) {
+      return 'Administrador'
+    } else if (nivel_acesso === 2) {
+      return 'Solicitante'
+    }
+    else if (nivel_acesso === 3) {
+      return 'Visualizador'
+    }
+    return 'Inválido'
   }
 
 

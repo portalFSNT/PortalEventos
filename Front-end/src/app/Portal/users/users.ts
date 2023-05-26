@@ -6,7 +6,8 @@ export interface Users {
     login?: boolean;
     cargo?: string;
     telefone?: string;
-    nivel_acesso?: string;
+    nivel_acesso?: number;
     status_usuario?: string;
     id_instituicao?: string;
+    nomeTipo?:  string;
 }

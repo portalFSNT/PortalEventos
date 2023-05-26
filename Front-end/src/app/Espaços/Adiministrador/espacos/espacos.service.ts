@@ -8,16 +8,16 @@ const API = environment.API;
   providedIn: 'root'
 })
 export class EspacosService {
-  private readonly API=`${API}/BuscarEspacos`;
+  private readonly API=`${API}/espacos`;
   constructor(private http: HttpClient) { }
 
   listarEspacos():Observable<any>{
-    const token = JSON.parse(localStorage.getItem('accessToken')!)
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token['accessToken']}`,
-      'auth': token['accessToken']
-    })
-    return this.http.get<any>(this.API, { headers })
+    // const token = JSON.parse(localStorage.getItem('accessToken')!)
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'Authorization': `Bearer ${token['accessToken']}`,
+    //   'auth': token['accessToken']
+    // })
+    return this.http.get<any>(this.API, {  })
   }
 }

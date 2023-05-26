@@ -83,7 +83,8 @@ router.delete('/image/:id_imagem',roles.adminRole, ImageController.delImage);
 
 //ESPAÇO ----- 
 const EspacoController = require("./controllers/espaco/EspacoController");
-router.get("/espacos",roles.admin_solicitanteRole, EspacoController.getAllEspacos);
+// router.get("/espacos",roles.admin_solicitanteRole, EspacoController.getAllEspacos);
+router.get("/espacos", EspacoController.getAllEspacos);
 router.get("/espaco/:id_espaco",roles.admin_solicitanteRole, EspacoController.getEspacoById);
 router.post("/espaco",roles.adminRole, EspacoController.addEspaco);
 router.patch("/espaco/:id_espaco",roles.adminRole, EspacoController.updateEspaco);

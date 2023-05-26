@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  API: 'http://localhost:3006/api'
+  API: 'http://localhost:8080/api'
 };
 
 // This file can be replaced during build by using the `fileReplacements` array.

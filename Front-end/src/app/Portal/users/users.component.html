@@ -7,9 +7,13 @@
         <section id="buttons">
           <h3>Lista de Usuários</h3>
           <div class="buttons">
-            <button class="users"routerLink="/users">Usuários</button>
-            <button class="pending" routerLink="/users-pending" >Pendente</button>
-            <button class="register-adm" routerLink="/register-adm">Cadastrar Adiministrador</button>
+            <button class="users" routerLink="/users">Usuários</button>
+            <button class="pending" routerLink="/users-pending">
+              Pendente
+            </button>
+            <button class="register-adm" routerLink="/register-adm">
+              Cadastrar Adiministrador
+            </button>
           </div>
         </section>
         <div class="right">
@@ -31,118 +35,32 @@
       </div>
     </div>
     <div class="lista">
-      <!-- <table class="tabela">
-        <tr class="principal">
-          <td>NOME</td>
-          <td>INSTITUIÇÃO</td>
-          <td>E-MAIL</td>
-          <td>CARGO</td>
-          <td>CONTATO</td>
-          <td>TIPO</td>
-        </tr>
-  
-        <tr class="dados">
-          <td>Luis Hilário Tobler Garcia</td>
-          <td>Jacto Clean</td>
-          <td>luishilario@grupojacto.com.br</td>
-          <td>Desenvolvedor Front-end</td>
-          <td>(14) 99911-6643</td>
-          <td>Administrador</td>
-        </tr>
-  
-        <tr class="dados">
-          <td>Marçal Luis Bissoli</td>
-          <td>Rodojacto</td>
-          <td>marcalluis@grupojacto.com</td>
-          <td>Analista de Banco de Dados</td>
-          <td>(14) 98632-3211</td>
-          <td>Solicitante</td>
-        </tr>
-  
-        <tr class="dados">
-          <td>Elvio Brasil Ponoti</td>
-          <td>Jacto Agricola</td>
-          <td>elviobrasil@grupo.com.br</td>
-          <td>Gerente de Projetos</td>
-          <td>(14) 99865-3151</td>
-          <td>Solicitante</td>
-        </tr>
-  
-        <tr class="dados">
-          <td>João Ricardo Favan</td>
-          <td>Unipac</td>
-          <td>joaoricardo@grupojacto.com</td>
-          <td>Gerente de RH</td>
-          <td>(14) 99654-6512</td>
-          <td>Solicitante</td>
-        </tr>
-  
-        <tr class="dados">
-          <td>Allan Lincoln Rodrigues Siriani</td>
-          <td>CIAg</td>
-          <td>allansiriani@ciag.com.br</td>
-          <td>Lider de Projeto</td>
-          <td>(14) 98665-3254</td>
-          <td>Adiministrador</td>
-        </tr>
-      </table> -->
-      
+
       <table class="tabela">
         <tr class="principal">
           <td class="table-nome title-table">NOME</td>
           <td class="title-table">INSTITUIÇÃO</td>
-          <!-- <td>E-MAIL</td>
-          <td>CARGO</td> -->
+          <td class="title-table">E-MAIL</td>
           <td class="title-table">CONTATO</td>
           <td class="title-table">TIPO</td>
         </tr>
   
-        <tr class="dados">
-          <td class="table-nome">Luis Hilário Tobler Garcia</td>
-          <td>Jacto Clean</td>
-          <!-- <td>luishilario@grupojacto.com.br</td>
-          <td>Desenvolvedor Front-end</td> -->
-          <td>(14) 99911-6643</td>
-          <td (click)="openModalWithComponent()"><label class="adm">Adiministrador</label></td>
-        </tr>
-  
-        <tr class="dados">
-          <td class="table-nome">Marçal Luis Bissoli</td>
-          <td>Rodojacto</td>
-          <!-- <td>marcalluis@grupojacto.com</td>
-          <td>Analista de Banco de Dados</td> -->
-          <td>(14) 98632-3211</td>
-          <td (click)="openModalWithComponent()"><label class="soli">Solicitante</label></td>
-        </tr>
-  
-        <tr class="dados">
-          <td class="table-nome">Elvio Brasil Ponoti</td>
-          <td>Jacto Agricola</td>
-          <!-- <td>elviobrasil@grupo.com.br</td>
-          <td>Gerente de Projetos</td> -->
-          <td>(14) 99865-3151</td>
-          <td (click)="openModalWithComponent()"><label class="soli">Solicitante</label></td>
-        </tr>
-  
-        <tr class="dados">
-          <td class="table-nome">João Ricardo Favan</td>
-          <td>Unipac</td>
-          <!-- <td>joaoricardo@grupojacto.com</td>
-          <td>Gerente de RH</td> -->
-          <td>(14) 99654-6512</td>
-          <td (click)="openModalWithComponent()"><label class="soli">Solicitante</label></td>
-        </tr>
-  
-        <tr class="dados">
-          <td class="table-nome">Allan Lincoln Rodrigues Siriani</td>
-          <td>CIAg</td>
-          <!-- <td>allansiriani@ciag.com.br</td>
-          <td>Lider de Projeto</td> -->
-          <td>(14) 98665-3254</td>
-          <td (click)="openModalWithComponent()"><label class="adm">Adiministrador</label></td>
+        <tr class="dados" *ngFor="let user of table">
+          <td>{{ user.nome }}</td>
+          <td>{{ user.id_instituicao }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.telefone }}</td>
+          <td>{{ user.nomeTipo }}</td>
+          <!-- <td (click)="openModalWithComponent()"><label class="adm">Adiministrador</label></td> -->
         </tr>
       </table>
-      <!-- <button (click)="abrirModal()">Entrar</button> -->
     </div>
+
+
+
+
+
+
+
   </section>
 </div>

@@ -35,29 +35,25 @@
       </div>
     </div>
     <div class="lista">
-      <table class="tabela" >
-        <thead class="principal">
-          <th>NOME</th>
-          <th>INSTITUIÇÃO</th>
-          <th>E-MAIL</th>
-          <th>CARGO</th>
-          <th>CONTATO</th>
-          <th>TIPO</th>
-        </thead>
+
+      <table class="tabela">
+        <tr class="principal">
+          <td class="table-nome title-table">NOME</td>
+          <td class="title-table">INSTITUIÇÃO</td>
+          <td class="title-table">E-MAIL</td>
+          <td class="title-table">CONTATO</td>
+          <td class="title-table">TIPO</td>
+        </tr>
   
-        <tbody class="dados"*ngFor="let user of table">
+        <tr class="dados" *ngFor="let user of table">
           <td>{{ user.nome }}</td>
           <td>{{ user.id_instituicao }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.cargo }}</td>
           <td>{{ user.telefone }}</td>
           <td>{{ user.nivel_acesso }}</td>
-        </tbody>
-  
+          <!-- <td (click)="openModalWithComponent()"><label class="adm">Adiministrador</label></td> -->
+        </tr>
       </table>
-
-      
-      <!-- <button (click)="abrirModal()">Entrar</button> -->
     </div>
 
 

@@ -10,51 +10,27 @@
     </section>
 
     <section id="list">
-        <table>
-            <thead>
-              <tr>
-                <th class="row-name">NOME</th>
-                <th>INSTITUIÇÃO</th>
-                <th>E-MAIL</th>
-                <th>CARGO</th>
-                <th>CONTATO</th>
-                <th>TIPO</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr (click)="openModalWithComponent()">
-                <td class="row-name">Jaqueline Nakagawa</td>
-                <td>Jacto Agrícola</td>
-                <td>jaqueline@jacto.com</td>
-                <td>Diretora RH</td>
-                <td>(14) 99876-5432</td>
-                <td>Solicitante</td>
-              </tr>
-              <tr>
-                <td class="row-name">Daniel Matsunoshita</td>
-                <td>Syntegra</td>
-                <td>daniel@syntegra.com</td>
-                <td>Analista de Dados</td>
-                <td>(14) 98653-5432</td>
-                <td>Solicitante</td>
-              </tr>
-              <tr>
-                <td class="row-name">Jaqueline Nakagawa</td>
-                <td>Jacto Agrícola</td>
-                <td>jaqueline@jacto.com</td>
-                <td>Diretora RH</td>
-                <td>(14) 99876-5432</td>
-                <td>Solicitante</td>
-              </tr>
-              <tr>
-                <td class="row-name">Daniel Matsunoshita</td>
-                <td>Syntegra</td>
-                <td>daniel@syntegra.com</td>
-                <td>Analista de Dados</td>
-                <td>(14) 98653-5432</td>
-                <td>Solicitante</td>
-              </tr>
-            </tbody>
-          </table>
+      <table class="tabela">
+        <tr class="principal">
+          <td class="table-nome title-table">NOME</td>
+          <td class="title-table">INSTITUIÇÃO</td>
+          <td class="title-table">E-MAIL</td>
+          <td class="title-table">CONTATO</td>
+          <td class="title-table">TIPO</td>
+          <td class="title-table">STATUS</td>
+        </tr>
+  
+        <tr class="dados" *ngFor="let user of table">
+          <td>{{ user.nome }}</td>
+          <td>{{ user.id_instituicao }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.telefone }}</td>
+          <td>{{ user.nivel_acesso }}</td>
+          <td>{{ user.status_usuario }}</td>
+        </tr>
+
+
+      </table>
+      <!-- <td (click)="openModalWithComponent()"><label class="adm">Adiministrador</label></td> -->
     </section>
 </div>

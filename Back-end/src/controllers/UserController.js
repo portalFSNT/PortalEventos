@@ -8,7 +8,7 @@ module.exports = {
         let json = {error:'', result:[]};
 
         let users = await UserService.getAll();
-        console.log(users)
+
         if(users){
             json.result = users;
         }
@@ -20,6 +20,17 @@ module.exports = {
 
         let email = req.params.email;
         let user = await UserService.getById(email);
+
+        if(user){
+            json.result = user;
+        }
+        res.json(json);
+    },
+
+    getStatus: async (req, res) => {
+        let json = {error:'', result:[]};
+
+        let user = await UserService.getStatus();
 
         if(user){
             json.result = user;

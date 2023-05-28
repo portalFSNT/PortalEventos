@@ -25,7 +25,7 @@ export class AuthService {
         ).pipe(
             tap((res: any) =>{
                 const authToken= res.body!.token ?? '';
-                this.userService.savToken(authToken); 
+                this.userService.saveToken(authToken); 
             })
         )
     }

@@ -25,7 +25,7 @@ export class UserService {
         return this.userSubject.asObservable();
     }
 
-    savToken(token: string){
+    saveToken(token: string){
         this.tokenService.saveToken(token);
         this.decodeJWT();
     }

@@ -24,6 +24,7 @@ export class TokenService {
     }
 
     haveToken(){
+        console.log(this.returnToken);
         return !!this.returnToken();
     }
 }

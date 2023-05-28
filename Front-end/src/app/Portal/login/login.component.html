@@ -6,11 +6,13 @@
         </div>
         <div class="login">
             <div class="form">
-                <input type="text" placeholder="E-mail">
-                <input type="password" placeholder="Senha">
+                <form (ngSubmit)="doLogin()" class="form">
+                    <input type="text" placeholder="E-mail">
+                    <input type="password" placeholder="Senha">
+                </form>
             </div>
             <div class="buttons">
-                <button class="button-entrar"(click)=irParaHome()>Entrar</button>
+                <button class="button-entrar"(click)=doLogin>Entrar</button>
                 <button class="button-cadastro" (click)=irParaTipoCadastro()>Cadastre-se</button>
             </div>
         </div>

@@ -21,7 +21,7 @@ export class NewAdmComponent {
       login: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       cargo: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       telefone: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      nivelAcesso: 1,
+      nivelAcesso: "Administrador",
       statusUsuario: 1,
       instituicao: 1
     });

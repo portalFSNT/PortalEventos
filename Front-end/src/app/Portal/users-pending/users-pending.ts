@@ -1,5 +1,5 @@
 export interface UsersPending {
-    id?: string;
+    id?: number;
     nome?: string;
     email?: string;
     senha?: string;

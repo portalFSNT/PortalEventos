@@ -44,7 +44,6 @@ module.exports = {
         let nome = req.body.nome;
         let email = req.body.email;
         let senha = req.body.senha;
-        let login = req.body.login;
         let cargo = req.body.cargo;
         let telefone = req.body.telefone;
         let nivelAcesso = req.body.nivelAcesso;
@@ -53,12 +52,11 @@ module.exports = {
 
         try {
             const hashedPassword = await bcrypt.hash(senha, 8);
-            await UserService.addUser(nome, email, hashedPassword, login, cargo, telefone, nivelAcesso, statusUsuario, instituicao);
+            await UserService.addUser(nome, email, hashedPassword, cargo, telefone, nivelAcesso, statusUsuario, instituicao);
             json.result = {
                 nome,
                 email,
                 senha,
-                login,
                 cargo,
                 telefone,
                 nivelAcesso,
@@ -80,7 +78,6 @@ module.exports = {
         let nome = req.body.nome;
         let email = req.body.email;
         let senha = req.body.senha;
-        let login = req.body.login;
         let cargo = req.body.cargo;
         let telefone = req.body.telefone;
         let nivelAcesso = req.body.nivelAcesso;
@@ -89,12 +86,11 @@ module.exports = {
 
         try{
             const hashedPassword = await bcrypt.hash(senha, 8);
-            await UserService.updateUser(emailp, nome, email, hashedPassword, login, cargo, telefone, nivelAcesso, statusUsuario, instituicao);
+            await UserService.updateUser(emailp, nome, email, hashedPassword, cargo, telefone, nivelAcesso, statusUsuario, instituicao);
             json.result = {
                 nome,
                 email,
                 senha,
-                login,
                 cargo,
                 telefone,
                 nivelAcesso,

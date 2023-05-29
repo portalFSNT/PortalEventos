@@ -6,7 +6,7 @@ module.exports = {
     getAll: () => {
         return new Promise((acepted, rejected) => {
             db.query(`
-            SELECT usuario.id, usuario.nome, usuario.email, usuario.senha, usuario.login, usuario.cargo, usuario.telefone, usuario.nivel_acesso, usuario.status_usuario, usuario.id_instituicao, instituicao.nome as nome_instituicao 
+            SELECT usuario.id, usuario.nome, usuario.email, usuario.senha, usuario.cargo, usuario.telefone, usuario.nivel_acesso, usuario.status_usuario, usuario.id_instituicao, instituicao.nome as nome_instituicao 
               FROM usuario
         INNER JOIN instituicao
                 ON (instituicao.id = usuario.id_instituicao);`, (error, results)=>{
@@ -20,7 +20,7 @@ module.exports = {
         return new Promise((acepted, rejected) => {
 
             db.query(`
-          SELECT usuario.id, usuario.nome, usuario.email, usuario.senha, usuario.login, usuario.cargo, usuario.telefone, usuario.nivel_acesso, usuario.status_usuario, usuario.id_instituicao, instituicao.nome as nome_instituicao 
+          SELECT usuario.id, usuario.nome, usuario.email, usuario.senha, usuario.cargo, usuario.telefone, usuario.nivel_acesso, usuario.status_usuario, usuario.id_instituicao, instituicao.nome as nome_instituicao 
             FROM usuario
       INNER JOIN instituicao
               ON (instituicao.id = usuario.id_instituicao)
@@ -39,7 +39,7 @@ module.exports = {
     getStatus: () => {
         return new Promise((acepted, rejected) => {
             db.query(`
-            SELECT usuario.id, usuario.nome, usuario.email, usuario.senha, usuario.login, usuario.cargo, usuario.telefone, usuario.nivel_acesso, usuario.status_usuario, usuario.id_instituicao, instituicao.nome as nome_instituicao 
+            SELECT usuario.id, usuario.nome, usuario.email, usuario.senha, usuario.cargo, usuario.telefone, usuario.nivel_acesso, usuario.status_usuario, usuario.id_instituicao, instituicao.nome as nome_instituicao 
                 FROM usuario
         INNER JOIN instituicao
                 ON (instituicao.id = usuario.id_instituicao) 
@@ -50,11 +50,11 @@ module.exports = {
         });
     },
 
-    addUser: (nome, email, senha, login, cargo, telefone, nivelAcesso, statusUsuario, instituicao) => {
+    addUser: (nome, email, senha, cargo, telefone, nivelAcesso, statusUsuario, instituicao) => {
         return new Promise(async (acepted, rejected) => {
             
-            db.query('INSERT INTO usuario (nome, email, senha, login, cargo, telefone, nivel_acesso, status_usuario, id_instituicao) VALUES(?,?,?,?,?,?,?,?,?)',
-                [nome, email, senha, login, cargo, telefone, nivelAcesso, statusUsuario, instituicao],
+            db.query('INSERT INTO usuario (nome, email, senha, cargo, telefone, nivel_acesso, status_usuario, id_instituicao) VALUES(?,?,?,?,?,?,?,?)',
+                [nome, email, senha, cargo, telefone, nivelAcesso, statusUsuario, instituicao],
                 (error, results) => {
                     if (error) { rejected(error); return; }
                     acepted(results.isertId);
@@ -65,11 +65,11 @@ module.exports = {
         });
     },
 
-    updateUser: (emailp, nome, email, senha, login, cargo, telefone, nivelAcesso, statusUsuario, instituicao) => {
+    updateUser: (emailp, nome, email, senha, cargo, telefone, nivelAcesso, statusUsuario, instituicao) => {
         return new Promise((acepted, rejected) => {
             
-            db.query('UPDATE usuario SET nome = ?, email = ?, senha = ?, login = ?, cargo = ?, telefone = ?, nivel_acesso = ?, status_usuario = ?, id_instituicao = ? WHERE email = ?',
-                [nome, email, senha, login, cargo, telefone, nivelAcesso, statusUsuario, instituicao, emailp],
+            db.query('UPDATE usuario SET nome = ?, email = ?, senha = ?, cargo = ?, telefone = ?, nivel_acesso = ?, status_usuario = ?, id_instituicao = ? WHERE email = ?',
+                [nome, email, senha, cargo, telefone, nivelAcesso, statusUsuario, instituicao, emailp],
                 (error, results) => {
                     if (error) { rejected(error); return; }
                     acepted(results);

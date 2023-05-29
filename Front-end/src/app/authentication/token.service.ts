@@ -11,6 +11,7 @@ export class TokenService {
     constructor(){}
 
     returnToken(){
+        console.log();
         return localStorage.getItem(KEY) ?? '';
     }
 

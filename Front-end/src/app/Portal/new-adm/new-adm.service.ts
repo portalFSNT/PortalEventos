@@ -12,7 +12,7 @@ export class NewAdmService {
 
   constructor(private http: HttpClient) { }
 
-  private readonly API = `${API}/login`;
+  private readonly API = `${API}/user`;
 
 
   create(usuario: any){

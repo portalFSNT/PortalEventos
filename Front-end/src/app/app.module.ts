@@ -9,7 +9,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { HeaderComponent } from './Portal/header/header.component';
 import { HomeComponent } from './Portal/home/home.component';
 import { RegisterComponent } from './Portal/register/register.component';
@@ -61,6 +60,7 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
     CadEventosComponent,
     CardComponent,
     HomeEventosComponent,
+    
 
 
 

@@ -9,4 +9,5 @@ export interface Users {
     nivel_acesso?: string;
     status_usuario?: number;
     id_instituicao?: string;
+    nome_instituicao?: string;
 }

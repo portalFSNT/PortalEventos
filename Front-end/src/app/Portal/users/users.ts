@@ -3,11 +3,10 @@ export interface Users {
     nome?: string;
     email?: string;
     senha?: string;
-    login?: boolean;
+    login?: string;
     cargo?: string;
     telefone?: string;
-    nivel_acesso?: number;
-    status_usuario?: string;
+    nivel_acesso?: string;
+    status_usuario?: number;
     id_instituicao?: string;
-    nomeTipo?:  string;
 }

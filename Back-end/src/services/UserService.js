@@ -1,10 +1,15 @@
+const { reject } = require('bcrypt/promises');
 const db = require('../db');
 
 module.exports = {
 
     getAll: () => {
         return new Promise((acepted, rejected) => {
-            db.query(`SELECT id, nome, email, senha, login, cargo, telefone, nivel_acesso, status_usuario, id_instituicao FROM usuario;`, (error, results)=>{
+            db.query(`
+            SELECT usuario.id, usuario.nome, usuario.email, usuario.senha, usuario.login, usuario.cargo, usuario.telefone, usuario.nivel_acesso, usuario.status_usuario, usuario.id_instituicao, instituicao.nome as nome_instituicao 
+              FROM usuario
+        INNER JOIN instituicao
+                ON (instituicao.id = usuario.id_instituicao);`, (error, results)=>{
                 if(error) { rejected(error); return;}
                 acepted(results);
             });
@@ -14,7 +19,12 @@ module.exports = {
     getById: (email) => {
         return new Promise((acepted, rejected) => {
 
-            db.query(`SELECT id, nome, email, senha, login, cargo, telefone, nivel_acesso, status_usuario, id_instituicao FROM usuario WHERE email = ?`, [email], (error, results) => {
+            db.query(`
+          SELECT usuario.id, usuario.nome, usuario.email, usuario.senha, usuario.login, usuario.cargo, usuario.telefone, usuario.nivel_acesso, usuario.status_usuario, usuario.id_instituicao, instituicao.nome as nome_instituicao 
+            FROM usuario
+      INNER JOIN instituicao
+              ON (instituicao.id = usuario.id_instituicao)
+           WHERE usuario.email = ?;`, [email], (error, results) => {
                 if (error) { rejected(error); return; }
                 if(results.length > 0) {
                     acepted(results[0]);
@@ -23,6 +33,20 @@ module.exports = {
                 }
             });
 
+        });
+    },
+
+    getStatus: () => {
+        return new Promise((acepted, rejected) => {
+            db.query(`
+            SELECT usuario.id, usuario.nome, usuario.email, usuario.senha, usuario.login, usuario.cargo, usuario.telefone, usuario.nivel_acesso, usuario.status_usuario, usuario.id_instituicao, instituicao.nome as nome_instituicao 
+                FROM usuario
+        INNER JOIN instituicao
+                ON (instituicao.id = usuario.id_instituicao) 
+            WHERE usuario.status_usuario = 0;`, (error, results)=>{
+                if(error) { rejected(error); return; }
+                acepted(results)
+            });
         });
     },
 

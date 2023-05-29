@@ -26,8 +26,9 @@ const upload = multer({
 //USER -----   
 const UserController = require("./controllers/UserController");
 // router.get('/users',roles.adminRole, UserController.getAll);
-router.get('/users', UserController.getAll);
+router.get('/users',roles.adminRole, UserController.getAll);
 router.get('/user/:email', UserController.getById);
+router.get('/userstatus/',roles.adminRole, UserController.getStatus);
 router.post('/user', UserController.addUser);
 router.patch('/user/:email', UserController.updateUser);
 router.delete('/user/:email', UserController.delUser);

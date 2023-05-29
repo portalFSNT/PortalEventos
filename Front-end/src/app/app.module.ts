@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './Portal/header/header.component';
 import { HomeComponent } from './Portal/home/home.component';
 import { RegisterComponent } from './Portal/register/register.component';
-import { LoginComponent } from './Portal/login/login.component';
+
 import { FuncionsEventosComponent } from './Portal/header/funcions-eventos/funcions-eventos.component';
 import { FuncionsConvidadosComponent } from './Portal/header/funcions-convidados/funcions-convidados.component';
 import { FuncionsEspacosComponent } from './Portal/header/funcions-espacos/funcions-espacos.component';
@@ -41,6 +41,7 @@ import { Modal4Component } from './Espaços/Adiministrador/modal4/modal4.compone
 import { UsersPendingComponent } from './Portal/users-pending/users-pending.component';
 import { ModalAcceptDenyUserComponent } from './Portal/modal-accept-deny-user/modal-accept-deny-user.component';
 import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
+import { LoginComponent } from './Portal/login/login.component';
 
 
 @NgModule({

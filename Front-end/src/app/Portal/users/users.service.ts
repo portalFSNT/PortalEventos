@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { TokenService } from '../../authentication/token.service';
 
 const API = environment.API;
 
@@ -10,12 +11,13 @@ const API = environment.API;
 })
 export class UsersService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private tokenService : TokenService, private http: HttpClient) { }
 
   private readonly API = `${API}/users`;
+  private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
 
   listUsers(): Observable<any> {
-    return this.http.get<any>(this.API);
+    return this.http.get<any>(this.API, { headers: this.header});
   }
 
 }

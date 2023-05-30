@@ -17,6 +17,7 @@ import { UsersService } from './users.service';
 })
 export class UsersComponent {
   
+  bsModalRef?: BsModalRef;
   @Input() user: any;
 
   table:Users[] = [];
@@ -30,8 +31,6 @@ export class UsersComponent {
       })
   }
 
-  // bsModalRef?: BsModalRef;
-  // // constructor(private modalService: BsModalService) {}
  
   // openModalWithComponent() {
   //   const initialState: ModalOptions = {

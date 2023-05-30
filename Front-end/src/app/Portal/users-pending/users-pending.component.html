@@ -11,26 +11,33 @@
 
     <section id="list">
       <table class="tabela">
-        <tr class="principal">
-          <td class="table-nome title-table">NOME</td>
-          <td class="title-table">INSTITUIÇÃO</td>
-          <td class="title-table">E-MAIL</td>
-          <td class="title-table">CONTATO</td>
-          <td class="title-table">TIPO</td>
-          <td class="title-table">STATUS</td>
-        </tr>
+        <thead>
+
+          <tr class="principal">
+            <th class="table-nome title-table">ID</th>
+            <th class="table-nome title-table">NOME</th>
+            <th class="title-table">INSTITUIÇÃO</th>
+            <th class="title-table">E-MAIL</th>
+            <th class="title-table">CONTATO</th>
+            <th class="title-table">TIPO</th>
+            <th class="title-table">STATUS</th>
+          </tr>
+        </thead>
   
         <tr class="dados" *ngFor="let user of table">
+          <td>{{ user.id }}</td>
           <td>{{ user.nome }}</td>
           <td>{{ user.nome_instituicao }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.telefone }}</td>
           <td>{{ user.nivel_acesso }}</td>
-          <td>{{ user.status_usuario }}</td>
-        </tr>
-
-
+          <td>
+            <!-- <button (click)="accept(user.id)">Aceitar</button> -->
+            <button>Negar</button>
+          </td>
+          <!-- <td (click)="openModalWithComponent(user.id)">{{ user.status_usuario }}</td> -->
+        </tr>        
+        
       </table>
-      <!-- <td (click)="openModalWithComponent()"><label class="adm">Adiministrador</label></td> -->
     </section>
 </div>

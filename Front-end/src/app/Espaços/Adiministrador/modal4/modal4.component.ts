@@ -9,7 +9,7 @@ export class Modal4Component implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

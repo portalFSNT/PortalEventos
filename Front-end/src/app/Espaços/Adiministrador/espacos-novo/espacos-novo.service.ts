@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Espaco } from './espaco';
+import { TokenService } from 'src/app/authentication/token.service';
 
 const API = environment.API;
 
@@ -11,21 +12,19 @@ const API = environment.API;
 })
 
 export class EspacosNovoService {
-    private readonly API=`${API}/CadastroEspaco`;
-    constructor(private http: HttpClient) { }
+
+    constructor(private tokenService : TokenService, private http: HttpClient) { }
+
+    private readonly API=`${API}/espaco`;
+    private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
+  
+   
 
     cadastrarEspaco(espaco:Espaco):Observable<any>{
-        const token = JSON.parse(localStorage.getItem('accessToken')!)
-        const headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token['accessToken']}`,
-            'auth': token['accessToken']
-        })
-
         return this.http.post<any>(this.API, {
             nome: espaco.nome,
             ponto_referencia: espaco.ponto_referencia,
             descricao: espaco.descricao,
-        }, {headers})
+        }, { headers: this.header})
     }
 }

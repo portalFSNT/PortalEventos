@@ -1,6 +1,6 @@
 export interface Visualizar {
     id: number;
-    status_solicitacao: boolean;
+    status_solicitacao: number;
     quantidade: number;
     data_inicio: string;
     data_termino: string;

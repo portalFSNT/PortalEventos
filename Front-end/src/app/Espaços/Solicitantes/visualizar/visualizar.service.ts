@@ -10,14 +10,14 @@ const API = environment.API;
   providedIn: 'root'
 })
 export class VisualizarService {
-  private readonly API=`${API}/solicitacao`
+  
   constructor(private http: HttpClient, private tokenService : TokenService) { }
 
+  private readonly API=`${API}/solicitacao`
   private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
-
 
   visualizarAgendamentos():Observable<any>{
    
-    return this.http.get<any>(this.API, { headers: this.header })
+    return this.http.get<any>(this.API, { headers: this.header });
   }
 }

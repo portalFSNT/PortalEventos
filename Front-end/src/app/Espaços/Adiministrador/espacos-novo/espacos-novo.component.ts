@@ -31,7 +31,7 @@ export class EspacosNovoComponent implements OnInit {
 
     }
 
-    cadastrarEspaco(): void {
+    cadastrarEspaco(){
 
       // Valida se os inputs estão preenchidos
       if(this.espaco.nome === ""

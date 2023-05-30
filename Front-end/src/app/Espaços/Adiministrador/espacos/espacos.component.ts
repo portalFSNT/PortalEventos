@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalDeletarEspacoComponent } from '../modal-deletar-espaco/modal-deletar-espaco.component';
 import { Espacos } from './espacos';
@@ -11,9 +11,21 @@ import { EspacosService } from './espacos.service';
 })
 export class EspacosComponent implements OnInit {
 
+  @Input() user: any;
+
+  table:Espacos[] = [];
+
+  constructor(private service: EspacosService, private modalcontroler:ModalController) {}
+
+  ngOnInit() {
+      this.service.listarEspacos().subscribe((event) => {
+        this.table = event.result as Espacos[]
+        console.log(this.table);
+      })
+  }
+
   exibirespacos:Espacos[]=[];
 
-  constructor(private modalcontroler:ModalController, private service: EspacosService) { }
   
   async openModal_deletar_espaco(espaco:Espacos){
 
@@ -31,12 +43,5 @@ export class EspacosComponent implements OnInit {
     }
   }
 
-
-  ngOnInit(): void {
-    this.service.listarEspacos().subscribe((event)=> {
-      this.exibirespacos = event.espaco as Espacos[]
-      console.log(event)
-    })
-  }
 
 }

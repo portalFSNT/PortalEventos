@@ -6,38 +6,38 @@
             </a>
             <h1>Por favor, insira seus dados</h1>
         </div>
-        <form action="" class="forms">
+        <form action="" class="forms" [formGroup]="form">
             <div class="flex-box-form">
                 <div class="form-left">
                     <div class="dados">
                         <label for="" class="tittle-form">Usuário</label>
-                        <input type="text" placeholder="fundacao.nishimura" class="input-form">
+                        <input type="text" placeholder="fundacao.nishimura" class="input-form" formControlName="nome">
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Telefone</label>
-                        <input type="text" placeholder="(14) 99999-9999" class="input-form">
+                        <input type="text" placeholder="(14) 99999-9999" class="input-form" formControlName="telefone">
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Senha</label>
-                        <input type="password" placeholder="*************" class="input-form">
+                        <input type="password" placeholder="*************" class="input-form" formControlName="senha">
                     </div>
                 </div>
                 <div class="form-right">
                     <div class="dados">
                         <label for="" class="tittle-form">Empresa</label>
-                        <input type="text" placeholder="Fundação FSNT"class="input-form">
+                        <input type="text" placeholder="Fundação FSNT"class="input-form" formControlName="instituicao">
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Cargo</label>
-                        <input type="text" placeholder="Analista" class="input-form">
+                        <input type="text" placeholder="Analista" class="input-form" formControlName="cargo">
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">E-mail Corporativo</label>
-                        <input type="email" placeholder="email@email.com" class="input-form">
+                        <input type="email" placeholder="email@email.com" class="input-form" formControlName="email">
                     </div>
                 </div>
             </div>
-            <button (click)=irParaLogin() class="button-register">Cadastrar</button>
+            <button (click)=onSubmit() class="button-register">Cadastrar</button>
         </form>
 
         <div class="footer">

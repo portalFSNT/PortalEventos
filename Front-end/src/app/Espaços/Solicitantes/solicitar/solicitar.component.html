@@ -52,14 +52,12 @@
     <!--Início dos inputs-->
     <div class="campo-cadastro">
 
-        <!-- <select [(ngModel)]="espacoSelecionado"> -->
-        <select>
+        <select [(ngModel)]="espacoSelecionado">
           <option value="0"> Selecione um Espaço </option>
           <option *ngFor="let espaco of espacos" name="espaco" value={{espaco.id}}> {{ espaco.nome }} </option>
         </select>
         
-        <!-- <input type="text" name="data" placeholder="Data" onfocus="(this.type='date')" onblur="(this.type='text')" class="input" [(ngModel)]="data"> -->
-        <input type="text" name="data" placeholder="Data" onfocus="(this.type='date')" onblur="(this.type='text')">
+        <input type="text" name="data" placeholder="Data" onfocus="(this.type='date')" onblur="(this.type='text')" class="input" [(ngModel)]="data">
       
         
     </div>
@@ -67,10 +65,8 @@
     <div class="campo-cadastro">
       
      
-      <!-- <input type="text" name="horario_entrada" placeholder="Horário entrada" onfocus="(this.type='time')" onblur="(this.type='text')" class="input" [(ngModel)]="horario_entrada">
-      <input type="text" name="horario_saida" placeholder="Horário saída " onfocus="(this.type='time')" onblur="(this.type='text')" class="input" [(ngModel)]="horario_saida"> -->
-      <input type="text" name="horario_entrada" placeholder="Horário entrada" onfocus="(this.type='time')" onblur="(this.type='text')" class="input">
-      <input type="text" name="horario_saida" placeholder="Horário saída " onfocus="(this.type='time')" onblur="(this.type='text')" class="input">
+      <input type="text" name="horario_entrada" placeholder="Horário entrada" onfocus="(this.type='time')" onblur="(this.type='text')" class="input" [(ngModel)]="horario_entrada">
+      <input type="text" name="horario_saida" placeholder="Horário saída " onfocus="(this.type='time')" onblur="(this.type='text')" class="input" [(ngModel)]="horario_saida">
       
         
     </div>
@@ -78,8 +74,7 @@
     <div class="campo-cadastro">
       
      
-      <!-- <input type="text" name="descricao" placeholder="Descrição: Preciso de notebook e datashow. " class="input" id="description" [(ngModel)]="descricao"> -->
-      <input type="text" name="descricao" placeholder="Descrição: Preciso de notebook e datashow. " class="input" id="description">
+      <input type="text" name="descricao" placeholder="Descrição: Preciso de notebook e datashow. " class="input" id="description" [(ngModel)]="descricao">
       
     
       

@@ -1,5 +1,5 @@
-<div class="container">
-    <form action="" class="forms">
+<div class="container" let user of table>
+    <form action="patch" class="forms">
         <div class="modal-header">
             <h2 class="title-h2-bold">
                 Alterar Dados
@@ -13,27 +13,27 @@
             <div class="flex-box-form">
                 <div class="form-left">
                     <div class="dados">
-                        <label for="" class="tittle-form">Usuário</label>
-                        <input type="text" placeholder="fundacao.nishimura" class="input-form">
+                        <label for="" class="tittle-form">Nome</label>
+                        <input type="text" value="{{ list[0] }}" class="input-form">
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Telefone</label>
-                        <input type="text" placeholder="(14) 99999-9999" class="input-form">
+                        <input type="text" value="{{ list[1] }}" class="input-form">
                     </div>
                     
                 </div>
                 <div class="form-right">
                     <div class="dados">
                         <label for="" class="tittle-form">Empresa</label>
-                        <input type="text" placeholder="Fundação FSNT"class="input-form">
+                        <input type="text" value="{{ list[2] }}" class="input-form">
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Cargo</label>
-                        <input type="text" placeholder="Analista" class="input-form">
+                        <input type="text" value="{{ list[3] }}" class="input-form">
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">E-mail Corporativo</label>
-                        <input type="email" placeholder="email@email.com" class="input-form">
+                        <input type="email" value="{{ list[4] }}" class="input-form">
                     </div>
                 </div>
             </div>
@@ -43,8 +43,6 @@
     
         </div>
     </form>
-
-
 </div>
 <!-- <div class="modal-header">
     <h4 class="modal-title pull-left">{{title}}</h4>

@@ -74,13 +74,18 @@
             <th>Descrição</th>
             <th>Ações</th>
           </tr>
+
         </thead>
         <tbody>
-          <tr *ngFor="let rows of exibirespacos">
+
+          <tr *ngFor="let rows of table">
             <td>{{ rows.nome }}</td>
             <td>{{ rows.ponto_referencia }}</td>
             <td>{{ rows.descricao }}</td>
             <td (click)="openModal_deletar_espaco(rows)">Deletar</td>
+          </tr>
+        </tbody>
+        
           <!-- </tr>
           <tr>
             <td>Auditório</td>
@@ -130,7 +135,7 @@
             </td>
             <td>Deletar</td>
           </tr> -->
-        </tbody>
+ 
       </table>
     </div>
 

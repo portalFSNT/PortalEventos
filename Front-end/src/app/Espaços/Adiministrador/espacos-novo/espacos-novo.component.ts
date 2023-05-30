@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { Modal4Component } from '../modal4/modal4.component';
 import { Espaco } from './espaco';
 import { EspacosNovoService } from './espacos-novo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-espacos-novo',
@@ -17,7 +18,9 @@ export class EspacosNovoComponent implements OnInit {
     descricao: "",
   }
 
-  constructor(private modalcontroler:ModalController, private service: EspacosNovoService) {}
+  constructor(private modalcontroler:ModalController,
+    private service: EspacosNovoService,
+    private router: Router) {}
     async openModal4(){
       const modal = await this.modalcontroler.create({
         component: Modal4Component,
@@ -42,17 +45,7 @@ export class EspacosNovoComponent implements OnInit {
       this.service.cadastrarEspaco(this.espaco).subscribe((event) => {
         console.log(event)
   
-        // Sucesso
-        if(event.message === "Espaço Cadastrado") {
-  
-          // Reset dos Inputs
-          this.espaco.nome = ""
-          this.espaco.ponto_referencia = ""
-          this.espaco.descricao = ""
-  
-          // Abre o modal de confirmação
-          this.openModal4()
-        }
+        this.router.navigate(['/espacos']);
       })
     }
 

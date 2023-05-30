@@ -1,3 +1,4 @@
+import { TokenService } from 'src/app/authentication/token.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
@@ -9,34 +10,32 @@ const API = environment.API;
   providedIn: 'root'
 })
 export class SolicitarService {
-  private readonly API_SolicitarAgendamento=`${API}/SolicitarAgendamento`;
-  private readonly API_BuscarEspacos=`${API}/BuscarEspacos`;
-  constructor(private http: HttpClient) { }
+  private readonly API_SolicitarAgendamento=`${API}/solicitacao`;
+  private readonly API_BuscarEspacos=`${API}/solicitacao/`;
+
+  constructor(private http: HttpClient, private tokenService : TokenService) { }
+
+  private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
 
   solicitar(espacoSelecionado:number, data:string, horario_entrada:string, horario_saida:string, descricao:string):Observable<any>{
-    const token = JSON.parse(localStorage.getItem('accessToken')!)
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token['accessToken']}`,
-      'auth': token['accessToken']
-    })
+
     return this.http.post<any>(this.API_SolicitarAgendamento, {
-      espaco_id: espacoSelecionado, 
-      data: data, 
-      horario_entrada: horario_entrada, 
-      horario_saida: horario_saida, 
-      descricao: descricao
-      }, {headers})
+      id: espacoSelecionado,
+      status_solicitacao: 1,
+      data_solicitacao: '31/12/2022',
+      quantidade: 20, 
+      data_inicio: data,
+      data_termino: '01/01/2023', 
+      hora_inicio: horario_entrada, 
+      horario_termino: horario_saida, 
+      descricao: descricao,              
+      id_usuario: 1
+      }, {headers: this.header})
   }
 
   listarEspacos():Observable<any>{
-    const token = JSON.parse(localStorage.getItem('accessToken')!)
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token['accessToken']}`,
-      'auth': token['accessToken']
-    })
-    return this.http.get<any>(this.API_BuscarEspacos, { headers })
+  
+    return this.http.get<any>(this.API_BuscarEspacos, { headers: this.header })
   }
   
 }

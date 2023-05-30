@@ -28,7 +28,7 @@ export class SolicitarComponent implements OnInit {
     const res = await modal.onDidDismiss();
   }
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.solicitarService.listarEspacos().subscribe((event) => {
       this.espacos = event.espaco
     })

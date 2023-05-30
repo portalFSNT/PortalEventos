@@ -93,7 +93,7 @@ router.delete("/espaco/:id_espaco",roles.adminRole, EspacoController.delEspaco);
 
 // SOLICITAÇÃO -----
 const SolicitacaoController = require("./controllers/espaco/SolicitacaoController");
-router.get("/solicitacao",roles.adminRole, SolicitacaoController.getAllSolicitacoes);
+router.get("/solicitacao",roles.admin_solicitanteRole, SolicitacaoController.getAllSolicitacoes);
 router.get("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.getSolicitacaoById);
 router.post("/solicitacao",roles.admin_solicitanteRole, SolicitacaoController.addSolicitacao);
 router.patch("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.updateSolicitacao);

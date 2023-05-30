@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { TokenService } from 'src/app/authentication/token.service';
 
 const API = environment.API;
 
@@ -10,16 +11,13 @@ const API = environment.API;
   providedIn: 'root'
 })
 export class SolicitacoesConfirmadasService {
-  private readonly API=`${API}/BuscarAgendamentos`;
-  constructor(private http: HttpClient) { }
+  constructor(private tokenService : TokenService, private http: HttpClient) { }
+
+  private readonly API=`${API}/solicitacao`;
+  private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
+
 
   listarSolicitacoesConfirmadas():Observable<any>{
-    const token = JSON.parse(localStorage.getItem('accessToken')!)
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token['accessToken']}`,
-      'auth': token['accessToken']
-    })
-    return this.http.get<any>(this.API, { headers })
+    return this.http.get<any>(this.API, { headers: this.header})
   }
 }

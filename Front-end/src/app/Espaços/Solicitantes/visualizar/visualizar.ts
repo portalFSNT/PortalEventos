@@ -1,8 +1,14 @@
 export interface Visualizar {
     id: number;
-    data: string;
-    horario: string;
-    status: string;
-    espaco: string;
-    usuario_id: number;
+    status_solicitacao: boolean;
+    quantidade: number;
+    data_inicio: string;
+    data_termino: string;
+    hora_inicio: string;
+    hora_termino: string;
+    descricao: string;
+    id_espaco: number;
+    espaco_nome: string;
+    id_usuario: number;
+    usuario_nome: string;
 }

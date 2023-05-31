@@ -30,6 +30,17 @@ module.exports = {
         res.json(json);
     },
 
+    getStatus: async (req, res) => {
+        let json = {error:'', result:''};
+
+        let solicitacao = await SolicitacaoService.getStatus();
+
+        if(solicitacao) {
+            json.result = solicitacao;
+        }
+        res.json(json);
+    },
+
     addSolicitacao: async (req, res) => {
         let json = {error:'', result:{}};
 

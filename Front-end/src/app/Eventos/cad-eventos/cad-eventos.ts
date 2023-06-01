@@ -1,9 +1,12 @@
 export interface CadEventos {
     nome: string;
-    data_inicio: string;
-    hora_inicio: string;
-    hora_fim: string;
     descricao: string;
-    tipo: string;
-    lugar: string;
+    data_inicio: string;
+    data_termino: string;
+    hora_inicio: number;
+    hora_termino: string;
+    id_usuario:string;
+    id_lugar:string;
+    id_tipo:string;
+    id_instituicao:string;
 }

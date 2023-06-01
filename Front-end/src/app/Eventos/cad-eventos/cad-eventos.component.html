@@ -8,7 +8,7 @@
     </div>
 </header>
 
-<form [formGroup]="inputsCadEvent" (submit)="enviarDados()" class="container-eventos">
+<form [formGroup]="inputsCadEvent" class="container-eventos">
   <div class="input-icon">
     <input formControlName="nome" id="input-cad-eventos" type="text" placeholder="Nome do evento" required>
     <img src="./../../assets/Eventos/evento.svg">
@@ -58,8 +58,8 @@
       </div>
 
       <div class="align-btn-cad-eventos1">
-        <button (click)="cancelar()">Cancelar</button>
-        <button  (click)="vazio()" class="btn btn-primary">Salvar</button>
+        <button (click)="onCancel()">Cancelar</button>
+        <button  (click)="onSubmit()" class="btn btn-primary">Salvar</button>
       </div>
   </div>
 </form>

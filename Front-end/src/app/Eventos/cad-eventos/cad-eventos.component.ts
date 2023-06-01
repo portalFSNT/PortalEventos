@@ -12,6 +12,7 @@ import { CadEventos } from './cad-eventos';
 export class CadEventosComponent implements OnInit {
 
   inputsCadEvent!:FormGroup;
+  submitted = false;
 
   constructor(
     private FormBuilder:FormBuilder,
@@ -21,36 +22,36 @@ export class CadEventosComponent implements OnInit {
 
   ngOnInit(): void {
     this.inputsCadEvent = this.FormBuilder.group({
+
       nome: [''],
-	    hora_inicio: [''],
-	    hora_fim: [''],
-	    data_inicio: [''],
-	    descricao: [''],
-      lugar:[''],
-      tipo:['']
+      descricao: [''],
+      data_inicio: [''],
+      data_termino: [''],
+      hora_inicio:[''],
+      hora_termino: [''],
+      id_usuario:['1'],
+      id_lugar:['5'],
+      id_tipo:['2'],
+      id_instituicao:['2']
     })
 
   }
 
-  enviarDados(){
-    if(this.inputsCadEvent.valid){
-      const novoCampo = this.inputsCadEvent.getRawValue() as CadEventos;
-      this.service.cadastrarEventos(novoCampo).subscribe(()=>{
-        this.router.navigate(['/']);
-        console.log(novoCampo);
-      },
-      (error)=>{
-        console.log('Erro inesperado')
-      }
+
+  onSubmit() {
+    this.submitted = true;
+    console.log(this.inputsCadEvent.value);
+    if (this.inputsCadEvent.valid) {
+      console.log('Submit');
+      this.service.cadastrarEventos(this.inputsCadEvent.value).subscribe(
+        () => console.log('Rquest Completo')
       );
     }
   }
-  vazio(){
-
-  }
-
-  cancelar(){
-    this.router.navigate(['/'])
+  onCancel() {
+    this.submitted = false;
+    this.inputsCadEvent.reset();
+    // console.log("Cancel")
   }
 
 }

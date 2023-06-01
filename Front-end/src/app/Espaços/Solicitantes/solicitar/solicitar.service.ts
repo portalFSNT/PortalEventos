@@ -11,7 +11,7 @@ const API = environment.API;
 })
 export class SolicitarService {
   private readonly API_SolicitarAgendamento=`${API}/solicitacao`;
-  private readonly API_BuscarEspacos=`${API}/solicitacao/`;
+  private readonly API_BuscarEspacos=`${API}/espacos/`;
 
   constructor(private http: HttpClient, private tokenService : TokenService) { }
 
@@ -20,16 +20,16 @@ export class SolicitarService {
   solicitar(espacoSelecionado:number, data:string, horario_entrada:string, horario_saida:string, descricao:string):Observable<any>{
 
     return this.http.post<any>(this.API_SolicitarAgendamento, {
-      id: espacoSelecionado,
       status_solicitacao: 1,
       data_solicitacao: '31/12/2022',
       quantidade: 20, 
       data_inicio: data,
-      data_termino: '01/01/2023', 
+      data_termino: '2023/07/03', 
       hora_inicio: horario_entrada, 
-      horario_termino: horario_saida, 
-      descricao: descricao,              
-      id_usuario: 1
+      hora_termino: horario_saida, 
+      descricao: descricao,
+      id_espaco: espacoSelecionado,              
+      id_usuario: 6
       }, {headers: this.header})
   }
 

@@ -24,7 +24,7 @@ export class SolicitarService {
       data_solicitacao: '31/12/2022',
       quantidade: 20, 
       data_inicio: data,
-      data_termino: '01/01/2023', 
+      data_termino: '2023/07/03', 
       hora_inicio: horario_entrada, 
       hora_termino: horario_saida, 
       descricao: descricao,

@@ -37,13 +37,13 @@ export class SolicitarComponent implements OnInit {
 
   solicitar(): void{
 
-    // // Verifica se os dados inseridos são válidos
-    // if(parseInt(this.espacoSelecionado) <= 0
-    // || this.data == ""
-    // || this.horario_entrada == ""
-    // || this.horario_saida == ""
-    // || this.descricao == "")
-    // return;
+    // Verifica se os dados inseridos são válidos
+    if(parseInt(this.espacoSelecionado) <= 0
+    || this.data == ""
+    || this.horario_entrada == ""
+    || this.horario_saida == ""
+    || this.descricao == "")
+    return;
 
 
     this.solicitarService.solicitar(

@@ -47,8 +47,8 @@ module.exports = {
         let status_solicitacao = req.body.status_solicitacao;
         let data_s = req.body.data_solicitacao
         let quantidade = req.body.quantidade
-        let data_i = req.body.data_inicio;
-        let data_t = req.body.data_termino;
+        let data_inicio = req.body.data_inicio;
+        let data_termino = req.body.data_termino;
         let hora_inicio = req.body.hora_inicio;
         let hora_termino = req.body.hora_termino;
         let descricao = req.body.descricao;
@@ -56,8 +56,8 @@ module.exports = {
         let id_usuario = req.body.id_usuario;
 
         let data_solicitacao = convertDate(data_s);
-        let data_inicio = convertDate(data_i);
-        let data_termino = convertDate(data_t); 
+        // let data_inicio = convertDate(data_i);
+        // let data_termino = convertDate(data_t); 
 
         try{
             await SolicitacaoService.addSolicitacao(status_solicitacao, data_solicitacao, quantidade, data_inicio, data_termino, hora_inicio, hora_termino, descricao, id_espaco, id_usuario);

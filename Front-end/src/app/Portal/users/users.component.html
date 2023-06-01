@@ -50,17 +50,9 @@
           <td>{{ user.nome_instituicao }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.telefone }}</td>
-          <td>{{ user.nivel_acesso }}</td>
-          <!-- <td (click)="openModalWithComponent()"><label class="adm">Adiministrador</label></td> -->
+          <td (click)="openModalWithComponent(user)">{{ user.nivel_acesso }}</td>
         </tr>
       </table>
     </div>
-
-
-
-
-
-
-
   </section>
 </div>

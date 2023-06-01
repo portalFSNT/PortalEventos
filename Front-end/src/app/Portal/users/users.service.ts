@@ -18,6 +18,6 @@ export class UsersService {
 
   listUsers(): Observable<any> {
     return this.http.get<any>(this.API, { headers: this.header});
-  }
+  } 
 
 }

@@ -1,5 +1,5 @@
 <div class="container" let user of table>
-    <form action="patch" class="forms">
+    <form action="patch" class="forms" [formGroup]="form">
         <div class="modal-header">
             <h2 class="title-h2-bold">
                 Alterar Dados
@@ -14,47 +14,36 @@
                 <div class="form-left">
                     <div class="dados">
                         <label for="" class="tittle-form">Nome</label>
-                        <input type="text" value="{{ list[0] }}" class="input-form">
+                        <input type="text" formControlName="nome" class="input-form">
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Telefone</label>
-                        <input type="text" value="{{ list[1] }}" class="input-form">
+                        <input type="text" formControlName="telefone" class="input-form">
                     </div>
-                    
+                    <div class="dados">
+                        <label for="" class="tittle-form">Senha</label>
+                        <input type="password" formControlName="senha" class="input-form">
+                    </div>
                 </div>
                 <div class="form-right">
                     <div class="dados">
                         <label for="" class="tittle-form">Empresa</label>
-                        <input type="text" value="{{ list[2] }}" class="input-form">
+                        <input type="text" formControlName="id_instituicao" class="input-form">
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Cargo</label>
-                        <input type="text" value="{{ list[3] }}" class="input-form">
+                        <input type="text" formControlName="cargo" class="input-form">
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">E-mail Corporativo</label>
-                        <input type="email" value="{{ list[4] }}" class="input-form">
+                        <input type="email" formControlName="email" class="input-form">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="button-register">Alterar</button>
+                <button class="button-register" (click)="updateUser(list[1])">Alterar</button>
             </div>
     
         </div>
     </form>
 </div>
-<!-- <div class="modal-header">
-    <h4 class="modal-title pull-left">{{title}}</h4>
-    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
-      <span aria-hidden="true" class="visually-hidden">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <ul *ngIf="list.length">
-      <li *ngFor="let item of list">{{item}}</li>
-    </ul>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
-  </div> -->

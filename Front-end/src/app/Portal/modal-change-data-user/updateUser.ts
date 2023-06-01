@@ -3,7 +3,6 @@ export interface UpdateUsers {
     nome?: string;
     email?: string;
     senha?: string;
-    login?: string;
     cargo?: string;
     telefone?: string;
     nivel_acesso?: string;

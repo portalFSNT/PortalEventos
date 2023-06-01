@@ -20,7 +20,6 @@ export class UsersComponent {
 
   bsModalRef?: BsModalRef;
   constructor(
-    private modalChangeDataUserService: ModalChangeDataUserService,
     private service: UsersService, 
     private modalService: BsModalService
   ) {}
@@ -36,23 +35,32 @@ export class UsersComponent {
   openModalWithComponent(user: any) {
     const nome = user.nome;
     const email = user.email;
-    const telefone = user.telefone;
-    const empresa = user.nome_instituicao;
+    const senha = user.senha;
     const cargo = user.cargo;
+    const telefone = user.telefone;
+    const nivel_acesso = user.nivel_acesso;
+    const status_usuario = user.status_usuario;
+    const empresa = user.nome_instituicao;
+    const id_instituicao = user.id_instituicao;
 
     const initialState: ModalOptions = {
       initialState: {
         list: [
           nome,
-          telefone,
-          empresa,
-          cargo,
           email,
+          senha,
+          cargo,
+          telefone,
+          nivel_acesso,
+          status_usuario,
+          empresa,
+          id_instituicao,
         ],
         title: 'Modal with component'
       }
     };
     this.bsModalRef = this.modalService.show(ModalChangeDataUserComponent, initialState);
     this.bsModalRef.content.closeBtnName = 'Close';
+    return user; 
   }   
 }

@@ -30,19 +30,20 @@ export class SolicitarComponent implements OnInit {
 
   ngOnInit(){
     this.solicitarService.listarEspacos().subscribe((event) => {
-      this.espacos = event.espaco
+      this.espacos = event.result
+      console.log(event)
     })
   } 
 
   solicitar(): void{
 
-    // Verifica se os dados inseridos são válidos
-    if(parseInt(this.espacoSelecionado) <= 0
-    || this.data == ""
-    || this.horario_entrada == ""
-    || this.horario_saida == ""
-    || this.descricao == "")
-    return;
+    // // Verifica se os dados inseridos são válidos
+    // if(parseInt(this.espacoSelecionado) <= 0
+    // || this.data == ""
+    // || this.horario_entrada == ""
+    // || this.horario_saida == ""
+    // || this.descricao == "")
+    // return;
 
 
     this.solicitarService.solicitar(
@@ -53,6 +54,7 @@ export class SolicitarComponent implements OnInit {
       this.descricao
     ).subscribe((event) => {
       console.log(event)
+      console.log(this.data);
 
       // Sucesso
       if(event.message === "Solicitação realizada") {

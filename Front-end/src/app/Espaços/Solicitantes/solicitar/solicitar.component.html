@@ -57,8 +57,9 @@
           <option *ngFor="let espaco of espacos" name="espaco" value={{espaco.id}}> {{ espaco.nome }} </option>
         </select>
         
+        <!-- <input type="text" name="data" placeholder="Data" class="input" [(ngModel)]="data"> -->
         <input type="text" name="data" placeholder="Data" onfocus="(this.type='date')" onblur="(this.type='text')" class="input" [(ngModel)]="data">
-      
+
         
     </div>
 

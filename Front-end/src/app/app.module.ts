@@ -45,7 +45,6 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
 import { LoginComponent } from './Portal/login/login.component';
 import { PhonePipe } from './pipes/phone.pipe';
 import { OnlyNumbersDirective } from './shared/only-numbers/only-numbers.directive';
-import { HourPipe } from './pipes/hour.pipe';
 
 
 @NgModule({
@@ -86,7 +85,6 @@ import { HourPipe } from './pipes/hour.pipe';
     NewAdmComponent,
     PhonePipe,
     OnlyNumbersDirective,
-    HourPipe
 
   ],
   imports: [

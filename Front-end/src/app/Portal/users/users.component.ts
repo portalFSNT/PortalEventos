@@ -19,7 +19,6 @@ export class UsersComponent {
 
   table:Users[] = [];
 
-  bsModalRef?: BsModalRef;
   constructor(
     private service: UsersService, 
     private modalService: BsModalService

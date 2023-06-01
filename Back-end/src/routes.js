@@ -95,6 +95,7 @@ router.delete("/espaco/:id_espaco",roles.adminRole, EspacoController.delEspaco);
 const SolicitacaoController = require("./controllers/espaco/SolicitacaoController");
 router.get("/solicitacao",roles.admin_solicitanteRole, SolicitacaoController.getAllSolicitacoes);
 router.get("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.getSolicitacaoById);
+router.get("/solicitacaostatus", roles.admin_solicitanteRole, SolicitacaoController.getStatus);
 router.post("/solicitacao",roles.admin_solicitanteRole, SolicitacaoController.addSolicitacao);
 router.patch("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.updateSolicitacao);
 router.delete("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.delSolicitacao);

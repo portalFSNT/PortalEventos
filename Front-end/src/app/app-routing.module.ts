@@ -41,8 +41,7 @@ const routes: Routes = [
 
   // -----ROTAS DO EVENTOS --------
 
-  {path: 'Eventos',component: HomeEventosComponent},
-  {path: 'login',component: LoginComponent},
+  {path: 'eventos',component: HomeEventosComponent},
   {path: 'cad-eventos', component: CadEventosComponent},
 
   // ROTAS DO SISTEMA DE ESPAÇOS

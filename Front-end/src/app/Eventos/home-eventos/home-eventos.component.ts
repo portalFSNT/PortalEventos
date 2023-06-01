@@ -28,7 +28,7 @@ export class HomeEventosComponent implements OnInit {
     const res= await modal.onDidDismiss();
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.service.listarEvento().subscribe((event)=>{
       this.agendamentos = event.result as Evento[]
       console.log(this.agendamentos)

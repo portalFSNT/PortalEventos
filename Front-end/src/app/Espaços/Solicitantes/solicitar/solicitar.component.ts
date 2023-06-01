@@ -55,7 +55,8 @@ export class SolicitarComponent implements OnInit {
     ).subscribe((event) => {
       console.log(event)
       console.log(this.data);
-
+      event.message = "Solicitação realizada"
+      
       // Sucesso
       if(event.message === "Solicitação realizada") {
 
@@ -65,8 +66,9 @@ export class SolicitarComponent implements OnInit {
         this.horario_entrada = ""
         this.horario_saida = "" 
         this.descricao = ""
-
+        
         // Abre o modal de confirmação
+        console.log("Modal")
         this.openModal1()
       }
     })

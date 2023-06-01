@@ -17,15 +17,15 @@
           <label for="" class="tittle-form">Nome</label>
           <input
             type="text"
-            placeholder="fundacao.nishimura"
+            placeholder="Nome Completo"
             class="input-form"
             formControlName="nome"
           />
         </div>
 
         <div class="dados">
-          <label for="" class="tittle-form">Telefone</label>
-          <input type="text" placeholder="(14) 99999-9999" class="input-form" formControlName="telefone"/>
+          <label for="" class="tittle-form" >Telefone</label>
+          <input maxlength="15" [value]="form.get('telefone')!.value! | phone" type="tel" placeholder="(14) 99999-9999" class="input-form" formControlName="telefone" appOnlyNumbers/>
         </div>
         <div class="dados">
           <label for="" class="tittle-form">Senha</label>
@@ -41,6 +41,7 @@
         <div class="dados">
           <label for="" class="tittle-form">Empresa</label>
           <input type="text" placeholder="Fundação FSNT" class="input-form" formControlName="instituicao"/>
+          
         </div>
         <div class="dados">
           <label for="" class="tittle-form">Cargo</label>

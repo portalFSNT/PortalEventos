@@ -13,6 +13,7 @@ import { HeaderComponent } from './Portal/header/header.component';
 import { HomeComponent } from './Portal/home/home.component';
 import { RegisterComponent } from './Portal/register/register.component';
 
+
 import { FuncionsEventosComponent } from './Portal/header/funcions-eventos/funcions-eventos.component';
 import { FuncionsConvidadosComponent } from './Portal/header/funcions-convidados/funcions-convidados.component';
 import { FuncionsEspacosComponent } from './Portal/header/funcions-espacos/funcions-espacos.component';
@@ -42,6 +43,8 @@ import { UsersPendingComponent } from './Portal/users-pending/users-pending.comp
 import { ModalAcceptDenyUserComponent } from './Portal/modal-accept-deny-user/modal-accept-deny-user.component';
 import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
 import { LoginComponent } from './Portal/login/login.component';
+import { PhonePipe } from './pipes/phone.pipe';
+import { OnlyNumbersDirective } from './shared/only-numbers/only-numbers.directive';
 
 
 @NgModule({
@@ -79,7 +82,9 @@ import { LoginComponent } from './Portal/login/login.component';
     Modal4Component,
     UsersPendingComponent,
     ModalAcceptDenyUserComponent,
-    NewAdmComponent
+    NewAdmComponent,
+    PhonePipe,
+    OnlyNumbersDirective
 
   ],
   imports: [
@@ -91,6 +96,7 @@ import { LoginComponent } from './Portal/login/login.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    
 
 
     // ====DECLARAÇÃOD DE ESPAÇOS ======
@@ -99,7 +105,6 @@ import { LoginComponent } from './Portal/login/login.component';
     FormsModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot()
-
   ],
   providers: [],
   bootstrap: [AppComponent]

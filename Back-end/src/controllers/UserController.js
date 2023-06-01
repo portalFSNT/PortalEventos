@@ -77,7 +77,6 @@ module.exports = {
         let emailp = req.params.email;
         let nome = req.body.nome;
         let email = req.body.email;
-        let senha = req.body.senha;
         let cargo = req.body.cargo;
         let telefone = req.body.telefone;
         let nivelAcesso = req.body.nivelAcesso;
@@ -85,12 +84,10 @@ module.exports = {
         let instituicao = req.body.instituicao;
 
         try{
-            const hashedPassword = await bcrypt.hash(senha, 8);
-            await UserService.updateUser(emailp, nome, email, hashedPassword, cargo, telefone, nivelAcesso, statusUsuario, instituicao);
+            await UserService.updateUser(emailp, nome, email, cargo, telefone, nivelAcesso, statusUsuario, instituicao);
             json.result = {
                 nome,
                 email,
-                senha,
                 cargo,
                 telefone,
                 nivelAcesso,

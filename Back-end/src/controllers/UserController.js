@@ -122,6 +122,7 @@ module.exports = {
             if(1 == results[0].status_usuario){
                 if(await bcrypt.compare(senha, results[0].senha)){
                    const token = jwt.sign({
+                        id: results[0].id,
                         nome: results[0].nome,
                         email: results[0].email,
                         nivelAcesso: results[0].nivel_acesso

@@ -24,13 +24,13 @@ export class ModalDeletarEspacoComponent implements OnInit {
 
   fecharModal() {
     this.modalcontroler.dismiss(); //Fecha o Modal
-    window.location.reload(); // Recarrega a página
   }
-
+  
   deletarEspaco() {
     this.service.deletarEspaco(this.exibirEspaco.id).subscribe((event) => {
       console.log(event)
       this.fecharModal()
+      window.location.reload(); // Recarrega a página
 
       // Solicitante
       if(event.message === "Espaço removido com sucesso") {

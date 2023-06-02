@@ -14,7 +14,6 @@ import { ModalChangeDataUserService } from '../modal-change-data-user/modal-chan
 })
 export class UsersComponent {
   
-  bsModalRef?: BsModalRef;
   @Input() user: any;
 
   table:Users[] = [];
@@ -35,7 +34,6 @@ export class UsersComponent {
   openModalWithComponent(user: any) {
     const nome = user.nome;
     const email = user.email;
-    const senha = user.senha;
     const cargo = user.cargo;
     const telefone = user.telefone;
     const nivel_acesso = user.nivel_acesso;
@@ -48,7 +46,6 @@ export class UsersComponent {
         list: [
           nome,
           email,
-          senha,
           cargo,
           telefone,
           nivel_acesso,

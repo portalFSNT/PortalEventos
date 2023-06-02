@@ -31,18 +31,35 @@ export class UsersPendingComponent implements OnInit {
 
   bsModalRef?: BsModalRef;
 
-
   
-  // openModalWithComponent(id) {
-  //   console.log(id);
-  //   // Aqui você pode usar o ID do usuário para obter as informações completas do usuário antes de abrir o modal
-  //   // Por exemplo, você pode chamar um serviço para obter os detalhes do usuário com base no ID
-
-  //   // Exemplo fictício para obter as informações do usuário com base no ID
-
-  //     // this.bsModalRef = this.modalService.show(ModalAcceptDenyUserComponent);
-  //     // this.bsModalRef.content.closeBtnName = 'Close';
-
-  // }
+  openModalWithComponent(user: any) {
+    const nome = user.nome;
+    const email = user.email;
+    const cargo = user.cargo;
+    const telefone = user.telefone;
+    const nivel_acesso = user.nivel_acesso;
+    const status_usuario = user.status_usurio;
+    const empresa = user.nome_instituicao;
+    const id_instituicao = user.id_instituicao;
+  
+    const initialState: ModalOptions = {
+      initialState: {
+        list: [
+          nome,
+          email,
+          cargo,
+          telefone,
+          nivel_acesso,
+          status_usuario,
+          empresa,
+          id_instituicao,
+        ],
+        title: 'Modal with component'
+      }
+    };
+    this.bsModalRef = this.modalService.show(ModalAcceptDenyUserComponent, initialState);
+    this.bsModalRef.content.closeBtnName = 'Close';
+    return user; 
+  }
 
 }

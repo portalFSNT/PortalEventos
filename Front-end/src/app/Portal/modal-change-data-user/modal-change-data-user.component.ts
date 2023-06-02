@@ -24,7 +24,6 @@ export class ModalChangeDataUserComponent implements OnInit {
     this.form = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       email: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      senha: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       cargo: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       telefone: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       statusUsuario: [''],
@@ -39,7 +38,6 @@ export class ModalChangeDataUserComponent implements OnInit {
     const user = {
       nome: this.form.value.nome,
       email: this.form.value.email,
-      senha: this.form.value.senha,
       cargo: this.form.value.cargo,
       telefone: this.form.value.telefone,
       nivelAcesso: this.form.value.nivelAcesso,
@@ -65,12 +63,11 @@ export class ModalChangeDataUserComponent implements OnInit {
       this.form.patchValue({
         nome: this.list[0],
         email: this.list[1],
-        senha: this.list[2],
-        cargo: this.list[3],
-        telefone: this.list[4],
-        statusUsuario: this.list[6],
-        nivelAcesso: this.list[5],
-        id_instituicao: this.list[8]
+        cargo: this.list[2],
+        telefone: this.list[3],
+        statusUsuario: this.list[5],
+        nivelAcesso: this.list[4],
+        id_instituicao: this.list[7]
       });
     }
   }

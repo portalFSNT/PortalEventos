@@ -36,15 +36,6 @@ CREATE TABLE `convidado` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `convidado`
---
-
-LOCK TABLES `convidado` WRITE;
-/*!40000 ALTER TABLE `convidado` DISABLE KEYS */;
-/*!40000 ALTER TABLE `convidado` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `empresa`
 --
 
@@ -59,15 +50,6 @@ CREATE TABLE `empresa` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `empresa`
---
-
-LOCK TABLES `empresa` WRITE;
-/*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empresa` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `espaco`
 --
 
@@ -80,18 +62,8 @@ CREATE TABLE `espaco` (
   `ponto_referencia` varchar(120) DEFAULT NULL,
   `descricao` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `espaco`
---
-
-LOCK TABLES `espaco` WRITE;
-/*!40000 ALTER TABLE `espaco` DISABLE KEYS */;
-INSERT INTO `espaco` VALUES (1,'Casa do Kleber','Perto da Casa do Kleber','O Kleber mora lá');
-/*!40000 ALTER TABLE `espaco` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `evento_agenda`
@@ -125,15 +97,6 @@ CREATE TABLE `evento_agenda` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `evento_agenda`
---
-
-LOCK TABLES `evento_agenda` WRITE;
-/*!40000 ALTER TABLE `evento_agenda` DISABLE KEYS */;
-/*!40000 ALTER TABLE `evento_agenda` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `evento_convidado`
 --
 
@@ -154,15 +117,6 @@ CREATE TABLE `evento_convidado` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `evento_convidado`
---
-
-LOCK TABLES `evento_convidado` WRITE;
-/*!40000 ALTER TABLE `evento_convidado` DISABLE KEYS */;
-/*!40000 ALTER TABLE `evento_convidado` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `evento_presenca`
 --
 
@@ -180,15 +134,6 @@ CREATE TABLE `evento_presenca` (
   CONSTRAINT `fk_evento_presenca_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `evento_presenca`
---
-
-LOCK TABLES `evento_presenca` WRITE;
-/*!40000 ALTER TABLE `evento_presenca` DISABLE KEYS */;
-/*!40000 ALTER TABLE `evento_presenca` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `imagem`
@@ -213,15 +158,6 @@ CREATE TABLE `imagem` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `imagem`
---
-
-LOCK TABLES `imagem` WRITE;
-/*!40000 ALTER TABLE `imagem` DISABLE KEYS */;
-/*!40000 ALTER TABLE `imagem` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `instituicao`
 --
 
@@ -236,16 +172,6 @@ CREATE TABLE `instituicao` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `instituicao`
---
-
-LOCK TABLES `instituicao` WRITE;
-/*!40000 ALTER TABLE `instituicao` DISABLE KEYS */;
-INSERT INTO `instituicao` VALUES (1,'Fundacao');
-/*!40000 ALTER TABLE `instituicao` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `lugar`
 --
 
@@ -258,16 +184,6 @@ CREATE TABLE `lugar` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `lugar`
---
-
-LOCK TABLES `lugar` WRITE;
-/*!40000 ALTER TABLE `lugar` DISABLE KEYS */;
-INSERT INTO `lugar` VALUES (1,'Casa do Jacinto');
-/*!40000 ALTER TABLE `lugar` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `solicitacao`
@@ -293,17 +209,8 @@ CREATE TABLE `solicitacao` (
   KEY `fk_solicitacao_espaco` (`id_espaco`),
   CONSTRAINT `fk_solicitacao_espaco` FOREIGN KEY (`id_espaco`) REFERENCES `espaco` (`id`),
   CONSTRAINT `fk_solicitacao_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `solicitacao`
---
-
-LOCK TABLES `solicitacao` WRITE;
-/*!40000 ALTER TABLE `solicitacao` DISABLE KEYS */;
-/*!40000 ALTER TABLE `solicitacao` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tipo`
@@ -320,16 +227,6 @@ CREATE TABLE `tipo` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tipo`
---
-
-LOCK TABLES `tipo` WRITE;
-/*!40000 ALTER TABLE `tipo` DISABLE KEYS */;
-INSERT INTO `tipo` VALUES (1,'Convencao');
-/*!40000 ALTER TABLE `tipo` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `usuario`
 --
 
@@ -344,22 +241,14 @@ CREATE TABLE `usuario` (
   `cargo` varchar(80) NOT NULL,
   `telefone` varchar(18) NOT NULL,
   `nivel_acesso` varchar(20) DEFAULT NULL,
-  `status_usuario` tinyint(1) NOT NULL,
+  `status_usuario` tinyint DEFAULT NULL,
   `id_instituicao` int NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `user_unique_email` (`email`),
   KEY `fk_instituicao_usuario` (`id_instituicao`),
   CONSTRAINT `fk_instituicao_usuario` FOREIGN KEY (`id_instituicao`) REFERENCES `instituicao` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario`
---
-
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -370,4 +259,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-29  9:15:46
+-- Dump completed on 2023-06-02  8:16:47

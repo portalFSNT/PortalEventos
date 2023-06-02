@@ -65,16 +65,26 @@ module.exports = {
         });
     },
 
-    updateUser: (emailp, nome, email, senha, cargo, telefone, nivelAcesso, statusUsuario, instituicao) => {
+    updateUser: (emailp, nome, email, cargo, telefone, nivelAcesso, statusUsuario, instituicao) => {
         return new Promise((acepted, rejected) => {
             
-            db.query('UPDATE usuario SET nome = ?, email = ?, senha = ?, cargo = ?, telefone = ?, nivel_acesso = ?, status_usuario = ?, id_instituicao = ? WHERE email = ?',
-                [nome, email, senha, cargo, telefone, nivelAcesso, statusUsuario, instituicao, emailp],
+            db.query('UPDATE usuario SET nome = ?, email = ?, cargo = ?, telefone = ?, nivel_acesso = ?, status_usuario = ?, id_instituicao = ? WHERE email = ?',
+                [nome, email, cargo, telefone, nivelAcesso, statusUsuario, instituicao, emailp],
                 (error, results) => {
                     if (error) { rejected(error); return; }
                     acepted(results);
                 }
             );
+        });
+    },
+
+    updateStatusUser: (email, nivelAcesso) => {
+        return new Promise((acepted, rejected) => {
+            db.query('UPDATE usuario SET status_usuario =? WHERE email=?',
+            [nivelAcesso, email], (error, result) => {
+                if(error){ rejected(error); return;}
+                acepted(result);
+            })
         });
     },
 

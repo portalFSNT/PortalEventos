@@ -128,6 +128,25 @@ module.exports = {
         }
     },
 
+    updateSenha: async (req, res) => {
+        let json = {error:'', result:{}};
+
+        let email = req.params.email;
+        let senha = req.body.senha;
+
+        try{
+            const hashedPassword = await bcrypt.hash(senha, 8);
+            await UserService.updateSenha(email, hashedPassword);
+            json.result = {
+                hashedPassword
+            }
+        }catch(error){
+            console.log(error);
+        }
+        res.json(json);
+
+    },
+
     delUser: async(req, res) => {
         let json = {error:'', result:{}};
 

@@ -88,6 +88,16 @@ module.exports = {
         });
     },
 
+    updateSenha: (email, senha) => {
+        return new Promise((acepted, reject) => {
+            db.query('UPDATE usuario SET senha = ? WHERE email = ?',
+            [senha, email], (error, result) => {
+                if(error) { reject(error); return; }
+                acepted(result);
+            });
+        });
+    },
+
     delUser: (email) => {
         return new Promise((acepted, rejected) => {
 

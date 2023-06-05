@@ -32,6 +32,7 @@ router.get('/userstatus/',roles.adminRole, UserController.getStatus);
 router.post('/user', UserController.addUser);
 router.patch('/user/:email', UserController.updateUser);
 router.patch('/user/userstatus/:email',roles.adminRole, UserController.updateStatusUser);
+router.patch('/user/senha/:email', roles.adminRole, UserController.updateSenha);
 router.delete('/user/:email', UserController.delUser);
 router.post('/login', UserController.login);
 

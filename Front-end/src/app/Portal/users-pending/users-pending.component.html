@@ -31,11 +31,7 @@
           <td>{{ user.email }}</td>
           <td>{{ user.telefone }}</td>
           <td>{{ user.nivel_acesso }}</td>
-          <td>
-            <!-- <button (click)="accept(user.id)">Aceitar</button> -->
-            <button>Negar</button>
-          </td>
-          <!-- <td (click)="openModalWithComponent(user.id)">{{ user.status_usuario }}</td> -->
+          <td (click)="openModalWithComponent(user)">Pendente</td> 
         </tr>        
         
       </table>

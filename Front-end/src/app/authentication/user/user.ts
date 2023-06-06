@@ -2,6 +2,6 @@ export interface User {
     id?: number,
     email?: string,
     senha?: string,
-    status_usuario?: boolean,
+    status_usuario?: number,
     nivel_acesso?: string
 }

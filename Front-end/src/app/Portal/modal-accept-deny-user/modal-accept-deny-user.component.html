@@ -3,9 +3,9 @@
         <h3>Aprovação</h3>
         <img src="../../../assets/Icons/icon-fechar-modal-g.svg" alt="" (click)="bsModalRef.hide()">
     </div>
-    <p>Você deseja aceitar a solicitação de Jaqueline Nakagawa?</p>
+    <p>Você deseja aceitar a solicitação de </p>
     <div class="buttons">
-        <button class="button-deny">Negar</button>
-        <button class="button-accept">Aceitar</button>
+        <button class="button-deny" (click)="denyUser()">Negar</button>
+        <button class="button-accept" (click)="acceptUser()">Aceitar</button>
     </div>
 </div>

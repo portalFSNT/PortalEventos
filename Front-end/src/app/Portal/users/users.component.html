@@ -28,7 +28,7 @@
           <div class="search-box">
             <input type="text" class="search-text" placeholder="Pesquisar..." />
             <a href="" class="search-btn">
-              <img src="../../../assets/Icons/icon-lupa (1).svg" alt="" />
+              <img src="../../assets/Portal/icon-lupa.svg" alt="" />
             </a>
           </div>
         </div>
@@ -49,11 +49,8 @@
           <td>{{ user.nome }}</td>
           <td>{{ user.nome_instituicao }}</td>
           <td>{{ user.email }}</td>
-
           <td>{{ user.telefone | phone }}</td>
-          <td>{{ user.nivel_acesso }}</td>
-          <!-- <td (click)="openModalWithComponent()"><label class="adm">Adiministrador</label></td> -->
-
+          <td (click)="openModalWithComponent(user)">{{ user.nivel_acesso }}</td>
         </tr>
       </table>
     </div>

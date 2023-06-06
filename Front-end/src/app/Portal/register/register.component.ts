@@ -22,7 +22,7 @@ export class RegisterComponent {
       cargo: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       telefone: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       nivelAcesso: "Solicitante",
-      statusUsuario: 1,
+      statusUsuario: 0,
       instituicao: 1
     });
   }

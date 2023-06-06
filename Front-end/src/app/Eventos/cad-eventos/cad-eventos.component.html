@@ -1,65 +1,89 @@
 <app-header></app-header>
-<header>
-    <div class="container">
-        <div class="imgHome"> 
-            <h1>Cadastro Eventos</h1>
+
+<div class="container">
+  <section id="body">
+    <h3>Preencha as Informações do Novo Evento</h3>
+    <form [formGroup]="form" class="forms">
+      <div class="flex-box-form">
+        <div class="form-left">
+  
+          <div class="dados">
+            <label for="" class="tittle-form">Nome do Evento</label>
+            <input formControlName="nome" id="input-cad-eventos" type="text" placeholder="Nome do Evento" class="input-form w704" formControlName="nome" >
+          </div>
+          <div class="dados">
+            <label for="" class="tittle-form">Tipo de Evento</label>
+            <select formControlName="tipo" name="text" formControlName="tipo" class="select" id="select" class="input-form w250" placeholder="Nome do Evento">
+              <option value="" >Tipo do evento</option>
+              <option value="Visita">Visita</option>
+              <option value="Workshop">Workshop</option>
+              <option value="Palestra">Palestra</option>
+              <option value="Reunião">Reunião</option>
+              <option value="Apresentação">Apresentação</option>
+            </select>
+          </div>
+          <div class="dados">
+            <label for="" class="tittle-form">Nome do Espaço</label>
+            <input type="text" placeholder="Nome do Espaço" class="input-form w704" formControlName="nome">
+          </div>
+          <div class="dados">
+            <label for="" class="tittle-form">Instituição</label>
+            <select class="lugar-input" name="text" formControlName="tipo" class="select" id="select" class="input-form w704" placeholder="Nome do Evento">
+              <option value="Senai" >Senai</option>
+              <option value="Fatec">Fatec</option>
+              <option value="Colégio">Colégio</option>
+              <option value="Hotel">Hotel</option>
+              <option value="Museu">Museu</option>
+            </select>
+          </div>
+          <div class="dados">
+            <label for="" class="tittle-form">Endereço</label>
+            <input type="text" placeholder="Endereço" class="input-form  w704" formControlName="nome">
+          </div>
+          <div class="dados">
+            <label for="" class="tittle-form">Descrição</label>
+            <textarea formControlName="descricao" placeholder="Descrição" id="descricao" cols="55" rows="5" class="input-form descri"></textarea>
+          </div>
         </div>
-        
-    </div>
-</header>
+  
+        <div class="form-right">
+  
+          <div class="collun2">
+            <div class="dados">
+              <label for="" class="tittle-form">Data de Início</label>
+              <input ormControlName="data_inicio" type="date" placeholder="Fundação FSNT" class="input-form w184 pad" formControlName="instituicao"/>
+            </div>
+            <div class="dados">
+              <label for="" class="tittle-form">Data de Término</label>
+              <input ormControlName="data_termino" type="date" placeholder="Fundação FSNT" class="input-form w184 pad" formControlName="instituicao"/>
+            </div>
 
-<form [formGroup]="inputsCadEvent" class="container-eventos">
-  <div class="input-icon">
-    <input formControlName="nome" id="input-cad-eventos" type="text" placeholder="Nome do evento" required>
-    <img src="./../../assets/Eventos/evento.svg">
-  </div>
-  <div class="align-input-eventos">
-    <div class="input-icon">
-      <input formControlName="hora_inicio" type="text" placeholder="Horário do inicio" required>
-      <img src="./../../assets/Eventos/hora.svg">
-    </div>
-    <div class="input-icon">
-      <input formControlName="hora_fim" type="text" placeholder="Horário do término" required>
-      <img src="./../../assets/Eventos/hora.svg">
-    </div>
-    <div class="input-icon">
-      <select name="text" formControlName="tipo" class="select" id="select">
-        <option value="">Tipo do evento</option>
-        <option value="Visita">Visita</option>
-        <option value="Workshop">Workshop</option>
-        <option value="Palestra">Palestra</option>
-        <option value="Reunião">Reunião</option>
-        <option value="Apresentação">Apresentação</option>
-      </select>
-      <img src="./../../assets/Eventos/tipoEvento.svg">
-    </div>
-    <div class="input-icon">
-      <input formControlName="data_inicio" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Data do inicio" required>
-      <img src="./../../assets/Eventos/dataEvento.svg">
-    </div>
-
-    
-
-      <div class="input-icon">
-        <input class="lugar-input" formControlName="lugar" type="text" placeholder="Lugar do evento" required>
-        <img src="./../../assets/Eventos/lugar.svg">
+          </div>
+          <div class="collun2">
+            <div class="dados">
+              <label for="" class="tittle-form">Hora de Início</label>
+              <input formControlName="hora_inicio" type="time" placeholder="Fundação FSNT" class="input-form w184 pad" formControlName="instituicao"/>
+            </div>
+            <div class="dados">
+              <label for="" class="tittle-form">Hora de Término</label>
+              <input formControlName="hora_termino" type="time" placeholder="Fundação FSNT" class="input-form w184 pad" formControlName="instituicao"/>
+            </div>
+          </div>
+  
+          
+          <div class="dados">
+            <label for="" class="tittle-form">Imagem</label>
+            
+            <input type="file" name="img1" id="img1" class="input-form image">
+          </div>
+  
+        </div>
       </div>
+      <div class="buttons">
 
-      <div class="input-icon">
-        <textarea formControlName="descricao" placeholder="Descrição" id="descricao" cols="55" rows="5"></textarea>
-        <img src="./../../assets/Eventos/descricao.svg">
+        <button type="button" class="button-cancel" (click)="onCancel()">Cancelar</button>
+        <button type="submit" class="button-register" (click)="onSubmit()">Cadastrar</button>
       </div>
-      <span>Adicionar imagens</span>
-
-      <div class="inputs-img">
-
-        <label for="img1"><img src="./../../assets/Eventos/mais.svg"></label>
-        <input type="file" name="img1" id="img1">
-      </div>
-
-      <div class="align-btn-cad-eventos1">
-        <button (click)="onCancel()">Cancelar</button>
-        <button  (click)="onSubmit()" class="btn btn-primary">Salvar</button>
-      </div>
-  </div>
-</form>
+    </form>
+  </section>
+</div>

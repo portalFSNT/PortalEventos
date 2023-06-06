@@ -78,20 +78,20 @@ module.exports = {
         let emailp = req.params.email;
         let nome = req.body.nome;
         let email = req.body.email;
-        let senha = req.body.senha;
         let cargo = req.body.cargo;
         let telefone = req.body.telefone;
         let nivelAcesso = req.body.nivelAcesso;
         let statusUsuario = req.body.statusUsuario;
         let instituicao = req.body.instituicao;
 
+
         try {
             const hashedPassword = await bcrypt.hash(senha, 8);
             await UserService.updateUser(emailp, nome, email, hashedPassword, cargo, telefone, nivelAcesso, statusUsuario, instituicao);
+
             json.result = {
                 nome,
                 email,
-                senha,
                 cargo,
                 telefone,
                 nivelAcesso,
@@ -105,8 +105,55 @@ module.exports = {
         res.json(json);
     },
 
+    updateStatusUser: async(req,res) => {
+        let json = { error:'', result:{}};
+
+        let email = req.params.email;
+        let statusUsuario = req.body.status_usuario
+
+        try{
+            await UserService.updateStatusUser(email, statusUsuario);
+
+            if(statusUsuario = 1){
+                return res.status(200).send({
+                    message: 'Cadastro do usuario foi aprovado.'
+                });
+            }
+            if(statusUsuario = 2){
+                return res.status(200).send({
+                    message: 'Cadastro do usuario foi negado.'
+                });
+            }
+
+        }catch(error){
+            return res.status(500).send({
+                message: 'Não foi possivel completar a requisição.'
+            });
+        }
+    },
+
+    updateSenha: async (req, res) => {
+        let json = {error:'', result:{}};
+
+        let email = req.params.email;
+        let senha = req.body.senha;
+
+        try{
+            const hashedPassword = await bcrypt.hash(senha, 8);
+            await UserService.updateSenha(email, hashedPassword);
+            json.result = {
+                hashedPassword
+            }
+        }catch(error){
+            console.log(error);
+        }
+        res.json(json);
+
+    },
+
     delUser: async (req, res) => {
         let json = { error: '', result: {} };
+
 
         await UserService.delUser(req.params.email);
         res.json(json);
@@ -139,7 +186,6 @@ module.exports = {
                         message: 'Autenticado com sucesso',
                         token: token,
                     });
-                    console.log(token);
                 }
             }
             return res.status(401).send({ message: 'Falha na autenticação' });

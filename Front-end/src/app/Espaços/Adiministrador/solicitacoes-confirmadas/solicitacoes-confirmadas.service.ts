@@ -11,13 +11,17 @@ const API = environment.API;
   providedIn: 'root'
 })
 export class SolicitacoesConfirmadasService {
-  constructor(private tokenService : TokenService, private http: HttpClient) { }
 
-  private readonly API=`${API}/solicitacao`;
+  constructor(
+    private tokenService : TokenService,
+    private http: HttpClient  
+  ) { }
+
+  private readonly API = `${API}/solicitacao`;
   private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
 
 
-  listarSolicitacoesConfirmadas():Observable<any>{
-    return this.http.get<any>(this.API, { headers: this.header})
+  listarSolicitacoesConfirmadas():Observable<any>{    
+    return this.http.get<any>(this.API, { headers: this.header });
   }
 }

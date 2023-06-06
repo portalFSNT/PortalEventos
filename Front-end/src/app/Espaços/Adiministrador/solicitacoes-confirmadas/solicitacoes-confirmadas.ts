@@ -1,6 +1,8 @@
 export interface SolicitacoesConfirmadas {
     id: number;
     status_solicitacao: number;
+    data_solicitacao: string;
+    horario_entrada: string;
     quantidade: number;
     data_inicio: string;
     data_termino: string;
@@ -9,6 +11,6 @@ export interface SolicitacoesConfirmadas {
     descricao: string;
     id_espaco: number;
     espaco_nome: string;
-    id_usuario: number;
     usuario_nome: string;
+    id_usuario: number;
 }

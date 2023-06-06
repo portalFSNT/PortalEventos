@@ -16,13 +16,17 @@
             <th>Data</th>
             <th>Horário</th>
             <th>Local</th>
+            <th>Solicitante</th>
+            <th>Status</th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let rows of table">
-            <td>{{ rows.data_inicio }}</td>
+        <tbody *ngFor="let rows of table">
+          <tr *ngIf="rows.status_solicitacao === 1">
+            <td>{{ rows.data_inicio | date:'dd/MM/yyyy' }}</td>
             <td>{{ rows.hora_inicio }}</td>
             <td>{{ rows.espaco_nome }}</td>
+            <td>{{ rows.usuario_nome }}</td>
+            <td>Aprovado</td>
           </tr>
         </tbody>
       </table>

@@ -14,10 +14,19 @@ export class SolicitacoesComponent implements OnInit {
 
   exibirsolicitacoes:Solicitacoes[]=[];
 
-  constructor(private modalcontroler:ModalController, private service: SolicitacoesService, ) { }
+  constructor(
+    private modalcontroler:ModalController, 
+    private service: SolicitacoesService,
+  ) { }
   
-  async openModal_aceitar(solicitacao:Solicitacoes){
+  ngOnInit(): void {
+    this.service.listarSolicitacoes().subscribe((event)=> {
+      this.exibirsolicitacoes = event.result as Solicitacoes[]
+      console.log(this.exibirsolicitacoes);
+    })
+  }
 
+  async openModal_aceitar(solicitacao:Solicitacoes){
     const modal = await this.modalcontroler.create({
       component: ModalAceitarComponent, 
       componentProps: {
@@ -30,12 +39,4 @@ export class SolicitacoesComponent implements OnInit {
       this.ngOnInit()
     }
   }
-
-  ngOnInit(): void {
-    this.service.listarSolicitacoes().subscribe((event)=> {
-      this.exibirsolicitacoes = event.solicitacoes as Solicitacoes[]
-      console.log(event)
-    })
-  }
-
 }

@@ -21,13 +21,13 @@
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let rows of exibirsolicitacoes">
-            <td>{{rows.data}}</td>
-            <td>{{rows.horario_entrada}}</td>
-            <td>{{rows.espaco}}</td>
+        <tbody *ngFor="let rows of exibirsolicitacoes">
+          <tr *ngIf="rows.status_solicitacao === 0">
+            <td>{{  rows.data_inicio  }}</td>
+            <td>{{  rows.hora_inicio  }}</td>
+            <td>{{  rows.espaco_nome  }}</td>
             <td (click)="openModal_aceitar(rows)">Aceitar ou negar</td>
-            <td>{{rows.status}}</td>
+            <td>Pendente</td>
           </tr>
         </tbody>
       </table>

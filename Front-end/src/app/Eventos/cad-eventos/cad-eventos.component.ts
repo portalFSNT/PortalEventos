@@ -2,15 +2,16 @@
 import { Router } from '@angular/router';
 import { CadEventosService } from './cad-eventos.service';
 import { CadEventos } from './cad-eventos';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TipoEvento } from './tipo';
 
 @Component({
   selector: 'app-cad-eventos',
   templateUrl: './cad-eventos.component.html',
   styleUrls: ['./cad-eventos.component.scss', '../styles.scss']
 })
-export class CadEventosComponent {
+export class CadEventosComponent implements OnInit {
 
   // inputsCadEvent!:FormGroup;
   // submitted = false;
@@ -40,40 +41,36 @@ export class CadEventosComponent {
 
   form: FormGroup;
   submitted = false;
+  espacos: CadEventos[] = []
+  tipos: TipoEvento[] = []
+  espacoSelecionado: string = "0"
 
   constructor(private fb: FormBuilder,
-    private service: CadEventosService){
+    private service: CadEventosService) {
 
     this.form = this.fb.group({
-      nome: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      descricao: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      data_inicio: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      data_termino: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      hora_inicio: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      hora_termino: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      descricao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      data_inicio: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      data_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      hora_inicio: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      hora_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       id_usuario: 1,
-      id_lugar:[null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      id_tipo:[null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      id_instituicao:[null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      id_lugar: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      tipo: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
     });
   }
 
+  ngOnInit() {
+    this.service.listarEspacos().subscribe(({results}) => {
+      this.tipos = results
+      console.log(this.tipos)
+    })
+  }
   onSubmit() {
-    this.submitted = true;
-    console.log(this.form.value);
-    if (this.form.valid) {
-      console.log('Submit');
-      this.service.cadastrarEventos(this.form.value).subscribe(
-        sucess => console.log('Sucesso'),
-        error => console.log('Error'),
-        () => console.log('Rquest Completo')
-      );
-    }
+
   }
   onCancel() {
-    this.submitted = false;
-    this.form.reset();
-    // console.log("Cancel")
   }
 
 }

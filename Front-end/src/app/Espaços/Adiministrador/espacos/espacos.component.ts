@@ -13,21 +13,21 @@ export class EspacosComponent implements OnInit {
 
   @Input() user: any;
 
-  table:Espacos[] = [];
+  table: Espacos[] = [];
 
-  constructor(private service: EspacosService, private modalcontroler:ModalController) {}
+  constructor(private service: EspacosService, private modalcontroler: ModalController) { }
 
   ngOnInit() {
-      this.service.listarEspacos().subscribe((event) => {
-        this.table = event.result as Espacos[]
-        console.log(this.table);
-      })
+    this.service.listarEspacos().subscribe((event) => {
+      this.table = event.result as Espacos[]
+      console.log(this.table);
+    })
   }
 
-  exibirespacos:Espacos[]=[];
+  exibirespacos: Espacos[] = [];
 
-  
-  async openModal_deletar_espaco(espaco:Espacos){
+
+  async openModal_deletar_espaco(espaco: Espacos) {
 
     const modal = await this.modalcontroler.create({
       component: ModalDeletarEspacoComponent,
@@ -38,7 +38,7 @@ export class EspacosComponent implements OnInit {
     });
     await modal.present();
     // Recarrega a página ao fechar o modal
-    if(await modal.onDidDismiss()) {
+    if (await modal.onDidDismiss()) {
       this.ngOnInit()
     }
   }

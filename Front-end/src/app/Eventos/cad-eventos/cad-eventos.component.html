@@ -3,7 +3,7 @@
 <div class="container">
   <section id="body">
     <h3>Preencha as Informações do Novo Evento</h3>
-    <form [formGroup]="form" class="forms">
+    <form class="forms" [formGroup]="form">
       <div class="flex-box-form">
         <div class="form-left">
   
@@ -13,13 +13,10 @@
           </div>
           <div class="dados">
             <label for="" class="tittle-form">Tipo de Evento</label>
+
             <select formControlName="tipo" name="text" formControlName="tipo" class="select" id="select" class="input-form w250" placeholder="Nome do Evento">
-              <option value="" >Tipo do evento</option>
-              <option value="Visita">Visita</option>
-              <option value="Workshop">Workshop</option>
-              <option value="Palestra">Palestra</option>
-              <option value="Reunião">Reunião</option>
-              <option value="Apresentação">Apresentação</option>
+              <option value="0"> Selecione um Espaço </option>
+              <option *ngFor="let evento of tipos" name="espaco" value={{evento.id}}> {{ evento.tipo }} </option>
             </select>
           </div>
           <div class="dados">
@@ -28,7 +25,7 @@
           </div>
           <div class="dados">
             <label for="" class="tittle-form">Instituição</label>
-            <select class="lugar-input" name="text" formControlName="tipo" class="select" id="select" class="input-form w704" placeholder="Nome do Evento">
+            <select class="lugar-input" name="text" formControlName="id_lugar" class="select" id="select" class="input-form w704" placeholder="Nome do Evento">
               <option value="Senai" >Senai</option>
               <option value="Fatec">Fatec</option>
               <option value="Colégio">Colégio</option>
@@ -51,22 +48,22 @@
           <div class="collun2">
             <div class="dados">
               <label for="" class="tittle-form">Data de Início</label>
-              <input ormControlName="data_inicio" type="date" placeholder="Fundação FSNT" class="input-form w184 pad" formControlName="instituicao"/>
+              <input formControlName="data_inicio" type="date" placeholder="Fundação FSNT" class="input-form w184 pad"/>
             </div>
             <div class="dados">
               <label for="" class="tittle-form">Data de Término</label>
-              <input ormControlName="data_termino" type="date" placeholder="Fundação FSNT" class="input-form w184 pad" formControlName="instituicao"/>
+              <input formControlName="data_termino" type="date" placeholder="Fundação FSNT" class="input-form w184 pad"/>
             </div>
 
           </div>
           <div class="collun2">
             <div class="dados">
               <label for="" class="tittle-form">Hora de Início</label>
-              <input formControlName="hora_inicio" type="time" placeholder="Fundação FSNT" class="input-form w184 pad" formControlName="instituicao"/>
+              <input formControlName="hora_inicio" type="time" placeholder="Fundação FSNT" class="input-form w184 pad"/>
             </div>
             <div class="dados">
               <label for="" class="tittle-form">Hora de Término</label>
-              <input formControlName="hora_termino" type="time" placeholder="Fundação FSNT" class="input-form w184 pad" formControlName="instituicao"/>
+              <input formControlName="hora_termino" type="time" placeholder="Fundação FSNT" class="input-form w184 pad"/>
             </div>
           </div>
   

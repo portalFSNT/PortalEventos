@@ -5,6 +5,7 @@ import { CadEventos } from './cad-eventos';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TipoEvento } from './tipo';
+import { Lugar } from './lugar';
 
 @Component({
   selector: 'app-cad-eventos',
@@ -43,6 +44,7 @@ export class CadEventosComponent implements OnInit {
   submitted = false;
   espacos: CadEventos[] = []
   tipos: TipoEvento[] = []
+  lugar: Lugar[] = []
   espacoSelecionado: string = "0"
 
   constructor(private fb: FormBuilder,
@@ -62,7 +64,11 @@ export class CadEventosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.listarEspacos().subscribe(({results}) => {
+    this.service.listarTipos().subscribe(({results}) => {
+      this.tipos = results
+      console.log(this.tipos)
+    })
+    this.service.listarLugar().subscribe(({results}) => {
       this.tipos = results
       console.log(this.tipos)
     })

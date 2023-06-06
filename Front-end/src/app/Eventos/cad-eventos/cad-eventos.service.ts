@@ -15,7 +15,8 @@ const API = environment.API;
   providedIn: 'root'
 })
 export class CadEventosService {
-  private readonly API_BuscarEspacos=`${API}/tipos`;
+  private readonly API_BuscarTipos=`${API}/tipos`;
+  private readonly API_BuscarLugar=`${API}/instituicoes`;
   
   
   constructor(private http: HttpClient, private tokenService : TokenService) { }
@@ -31,8 +32,12 @@ export class CadEventosService {
   enviarUsuario(enviarUsuario: any){
     return this.http.post(`${API}/login`, enviarUsuario)
   }
-  listarEspacos():Observable<MarransatoMode<TipoEvento[]>>{
+  listarTipos():Observable<MarransatoMode<TipoEvento[]>>{
   
-    return this.http.get<MarransatoMode<TipoEvento[]>>(this.API_BuscarEspacos, { headers: this.header })
+    return this.http.get<MarransatoMode<TipoEvento[]>>(this.API_BuscarTipos, { headers: this.header })
+  }
+  listarLugar():Observable<MarransatoMode<TipoEvento[]>>{
+  
+    return this.http.get<MarransatoMode<TipoEvento[]>>(this.API_BuscarLugar, { headers: this.header })
   }
 }

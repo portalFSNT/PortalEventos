@@ -73,14 +73,15 @@ exports.admin_visualizadorRole = (req, res, next) => {
         return res.status(401).send({ mensagem: 'Falha na autenticação ' });
     }     
 },
-
 exports.admin_solicitanteRole = (req, res, next) => {
     try{
         const token = req.headers.authorization.split(' ')[1];
         const decode = jwt.verify(token, process.env.JWT_KEY);
         const role = decode.nivelAcesso; 
+        req.user = decode.sub;
 
         console.log(decode);
+
 
         if(role == process.env.admin || role == process.env.solicitante){
             next();

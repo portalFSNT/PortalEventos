@@ -8,7 +8,7 @@ import { BehaviorSubject } from "rxjs";
     providedIn: "root"
 })
 export class UserService {
-    private userSubject = new BehaviorSubject<User>({});
+    private userSubject = new BehaviorSubject<User>({ id: undefined});
 
     constructor(private tokenService: TokenService){
         if(this.tokenService.haveToken()){
@@ -20,9 +20,12 @@ export class UserService {
         const token = this.tokenService.returnToken();
         const user = jwt_decode(token) as User;
         this.userSubject.next(user);
+        user.id !== undefined ? user.id : null;
+        this.userSubject.next(user);
     }
     returnUser(){
-        return this.userSubject.asObservable();
+        //return this.userSubject.asObservable();
+        return this.userSubject;
     }
 
     saveToken(token: string){

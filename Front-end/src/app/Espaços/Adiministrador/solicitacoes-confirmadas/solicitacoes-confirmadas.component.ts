@@ -9,14 +9,11 @@ import { SolicitacoesConfirmadas } from './solicitacoes-confirmadas';
 })
 export class SolicitacoesConfirmadasComponent implements OnInit {
 
-  @Input() solicitacoes: any;
   table:SolicitacoesConfirmadas[] = [];
-  constructor(private service: SolicitacoesConfirmadasService) { }
 
-
-
-
-
+  constructor(
+    private service: SolicitacoesConfirmadasService
+  ) { }
 
   ngOnInit() {
       this.service.listarSolicitacoesConfirmadas().subscribe((event) => {

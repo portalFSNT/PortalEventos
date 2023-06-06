@@ -1,45 +1,46 @@
 const UserService = require("../services/UserService");
 const bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
+const User = require("../models/user.model");
 
 module.exports = {
 
     getAll: async (req, res) => {
-        let json = {error:'', result:[]};
+        let json = { error: '', result: [] };
 
         let users = await UserService.getAll();
 
-        if(users){
+        if (users) {
             json.result = users;
         }
         res.json(json);
     },
 
-    getById: async(req, res) => {
-        let json = {error:'', result:[]};
+    getById: async (req, res) => {
+        let json = { error: '', result: [] };
 
         let email = req.params.email;
         let user = await UserService.getById(email);
 
-        if(user){
+        if (user) {
             json.result = user;
         }
         res.json(json);
     },
 
     getStatus: async (req, res) => {
-        let json = {error:'', result:[]};
+        let json = { error: '', result: [] };
 
         let user = await UserService.getStatus();
 
-        if(user){
+        if (user) {
             json.result = user;
         }
         res.json(json);
     },
 
-    addUser: async(req, res) => {
-        let json = {error:'', result:[]};
+    addUser: async (req, res) => {
+        let json = { error: '', result: [] };
 
         let nome = req.body.nome;
         let email = req.body.email;
@@ -65,14 +66,14 @@ module.exports = {
 
             };
 
-        }catch(error){
+        } catch (error) {
             console.log(error)
         }
         res.json(json)
     },
 
-    updateUser: async(req, res) => {
-        let json = {error:'',result:{}};
+    updateUser: async (req, res) => {
+        let json = { error: '', result: {} };
 
         let emailp = req.params.email;
         let nome = req.body.nome;
@@ -84,7 +85,7 @@ module.exports = {
         let statusUsuario = req.body.statusUsuario;
         let instituicao = req.body.instituicao;
 
-        try{
+        try {
             const hashedPassword = await bcrypt.hash(senha, 8);
             await UserService.updateUser(emailp, nome, email, hashedPassword, cargo, telefone, nivelAcesso, statusUsuario, instituicao);
             json.result = {
@@ -98,39 +99,42 @@ module.exports = {
                 instituicao,
 
             };
-        }catch(error){
+        } catch (error) {
             console.log(error);
         }
         res.json(json);
     },
 
-    delUser: async(req, res) => {
-        let json = {error:'', result:{}};
+    delUser: async (req, res) => {
+        let json = { error: '', result: {} };
 
         await UserService.delUser(req.params.email);
         res.json(json);
     },
 
-    login: async(req, res) => {
+    login: async (req, res) => {
         try {
             let email = req.body.email;
             let senha = req.body.senha;
 
             var results = await UserService.login(email);
- 
+
             console.log(results);
-            if(1 == results[0].status_usuario){
-                if(await bcrypt.compare(senha, results[0].senha)){
-                   const token = jwt.sign({
+            if (1 == results[0].status_usuario) {
+                if (await bcrypt.compare(senha, results[0].senha)) {
+
+                    const user = new User(results[0].id)
+                    const token = jwt.sign({
                         id: results[0].id,
                         nome: results[0].nome,
+                        sub: user,
                         email: results[0].email,
                         nivelAcesso: results[0].nivel_acesso
-                    }, 
-                    process.env.JWT_KEY,
-                    {
-                        expiresIn: "6d"
-                    }); 
+                    },
+                        process.env.JWT_KEY,
+                        {
+                            expiresIn: "6d"
+                        });
                     return res.status(200).send({
                         message: 'Autenticado com sucesso',
                         token: token,
@@ -138,7 +142,7 @@ module.exports = {
                     console.log(token);
                 }
             }
-            return res.status(401).send({ message: 'Falha na autenticação'});
+            return res.status(401).send({ message: 'Falha na autenticação' });
 
 
         } catch (error) {

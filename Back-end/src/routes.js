@@ -120,8 +120,8 @@ router.delete("/instituicao/:id",roles.adminRole, InstituicaoController.delInsti
 
 // LUGAR -----
 const LugarController = require("./controllers/evento/LugarController");
-router.get("/lugar",roles.adminRole, LugarController.getAll);
-router.get("/lugar/:id",roles.adminRole, LugarController.getById);
+router.get("/lugar",roles.admin_solicitanteRole, LugarController.getAll);
+router.get("/lugar/:id",roles.admin_solicitanteRole, LugarController.getById);
 router.post("/lugar",roles.adminRole, LugarController.addLugar);
 router.patch("/lugar/:id",roles.adminRole, LugarController.updateLugar);
 router.delete("/lugar/:id",roles.adminRole, LugarController.delLugar);

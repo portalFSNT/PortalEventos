@@ -38,6 +38,13 @@
 
 // VARIÁVEIS DE TEXTO
 
+.mini{
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 100%;
+}
+
+
 //Texto
 .text{
     font-weight: 400;
@@ -84,6 +91,7 @@
     font-size: 24px;
     line-height: 100%;
 }
+
 /* Importing Bootstrap SCSS file. */
 @import "./node_modules/bootstrap/scss/bootstrap";
 

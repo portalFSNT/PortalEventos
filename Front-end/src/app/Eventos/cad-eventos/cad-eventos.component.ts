@@ -5,7 +5,8 @@ import { CadEventos } from './cad-eventos';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TipoEvento } from './tipo';
-import { Lugar } from './lugar';
+import { Lugares } from './lugar';
+import { Instituicoes } from './instituicao';
 
 @Component({
   selector: 'app-cad-eventos',
@@ -14,41 +15,16 @@ import { Lugar } from './lugar';
 })
 export class CadEventosComponent implements OnInit {
 
-  // inputsCadEvent!:FormGroup;
-  // submitted = false;
-
-  // constructor(
-  //   private FormBuilder:FormBuilder,
-  //   private service: CadEventosService,
-  //   private router: Router
-  // ) { }
-
-  // ngOnInit(): void {
-  //   this.inputsCadEvent = this.FormBuilder.group({
-
-  //     nome: [''],
-  //     descricao: [''],
-  //     data_inicio: [''],
-  //     data_termino: [''],
-  //     hora_inicio:[''],
-  //     hora_termino: [''],
-  //     id_usuario:['1'],
-  //     id_lugar:['5'],
-  //     id_tipo:['2'],
-  //     id_instituicao:['2']
-  //   })
-
-  // }
-
   form: FormGroup;
   submitted = false;
   espacos: CadEventos[] = [];
   tipos: TipoEvento[] = [];
-  lugar: Lugar[] = [];
-  espacoSelecionado: string = "0";
+  lugares: Lugares[] = [];
+  instituicoes: Instituicoes[] = [];
 
   constructor(private fb: FormBuilder,
-    private service: CadEventosService) {
+    private service: CadEventosService,
+    private router: Router) {
 
     this.form = this.fb.group({
       nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
@@ -57,26 +33,59 @@ export class CadEventosComponent implements OnInit {
       data_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       hora_inicio: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       hora_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      id_usuario: 1,
-      id_lugar: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      id_tipo: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      id_instituicao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      id_usuario: 5,
+      id_lugar: 1,
+      id_tipo: [],
+      id_instituicao: [],
     });
+    // this.form = this.fb.group({
+    //   nome: 'teste',
+    //   descricao: 'teste',
+    //   data_inicio: '20/02/2023',
+    //   data_termino: '20/02/2023',
+    //   hora_inicio: '12:12:12',
+    //   hora_termino: '12:12:12',
+    //   id_usuario: 5,
+    //   id_lugar: 1,
+    //   id_tipo: 1,
+    //   id_instituicao: 1
+    // });
   }
 
   ngOnInit() {
+    this.service.listarLugares().subscribe(({results}) => {
+      this.lugares = results
+      
+      console.log(results)
+      console.log(this.lugares)
+    });
+    this.service.listarInstituicoes().subscribe(({results}) => {
+      this.instituicoes = results
+      console.log(this.instituicoes)
+    });
     this.service.listarTipos().subscribe(({results}) => {
       this.tipos = results
       console.log(this.tipos)
-    })
-    this.service.listarLugar().subscribe(({results}) => {
-      this.lugar = results
-      console.log(this.lugar)
-    })
+    });
   }
+
   onSubmit() {
+    this.submitted = true;
+    console.log(this.form.value);
+    if (this.form.valid) {
+      console.log('Submit');
+      this.service.create(this.form.value).subscribe(
+        sucess => console.log('Sucesso'),
+        error => console.log('Error'),
+        () => console.log('Rquest Completo')
+        );
+        this.router.navigate(['/eventos']);
+    }
 
   }
   onCancel() {
+    this.submitted = false;
+    this.form.reset();
+    this.router.navigate(['/eventos']);
   }
 }

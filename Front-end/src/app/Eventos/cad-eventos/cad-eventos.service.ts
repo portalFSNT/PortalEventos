@@ -1,11 +1,12 @@
-import { HttpClient , HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { CadEventos } from './cad-eventos';
 import { TokenService } from 'src/app/authentication/token.service';
 import { Observable } from 'rxjs';
 import { TipoEvento } from './tipo';
-import { Lugar } from './lugar';
+import { Lugares } from './lugar';
+import { Instituicoes } from './instituicao';
 import { MarransatoMode } from 'src/app/shared/MaranssatoMode.interface';
 
 
@@ -16,29 +17,36 @@ const API = environment.API;
   providedIn: 'root'
 })
 export class CadEventosService {
-  private readonly API_BuscarTipos=`${API}/tipos`;
-  private readonly API_BuscarLugar=`${API}/instituicoes`;
-  
-  
-  constructor(private http: HttpClient, private tokenService : TokenService) { }
-    
+  private readonly API_BuscarTipos = `${API}/tipos`;
+  private readonly API_BuscarInstituicoes = `${API}/instituicoes`;
+  private readonly API_BuscarLugares = `${API}/lugar`;
+
+
+  constructor(private tokenService : TokenService, private http: HttpClient) { }
+
   private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
 
-  cadastrarEventos(novoCampo: CadEventos){
-    return this.http.post(`${API}/events`, novoCampo)
+  create(novoCampo: CadEventos) {
+    return this.http.post(`${API}/event`, novoCampo, { headers: this.header })
   }
-  cadastrarUsuario(novoUsuario: any){
-    return this.http.post(`${API}/user`, novoUsuario)
-  }
-  enviarUsuario(enviarUsuario: any){
-    return this.http.post(`${API}/login`, enviarUsuario)
-  }
-  listarTipos():Observable<MarransatoMode<TipoEvento[]>>{
-  
+
+
+
+  listarTipos(): Observable<MarransatoMode<TipoEvento[]>> {
     return this.http.get<MarransatoMode<TipoEvento[]>>(this.API_BuscarTipos, { headers: this.header })
   }
-  listarLugar():Observable<MarransatoMode<Lugar[]>>{
-  
-    return this.http.get<MarransatoMode<Lugar[]>>(this.API_BuscarLugar, { headers: this.header })
+
+
+  listarInstituicoes(): Observable<MarransatoMode<Instituicoes[]>> {  
+    return this.http.get<MarransatoMode<Instituicoes[]>>(this.API_BuscarInstituicoes, { headers: this.header })
   }
+  
+  listarLugares(): Observable<MarransatoMode<Lugares[]>> {  
+    return this.http.get<MarransatoMode<Lugares[]>>(this.API_BuscarLugares, { headers: this.header })
+  }
+
+
+
+ 
+
 }

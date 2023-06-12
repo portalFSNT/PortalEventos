@@ -28,6 +28,8 @@ import { ListaEventosComponent } from './Presenca/eventos/lista-eventos/lista-ev
 import { ListaPessoasComponent } from './Presenca/pessoas/lista-pessoas/lista-pessoas.component';
 import { ListaEmpresasComponent } from './Presenca/empresas/lista-empresas/lista-empresas.component';
 import { ListaConvidadosComponent } from './Presenca/convidados/lista-convidados/lista-convidados.component';
+import { AlterarEventoComponent } from './Eventos/alterar-evento/alterar-evento.component';
+
 
 
 
@@ -56,6 +58,7 @@ const routes: Routes = [
   { path: 'espacos', component: EspacosComponent  },
   { path: 'espacos-novo', component: EspacosNovoComponent},
   { path: 'solicitacoes-confirmadas', component: SolicitacoesConfirmadasComponent},
+  { path: 'alterar-evento/:id', component: AlterarEventoComponent},
 
 
   // ROTAS DO SISTEMA DE PRESENÇA

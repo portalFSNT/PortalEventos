@@ -13,14 +13,14 @@
     </div>
 
     <section class="card-ng">
-      <div class="card" *ngFor="let card of agendamentos">
+      <div class="card" *ngFor="let card of eventos">
 
         <div class="title-card">
           <label for="" class="andamento">
             Concluido
           </label>
           <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7ZpPdJJ5yHe5IoWOt4wbZsY462mDFrsGPumOrDwdJSryHzie-RLX0U5lsnfiv_eS0IKcrIuBshN-zQrsgj-kWx6fIsvjTeEdeAVZ_sQ5lWE7Co7AX2ZxSowJVW6sJWhr4kyJdYl5tRjZShqy_-fUZGL2zL808Uh9Ed1G_tt2Ua2TT-UV831bgKLYo/s600/Festa%20Julina%20de%20Jundia%C3%AD.jpg" alt="" class="folder">
-          <img src="../../../assets/Icons/edit-card.svg" alt="" class="edit">
+          <img src="../../../assets/Icons/edit-card.svg" alt="" class="edit" (click)="changeEvent(card)">
         </div>
         <div class="body-card">
           <h2 class="bold">

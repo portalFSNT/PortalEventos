@@ -65,6 +65,7 @@ import { EditarConvidadoComponent } from './Presenca/convidados/editar-convidado
 import { NovoConvidadoComponent } from './Presenca/convidados/novo-convidado/novo-convidado.component';
 import { NovaEmpresaComponent } from './Presenca/empresas/nova-empresa/nova-empresa.component';
 import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/editar-empresa.component';
+import { AlterarEventoComponent } from './Eventos/alterar-evento/alterar-evento.component';
 
 
 @NgModule({
@@ -128,6 +129,7 @@ import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/edita
 
     PhonePipe,
     OnlyNumbersDirective,
+    AlterarEventoComponent,
 
 
   ],

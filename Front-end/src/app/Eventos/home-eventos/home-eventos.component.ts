@@ -3,6 +3,8 @@ import { ModalController } from '@ionic/angular';
 import { CardComponent } from '../card/card.component';
 import { Evento } from './evento';
 import { EventoService } from './evento.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -14,25 +16,26 @@ export class HomeEventosComponent implements OnInit {
 
   
 
-  agendamentos:Evento[]=[];
+  eventos:Evento[]=[];
 
-  constructor(private modalController:ModalController, private service: EventoService) { }
+  constructor(private modalController:ModalController, private service: EventoService, private router: Router) { }
 
-  async openModal() {
-    const modal = await this.modalController.create({
-      component: CardComponent,
-      cssClass: 'modal'
-    });
-    await modal.present();
 
-    const res= await modal.onDidDismiss();
-  }
 
   ngOnInit() {
     this.service.listarEvento().subscribe((event)=>{
-      this.agendamentos = event.result as Evento[]
-      console.log(this.agendamentos)
+      this.eventos = event.result as Evento[]
+      console.log(this.eventos)
     })
   }
+
+
+  changeEvent(card: any) {
+    this.router.navigate(['/alterar-evento', card.id]); // Substitua 'card.id' pelo identificador único do evento que você deseja alterar
+
+  }   
+
+
+
   
 }

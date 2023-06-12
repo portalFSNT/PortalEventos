@@ -45,7 +45,7 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
 import { LoginComponent } from './Portal/login/login.component';
 import { PhonePipe } from './pipes/phone.pipe';
 import { OnlyNumbersDirective } from './shared/only-numbers/only-numbers.directive';
-
+import { TimeFormatPipe } from './pipes/timeFormat.pipe';
 
 @NgModule({
   declarations: [
@@ -65,7 +65,7 @@ import { OnlyNumbersDirective } from './shared/only-numbers/only-numbers.directi
     CardComponent,
     HomeEventosComponent,
     
-
+    TimeFormatPipe,
 
 
     // ====DECLARAÇÃOD DE ESPAÇOS ======

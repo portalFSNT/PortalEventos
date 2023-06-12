@@ -23,6 +23,11 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
 
 import { CadEventosComponent } from './Eventos/cad-eventos/cad-eventos.component';
 import { HomeEventosComponent } from './Eventos/home-eventos/home-eventos.component';
+import { ListaUsuarioComponent } from './Presenca/home-presenca/lista-usuario/lista-usuario.component';
+import { ListaEventosComponent } from './Presenca/eventos/lista-eventos/lista-eventos.component';
+import { ListaPessoasComponent } from './Presenca/pessoas/lista-pessoas/lista-pessoas.component';
+import { ListaEmpresasComponent } from './Presenca/empresas/lista-empresas/lista-empresas.component';
+import { ListaConvidadosComponent } from './Presenca/convidados/lista-convidados/lista-convidados.component';
 
 
 
@@ -51,7 +56,17 @@ const routes: Routes = [
   { path: 'solicitacoes', component: SolicitacoesComponent},
   { path: 'espacos', component: EspacosComponent  },
   { path: 'espacos-novo', component: EspacosNovoComponent},
-  { path: 'solicitacoes-confirmadas', component: SolicitacoesConfirmadasComponent}
+  { path: 'solicitacoes-confirmadas', component: SolicitacoesConfirmadasComponent},
+
+
+  // ROTAS DO SISTEMA DE PRESENÇA
+  {path: 'home-presenca', component: ListaUsuarioComponent},
+  {path: 'lista-eventos', component: ListaEventosComponent},
+  {path: 'lista-pessoas', component: ListaPessoasComponent},
+  {path: 'lista-empresas', component: ListaEmpresasComponent},
+  {path: 'lista-convidados', component: ListaConvidadosComponent},
+  {path: 'lista-usuario', component: ListaUsuarioComponent}
+  
   
 
 ];

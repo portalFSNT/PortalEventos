@@ -1,0 +1,19 @@
+
+<div class="login">
+    <div class="logo">
+        <img src="../../../assets/images/logo.png">
+        <h1>Login</h1>
+    </div>
+
+    <form (ngSubmit)="loginn()">
+        <div class="label"><label><img class="icon" src="../../../assets/icon/carbon_user-filled.svg">Usuário</label>
+        </div>
+        <input [(ngModel)]="login"  name="login" class="input" type="text" > <br>
+    
+        <div class="label"><label><img class="icon" src="../../../assets/icon/uis_padlock.svg">Senha</label> </div>
+        <input [(ngModel)]="senha" name="senha" class="input" type="password" > <br>
+    
+    
+        <button  class="btn btn-primary"> Entrar </button>
+    </form>
+</div>

@@ -1,0 +1,36 @@
+<div class="modal-modal">
+    <div class="modal-top">
+        <label class="modal-title">Editar Usuário</label>
+        <a> <img (click)="cancelar()" src="../../../../assets/icon/x.svg"></a>
+    </div>
+    <form [formGroup]="editarUsuarioForm" (submit)="editar()">
+        <div class="modal-label"><label>Nome</label>
+        </div>
+        <input formControlName="login" class="modal-input" type="text" name="nome">
+
+
+        <div class="modal-label"><label>Perfil</label>
+        </div>
+        <input formControlName="perfil" class="modal-input" type="text" name="email">
+
+        <div class="modal-label"><label>E-mail</label>
+        </div>
+        <input formControlName="email" class="modal-input" type="email" name="email">
+
+
+
+
+
+        <div class="modal-label"><label>Telefone</label>
+        </div>
+        <input formControlName="telefone" class="modal-input" type="text" name="email">
+
+
+
+     
+
+
+
+        <button class="modal-button" (click)="salvar()" class="btn btn-primary"> Salvar alterações  </button>
+    </form>
+</div>

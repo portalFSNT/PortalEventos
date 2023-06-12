@@ -43,6 +43,26 @@ import { UsersPendingComponent } from './Portal/users-pending/users-pending.comp
 import { ModalAcceptDenyUserComponent } from './Portal/modal-accept-deny-user/modal-accept-deny-user.component';
 import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
 
+//============== imports de presença ===============
+import { ListaConvidadosComponent } from './Presenca/convidados/lista-convidados/lista-convidados.component';
+import { ListaEmpresasComponent } from './Presenca/empresas/lista-empresas/lista-empresas.component';
+import { ListaEventosComponent } from './Presenca/eventos/lista-eventos/lista-eventos.component';
+import { ListaPessoasComponent } from './Presenca/pessoas/lista-pessoas/lista-pessoas.component';
+import { NovoEventoComponent } from './Presenca/eventos/novo-evento/novo-evento.component';
+import { EditarEventoComponent } from './Presenca/eventos/editar-evento/editar-evento.component';
+import { CadastrarEventoComponent } from './Presenca/components/evento/cadastrar-evento/cadastrar-evento.component';
+import { EditarPessoaComponent } from './Presenca/pessoas/editar-pessoa/editar-pessoa.component';
+import { NovaPessoaComponent } from './Presenca/pessoas/nova-pessoa/nova-pessoa.component';
+import { NovoUsuarioComponent } from './Presenca/home-presenca/novo-usuario/novo-usuario.component';
+import { EditarUsuarioComponent } from './Presenca/home-presenca/editar-usuario/editar-usuario.component';
+import { ListaUsuarioComponent } from './Presenca/home-presenca/lista-usuario/lista-usuario.component';
+import { EditarConvidadoComponent } from './Presenca/convidados/editar-convidado/editar-convidado.component';
+import { NovoConvidadoComponent } from './Presenca/convidados/novo-convidado/novo-convidado.component';
+import { NovaEmpresaComponent } from './Presenca/empresas/nova-empresa/nova-empresa.component';
+import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/editar-empresa.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -78,7 +98,28 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
     Modal4Component,
     UsersPendingComponent,
     ModalAcceptDenyUserComponent,
-    NewAdmComponent
+    NewAdmComponent,
+    
+    //DECLARAÇÃO DO PROJETO PRESENÇA
+
+      ListaEventosComponent,
+     CadastrarEventoComponent,
+     EditarEventoComponent,
+     NovoEventoComponent,
+     EditarPessoaComponent,
+     ListaPessoasComponent,
+     NovaPessoaComponent,
+    // HomeComponent,
+    // LoginComponent,
+     NovoUsuarioComponent,
+     ListaUsuarioComponent,
+    EditarUsuarioComponent,
+     EditarConvidadoComponent, 
+    ListaConvidadosComponent,
+     NovoConvidadoComponent,
+     ListaEmpresasComponent,
+     EditarEmpresaComponent,
+     NovaEmpresaComponent
 
   ],
   imports: [
@@ -90,15 +131,14 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
-
-    // ====DECLARAÇÃOD DE ESPAÇOS ======
-    IonicModule.forRoot(),
-    HttpClientModule,
-    FormsModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot()
 
+
+    // ====DECLARAÇÃOD DE ESPAÇOS ======
+    //IonicModule.forRoot(),
+    //HttpClientModule,
+   // FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

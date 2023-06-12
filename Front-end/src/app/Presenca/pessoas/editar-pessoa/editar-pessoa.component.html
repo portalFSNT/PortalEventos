@@ -1,0 +1,32 @@
+
+<div class="modal-modal">
+    <div class="modal-top">
+        <label class="modal-title">Editar Convidado </label>
+     <a>   <img (click)="cancelar()" src="../../../../assets/icon/x.svg"></a>
+    </div>
+    <form [formGroup]="editarPessoaForm" (submit)="editar()">
+        <div class="modal-label"><label>Nome</label>
+        </div>
+        <input formControlName="nome" class="modal-input" type="text" name="email" >
+        
+        <div class="modal-label"><label>Cargo</label>
+        </div>
+        <input formControlName="cargo" class="modal-input" type="text" name="email" >
+        <div class="modal-label"><label>Empresa</label>
+        </div>
+        <select formControlName="empresa" 
+         class="modal-input" type="text"  >
+         <option  *ngFor="let empresa of listaPessoa" >{{empresa.empresa}}</option>
+         </select>
+        <div class="modal-label"><label>E-mail</label>
+        </div>
+        <input formControlName="email" class="modal-input" type="text" name="email" >
+        <div class="modal-label"><label>Telefone</label>
+        </div>
+        <input formControlName="telefone" class="modal-input" type="text" name="email" >
+        
+    
+        <button class="modal-button" (click)="salvar()" class="btn btn-primary"> Salvar alterações </button>
+    </form>
+    </div>
+    

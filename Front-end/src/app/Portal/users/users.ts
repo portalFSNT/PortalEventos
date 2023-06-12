@@ -8,6 +8,6 @@ export interface Users {
     telefone?: string;
     nivel_acesso?: number;
     status_usuario?: string;
-    id_instituicao?: string;
+    nome_instituicao?: string;
     nomeTipo?:  string;
 }

@@ -42,10 +42,10 @@ export class CadEventosComponent implements OnInit {
 
   form: FormGroup;
   submitted = false;
-  espacos: CadEventos[] = []
-  tipos: TipoEvento[] = []
-  lugar: Lugar[] = []
-  espacoSelecionado: string = "0"
+  espacos: CadEventos[] = [];
+  tipos: TipoEvento[] = [];
+  lugar: Lugar[] = [];
+  espacoSelecionado: string = "0";
 
   constructor(private fb: FormBuilder,
     private service: CadEventosService) {
@@ -59,7 +59,8 @@ export class CadEventosComponent implements OnInit {
       hora_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       id_usuario: 1,
       id_lugar: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      tipo: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      id_tipo: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      id_instituicao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
     });
   }
 
@@ -69,8 +70,8 @@ export class CadEventosComponent implements OnInit {
       console.log(this.tipos)
     })
     this.service.listarLugar().subscribe(({results}) => {
-      this.tipos = results
-      console.log(this.tipos)
+      this.lugar = results
+      console.log(this.lugar)
     })
   }
   onSubmit() {
@@ -78,5 +79,4 @@ export class CadEventosComponent implements OnInit {
   }
   onCancel() {
   }
-
 }

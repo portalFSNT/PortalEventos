@@ -5,6 +5,7 @@ import { CadEventos } from './cad-eventos';
 import { TokenService } from 'src/app/authentication/token.service';
 import { Observable } from 'rxjs';
 import { TipoEvento } from './tipo';
+import { Lugar } from './lugar';
 import { MarransatoMode } from 'src/app/shared/MaranssatoMode.interface';
 
 
@@ -36,8 +37,8 @@ export class CadEventosService {
   
     return this.http.get<MarransatoMode<TipoEvento[]>>(this.API_BuscarTipos, { headers: this.header })
   }
-  listarLugar():Observable<MarransatoMode<TipoEvento[]>>{
+  listarLugar():Observable<MarransatoMode<Lugar[]>>{
   
-    return this.http.get<MarransatoMode<TipoEvento[]>>(this.API_BuscarLugar, { headers: this.header })
+    return this.http.get<MarransatoMode<Lugar[]>>(this.API_BuscarLugar, { headers: this.header })
   }
 }

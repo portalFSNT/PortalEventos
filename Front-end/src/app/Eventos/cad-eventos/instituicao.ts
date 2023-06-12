@@ -1,4 +1,4 @@
-export interface Instituicao{
+export interface Instituicoes{
     id: number,
     nome: string
 }

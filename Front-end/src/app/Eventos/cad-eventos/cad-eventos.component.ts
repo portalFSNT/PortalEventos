@@ -5,7 +5,8 @@ import { CadEventos } from './cad-eventos';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TipoEvento } from './tipo';
-import { Lugar } from './lugar';
+import { Lugares } from './lugar';
+import { Instituicoes } from './instituicao';
 
 @Component({
   selector: 'app-cad-eventos',
@@ -14,38 +15,12 @@ import { Lugar } from './lugar';
 })
 export class CadEventosComponent implements OnInit {
 
-  // inputsCadEvent!:FormGroup;
-  // submitted = false;
-
-  // constructor(
-  //   private FormBuilder:FormBuilder,
-  //   private service: CadEventosService,
-  //   private router: Router
-  // ) { }
-
-  // ngOnInit(): void {
-  //   this.inputsCadEvent = this.FormBuilder.group({
-
-  //     nome: [''],
-  //     descricao: [''],
-  //     data_inicio: [''],
-  //     data_termino: [''],
-  //     hora_inicio:[''],
-  //     hora_termino: [''],
-  //     id_usuario:['1'],
-  //     id_lugar:['5'],
-  //     id_tipo:['2'],
-  //     id_instituicao:['2']
-  //   })
-
-  // }
-
   form: FormGroup;
   submitted = false;
   espacos: CadEventos[] = [];
   tipos: TipoEvento[] = [];
-  lugar: Lugar[] = [];
-  espacoSelecionado: string = "0";
+  lugares: Lugares[] = [];
+  instituicoes: Instituicoes[] = [];
 
   constructor(private fb: FormBuilder,
     private service: CadEventosService) {
@@ -65,15 +40,22 @@ export class CadEventosComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.service.listarLugares().subscribe(({results}) => {
+      this.lugares = results
+      
+      console.log(results)
+      console.log(this.lugares)
+    });
+    this.service.listarInstituicoes().subscribe(({results}) => {
+      this.instituicoes = results
+      console.log(this.instituicoes)
+    });
     this.service.listarTipos().subscribe(({results}) => {
       this.tipos = results
       console.log(this.tipos)
-    })
-    this.service.listarLugar().subscribe(({results}) => {
-      this.lugar = results
-      console.log(this.lugar)
-    })
+    });
   }
+
   onSubmit() {
 
   }

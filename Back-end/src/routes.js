@@ -100,6 +100,7 @@ router.get("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, Solicitac
 router.get("/solicitacaostatus", roles.admin_solicitanteRole, SolicitacaoController.getStatus);
 router.post("/solicitacao",roles.admin_solicitanteRole, SolicitacaoController.addSolicitacao);
 router.patch("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.updateSolicitacao);
+router.patch("/aprovar_solicitacao/:id_solicitacao", roles.adminRole, SolicitacaoController.updateStatusSolicitacao);
 router.delete("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.delSolicitacao);
 
 // TIPO -----

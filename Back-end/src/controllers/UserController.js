@@ -86,8 +86,7 @@ module.exports = {
 
 
         try {
-            const hashedPassword = await bcrypt.hash(senha, 8);
-            await UserService.updateUser(emailp, nome, email, hashedPassword, cargo, telefone, nivelAcesso, statusUsuario, instituicao);
+            await UserService.updateUser(emailp, nome, email, cargo, telefone, nivelAcesso, statusUsuario, instituicao);
 
             json.result = {
                 nome,

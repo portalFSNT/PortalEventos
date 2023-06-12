@@ -12,7 +12,7 @@ import { ModalController } from '@ionic/angular';
 export class ModalAceitarComponent implements OnInit {
   
   constructor(private modalcontroler:ModalController, public navParams: NavParams, private service: ModalAceitarService) { }
-
+  
   exibirSolicitacao:Solicitacoes = this.navParams.get('solicitacao')
 
   ngOnInit(): void {
@@ -22,25 +22,17 @@ export class ModalAceitarComponent implements OnInit {
     this.modalcontroler.dismiss() //Fecha o Modal
   }
 
-  funcaoNot(): void {
-    this.service.funcaoNot(this.exibirSolicitacao.id).subscribe((event) => {
+  deniSolicitacao(id: number): void {
+    this.service.deniSolicitacao(id).subscribe((event) => {
       console.log(event)
-
-      // Sucesso
-      if(event.message === "Solicitação removida com sucesso") {
-        this.fecharModal()
-      }
-    })
+      this.fecharModal()
+    });
   }
 
-  funcaoYes(): void {
-    this.service.funcaoYes(this.exibirSolicitacao.id).subscribe((event) => {
+  aceptSolicitacao(id: number): void {
+    this.service.aceptSolicitacao(id).subscribe((event) => {
       console.log(event)
-
-      // Sucesso
-      if(event.message === "Solicitação aprovada") {
-        this.fecharModal()
-      }
-    })
+      this.fecharModal()
+    });
   }
 } 

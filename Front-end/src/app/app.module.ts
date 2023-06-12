@@ -45,6 +45,8 @@ import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
 import { LoginComponent } from './Portal/login/login.component';
 import { PhonePipe } from './pipes/phone.pipe';
 import { OnlyNumbersDirective } from './shared/only-numbers/only-numbers.directive';
+import { TimeFormatPipe } from './pipes/timeFormat.pipe';
+
 
 //============== imports de presença ===============
 import { ListaConvidadosComponent } from './Presenca/convidados/lista-convidados/lista-convidados.component';
@@ -65,8 +67,6 @@ import { NovaEmpresaComponent } from './Presenca/empresas/nova-empresa/nova-empr
 import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/editar-empresa.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +85,7 @@ import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/edita
     CardComponent,
     HomeEventosComponent,
     
-
+    TimeFormatPipe,
 
 
     // ====DECLARAÇÃOD DE ESPAÇOS ======

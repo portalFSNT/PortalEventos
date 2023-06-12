@@ -4,26 +4,26 @@
 
     <div class="list">
     <div class="informacoes">
-      <img class="icon" src="../../assets/1.png" alt="">
+      <img class="icon" src="../../../../assets/Espacos/1.png" alt="">
       <span class="link">{{exibirSolicitacao.usuario_nome}}</span>
     </div>
     <div class="informacoes">
-        <img class="icon" src="../../assets/2.png" alt="">
-        <span class="link">{{exibirSolicitacao.usuario_empresa}}</span>
+        <img class="icon" src="../../../../assets/Espacos/2.png" alt="">
+        <span class="link">{{exibirSolicitacao.usuario_cargo}}</span>
     </div>
     <div class="informacoes">
-        <img class="icon" src="../../assets/3.png" alt="">
-        <span class="link">{{exibirSolicitacao.data}} -  {{exibirSolicitacao.horario_entrada}} / {{exibirSolicitacao.horario_saida}}</span>
+        <img class="icon" src="../../../../assets/Espacos/3.png" alt="">
+        <span class="link">{{exibirSolicitacao.data_inicio | date:'dd/MM/yyyy'}} das {{ exibirSolicitacao.hora_inicio | timeFormat }} ás {{exibirSolicitacao.hora_termino | timeFormat }}</span>
     </div>
     <div class="informacoes">
-        <img class="icon" src="../../assets/4.png" alt="">
-        <span class="link">{{exibirSolicitacao.espaco}}</span>
+        <img class="icon" src="../../../../assets/Espacos/4.png" alt="">
+        <span class="link">{{exibirSolicitacao.espaco_nome}}</span>
     </div>
     </div>
-    <button class="not" (click)="funcaoNot()">Negar</button>
-    <button class="yes" (click)="funcaoYes()">Aceitar</button>
+    <button class="not" (click)="deniSolicitacao(exibirSolicitacao.id)">Negar</button>
+    <button class="yes" (click)="aceptSolicitacao(exibirSolicitacao.id)">Aceitar</button>
 
 </div>
-<img class="exit" src="../../assets/exit.png">
+<img class="exit" src="../../../../assets/Espacos/exit.png">
 
 </div>

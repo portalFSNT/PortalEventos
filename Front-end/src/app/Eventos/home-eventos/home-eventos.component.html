@@ -11,8 +11,7 @@
         Cadastrar novo evento
       </a>
     </div>
-
-    <section class="s-cards">
+     <!-- <section class="s-cards">
       <div class="card" *ngFor="let card of agendamentos">
         <div (click)="openModal()" class="card-header">
           <div class="status-options">
@@ -47,6 +46,43 @@
             <p>{{card.descricao}}</p>
             
           </div>
+        </div>
+      </div>
+    </section>  -->
+    <section class="card-ng">
+      <div class="card" *ngFor="let card of agendamentos">
+
+        <div class="title-card">
+          <label for="" class="andamento">
+            Concluido
+          </label>
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7ZpPdJJ5yHe5IoWOt4wbZsY462mDFrsGPumOrDwdJSryHzie-RLX0U5lsnfiv_eS0IKcrIuBshN-zQrsgj-kWx6fIsvjTeEdeAVZ_sQ5lWE7Co7AX2ZxSowJVW6sJWhr4kyJdYl5tRjZShqy_-fUZGL2zL808Uh9Ed1G_tt2Ua2TT-UV831bgKLYo/s600/Festa%20Julina%20de%20Jundia%C3%AD.jpg" alt="" class="folder">
+          <img src="../../../assets/Icons/edit-card.svg" alt="" class="edit">
+        </div>
+        <div class="body-card">
+          <h2 class="bold">
+            {{card.nome}}
+          </h2>
+          <div class="data-hora">
+            <div class="row1">
+              <img src="../../../assets/Icons/icon-calendario-g.svg" alt="">
+              <p class="info">
+                {{card.data_inicio | date:"dd/MM/yyyy"}} - {{card.data_termino | date:"dd/MM/yyyy"}}
+              </p>
+            </div>
+            <div class="row1">
+              <img src="../../../assets/Icons/icon-relogio-pulso-g.svg" alt="">
+              <p class="info">
+                {{card.hora_inicio}} - {{card.hora_termino}}
+              </p>
+            </div>
+          </div>
+          <div class="localidade">
+            <p>{{card.id_lugar}} - {{card.id_instituicao}}</p>
+          </div>
+          <p class="mini">
+            Avenida Shunji Nishimura, Empresarial, 4521
+          </p>
         </div>
       </div>
     </section>

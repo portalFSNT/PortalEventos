@@ -26,8 +26,8 @@ export class CadEventosService {
 
   private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
 
-  cadastrarEventos(novoCampo: CadEventos) {
-    return this.http.post(`${API}/events`, novoCampo)
+  create(novoCampo: CadEventos) {
+    return this.http.post(`${API}/event`, novoCampo, { headers: this.header })
   }
 
 

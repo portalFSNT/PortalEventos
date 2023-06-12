@@ -32,11 +32,23 @@ export class CadEventosComponent implements OnInit {
       data_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       hora_inicio: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       hora_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      id_usuario: 1,
-      id_lugar: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      id_tipo: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      id_instituicao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      id_usuario: 5,
+      id_lugar: 1,
+      id_tipo: [],
+      id_instituicao: [],
     });
+    // this.form = this.fb.group({
+    //   nome: 'teste',
+    //   descricao: 'teste',
+    //   data_inicio: '20/02/2023',
+    //   data_termino: '20/02/2023',
+    //   hora_inicio: '12:12:12',
+    //   hora_termino: '12:12:12',
+    //   id_usuario: 5,
+    //   id_lugar: 1,
+    //   id_tipo: 1,
+    //   id_instituicao: 1
+    // });
   }
 
   ngOnInit() {
@@ -57,8 +69,20 @@ export class CadEventosComponent implements OnInit {
   }
 
   onSubmit() {
-
+    this.submitted = true;
+    console.log(this.form.value);
+    if (this.form.valid) {
+      console.log('Submit');
+      this.service.create(this.form.value).subscribe(
+        sucess => console.log('Sucesso'),
+        error => console.log('Error'),
+        () => console.log('Rquest Completo')
+      );
+    }
   }
   onCancel() {
+    this.submitted = false;
+    this.form.reset();
+    // console.log("Cancel")
   }
 }

@@ -124,5 +124,19 @@ module.exports = {
 
         await SolicitacaoService.delSolicitacao(req.params.id_solicitacao);
         res.json(json);
+    },
+
+    updateStatusSolicitacao:async (req, res) => {
+
+        let id_solicitacao = req.params.id_solicitacao;
+        let status_solicitacao = req.body.status_solicitacao;
+
+        try{
+            await SolicitacaoService.updateStatusSolicitacao(id_solicitacao, status_solicitacao);
+            return res.status(200);
+        }catch(error){
+            console.log(error);
+            return res.status(500); 
+        }
     }
 }

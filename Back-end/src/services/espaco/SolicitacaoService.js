@@ -5,7 +5,7 @@ module.exports = {
         return new Promise((acepted, rejected) => {
 
             db.query(`
-          SELECT solicitacao.id, solicitacao.status_solicitacao, solicitacao.data_solicitacao, solicitacao.quantidade, solicitacao.data_inicio, solicitacao.data_termino, solicitacao.hora_inicio, solicitacao.hora_termino,  solicitacao.descricao, solicitacao.id_espaco, solicitacao.id_usuario, espaco.nome as espaco_nome, usuario.nome as usuario_nome
+          SELECT solicitacao.id, solicitacao.status_solicitacao, solicitacao.data_solicitacao, solicitacao.quantidade, solicitacao.data_inicio, solicitacao.data_termino, solicitacao.hora_inicio, solicitacao.hora_termino,  solicitacao.descricao, solicitacao.id_espaco, solicitacao.id_usuario, espaco.nome as espaco_nome, usuario.nome as usuario_nome, usuario.cargo as usuario_cargo
             FROM solicitacao
       INNER JOIN espaco
               ON (espaco.id = solicitacao.id_espaco)
@@ -21,7 +21,7 @@ module.exports = {
         return new Promise((acepted, rejected) => {
 
             db.query(`
-          SELECT solicitacao.id, solicitacao.status_solicitacao, solicitacao.data_solicitacao, solicitacao.quantidade, solicitacao.data_inicio, solicitacao.data_termino, solicitacao.hora_inicio, solicitacao.hora_termino,  solicitacao.descricao, solicitacao.id_espaco, solicitacao.id_usuario, espaco.nome as espaco_nome, usuario.nome as usuario_nome
+          SELECT solicitacao.id, solicitacao.status_solicitacao, solicitacao.data_solicitacao, solicitacao.quantidade, solicitacao.data_inicio, solicitacao.data_termino, solicitacao.hora_inicio, solicitacao.hora_termino,  solicitacao.descricao, solicitacao.id_espaco, solicitacao.id_usuario, espaco.nome as espaco_nome, usuario.nome as usuario_nome, usuario.cargo as usuario_cargo
             FROM solicitacao
       INNER JOIN espaco
               ON (espaco.id = solicitacao.id_espaco)
@@ -81,5 +81,14 @@ module.exports = {
                 acepted(results.delSolicitacao);
             });
         });
+    },
+
+    updateStatusSolicitacao: (id_solicitacao, status_solicitacao) => {
+        return new Promise((acepted, rejected) => {
+            db.query('UPDATE solicitacao SET  status_solicitacao =? WHERE id =?', [status_solicitacao, id_solicitacao], (error, result) => {
+                if(error){ rejected(error); return}
+                acepted(result.updateStatusSolicitacao);
+            });
+        })
     }
 }

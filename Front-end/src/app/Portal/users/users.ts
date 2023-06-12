@@ -10,3 +10,4 @@ export interface Users {
     status_usuario?: string;
     nome_instituicao?: string;
     nomeTipo?: string;
+}

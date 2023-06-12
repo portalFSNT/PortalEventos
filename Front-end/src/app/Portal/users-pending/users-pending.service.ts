@@ -12,12 +12,13 @@ const API = environment.API;
 export class UsersPendingService {
 
   constructor(private tokenService : TokenService, private http: HttpClient) { }
+  private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
 
   listUsersPending(): Observable<any> {
-    return this.http.get<any>(this.API, {headers: this.header});
+    return this.http.get<any>(API, {headers: this.header});
   }
   changeStatus(): Observable<any> {
-    return this.http.get<any>(this.APIS, {headers: this.header});
+    return this.http.get<any>(API, {headers: this.header});
   }
 
 }

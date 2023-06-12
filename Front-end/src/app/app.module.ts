@@ -124,7 +124,7 @@ import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/edita
      NovoConvidadoComponent,
      ListaEmpresasComponent,
      EditarEmpresaComponent,
-     NovaEmpresaComponent
+     NovaEmpresaComponent,
 
     PhonePipe,
     OnlyNumbersDirective,

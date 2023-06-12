@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NewAdmService } from './new-adm.service';
 
 @Component({
   selector: 'app-new-adm',
@@ -7,4 +9,38 @@ import { Component } from '@angular/core';
 })
 export class NewAdmComponent {
 
+  form: FormGroup;
+  submitted = false;
+
+  constructor(private fb: FormBuilder,
+    private service: NewAdmService){
+    this.form = this.fb.group({
+      nome: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      email: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      senha: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      cargo: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      telefone: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      nivelAcesso: "Administrador",
+      statusUsuario: 1,
+      instituicao: 1,
+    });
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    console.log(this.form.value);
+    if (this.form.valid) {
+      console.log('Submit');
+      this.service.create(this.form.value).subscribe(
+        sucess => console.log('Sucesso'),
+        error => console.log('Error'),
+        () => console.log('Rquest Completo')
+      );
+    }
+  }
+  onCancel() {
+    this.submitted = false;
+    this.form.reset();
+    // console.log("Cancel")
+  }
 }

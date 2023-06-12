@@ -9,14 +9,15 @@ import { VisualizarService } from './visualizar.service';
 })
 export class VisualizarComponent implements OnInit {
 
-  exibiragendamentos:Visualizar[]=[];
+  solicitacoes:Visualizar[]=[];
 
   constructor(private service: VisualizarService) { }
 
-  ngOnInit(): void {
-    this.service.visualizarAgendamentos().subscribe((event)=> {
-      this.exibiragendamentos = event.agendamentos as Visualizar[]
-      console.log(event)
+  ngOnInit() {
+    this.service.visualizarAgendamentos().subscribe((event) => {
+      this.solicitacoes = event.result as Visualizar[]
+      console.log(this.solicitacoes);
     })
-  }
+}
+
 }

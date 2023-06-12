@@ -5,14 +5,21 @@
             <h1>Portal FSNT</h1>
         </div>
         <div class="login">
+<!--
             <div class="form">
                 <form action="post">
                     <input type="text" placeholder="E-mail">
                     <input type="password" placeholder="Senha">
                 </form>
             </div>
+-->
+            <form (ngSubmit)="doLogin()" class="form">
+                    <input [(ngModel)]="email"  name="email" class="input" type="text" placeholder="E-mail">
+                    <input [(ngModel)]="senha"  name="senha" class="input" type="password" placeholder="Senha">
+            </form>
+
             <div class="buttons">
-                <button class="button-entrar"(click)=irParaHome()>Entrar</button>
+                <button class="button-entrar"(click)=doLogin()>Entrar</button>
                 <button class="button-cadastro" (click)=irParaTipoCadastro()>Cadastre-se</button>
             </div>
         </div>

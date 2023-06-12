@@ -1,63 +1,7 @@
 <app-header></app-header>
 
 <div class="container">
-  <!-- <div class="sidebar">
-    <div class="componentes-sidebar">
-      <div class="logo-img">
-        <img src="../../assets/logo.png" class="logo"> 
-        
-      </div>
-  <hr>
-  <ul class="lists">
-    <li class="list">
-      <a [routerLink]="['/solicitacoes']" class="nav-link">
-        <img src="../../assets/clock.png"  class="icon">
-        <span class="link">Solicitações</span>
-      </a>
-    </li>
-    <li class="list">
-      <a [routerLink]="['/solicitacoes-confirmadas']" class="nav-link">
-        <img src="../../assets/check-circle.png"  class="icon">
-        <span class="link">Agendamentos Confirmados</span>
-      </a>
-    </li>
-
-    <li class="list">
-      <a [routerLink]="['/solicitantes']" class="nav-link">
-        <img src="../../assets/edit.png" class="icon">
-      <span class="link">Solicitantes</span>
-      </a>
-    </li>
-    <li class="list">
-        <a [routerLink]="['/perfis']" class="nav-link">
-          <img src="../../assets/user.png"  class="icon">
-          <span class="link">Perfis</span>  
-        </a>
-      </li>
-      <li class="list">
-        <a [routerLink]="['/espacos']" class="nav-link">
-          <img src="../../assets/home.png"  class="icon">
-          <span class="link">Espaços</span>
-        </a>
-      </li>
-  </ul>
-
-  <div class="outside">
-    <li class="list">
-    <a href="" class="nav-link">
-      <img src="../../assets/log-out.png"  class="icon">
-        <span class="link">Sair</span>
-      </a>
-    </li>
-  </div>
-    
-  
-
-    </div>
-
-  </div> -->
-
-  <div class="form">
+   <div class="form">
     <!--Ínicio do header-->
     <div class="titulo">
       <h2>Olá, Administrador(a)</h2>
@@ -77,37 +21,13 @@
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
-          <!-- <tr *ngFor="let rows of exibirsolicitacoes">
-            <td>{{rows.data}}</td>
-            <td>{{rows.horario_entrada}}</td>
-            <td>{{rows.espaco}}</td>
+        <tbody *ngFor="let rows of exibirsolicitacoes">
+          <tr *ngIf="rows.status_solicitacao === 0">
+            <td>{{  rows.data_inicio | date:'dd/MM/yyyy' }}</td>
+            <td>{{  rows.hora_inicio }}</td>
+            <td>{{  rows.espaco_nome  }}</td>
             <td (click)="openModal_aceitar(rows)">Aceitar ou negar</td>
-            <td>{{rows.status}}</td>
-          </tr> -->
-          <tr>
-            <td>15/02/2023</td>
-            <td>12:05</td>
-            <td>Auditório</td>
-            <!-- <td (click)="openModal_aceitar(rows)">Aceitar ou negar</td> -->
-            <td>Aceitar ou negar</td>
-            <td>Aguardando Aprovação</td>
-          </tr>
-          <tr>
-            <td>15/02/2023</td>
-            <td>12:05</td>
-            <td>Auditório</td>
-            <!-- <td (click)="openModal_aceitar(rows)">Aceitar ou negar</td> -->
-            <td>Aceitar ou negar</td>
-            <td>Aprovado</td>
-          </tr>
-          <tr>
-            <td>15/02/2023</td>
-            <td>12:05</td>
-            <td>Auditório</td>
-            <!-- <td (click)="openModal_aceitar(rows)">Aceitar ou negar</td> -->
-            <td>Aceitar ou negar</td>
-            <td>Negado</td>
+            <td>Pendente</td>
           </tr>
         </tbody>
       </table>

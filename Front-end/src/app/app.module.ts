@@ -9,11 +9,11 @@ import { IonicModule } from '@ionic/angular';
 
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { HeaderComponent } from './Portal/header/header.component';
 import { HomeComponent } from './Portal/home/home.component';
 import { RegisterComponent } from './Portal/register/register.component';
-import { LoginComponent } from './Portal/login/login.component';
+
+
 import { FuncionsEventosComponent } from './Portal/header/funcions-eventos/funcions-eventos.component';
 import { FuncionsConvidadosComponent } from './Portal/header/funcions-convidados/funcions-convidados.component';
 import { FuncionsEspacosComponent } from './Portal/header/funcions-espacos/funcions-espacos.component';
@@ -42,6 +42,9 @@ import { Modal4Component } from './Espaços/Adiministrador/modal4/modal4.compone
 import { UsersPendingComponent } from './Portal/users-pending/users-pending.component';
 import { ModalAcceptDenyUserComponent } from './Portal/modal-accept-deny-user/modal-accept-deny-user.component';
 import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
+import { LoginComponent } from './Portal/login/login.component';
+import { PhonePipe } from './pipes/phone.pipe';
+import { OnlyNumbersDirective } from './shared/only-numbers/only-numbers.directive';
 
 //============== imports de presença ===============
 import { ListaConvidadosComponent } from './Presenca/convidados/lista-convidados/lista-convidados.component';
@@ -81,6 +84,7 @@ import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/edita
     CadEventosComponent,
     CardComponent,
     HomeEventosComponent,
+    
 
 
 
@@ -99,6 +103,7 @@ import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/edita
     UsersPendingComponent,
     ModalAcceptDenyUserComponent,
     NewAdmComponent,
+
     
     //DECLARAÇÃO DO PROJETO PRESENÇA
 
@@ -121,6 +126,10 @@ import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/edita
      EditarEmpresaComponent,
      NovaEmpresaComponent
 
+    PhonePipe,
+    OnlyNumbersDirective,
+
+
   ],
   imports: [
     BrowserModule,
@@ -131,14 +140,18 @@ import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/edita
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    BsDropdownModule.forRoot()
+
+
+    
 
 
     // ====DECLARAÇÃOD DE ESPAÇOS ======
-    //IonicModule.forRoot(),
-    //HttpClientModule,
-   // FormsModule,
+    IonicModule.forRoot(),
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]

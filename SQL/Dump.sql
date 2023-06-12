@@ -62,7 +62,7 @@ CREATE TABLE `espaco` (
   `ponto_referencia` varchar(120) DEFAULT NULL,
   `descricao` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `evento_agenda` (
   `nome` varchar(80) NOT NULL,
   `descricao` varchar(1000) NOT NULL,
   `data_inicio` date NOT NULL,
-  `date_termino` date NOT NULL,
+  `data_termino` date NOT NULL,
   `hora_inicio` time NOT NULL,
   `hora_termino` time NOT NULL,
   `id_usuario` int NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE `evento_agenda` (
   CONSTRAINT `fk_evento_agenda_lugar` FOREIGN KEY (`id_lugar`) REFERENCES `lugar` (`id`),
   CONSTRAINT `fk_evento_agenda_tipo` FOREIGN KEY (`id_tipo`) REFERENCES `tipo` (`id`),
   CONSTRAINT `fk_evento_agenda_usuario_code` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,7 +154,7 @@ CREATE TABLE `imagem` (
   KEY `fk_imagem_instituicao` (`id_instituicao`),
   CONSTRAINT `fk_imagem_evento_agenda` FOREIGN KEY (`id_agenda`) REFERENCES `evento_agenda` (`id`),
   CONSTRAINT `fk_imagem_instituicao` FOREIGN KEY (`id_instituicao`) REFERENCES `instituicao` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +168,7 @@ CREATE TABLE `instituicao` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(80) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,7 +182,7 @@ CREATE TABLE `lugar` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(80) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,7 +209,7 @@ CREATE TABLE `solicitacao` (
   KEY `fk_solicitacao_espaco` (`id_espaco`),
   CONSTRAINT `fk_solicitacao_espaco` FOREIGN KEY (`id_espaco`) REFERENCES `espaco` (`id`),
   CONSTRAINT `fk_solicitacao_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,7 +223,7 @@ CREATE TABLE `tipo` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tipo` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,16 +238,16 @@ CREATE TABLE `usuario` (
   `nome` varchar(80) NOT NULL,
   `email` varchar(120) NOT NULL,
   `senha` varchar(80) NOT NULL,
-  `login` varchar(80) NOT NULL,
   `cargo` varchar(80) NOT NULL,
   `telefone` varchar(18) NOT NULL,
-  `nivel_acesso` tinyint NOT NULL,
-  `status_usuario` tinyint(1) NOT NULL,
+  `nivel_acesso` varchar(20) DEFAULT NULL,
+  `status_usuario` tinyint DEFAULT NULL,
   `id_instituicao` int NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `user_unique_email` (`email`),
   KEY `fk_instituicao_usuario` (`id_instituicao`),
   CONSTRAINT `fk_instituicao_usuario` FOREIGN KEY (`id_instituicao`) REFERENCES `instituicao` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -259,4 +259,4 @@ CREATE TABLE `usuario` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-18  8:43:00
+-- Dump completed on 2023-06-02  8:16:47

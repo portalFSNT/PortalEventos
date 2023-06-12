@@ -159,8 +159,9 @@ select{
   border-radius: 50px;
 }
 
-.botao{
 
+.botao{
+  
 display: flex;
 flex-direction:row-reverse;
 margin-bottom: 235px;
@@ -173,8 +174,8 @@ margin-bottom: 235px;
   margin-top: 0px;
   width: 107%;
   color:#d3d3d3;
- }
- //Estilização do rodapé
+}
+//Estilização do rodapé
 //Estilização do rodapé
 .rodape{
   display: flex;
@@ -183,8 +184,8 @@ margin-bottom: 235px;
   padding-top: 20px;
 }
 .logo_fsnt{
-width: 190px;
-padding-bottom: -20px;
+  width: 190px;
+  padding-bottom: -20px;
 }
 
 .subtitulo, .num1 , .num2{
@@ -196,7 +197,7 @@ padding-bottom: -20px;
 }
 
 .sidebar {
-padding-bottom: 800px;
+  padding-bottom: 800px;
 }
 
 .line{
@@ -205,4 +206,7 @@ padding-bottom: 800px;
   margin-top: 0px;
   width: 125%;
   color:#d3d3d3;
- }
+}
+.descricao-novo{
+  border-radius: 16px !important;
+}

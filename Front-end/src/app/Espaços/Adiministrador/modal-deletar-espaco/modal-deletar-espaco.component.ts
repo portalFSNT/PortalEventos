@@ -3,6 +3,7 @@ import { Espacos } from './espacos';
 import { NavParams } from '@ionic/angular';
 import { ModalDeletarEspacosService } from './modal-deletar-espaco.service';
 import { ModalController } from '@ionic/angular';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-modal-deletar-espaco',
@@ -11,7 +12,9 @@ import { ModalController } from '@ionic/angular';
 })
 export class ModalDeletarEspacoComponent implements OnInit {
 
-  constructor(private modalcontroler:ModalController, public navParams: NavParams, private service: ModalDeletarEspacosService) { }
+  constructor(private modalcontroler:ModalController, 
+    public navParams: NavParams, private service: ModalDeletarEspacosService,
+    private location: Location) { }
 
   exibirEspaco:Espacos = this.navParams.get('espaco')
 
@@ -19,17 +22,18 @@ export class ModalDeletarEspacoComponent implements OnInit {
 
   }
 
-  fecharModal(): void {
-    this.modalcontroler.dismiss() //Fecha o Modal
+  fecharModal() {
+    this.modalcontroler.dismiss(); //Fecha o Modal
   }
-
-  deletarEspaco(): void {
+  
+  deletarEspaco() {
     this.service.deletarEspaco(this.exibirEspaco.id).subscribe((event) => {
       console.log(event)
+      this.fecharModal()
+      window.location.reload(); // Recarrega a página
 
       // Solicitante
       if(event.message === "Espaço removido com sucesso") {
-        this.fecharModal()
       }
     })
   }

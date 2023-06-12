@@ -26,11 +26,13 @@ const upload = multer({
 //USER -----   
 const UserController = require("./controllers/UserController");
 // router.get('/users',roles.adminRole, UserController.getAll);
-router.get('/users', UserController.getAll);
+router.get('/users',roles.adminRole, UserController.getAll);
 router.get('/user/:email', UserController.getById);
 router.get('/userstatus/',roles.adminRole, UserController.getStatus);
 router.post('/user', UserController.addUser);
 router.patch('/user/:email', UserController.updateUser);
+router.patch('/user/userstatus/:email',roles.adminRole, UserController.updateStatusUser);
+router.patch('/user/senha/:email', roles.adminRole, UserController.updateSenha);
 router.delete('/user/:email', UserController.delUser);
 router.post('/login', UserController.login);
 
@@ -93,8 +95,9 @@ router.delete("/espaco/:id_espaco",roles.adminRole, EspacoController.delEspaco);
 
 // SOLICITAÇÃO -----
 const SolicitacaoController = require("./controllers/espaco/SolicitacaoController");
-router.get("/solicitacao",roles.adminRole, SolicitacaoController.getAllSolicitacoes);
+router.get("/solicitacao",roles.admin_solicitanteRole, SolicitacaoController.getAllSolicitacoes);
 router.get("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.getSolicitacaoById);
+router.get("/solicitacaostatus", roles.admin_solicitanteRole, SolicitacaoController.getStatus);
 router.post("/solicitacao",roles.admin_solicitanteRole, SolicitacaoController.addSolicitacao);
 router.patch("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.updateSolicitacao);
 router.delete("/solicitacao/:id_solicitacao",roles.admin_solicitanteRole, SolicitacaoController.delSolicitacao);
@@ -114,5 +117,13 @@ router.get("/instituicao/:id",roles.adminRole, InstituicaoController.getById);
 router.post("/instituicao",roles.adminRole, InstituicaoController.addInstituicao);
 router.patch("/instituicao/:id",roles.adminRole, InstituicaoController.updateInstituicao);
 router.delete("/instituicao/:id",roles.adminRole, InstituicaoController.delInstituicao);
+
+// LUGAR -----
+const LugarController = require("./controllers/evento/LugarController");
+router.get("/lugar",roles.adminRole, LugarController.getAll);
+router.get("/lugar/:id",roles.adminRole, LugarController.getById);
+router.post("/lugar",roles.adminRole, LugarController.addLugar);
+router.patch("/lugar/:id",roles.adminRole, LugarController.updateLugar);
+router.delete("/lugar/:id",roles.adminRole, LugarController.delLugar);
 
 module.exports = router;

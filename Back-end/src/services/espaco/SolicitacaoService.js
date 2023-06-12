@@ -4,7 +4,13 @@ module.exports = {
     getAllSolicitacoes: () => {
         return new Promise((acepted, rejected) => {
 
-            db.query('SELECT * FROM solicitacao', (error, results) => {
+            db.query(`
+          SELECT solicitacao.id, solicitacao.status_solicitacao, solicitacao.data_solicitacao, solicitacao.quantidade, solicitacao.data_inicio, solicitacao.data_termino, solicitacao.hora_inicio, solicitacao.hora_termino,  solicitacao.descricao, solicitacao.id_espaco, solicitacao.id_usuario, espaco.nome as espaco_nome, usuario.nome as usuario_nome
+            FROM solicitacao
+      INNER JOIN espaco
+              ON (espaco.id = solicitacao.id_espaco)
+      INNER JOIN usuario
+              ON (usuario.id = solicitacao.id_usuario)`, (error, results) => {
                 if(error) { rejected(error); return;}
                 acepted(results);
             });
@@ -24,6 +30,23 @@ module.exports = {
            WHERE solicitacao.id = ?;`, [id_solicitacao], (error, results) => {
             if(error) { rejected(error); return;}
             acepted(results);
+           });
+        });
+    },
+
+    getStatus: () => {
+        return new Promise((acepted, rejected) => {
+
+            db.query(`
+        SELECT solicitacao.id, solicitacao.status_solicitacao, solicitacao.data_solicitacao, solicitacao.quantidade, solicitacao.data_inicio, solicitacao.data_termino, solicitacao.hora_inicio, solicitacao.hora_termino,  solicitacao.descricao, solicitacao.id_espaco, solicitacao.id_usuario, espaco.nome as espaco_nome, usuario.nome as usuario_nome
+            FROM solicitacao
+      INNER JOIN espaco
+              ON (espaco.id = solicitacao.id_espaco)
+      INNER JOIN usuario
+              ON (usuario.id = solicitacao.id_usuario)
+           WHERE solicitacao.status_solicitacao = 0;`, (error, results) => {
+                if (error) { rejected(error); return; }
+                acepted(results);
            });
         });
     },

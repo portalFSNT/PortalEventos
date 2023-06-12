@@ -52,14 +52,22 @@
     <!--Início dos inputs-->
     <div class="campo-cadastro">
 
-        <!-- <select [(ngModel)]="espacoSelecionado"> -->
-        <select>
+        <select [(ngModel)]="espacoSelecionado">
           <option value="0"> Selecione um Espaço </option>
           <option *ngFor="let espaco of espacos" name="espaco" value={{espaco.id}}> {{ espaco.nome }} </option>
         </select>
         
-        <!-- <input type="text" name="data" placeholder="Data" onfocus="(this.type='date')" onblur="(this.type='text')" class="input" [(ngModel)]="data"> -->
-        <input type="text" name="data" placeholder="Data" onfocus="(this.type='date')" onblur="(this.type='text')">
+        <!-- <input type="text" name="data" placeholder="Data" class="input" [(ngModel)]="data"> -->
+        <input type="text" name="data" placeholder="Data" onfocus="(this.type='date')" onblur="(this.type='text')" class="input" [(ngModel)]="data">
+
+        
+    </div>
+
+    <div class="campo-cadastro">
+      
+     
+      <input type="text" name="horario_entrada" placeholder="Horário entrada" onfocus="(this.type='time')" onblur="(this.type='text')" class="input" [(ngModel)]="horario_entrada">
+      <input type="text" name="horario_saida" placeholder="Horário saída " onfocus="(this.type='time')" onblur="(this.type='text')" class="input" [(ngModel)]="horario_saida">
       
         
     </div>
@@ -67,19 +75,7 @@
     <div class="campo-cadastro">
       
      
-      <!-- <input type="text" name="horario_entrada" placeholder="Horário entrada" onfocus="(this.type='time')" onblur="(this.type='text')" class="input" [(ngModel)]="horario_entrada">
-      <input type="text" name="horario_saida" placeholder="Horário saída " onfocus="(this.type='time')" onblur="(this.type='text')" class="input" [(ngModel)]="horario_saida"> -->
-      <input type="text" name="horario_entrada" placeholder="Horário entrada" onfocus="(this.type='time')" onblur="(this.type='text')" class="input">
-      <input type="text" name="horario_saida" placeholder="Horário saída " onfocus="(this.type='time')" onblur="(this.type='text')" class="input">
-      
-        
-    </div>
-
-    <div class="campo-cadastro">
-      
-     
-      <!-- <input type="text" name="descricao" placeholder="Descrição: Preciso de notebook e datashow. " class="input" id="description" [(ngModel)]="descricao"> -->
-      <input type="text" name="descricao" placeholder="Descrição: Preciso de notebook e datashow. " class="input" id="description">
+      <input type="text" name="descricao" placeholder="Descrição: Preciso de notebook e datashow. " class="input" id="description" [(ngModel)]="descricao">
       
     
       
@@ -89,21 +85,6 @@
   <button (click)="solicitar()" >Enviar</button>
   </div>
 
-
-
-  <footer>
-    <hr class="line">
-    <div class="rodape">
-    
-    <img src="../../../../assets/Espaços/logo_transparente.png" class="logo_fsnt">
-    <h3 class="subtitulo">Dúvidas? entre em contato</h3>
-        
-          <p class="num1">comunicacao@fsnt.com.br</p>
-          <p class="num2">(14) 3405-2033</p>
-
-       
-    </div>
-  </footer>     
     
         
       

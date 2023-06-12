@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { TokenService } from 'src/app/authentication/token.service';
 
 const API = environment.API
 
@@ -9,29 +10,35 @@ const API = environment.API
   providedIn: 'root'
 })
 export class ModalAceitarService {
-  private readonly API_AprovarSolicitacoes=`${API}/AprovarSolicitacoes`;
-  private readonly API_DeletarSolicitacoes=`${API}/DeletarSolicitacoes`;
-  constructor(private http: HttpClient) { }
 
-  funcaoYes(idSolicitacao: number):Observable<any>{
-    const token = JSON.parse(localStorage.getItem('accessToken')!)
+  private readonly API=`${API}/aprovar_solicitacao`;
+
+  constructor(
+    private tokenService: TokenService,
+    private http: HttpClient
+  ) { }
+
+  aceptSolicitacao(idSolicitacao: number):Observable<any>{
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token['accessToken']}`,
-      'auth': token['accessToken']
+      'Authorization': `Bearer ${this.tokenService.returnToken()}`,
     })
 
-    return this.http.put<any>(`${this.API_AprovarSolicitacoes}/${idSolicitacao}`, {}, {headers})
+    const body = {status_solicitacao: 1};
+
+    return this.http.patch<any>(`${this.API}/${idSolicitacao}`,body,{headers})
   }
 
-  funcaoNot(idSolicitacao: number):Observable<any>{
-    const token = JSON.parse(localStorage.getItem('accessToken')!)
+  deniSolicitacao(idSolicitacao: number):Observable<any>{
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token['accessToken']}`,
-      'auth': token['accessToken']
+      'Authorization': `Bearer ${this.tokenService.returnToken()}`,
     })
+
+    const body = {status_solicitacao: 2};
     
-    return this.http.delete<any>(`${this.API_DeletarSolicitacoes}/${idSolicitacao}`, {headers})
+    return this.http.patch<any>(`${this.API}/${idSolicitacao}`,body,{headers})
   }
 }

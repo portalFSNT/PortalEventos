@@ -6,49 +6,12 @@
 <main>
   <div class="container">
     <div class="main-header">
-      <a routerLink="/cad-eventos"class="btn btn-primary">
-        <img src="./../../../assets/Eventos/cadastro.svg">
+      <h3>Calendário de Eventos</h3>
+      <a routerLink="/cad-eventos" class="new-evento">
         Cadastrar novo evento
       </a>
     </div>
-     <!-- <section class="s-cards">
-      <div class="card" *ngFor="let card of agendamentos">
-        <div (click)="openModal()" class="card-header">
-          <div class="status-options">
-            <span class="status status-andamento">Em andamento</span>
-            <img src="./../../../assets/Eventos/charm_menu-meatball.svg">
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="title">
-            <h6>{{card.nome}}</h6>
-            <img src="./../../../assets/Eventos/edit-card.svg">
-          </div>
 
-          <ul class="info">
-            <li>
-              <img src="./../../../assets/Eventos/data.svg" alt="">
-              <div class="text">
-                <p>{{card.data_inicio | date:"dd/MM/yyyy"}}</p>
-                <span>Data</span>
-              </div>
-            </li>
-            <li>
-              <img src="./../../../assets/Eventos/time.svg" alt="">
-              <div class="text">
-                <p>{{card.hora_inicio | date : 'HH:mm'}} - {{card.hora_termino}}</p>
-                <span>Horário</span>
-              </div>
-            </li>
-          </ul>
-
-          <div class="endereco">
-            <p>{{card.descricao}}</p>
-            
-          </div>
-        </div>
-      </div>
-    </section>  -->
     <section class="card-ng">
       <div class="card" *ngFor="let card of agendamentos">
 

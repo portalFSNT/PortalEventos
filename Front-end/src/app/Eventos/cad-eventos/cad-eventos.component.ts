@@ -23,7 +23,8 @@ export class CadEventosComponent implements OnInit {
   instituicoes: Instituicoes[] = [];
 
   constructor(private fb: FormBuilder,
-    private service: CadEventosService) {
+    private service: CadEventosService,
+    private router: Router) {
 
     this.form = this.fb.group({
       nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
@@ -77,12 +78,14 @@ export class CadEventosComponent implements OnInit {
         sucess => console.log('Sucesso'),
         error => console.log('Error'),
         () => console.log('Rquest Completo')
-      );
+        );
+        this.router.navigate(['/eventos']);
     }
+
   }
   onCancel() {
     this.submitted = false;
     this.form.reset();
-    // console.log("Cancel")
+    this.router.navigate(['/eventos']);
   }
 }

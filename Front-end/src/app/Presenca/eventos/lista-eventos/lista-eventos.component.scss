@@ -1,0 +1,69 @@
+h1{
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+button{
+    position: absolute;
+    right: 200px;
+    margin-top: 30px;
+    border-radius: 25px;
+    background-color: #00A54E;
+}
+
+p{
+    text-align: center;
+    margin-top: 150px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+//CARDS
+.row {
+    width: 1500px;
+    margin: 0 auto;
+    min-width: 1300px;
+    margin-top: 40px;
+}
+
+.card {
+    border-radius: 5px;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    padding: 8px;
+    margin: 15px;
+    width: 320px;
+    height: 172px;
+    transition: all 0.3s ease-out;
+    float: left;
+
+}
+  
+.card:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.titulo-card{
+    font-weight: bolder;
+}
+
+.img-convidado, .qnt-convidado{
+    float: left;
+}
+
+.img-confirmado, .qnt-confirmado{
+    float: right;
+}
+
+.img-convidado, .img-confirmado{
+    position: relative;
+    top: 12px;
+    padding-right: 15px;
+}
+
+.posicao-img{
+    margin-top: 10px;
+}
+

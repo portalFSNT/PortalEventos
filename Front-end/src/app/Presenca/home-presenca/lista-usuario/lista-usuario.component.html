@@ -1,0 +1,107 @@
+
+<app-header></app-header>
+
+<!-- NavBar com logo e Título-->
+<div id="navbar">
+ <!-- <div id="logo">
+    <img src="../../../assets/images/logo.png">
+  </div> -->
+ <!-- <div id="navbar-adm">
+    <a routerLink='/lista-eventos' ><img src="../../../../assets/icon-presenca/home.svg">
+      <p routerLink='/lista-eventos' > Home</p></a>
+
+     <a routerLink='/lista-empresas'   ><img src="../../../../assets/icon-presenca/briefcase.svg"> 
+     <p routerLink='/lista-empresas' >Empresas</p></a>    
+     
+    <a routerLink='/lista-convidados'><img src="../../../../assets/icon-presenca/user.svg">
+    <p routerLink='/lista-convidados'>Convidados</p></a>
+
+    <a routerLink='/lista-usuario'><img src="../../../../assets/icon-presenca/settings.svg">
+    <p routerLink='/lista-usuario'>Usuário</p></a>
+
+    <a routerLink='/'  (click)="logout()"><img src="../../../../assets/icon-presenca/log-out.svg">
+    <p routerLink='/' (click)="logout()" >Sair</p></a>
+    
+  </div> -->
+
+</div>
+
+<div id="conteudo">
+  <h1>Lista de usuários</h1>
+ <button (click)="add()" class="btn btn-primary"><img src="../../../../assets/icon-presenca/plus-circle.svg">Usuário</button>
+</div>
+
+
+  <!--<table *ngIf="listaUsuario.length>0 , else semUsuario">
+    <thead>
+      <tr>
+        <th>Usuário</th>
+        <th>Tipo</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+
+      </tr>
+    </thead>
+    <tbody >
+    <tr *ngFor="let usuario of listaUsuario">
+      <td>{{usuario.id_login}}  -  {{usuario.login}}</td>
+      <td>{{usuario.perfil}}</td>
+      <td>{{usuario.email}}</td>
+      <td>{{usuario.telefone}}</td>
+      <td><img (click)="edit(usuario.id_login,usuario.login,usuario.perfil,usuario.email,usuario.telefone)" src="../../../../assets/icon-presenca/caneta_black.svgw _edit 2_.svg"></td>
+      <td><img (click)="delet(usuario.id_login)"  src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></td>
+    </tr>
+  </tbody>
+
+
+  </table> -->
+
+  <table>
+    <thead>
+      <tr>
+        <th>Usuário</th>
+        <th>Tipo</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+
+      </tr>
+
+      <tr>
+        <td>Doido Mongo Louco</td>
+        <td>Maluco</td>
+        <td>doido@gmail.com</td>
+        <td>(14) 12345123</td>
+        <td><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
+        <td><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
+      </tr>
+
+      <tr>
+        <td>Doido Mongo Louco</td>
+        <td>Maluco</td>
+        <td>doido@gmail.com</td>
+        <td>(14) 12345123</td>
+        <td><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
+        <td><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
+      </tr>
+
+      <tr>
+        <td>Doido Mongo Louco</td>
+        <td>Maluco</td>
+        <td>doido@gmail.com</td>
+        <td>(14) 12345123</td>
+        <td><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
+        <td><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
+      </tr>
+    </thead>
+
+    </table>
+
+
+
+<ng-template #semUsuario>
+  <p>Nenhum usuário cadastrado</p>
+</ng-template>

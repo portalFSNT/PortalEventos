@@ -1,4 +1,5 @@
 export interface CadEventos {
+    id: number;
     nome: string;
     descricao: string;
     data_inicio: string;
@@ -10,3 +11,5 @@ export interface CadEventos {
     id_tipo:string;
     id_instituicao:string;
 }
+
+

@@ -1,0 +1,18 @@
+
+<div class="modal-modal">
+    <div class="modal-top">
+        <label class="modal-title">Editar empresa</label>
+     <a>   <img (click)="cancelar()" src="../../../../assets/icon/x.svg"></a>
+    </div>
+    <form [formGroup]="editarEmpresaForm" (submit)="editar()">
+        <div class="modal-label"><label>Nome da empresa</label>
+        </div>
+        <input formControlName="empresa" [value]="empresa" class="modal-input" type="text" name="email" >
+        
+    
+    
+        <button class="modal-button" (click)="salvar()" class="btn btn-primary"> Salvar alterações </button>
+       
+    </form>
+    </div>
+    

@@ -1,0 +1,40 @@
+
+
+
+<div class="modal-modal">
+    <div class="modal-top">
+        <label class="modal-title">Cadastrar usuario</label>
+     <a>   <img (click)="cancelar()" src="../../../../assets/icon/x.svg"></a>
+    </div>
+    <form [formGroup]="novoUsuarioForm" (submit)="cadastrar()">
+        <div  class="modal-label"><label>Nome</label>
+        </div>
+        <input formControlName="login" class="modal-input" type="text" name="nome" >
+            
+        <div class="modal-label"><label>E-mail</label>
+        </div>
+        <input   formControlName="email" class="modal-input" type="email" name="email" >
+
+        
+        <div   class="modal-label"><label>Senha</label>
+        </div>
+        <input formControlName="senha" class="modal-input" type="text" name="email" >
+
+
+        
+        <div class="modal-label"><label>Telefone</label>
+        </div>
+        <input formControlName="telefone" class="modal-input" type="text" name="email" >
+
+        <div class="modal-label"><label>Perfil</label>
+        </div>
+        <input formControlName="perfil"  class="modal-input" type="text" name="email" >
+
+     
+    
+    
+    
+        <button class="modal-button" (click)="adicionar()" class="btn btn-primary"> Cadastrar </button>
+    </form>
+    </div>
+    

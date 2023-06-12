@@ -37,7 +37,7 @@ export class SolicitarService {
         const userId = user.id;
 
     return this.http.post<any>(this.API_SolicitarAgendamento, {
-      status_solicitacao: 1,
+      status_solicitacao: 0,
       data_solicitacao: '31/12/2022',
       quantidade: 20, 
       data_inicio: data,

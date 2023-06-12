@@ -46,6 +46,26 @@ import { LoginComponent } from './Portal/login/login.component';
 import { PhonePipe } from './pipes/phone.pipe';
 import { OnlyNumbersDirective } from './shared/only-numbers/only-numbers.directive';
 
+//============== imports de presença ===============
+import { ListaConvidadosComponent } from './Presenca/convidados/lista-convidados/lista-convidados.component';
+import { ListaEmpresasComponent } from './Presenca/empresas/lista-empresas/lista-empresas.component';
+import { ListaEventosComponent } from './Presenca/eventos/lista-eventos/lista-eventos.component';
+import { ListaPessoasComponent } from './Presenca/pessoas/lista-pessoas/lista-pessoas.component';
+import { NovoEventoComponent } from './Presenca/eventos/novo-evento/novo-evento.component';
+import { EditarEventoComponent } from './Presenca/eventos/editar-evento/editar-evento.component';
+import { CadastrarEventoComponent } from './Presenca/components/evento/cadastrar-evento/cadastrar-evento.component';
+import { EditarPessoaComponent } from './Presenca/pessoas/editar-pessoa/editar-pessoa.component';
+import { NovaPessoaComponent } from './Presenca/pessoas/nova-pessoa/nova-pessoa.component';
+import { NovoUsuarioComponent } from './Presenca/home-presenca/novo-usuario/novo-usuario.component';
+import { EditarUsuarioComponent } from './Presenca/home-presenca/editar-usuario/editar-usuario.component';
+import { ListaUsuarioComponent } from './Presenca/home-presenca/lista-usuario/lista-usuario.component';
+import { EditarConvidadoComponent } from './Presenca/convidados/editar-convidado/editar-convidado.component';
+import { NovoConvidadoComponent } from './Presenca/convidados/novo-convidado/novo-convidado.component';
+import { NovaEmpresaComponent } from './Presenca/empresas/nova-empresa/nova-empresa.component';
+import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/editar-empresa.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -83,8 +103,32 @@ import { OnlyNumbersDirective } from './shared/only-numbers/only-numbers.directi
     UsersPendingComponent,
     ModalAcceptDenyUserComponent,
     NewAdmComponent,
+
+    
+    //DECLARAÇÃO DO PROJETO PRESENÇA
+
+      ListaEventosComponent,
+     CadastrarEventoComponent,
+     EditarEventoComponent,
+     NovoEventoComponent,
+     EditarPessoaComponent,
+     ListaPessoasComponent,
+     NovaPessoaComponent,
+    // HomeComponent,
+    // LoginComponent,
+     NovoUsuarioComponent,
+     ListaUsuarioComponent,
+    EditarUsuarioComponent,
+     EditarConvidadoComponent, 
+    ListaConvidadosComponent,
+     NovoConvidadoComponent,
+     ListaEmpresasComponent,
+     EditarEmpresaComponent,
+     NovaEmpresaComponent
+
     PhonePipe,
     OnlyNumbersDirective,
+
 
   ],
   imports: [
@@ -96,6 +140,8 @@ import { OnlyNumbersDirective } from './shared/only-numbers/only-numbers.directi
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+
+
     
 
 
@@ -105,6 +151,7 @@ import { OnlyNumbersDirective } from './shared/only-numbers/only-numbers.directi
     FormsModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]

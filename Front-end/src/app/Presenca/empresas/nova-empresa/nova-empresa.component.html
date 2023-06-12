@@ -1,0 +1,17 @@
+
+<div class="modal-modal">
+    <div class="modal-top">
+        <label class="modal-title">Cadastrar empresa</label>
+     <a>   <img (click)="cancelar()" src="../../../../assets/icon/x.svg"></a>
+    </div>
+    <form [formGroup]="novaEmpresaForm" (submit)="cadastrar()">
+        <div class="modal-label"><label>Nome da empresa</label>
+        </div>
+        <input formControlName="empresa" class="modal-input" type="text" name="email" >
+        
+    
+    
+        <button class="modal-button" (click)="adicionar()" class="btn btn-primary"> Cadastrar </button>
+    </form>
+    </div>
+    

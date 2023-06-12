@@ -1,0 +1,33 @@
+
+<div class="modal-modal">
+    <div class="modal-top">
+        <label class="modal-title">Cadastrar Convidado </label>
+     <a>   <img (click)="cancelar()" src="../../../../assets/icon/x.svg"></a>
+    </div>
+    <form [formGroup]="novaPessoaForm" (submit)="cadastrar()">
+        <div class="modal-label"><label>Nome</label>
+        </div>
+        <input formControlName="nome" class="modal-input" type="text"  >
+        
+        <div class="modal-label"><label>Cargo</label>
+        </div>
+        <input formControlName="cargo" class="modal-input" type="text"  >
+        <div  class="modal-label"><label>Empresa</label>
+        </div>
+        
+        <select formControlName="empresa" 
+         class="modal-input" type="text"  >
+         <option  *ngFor="let empresa of listaPessoa" >{{empresa.empresa}}</option>
+         </select>
+        <div class="modal-label"><label>E-mail</label>
+        </div>
+        <input formControlName="email" class="modal-input" type="text"  >
+        <div class="modal-label"><label>Telefone</label>
+        </div>
+        <input formControlName="telefone" class="modal-input" type="text"  >
+        
+    
+        <button class="modal-button" (click)="adicionar()" class="btn btn-primary"> Cadastrar </button>
+    </form>
+    </div>
+    

@@ -7,12 +7,13 @@ import { Component, OnInit } from "@angular/core";
 import { Empresa } from "../empresa";
 
 import { ModalController } from "@ionic/angular";
+import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
 //import { UsuarioService } from "src/app/autenticacao/usuario/usuario.service";
 
 @Component({
   selector: "app-lista-empresas",
   templateUrl: "./lista-empresas.component.html",
-  styleUrls: ["./lista-empresas.component.scss", "../../navbar-adm.scss"],
+  styleUrls: ["./lista-empresas.component.scss"],
 })
 export class ListaEmpresasComponent implements OnInit {
   listaEmpresa: Empresa[] = [];
@@ -21,6 +22,7 @@ export class ListaEmpresasComponent implements OnInit {
     private service: EmpresaService,
     private modalController: ModalController,
     private router: Router,
+    private modalService: BsModalService
     //private ser:UsuarioService
   ) {}
 
@@ -58,4 +60,11 @@ export class ListaEmpresasComponent implements OnInit {
   logout(){
 //this.ser.logout()
   }
+
+  
+bsModalRef?: BsModalRef;
+novoEmpresa(){
+  this.bsModalRef = this.modalService.show(NovaEmpresaComponent);
+  this.bsModalRef.content.closeBtnName = 'Close';
+}
 }

@@ -10,7 +10,7 @@ import { Empresa } from './empresa';
 @Component({
   selector: 'app-nova-pessoa',
   templateUrl: './nova-pessoa.component.html',
-  styleUrls: ['./nova-pessoa.component.scss','../navbar-amd.scss']
+  styleUrls: ['./nova-pessoa.component.scss']
 })
 export class NovaPessoaComponent implements OnInit {
 

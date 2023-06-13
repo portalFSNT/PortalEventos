@@ -1,4 +1,3 @@
-import { UsuariosService } from '../../home-presenca/usuarios.service';
 import { PessoaService } from './../pessoa.service';
 import { EditarPessoaComponent } from './../editar-pessoa/editar-pessoa.component';
 import { NovaPessoaComponent } from './../nova-pessoa/nova-pessoa.component';
@@ -18,8 +17,7 @@ export class ListaPessoasComponent implements OnInit {
   constructor(
     private service: PessoaService,
     private modalController:ModalController,
-    private router:Router,
-    private ser:UsuariosService) {}
+    private router:Router) {}
    
 
   ngOnInit(): void {
@@ -69,8 +67,5 @@ export class ListaPessoasComponent implements OnInit {
     );
 
   }
-  logout(){
-    this.ser.logout()
-    
-  }
+
 }

@@ -4,7 +4,6 @@ import { NovoEventoComponent } from './../novo-evento/novo-evento.component';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from "@ionic/angular";
 import { Evento } from '../evento';
-import { UsuariosService } from '../../home-presenca/usuarios.service';
 
 
 @Component({
@@ -18,8 +17,7 @@ id_evento:any;
   constructor(
     private modalController:ModalController,
     private service:EventoService,
-    private route:ActivatedRoute,
-    private ser:UsuariosService
+    private route:ActivatedRoute
     ) { 
       this.route.params.subscribe(
         (params) => (this.id_evento = params["id_evento"])
@@ -33,6 +31,7 @@ id_evento:any;
       console.log(this.listaEvento)
     })}
 async add(){
+  console.log("Modal")
   const modal = await this.modalController.create({
     component:NovoEventoComponent,
     cssClass:'modal',
@@ -48,10 +47,7 @@ async add(){
 
   const res=await modal.onDidDismiss();
 }
-logout(){
-  this.ser.logout()
 
-}
 
 
 }

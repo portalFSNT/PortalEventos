@@ -11,7 +11,7 @@ import { Component, OnInit } from "@angular/core";
 @Component({
   selector: "app-lista-pessoas",
   templateUrl: "./lista-pessoas.component.html",
-  styleUrls: ["./lista-pessoas.component.scss","../../navbar-adm.scss"],
+  styleUrls: ["./lista-pessoas.component.scss"],
 })
 export class ListaPessoasComponent implements OnInit {
   listaPessoa: Pessoa[] = [];
@@ -32,7 +32,7 @@ export class ListaPessoasComponent implements OnInit {
   async add() {
     const modal = await this.modalController.create({
       component:NovaPessoaComponent,
-      cssClass:"modal",
+      //cssClass:"modal",
     });
     await modal.present();
   }

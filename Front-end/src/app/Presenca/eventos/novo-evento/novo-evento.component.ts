@@ -11,7 +11,7 @@ import { Evento } from '../evento';
 @Component({
   selector: 'app-novo-evento',
   templateUrl: './novo-evento.component.html',
-  styleUrls: ['./novo-evento.component.scss']
+  styleUrls: ['./novo-evento.component.scss','../../modal.scss']
 })
 export class NovoEventoComponent implements OnInit {
 @Input() id_evento:any

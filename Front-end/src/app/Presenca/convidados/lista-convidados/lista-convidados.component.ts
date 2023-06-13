@@ -15,7 +15,7 @@ import { Evento } from 'src/app/Presenca/eventos/evento';
 @Component({
   selector: "app-lista-convidados",
   templateUrl: "./lista-convidados.component.html",
-  styleUrls: ["./lista-convidados.component.scss","../../navbar-adm.scss"],
+  styleUrls: ["./lista-convidados.component.scss","../../modal.scss"]
 })
 export class ListaConvidadosComponent implements OnInit {
   public id_evento: any;
@@ -79,7 +79,7 @@ listaEvento:any =[]
     
       },
       
-      cssClass:"modal",
+      //cssClass:"modal",
    
     });
     console.log(`o id 'e ${this.id_evento}`)
@@ -116,7 +116,7 @@ await modal.present();
       componentProps:{
           id_evento:this.id_evento
       },
-      cssClass: "modal",
+     // cssClass: "modal",
     });
     await modal.present();
   }

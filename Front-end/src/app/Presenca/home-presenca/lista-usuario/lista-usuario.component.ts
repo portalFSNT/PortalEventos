@@ -11,7 +11,7 @@ import { Usuario } from "./../usuario";
 @Component({
   selector: "app-lista-usuario",
   templateUrl: "./lista-usuario.component.html",
-  styleUrls: ["./lista-usuario.component.scss", "../../navbar-adm.scss"]
+  styleUrls: ["./lista-usuario.component.scss", "../../modal.scss"]
 })
 export class ListaUsuarioComponent implements OnInit {
   listaUsuario: Usuario[] = [];
@@ -30,6 +30,7 @@ export class ListaUsuarioComponent implements OnInit {
     });
   }
 
+  
   async add() {
     const modal = await this.modalController.create({
       component: NovoUsuarioComponent,

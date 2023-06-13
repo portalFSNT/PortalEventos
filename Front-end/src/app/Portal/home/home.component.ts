@@ -15,6 +15,6 @@ export class HomeComponent {
   }
   
   irParaConvidados(){
-    this.router.navigate(['/lista-usuario'])
+    this.router.navigate(['/lista-eventos'])
   }
 }

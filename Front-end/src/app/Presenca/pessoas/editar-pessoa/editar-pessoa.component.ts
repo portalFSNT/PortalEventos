@@ -10,7 +10,7 @@ import { Empresa } from "../nova-pessoa/empresa";
 @Component({
   selector: "app-editar-pessoa",
   templateUrl: "./editar-pessoa.component.html",
-  styleUrls: ["./editar-pessoa.component.scss"],
+  styleUrls: ["./editar-pessoa.component.scss", '../../modal.scss'],
 })
 export class EditarPessoaComponent implements OnInit {
   editarPessoaForm!: FormGroup;

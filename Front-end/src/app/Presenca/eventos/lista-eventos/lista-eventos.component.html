@@ -56,7 +56,7 @@
 <!-- CARDS -->
 <div class="row" routerLink="/evento_convidados/{{evento.id_evento}}" *ngIf="listaEvento.length>0,else semEvento">
 
-  <div class="card"  >
+  <!-- <div class="card"  >
     <h2 class="titulo-card"> {{evento.descricao}}</h2><br>
     <p>{{evento.data_hora | date:'dd/MM/yyyy'}}</p>
     <br><br>
@@ -72,7 +72,25 @@
         <p class="titulo">{{evento.total}}</p><br>
         <p>Convidado</p>
       </div>
-    </div>
+    </div> -->
+
+    <div class="card"  >
+      <h2 class="titulo-card"> Descrição</h2><br>
+      <p>11:30 | data: 29/06/2023</p>
+      <br><br>
+      <div class="posicao-img">
+        <div class="qnt-confirmado">
+          <p class="titulo">Festa junina</p><br>
+          <p>Confirmado</p>
+        </div>
+        <img class="img-confirmado" src="../../../../assets/icon-presenca/check-box.svg" alt="" />
+  
+        <img class="img-convidado" src="../../../../assets/icon-presenca/invite-line.svg" alt="" />
+        <div class="qnt-convidado">
+          <p class="titulo">festa junina</p><br>
+          <p>Convidado</p>
+        </div>
+      </div>
   </div>
 </div>
 </div>

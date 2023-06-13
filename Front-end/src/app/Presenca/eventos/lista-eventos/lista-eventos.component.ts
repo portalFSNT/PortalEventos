@@ -10,7 +10,7 @@ import { UsuariosService } from '../../home-presenca/usuarios.service';
 @Component({
   selector: 'app-lista-eventos',
   templateUrl: './lista-eventos.component.html',
-  styleUrls: ['./lista-eventos.component.scss',"../../navbar-adm.scss"]
+  styleUrls: ['./lista-eventos.component.scss',"../../modal.scss"]
 })
 export class ListaEventosComponent implements OnInit {
 id_evento:any;

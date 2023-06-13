@@ -12,7 +12,7 @@ import { ModalController } from "@ionic/angular";
 @Component({
   selector: "app-lista-empresas",
   templateUrl: "./lista-empresas.component.html",
-  styleUrls: ["./lista-empresas.component.scss", "../../navbar-adm.scss"],
+  styleUrls: ["./lista-empresas.component.scss", "../../modal.scss"],
 })
 export class ListaEmpresasComponent implements OnInit {
   listaEmpresa: Empresa[] = [];

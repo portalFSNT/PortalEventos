@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ModalController } from '@ionic/angular';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -61,9 +61,6 @@ import { NovoConvidadoComponent } from './Presenca/convidados/novo-convidado/nov
 import { NovaEmpresaComponent } from './Presenca/empresas/nova-empresa/nova-empresa.component';
 import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/editar-empresa.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,8 +106,6 @@ import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/edita
      EditarPessoaComponent,
      ListaPessoasComponent,
      NovaPessoaComponent,
-    // HomeComponent,
-    // LoginComponent,
      NovoUsuarioComponent,
      ListaUsuarioComponent,
     EditarUsuarioComponent,
@@ -119,13 +114,15 @@ import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/edita
      NovoConvidadoComponent,
      ListaEmpresasComponent,
      EditarEmpresaComponent,
-     NovaEmpresaComponent
+     NovaEmpresaComponent,
+    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ModalModule.forRoot(),
+
 
     IonicModule.forRoot(),
     HttpClientModule,

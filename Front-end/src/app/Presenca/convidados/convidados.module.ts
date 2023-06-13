@@ -11,14 +11,14 @@ import { ListaConvidadosComponent } from './lista-convidados/lista-convidados.co
 import { NovoConvidadoComponent } from './novo-convidado/novo-convidado.component';
 
 
-//@NgModule({
- // declarations: [
- //   EditarConvidadoComponent, 
-  //  ListaConvidadosComponent,
-  //  NovoConvidadoComponent,
+@NgModule({
+  declarations: [
+    EditarConvidadoComponent, 
+    ListaConvidadosComponent,
+    NovoConvidadoComponent,
 
 
-  //],
+  ],
   imports: [
     CommonModule,
     ConvidadosRoutingModule,
@@ -26,5 +26,5 @@ import { NovoConvidadoComponent } from './novo-convidado/novo-convidado.componen
     FormsModule,
     ReactiveFormsModule
   ]
-//})
+})
 export class ConvidadosModule { }

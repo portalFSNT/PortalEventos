@@ -8,7 +8,7 @@ import { Pessoa } from '../lista-convidados/pessoa';
 @Component({
   selector: 'app-editar-convidado',
   templateUrl: './editar-convidado.component.html',
-  styleUrls: ['./editar-convidado.component.scss']
+  styleUrls: ['./editar-convidado.component.scss','../../modal.scss','../../styles.scss']
 })
 export class EditarConvidadoComponent implements OnInit {
 

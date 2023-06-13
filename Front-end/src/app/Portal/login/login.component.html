@@ -1,18 +1,10 @@
-<div class="container">
+<div id="login">
     <div class="left">
         <img src="../../../assets/Icons/icon-fundacao.svg" alt="Icone da Fundação FSTN" class="icon-tittle">
         <div class="title">
             <h1>Portal FSNT</h1>
         </div>
         <div class="login">
-<!--
-            <div class="form">
-                <form action="post">
-                    <input type="text" placeholder="E-mail">
-                    <input type="password" placeholder="Senha">
-                </form>
-            </div>
--->
             <form (ngSubmit)="doLogin()" class="form">
                     <input [(ngModel)]="email"  name="email" class="input" type="text" placeholder="E-mail">
                     <input [(ngModel)]="senha"  name="senha" class="input" type="password" placeholder="Senha">

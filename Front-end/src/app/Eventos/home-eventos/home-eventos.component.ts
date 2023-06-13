@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { CardComponent } from '../card/card.component';
 import { Evento } from './evento';
 import { EventoService } from './evento.service';
 import { Router } from '@angular/router';

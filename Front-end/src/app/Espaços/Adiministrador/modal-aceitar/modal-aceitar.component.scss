@@ -22,6 +22,8 @@ h2{
 .modal{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .exit{
@@ -48,19 +50,30 @@ h2{
 }
 
 .not{
-    font-family: var(--font-family-primary);
-    background-color: var(--color-first);
-    margin-left: 40px;
+    background-color: var(--color-five);
+    font-weight: 600;
     font-size: 24px;
-    margin-right: 100px;
-    margin-top: 40px;
-    font-weight: 300;
+    line-height: 100%;
+    color: var(--color-white);
+    border-radius: 50px;
+    border: none;
+    width: 137px;
+    height: 48px;
 }
 .yes{
-    font-family: var(--font-family-primary);
-    background-color: var(--color-second);
+    background-color: var(--color-one);
+    font-weight: 600;
     font-size: 24px;
-    margin-left: 40px;
-    margin-top: 40px;
-    font-weight: 300;
+    line-height: 100%;
+    color: var(--color-white);
+    border-radius: 50px;
+    border: none;
+    width: 137px;
+    height: 48px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
 }

@@ -20,7 +20,6 @@ import { FuncionsEspacosComponent } from './Portal/header/funcions-espacos/funci
 import { TypeRegisterComponent } from './Portal/type-register/type-register.component';
 import { UsersComponent } from './Portal/users/users.component';
 import { ModalChangeDataUserComponent } from './Portal/modal-change-data-user/modal-change-data-user.component';
-import { CardComponent } from './Eventos/card/card.component';
 import { CadEventosComponent } from './Eventos/cad-eventos/cad-eventos.component';
 import { HomeEventosComponent } from './Eventos/home-eventos/home-eventos.component';
 
@@ -80,7 +79,6 @@ import { AlterarEventoComponent } from './Eventos/alterar-evento/alterar-evento.
     ModalChangeDataUserComponent,
 
     CadEventosComponent,
-    CardComponent,
     HomeEventosComponent,
 
     TimeFormatPipe,

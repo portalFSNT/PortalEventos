@@ -9,12 +9,4 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   constructor(private router: Router) { }
   
-
-  irParaEspacos() {
-    this.router.navigate(['/espacos']);
-  }
-  
-  irParaConvidados(){
-    this.router.navigate(['/lista-usuario'])
-  }
 }

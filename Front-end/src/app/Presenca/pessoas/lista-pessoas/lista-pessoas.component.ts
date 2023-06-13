@@ -6,6 +6,7 @@ import { ModalController } from '@ionic/angular';
 
 import { Pessoa } from "../pessoa";
 import { Component, OnInit } from "@angular/core";
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: "app-lista-pessoas",
@@ -17,7 +18,8 @@ export class ListaPessoasComponent implements OnInit {
   constructor(
     private service: PessoaService,
     private modalController:ModalController,
-    private router:Router) {}
+    private router:Router,
+    private modalService: BsModalService) {}
    
 
   ngOnInit(): void {
@@ -66,6 +68,12 @@ export class ListaPessoasComponent implements OnInit {
       (error) =>console.log(error)
     );
 
+  }
+
+  bsModalRef?: BsModalRef;
+  novoPessoa(){
+    this.bsModalRef = this.modalService.show(NovaPessoaComponent);
+    this.bsModalRef.content.closeBtnName = 'Close';
   }
 
 }

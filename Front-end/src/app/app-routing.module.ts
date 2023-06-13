@@ -40,6 +40,7 @@ import { ListaEventosComponent } from './Presenca/eventos/lista-eventos/lista-ev
 import { ListaPessoasComponent } from './Presenca/pessoas/lista-pessoas/lista-pessoas.component';
 import { ListaEmpresasComponent } from './Presenca/empresas/lista-empresas/lista-empresas.component';
 import { ListaConvidadosComponent } from './Presenca/convidados/lista-convidados/lista-convidados.component';
+import { NovoEventoComponent } from './Presenca/eventos/novo-evento/novo-evento.component';
 
 
 
@@ -77,6 +78,7 @@ const routes: Routes = [
   {path: 'lista-pessoas', component: ListaPessoasComponent},
   {path: 'lista-empresas', component: ListaEmpresasComponent},
   {path: 'lista-convidados', component: ListaConvidadosComponent},
+  {path: 'novo-evento', component: NovoEventoComponent},
   
   
 

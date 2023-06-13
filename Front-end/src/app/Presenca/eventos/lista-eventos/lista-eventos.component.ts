@@ -4,7 +4,7 @@ import { NovoEventoComponent } from './../novo-evento/novo-evento.component';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from "@ionic/angular";
 import { Evento } from '../evento';
-import { UsuariosService } from '../../home-presenca/usuarios.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 
 @Component({
@@ -19,7 +19,7 @@ id_evento:any;
     private modalController:ModalController,
     private service:EventoService,
     private route:ActivatedRoute,
-    private ser:UsuariosService
+    private modalService: BsModalService
     ) { 
       this.route.params.subscribe(
         (params) => (this.id_evento = params["id_evento"])
@@ -33,6 +33,7 @@ id_evento:any;
       console.log(this.listaEvento)
     })}
 async add(){
+  console.log("Modal")
   const modal = await this.modalController.create({
     component:NovoEventoComponent,
     cssClass:'modal',
@@ -48,10 +49,14 @@ async add(){
 
   const res=await modal.onDidDismiss();
 }
-logout(){
-  this.ser.logout()
 
+
+bsModalRef?: BsModalRef;
+novoEvento(){
+  this.bsModalRef = this.modalService.show(NovoEventoComponent);
+  this.bsModalRef.content.closeBtnName = 'Close';
 }
+
 
 
 }

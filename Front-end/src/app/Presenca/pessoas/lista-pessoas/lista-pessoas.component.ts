@@ -1,4 +1,3 @@
-import { UsuariosService } from '../../home-presenca/usuarios.service';
 import { PessoaService } from './../pessoa.service';
 import { EditarPessoaComponent } from './../editar-pessoa/editar-pessoa.component';
 import { NovaPessoaComponent } from './../nova-pessoa/nova-pessoa.component';
@@ -7,6 +6,7 @@ import { ModalController } from '@ionic/angular';
 
 import { Pessoa } from "../pessoa";
 import { Component, OnInit } from "@angular/core";
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: "app-lista-pessoas",
@@ -19,7 +19,7 @@ export class ListaPessoasComponent implements OnInit {
     private service: PessoaService,
     private modalController:ModalController,
     private router:Router,
-    private ser:UsuariosService) {}
+    private modalService: BsModalService) {}
    
 
   ngOnInit(): void {
@@ -69,8 +69,11 @@ export class ListaPessoasComponent implements OnInit {
     );
 
   }
-  logout(){
-    this.ser.logout()
-    
+
+  bsModalRef?: BsModalRef;
+  novoPessoa(){
+    this.bsModalRef = this.modalService.show(NovaPessoaComponent);
+    this.bsModalRef.content.closeBtnName = 'Close';
   }
+
 }

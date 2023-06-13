@@ -1,0 +1,40 @@
+.modal-modal {
+    padding: 32px;
+  
+    .modal-top {
+      display: flex;
+      justify-content: space-between;
+  
+      .modal-title {
+        font-size: 24px;
+        margin-bottom: 24px;
+      }
+    }
+  }
+  .modal-icon {
+    margin-right: 10px;
+  }
+  
+  .modal-label {
+    margin-bottom: 10px;
+    justify-content: left;
+    color: #898989;
+  }
+  
+  .modal-input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    background: #fcfcfc;
+    border: 1px solid rgba(0, 0, 0, 0.37);
+    border-radius: 10px;
+    margin-bottom: 35px;
+    padding: 0px 16px;
+  }
+  
+  .modal-button {
+    margin: 0 auto;
+
+   
+  }
+  

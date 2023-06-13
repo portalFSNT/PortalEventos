@@ -4,51 +4,51 @@ import { CadastrarEventoComponent } from './../../components/evento/cadastrar-ev
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Evento } from '../evento';
 
 
 @Component({
   selector: 'app-novo-evento',
   templateUrl: './novo-evento.component.html',
-  styleUrls: ['./novo-evento.component.scss']
+  styleUrls: ['./novo-evento.component.scss', '../../styles/styles.scss']
 })
 export class NovoEventoComponent implements OnInit {
-@Input() id_evento:any
-  novoEventoForm!:FormGroup;
+  @Input() id_evento: any
+  novoEventoForm!: FormGroup;
 
   constructor(
-    private formBuilder:FormBuilder,
-    private EventoService:EventoService,
-    private router:Router,
-    private modalController:ModalController) { }
+    private formBuilder: FormBuilder,
+    private EventoService: EventoService,
+    private router: Router,
+    private modalController: ModalController) { }
 
   ngOnInit(): void {
-    this.novoEventoForm=this.formBuilder.group({
-      descricao:[''],
-      data_hora:[''],
-    
+    this.novoEventoForm = this.formBuilder.group({
+      descricao: [''],
+      data_hora: [''],
+
     })
   }
-  cadastrar(){
-    if(this.novoEventoForm.valid){
-      const novoEvento= this.novoEventoForm.getRawValue() as Evento;
-      this.EventoService.cadastrarNovoEvento(this.id_evento,novoEvento).subscribe(
-        ()=>{this.router.navigate(['/eventos']);
-      },
-      (error:any)=>{
-        console.log(error);
-      },
+  cadastrar() {
+    if (this.novoEventoForm.valid) {
+      const novoEvento = this.novoEventoForm.getRawValue() as Evento;
+      this.EventoService.cadastrarNovoEvento(this.id_evento, novoEvento).subscribe(
+        () => {
+          this.router.navigate(['/eventos']);
+        },
+        (error: any) => {
+          console.log(error);
+        },
       );
     }
   }
 
 
-adicionar(){
-  this.modalController.dismiss();
-}
-cancelar(){
-  this.modalController.dismiss();
-
-}
+  adicionar() {
+    this.modalController.dismiss();
+  }
+  fecharModal() {
+    this.modalController.dismiss(); //Fecha o Modal
+  }
 }

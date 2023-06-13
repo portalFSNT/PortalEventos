@@ -58,9 +58,6 @@ import { EditarEventoComponent } from './Presenca/eventos/editar-evento/editar-e
 import { CadastrarEventoComponent } from './Presenca/components/evento/cadastrar-evento/cadastrar-evento.component';
 import { EditarPessoaComponent } from './Presenca/pessoas/editar-pessoa/editar-pessoa.component';
 import { NovaPessoaComponent } from './Presenca/pessoas/nova-pessoa/nova-pessoa.component';
-import { NovoUsuarioComponent } from './Presenca/home-presenca/novo-usuario/novo-usuario.component';
-import { EditarUsuarioComponent } from './Presenca/home-presenca/editar-usuario/editar-usuario.component';
-import { ListaUsuarioComponent } from './Presenca/home-presenca/lista-usuario/lista-usuario.component';
 import { EditarConvidadoComponent } from './Presenca/convidados/editar-convidado/editar-convidado.component';
 import { NovoConvidadoComponent } from './Presenca/convidados/novo-convidado/novo-convidado.component';
 import { NovaEmpresaComponent } from './Presenca/empresas/nova-empresa/nova-empresa.component';
@@ -85,7 +82,7 @@ import { AlterarEventoComponent } from './Eventos/alterar-evento/alterar-evento.
     CadEventosComponent,
     CardComponent,
     HomeEventosComponent,
-    
+
     TimeFormatPipe,
 
 
@@ -105,28 +102,24 @@ import { AlterarEventoComponent } from './Eventos/alterar-evento/alterar-evento.
     ModalAcceptDenyUserComponent,
     NewAdmComponent,
 
-    
+
     //DECLARAÇÃO DO PROJETO PRESENÇA
 
-      ListaEventosComponent,
-     CadastrarEventoComponent,
-     EditarEventoComponent,
-     NovoEventoComponent,
-     EditarPessoaComponent,
-     ListaPessoasComponent,
-     NovaPessoaComponent,
-    // HomeComponent,
-    // LoginComponent,
-     NovoUsuarioComponent,
-     ListaUsuarioComponent,
-    EditarUsuarioComponent,
-     EditarConvidadoComponent, 
+    ListaEventosComponent,
+    CadastrarEventoComponent,
+    EditarEventoComponent,
+    NovoEventoComponent,
+    EditarPessoaComponent,
+    ListaPessoasComponent,
+    NovaPessoaComponent,
+    EditarConvidadoComponent,
     ListaConvidadosComponent,
-     NovoConvidadoComponent,
-     ListaEmpresasComponent,
-     EditarEmpresaComponent,
-     NovaEmpresaComponent,
+    NovoConvidadoComponent,
+    ListaEmpresasComponent,
+    EditarEmpresaComponent,
+    NovaEmpresaComponent,
 
+    
     PhonePipe,
     OnlyNumbersDirective,
     AlterarEventoComponent,
@@ -144,7 +137,7 @@ import { AlterarEventoComponent } from './Eventos/alterar-evento/alterar-evento.
     ReactiveFormsModule,
 
 
-    
+
 
 
     // ====DECLARAÇÃOD DE ESPAÇOS ======

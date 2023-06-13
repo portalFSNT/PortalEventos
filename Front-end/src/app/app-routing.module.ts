@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+
+
 //======= IMPORTS DO PORTAL ==============
 import { LoginComponent } from './Portal/login/login.component';
 import { RegisterComponent } from './Portal/register/register.component';
 import { HomeComponent } from './Portal/home/home.component';
 import { TypeRegisterComponent } from './Portal/type-register/type-register.component';
 import { UsersComponent } from './Portal/users/users.component';
+import { UsersPendingComponent } from './Portal/users-pending/users-pending.component';
+import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
+
 
 
 //======= IMPORTS DE ESPAÇOS ==============
@@ -16,19 +21,26 @@ import { SolicitacoesComponent } from './Espaços/Adiministrador/solicitacoes/so
 import { SolicitacoesConfirmadasComponent } from './Espaços/Adiministrador/solicitacoes-confirmadas/solicitacoes-confirmadas.component';
 import { EspacosComponent } from './Espaços/Adiministrador/espacos/espacos.component';
 import { EspacosNovoComponent } from './Espaços/Adiministrador/espacos-novo/espacos-novo.component';
-import { UsersPendingComponent } from './Portal/users-pending/users-pending.component';
-import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
+
+
+
 
 // ====== IMPORTS DE EVENTOS ===================
 
 import { CadEventosComponent } from './Eventos/cad-eventos/cad-eventos.component';
 import { HomeEventosComponent } from './Eventos/home-eventos/home-eventos.component';
-import { ListaUsuarioComponent } from './Presenca/home-presenca/lista-usuario/lista-usuario.component';
+import { AlterarEventoComponent } from './Eventos/alterar-evento/alterar-evento.component';
+
+
+
+
+// ====== IMPORTS DE EVENTOS ===================
+
 import { ListaEventosComponent } from './Presenca/eventos/lista-eventos/lista-eventos.component';
 import { ListaPessoasComponent } from './Presenca/pessoas/lista-pessoas/lista-pessoas.component';
 import { ListaEmpresasComponent } from './Presenca/empresas/lista-empresas/lista-empresas.component';
 import { ListaConvidadosComponent } from './Presenca/convidados/lista-convidados/lista-convidados.component';
-import { AlterarEventoComponent } from './Eventos/alterar-evento/alterar-evento.component';
+import { NovoEventoComponent } from './Presenca/eventos/novo-evento/novo-evento.component';
 
 
 
@@ -62,12 +74,11 @@ const routes: Routes = [
 
 
   // ROTAS DO SISTEMA DE PRESENÇA
-  {path: 'home-presenca', component: ListaUsuarioComponent},
   {path: 'lista-eventos', component: ListaEventosComponent},
   {path: 'lista-pessoas', component: ListaPessoasComponent},
   {path: 'lista-empresas', component: ListaEmpresasComponent},
   {path: 'lista-convidados', component: ListaConvidadosComponent},
-  {path: 'lista-usuario', component: ListaUsuarioComponent}
+  {path: 'novo-evento', component: NovoEventoComponent},
   
   
 

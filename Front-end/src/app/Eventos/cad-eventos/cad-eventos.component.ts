@@ -33,6 +33,7 @@ export class CadEventosComponent implements OnInit {
       data_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       hora_inicio: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       hora_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      endereco: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]],
       id_usuario: 5,
       id_lugar: 1,
       id_tipo: [],

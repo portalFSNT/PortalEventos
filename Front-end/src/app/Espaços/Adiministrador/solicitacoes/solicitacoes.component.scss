@@ -225,7 +225,7 @@ padding-bottom: -20px;
     padding: 12px 15px;
 }
 
-.content-table tbody tr:nth-of-type(even) {
+.content-table tbody:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 

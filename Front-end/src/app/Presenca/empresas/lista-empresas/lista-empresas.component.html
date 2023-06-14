@@ -1,10 +1,6 @@
-  
 <app-header></app-header>
 
-<!-- NavBar com logo e Título-->
 <div id="navbar">
-
-
    
 <div class="conteudo">
   <h1>Lista de Empresas</h1>
@@ -12,67 +8,30 @@
 </div>
 
 
-  <!--<table *ngIf="listaEmpresa.length>0 , else semEmpresa">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Editar</th>
-        <th>Excluir</th>
-        </tr>
-    </thead>
-    <tbody >
-    <tr *ngFor="let empresa of listaEmpresa">
-      <td> {{empresa.empresa}}</td>
- 
-      <td><img (click)="edit(empresa.empresa,empresa.empresa)" src="../../../../assets/icon-presenca/caneta_black.svg"></td>
-      <td><img (click)="delet(empresa.empresa)" src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg _trash 2_.svg"></td>
-    </tr>
-  </tbody>
+<table *ngIf="listaEmpresa.length>0 , else semEmpresa">
 
-    <div >
-
- 
-    </div>
-  </table>
-
-
-
-
-
-<ng-template #semEmpresa>
-  <p>Ainda não há usuários cadastrados</p>
-</ng-template> -->
-
-<table>
   <thead>
     <tr>
       <th>Nome</th>
       <th>Editar</th>
       <th>Excluir</th>
-      </tr>
+    </tr>
   </thead>
 
-  <tr>
-    <td>Jacto Clean</td>
-    <td><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
-    <td><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
-  </tr>
+  <tbody >
+    <tr *ngFor="let empresa of listaEmpresa">
+      <td> {{empresa.nome}}</td>
+      <td><img (click)="edit(empresa.nome,empresa.nome)" src="../../../../assets/icon-presenca/caneta_black.svg"></td>
+      <td><img (click)="delet(empresa.nome)" src="../../../../assets//icon-presenca/🦆 icon _trash 2_black.svg"></td>
+    </tr>
+  </tbody>
 
-  <tr>
-    <td>Fundação Shunji Nishimura de tecnologia</td>
-    <td><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
-    <td><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
-  </tr>
+  <div >
 
-  <tr>
-    <td>Orion</td>
-    <td><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
-    <td><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
-  </tr>
+  </div>
 
-  <tr>
-    <td>Brudden</td>
-    <td><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
-    <td><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
-  </tr>
-  </table>
+</table>
+
+<ng-template #semEmpresa>
+  <p>Ainda não há empresas cadastradas</p>
+</ng-template>

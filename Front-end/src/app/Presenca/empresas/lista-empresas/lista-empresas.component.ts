@@ -8,7 +8,6 @@ import { Empresa } from "../empresa";
 
 import { ModalController } from "@ionic/angular";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
-//import { UsuarioService } from "src/app/autenticacao/usuario/usuario.service";
 
 @Component({
   selector: "app-lista-empresas",
@@ -32,6 +31,7 @@ export class ListaEmpresasComponent implements OnInit {
       console.log(this.listaEmpresa);
     });
   }
+
   async add() {
     const modal = await this.modalController.create({
       component: NovaEmpresaComponent,
@@ -39,6 +39,7 @@ export class ListaEmpresasComponent implements OnInit {
     });
     await modal.present();
   }
+
   async edit(empresa: any, empresas: any) {
     console.log(empresa, empresas);
     const modal = await this.modalController.create({
@@ -57,10 +58,6 @@ export class ListaEmpresasComponent implements OnInit {
       (error) => console.log(error)
     );
   }
-  logout(){
-//this.ser.logout()
-  }
-
   
 bsModalRef?: BsModalRef;
 novoEmpresa(){

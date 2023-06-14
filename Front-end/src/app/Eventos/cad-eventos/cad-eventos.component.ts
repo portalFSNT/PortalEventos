@@ -1,4 +1,3 @@
-
 import { Router } from '@angular/router';
 import { CadEventosService } from './cad-eventos.service';
 import { CadEventos } from './cad-eventos';
@@ -28,14 +27,14 @@ export class CadEventosComponent implements OnInit {
 
     this.form = this.fb.group({
       nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      descricao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      descricao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(1000)]],
       data_inicio: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       data_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       hora_inicio: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       hora_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       endereco: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]],
       // id_usuario: 5,
-      id_lugar: 1,
+      id_lugar: [],
       id_tipo: [],
       id_instituicao: [],
     });
@@ -54,20 +53,46 @@ export class CadEventosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.listarLugares().subscribe(({results}) => {
-      this.lugares = results
-      
-      console.log(results)
-      console.log(this.lugares)
-    });
-    this.service.listarInstituicoes().subscribe(({results}) => {
-      this.instituicoes = results
-      console.log(this.instituicoes)
-    });
-    this.service.listarTipos().subscribe(({results}) => {
-      this.tipos = results
-      console.log(this.tipos)
-    });
+
+    // this.service.listarLugares().subscribe(({results}) => {
+    //   this.lugares = results;
+    //   console.log(this.lugares);
+    // });
+    // this.service.listarInstituicoes().subscribe(({results}) => {
+    //   this.instituicoes = results
+    //   console.log(this.instituicoes)
+    // });
+    // this.service.listarTipos().subscribe(({results}) => {
+    //   this.tipos = results
+    //   console.log(this.tipos)
+    // });
+
+    this.service.listarLugares().subscribe(
+      (results) => {
+        this.lugares = results.result;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
+    this.service.listarTipos().subscribe(
+      (results) => {
+        this.tipos = results.results;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
+    this.service.listarInstituicoes().subscribe(
+      (results) => {
+        this.instituicoes = results.results;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   onSubmit() {

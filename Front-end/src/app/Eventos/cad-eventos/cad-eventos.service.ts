@@ -54,13 +54,21 @@ export class CadEventosService {
     return this.http.get<MarransatoMode<TipoEvento[]>>(this.API_BuscarTipos, { headers: this.header })
   }
 
-
   listarInstituicoes(): Observable<MarransatoMode<Instituicoes[]>> {  
     return this.http.get<MarransatoMode<Instituicoes[]>>(this.API_BuscarInstituicoes, { headers: this.header })
   }
+
+  // listarTipos(): Observable<any> {
+  //   return this.http.get(this.API_BuscarTipos, { headers: this.header })
+  // }
+
+  // listarInstituicoes(): Observable<any> {  
+  //   return this.http.get(this.API_BuscarInstituicoes, { headers: this.header })
+  // }
   
-  listarLugares(): Observable<MarransatoMode<Lugares[]>> {  
-    return this.http.get<MarransatoMode<Lugares[]>>(this.API_BuscarLugares, { headers: this.header })
+  listarLugares(): Observable<any> {  
+    console.log(this.http.get<any[]>(this.API_BuscarLugares, { headers: this.header }))
+    return this.http.get(this.API_BuscarLugares, { headers: this.header })
   }
 
 

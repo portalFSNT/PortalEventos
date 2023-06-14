@@ -6,8 +6,6 @@ module.exports = {
 
         let tipos = await TipoService.getAll();
 
-        console.log(tipos);
-
         if(tipos){
             json.results = tipos;
         }

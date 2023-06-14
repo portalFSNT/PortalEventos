@@ -26,7 +26,7 @@
             <select formControlName="id_lugar" name="text" class="select" id="select" class="input-form w704"
               placeholder="Nome do Evento">
               <option value="0"> Selecione um Espaço </option>
-              <option *ngFor="let lugar of lugares" name="espaco" value={{lugar.id}}> {{ lugar.nome }} </option>
+              <option *ngFor="let lugares of lugares" name="espaco" value={{lugares.id}}> {{ lugares.nome }} </option>
             </select>
           </div>
           <div class="dados">

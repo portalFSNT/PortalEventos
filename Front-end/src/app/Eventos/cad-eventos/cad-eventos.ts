@@ -8,7 +8,7 @@ export interface CadEventos {
     hora_termino: string;
     endereco: string;
     id_usuario:number;
-    id_lugar:string;
+    id_lugar:number;
     id_tipo:string;
     id_instituicao:string;
 }

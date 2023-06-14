@@ -24,7 +24,7 @@
     <button (click)="novoPessoa()" class="btn btn-primary"><img src="../../../../assets/icon-presenca/plus-circle.svg">Adicionar Novo</button>
   </div>
 
-  <!--<table *ngIf="listaPessoa.length>0 , else semPessoa">
+  <table *ngIf="listaPessoa.length>0 , else semPessoa">
     <thead>
       <tr>
         <th>Nome</th>
@@ -44,7 +44,7 @@
       <td>{{pessoa.email}}</td>
       <td>{{pessoa.telefone}}</td>
       <td><img (click)="edit(pessoa.nome,pessoa.cargo,pessoa.empresa,pessoa.email,pessoa.telefone)" src="../../../../assets/icon-presenca/icon _edit 2_.svg"></td>
-      <td><img (click)="delet(pessoa.nome)" src="../../../../assets/icon-presenca/ _trash 2_.svg"></td>
+      <td><img (click)="delet(pessoa.nome)" src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></td>
     </tr>
   </tbody>
 
@@ -60,9 +60,9 @@
 
 <ng-template #semPessoa>
   <p>Ainda não há usuários cadastrados</p>
-</ng-template> -->
+</ng-template>
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Nome</th>
@@ -73,6 +73,6 @@
       <th>Editar</th>
       <th>Excluir</th>
       </tr>
-  </thead>
+  </thead> -->
 
-  </table>
+  <!-- </table> -->

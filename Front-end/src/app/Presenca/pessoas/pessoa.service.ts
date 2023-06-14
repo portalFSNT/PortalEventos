@@ -1,20 +1,22 @@
-import { environment } from '../../../environments/environment';
+import { environment } from 'src/environments/environment';
 import { Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
-
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Pessoa } from "./pessoa";
+import { TokenService } from 'src/app/authentication/token.service';
 
-const API = environment;
+const API = environment.API;
 @Injectable({
   providedIn: "root",
 })
 export class PessoaService {
   private readonly API = `${API}/convidados`;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private tokenService : TokenService) {}
+
+  private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
 
   listar(): Observable<any> {
-    return this.http.get<any>(this.API);
+    return this.http.get<any>(this.API, { headers: this.header });
   }
 
   cadastrarNovaPessoa(novaPessoa:Pessoa){

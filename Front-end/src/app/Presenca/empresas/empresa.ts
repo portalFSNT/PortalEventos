@@ -1,5 +1,3 @@
 export interface Empresa {
-
-    empresa:string
-
+    nome:string
 }

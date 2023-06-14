@@ -2,7 +2,7 @@ import { EmpresaService } from './../empresa.service';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { Empresa } from '../empresa';
@@ -14,32 +14,38 @@ import { Empresa } from '../empresa';
 })
 export class NovaEmpresaComponent implements OnInit {
 
-  novaEmpresaForm!:FormGroup;
+  form!:FormGroup;
+  submitted = false;
 
   constructor(
-    private formBuilder:FormBuilder,
-    private NovaEmpresaService:EmpresaService,
+    private fb:FormBuilder,
+    private novaEmpresa:EmpresaService,
     private router:Router,
     private modalController:ModalController
+  ){ 
+    this.form = this.fb.group({
+      nome: String,
+    });
+  }
 
-  ) { }
-
-  ngOnInit(): void {
-    this.novaEmpresaForm=this.formBuilder.group({
-      empresa:[''],
+  ngOnInit(){
+    this.form=this.fb.group({
+      nome:['',[Validators.required, Validators.minLength(3), Validators.maxLength(80)]]
     })
 
   }
-  cadastrar(){
-    if(this.novaEmpresaForm.valid){
-      const novaEmpresa = this.novaEmpresaForm.getRawValue() as Empresa;
-      this.NovaEmpresaService.cadastrarNovaEmpresa(novaEmpresa).subscribe(
-        ()=>{this.router.navigate(['/empresas']);
-      },
-      (error)=>{
-        console.log(error);
-      },
+
+  onSubmit() {
+    this.submitted = true;
+    console.log(this.form.value);
+    if (this.form.valid) {
+      console.log('Submit');
+      this.novaEmpresa.cadEmpresa(this.form.value).subscribe(
+        sucess => console.log('Sucesso'),
+        error => console.log('Error'),
+        () => console.log('Rquest Completo')
       );
+      window.location.reload();
     }
   }
 
@@ -50,4 +56,5 @@ export class NovaEmpresaComponent implements OnInit {
     this.modalController.dismiss();
   
   }
+  
 }

@@ -48,7 +48,7 @@ export class NovoEventoComponent implements OnInit {
   adicionar() {
     this.modalController.dismiss();
   }
-  fecharModal() {
-    this.modalController.dismiss(); //Fecha o Modal
+  fecharModal(): void {
+    this.modalController.dismiss() //Fecha o Modal
   }
 }

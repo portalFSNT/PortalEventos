@@ -217,6 +217,23 @@ h3{
     width: 154px;
     border: none;
 }
+.button-cancel{
+    background: var(--color-five);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: #FFFFFF;
+    height: 56px;
+    width: 154px;
+    border: none;
+}
+
+.buttons-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 
 /* ------FOOTER------- */

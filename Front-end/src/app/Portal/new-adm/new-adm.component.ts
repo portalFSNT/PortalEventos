@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewAdmService } from './new-adm.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-new-adm',
@@ -13,7 +15,8 @@ export class NewAdmComponent {
   submitted = false;
 
   constructor(private fb: FormBuilder,
-    private service: NewAdmService){
+    private service: NewAdmService,
+    private router: Router){
     this.form = this.fb.group({
       nome: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       email: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
@@ -35,12 +38,12 @@ export class NewAdmComponent {
         sucess => console.log('Sucesso'),
         error => console.log('Error'),
         () => console.log('Rquest Completo')
-      );
+        );
     }
   }
   onCancel() {
     this.submitted = false;
     this.form.reset();
-    // console.log("Cancel")
+    this.router.navigate(['/users']);
   }
 }

@@ -1,29 +1,41 @@
 <div class="modal">
-<div class="componentes-modal">
-  <h2>Aprovação</h2>
+  <div class="componentes-modal">
+    <div class="title">
+
+      <h2>Aprovação</h2>
+      <img class="exit" src="../../../../assets/Espacos/exit.png" (click)="fecharModal()"/>
+    </div>
 
     <div class="list">
-    <div class="informacoes">
-      <img class="icon" src="../../../../assets/Espacos/1.png" alt="">
-      <span class="link">{{exibirSolicitacao.usuario_nome}}</span>
+      <div class="informacoes">
+        <img class="icon" src="../../../../assets/Icons/icons-espacos/user.svg" alt="" />
+        <span class="link">{{ exibirSolicitacao.usuario_nome }}</span>
+      </div>
+      <div class="informacoes">
+        <img class="icon" src="../../../../assets/Icons/icons-espacos/mala.svg" alt="" />
+        <span class="link">{{ exibirSolicitacao.usuario_cargo }}</span>
+      </div>
+      <div class="informacoes">
+        <img class="icon" src="../../../../assets/Icons/icons-espacos/calendario.svg" alt="" />
+        <span class="link">
+          {{ exibirSolicitacao.data_inicio | date : "dd/MM/yyyy" }} das
+          {{ exibirSolicitacao.hora_inicio | timeFormat }} ás
+          {{ exibirSolicitacao.hora_termino | timeFormat }}</span
+        >
+      </div>
+      <div class="informacoes">
+        <img class="icon" src="../../../../assets/Icons/icons-espacos/pointer.svg" alt="" />
+        <span class="link">{{ exibirSolicitacao.espaco_nome }}</span>
+      </div>
     </div>
-    <div class="informacoes">
-        <img class="icon" src="../../../../assets/Espacos/2.png" alt="">
-        <span class="link">{{exibirSolicitacao.usuario_cargo}}</span>
-    </div>
-    <div class="informacoes">
-        <img class="icon" src="../../../../assets/Espacos/3.png" alt="">
-        <span class="link">{{exibirSolicitacao.data_inicio | date:'dd/MM/yyyy'}} das {{ exibirSolicitacao.hora_inicio | timeFormat }} ás {{exibirSolicitacao.hora_termino | timeFormat }}</span>
-    </div>
-    <div class="informacoes">
-        <img class="icon" src="../../../../assets/Espacos/4.png" alt="">
-        <span class="link">{{exibirSolicitacao.espaco_nome}}</span>
-    </div>
-    </div>
-    <button class="not" (click)="deniSolicitacao(exibirSolicitacao.id)">Negar</button>
-    <button class="yes" (click)="aceptSolicitacao(exibirSolicitacao.id)">Aceitar</button>
+    <div class="buttons">
 
-</div>
-<img class="exit" src="../../../../assets/Espacos/exit.png">
-
+      <button class="not" (click)="deniSolicitacao(exibirSolicitacao.id)">
+        Negar
+      </button>
+      <button class="yes" (click)="aceptSolicitacao(exibirSolicitacao.id)">
+        Aceitar
+      </button>
+    </div>
+  </div>
 </div>

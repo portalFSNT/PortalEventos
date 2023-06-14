@@ -55,6 +55,7 @@ export class ModalChangeDataUserComponent implements OnInit {
         () => console.log('Request Completo')
       );
       this.router.navigate(['/users']); 
+      window.location.reload();
     }
   }
 

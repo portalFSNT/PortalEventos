@@ -225,7 +225,7 @@ padding-bottom: -20px;
     padding: 12px 15px;
 }
 
-.content-table tbody tr:nth-of-type(even) {
+.content-table tbody:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
@@ -260,3 +260,7 @@ padding-bottom: 800px;
   width: 125%;
   color:#d3d3d3;
  }
+
+ .modal-wrapper{
+  background-color: transparent;
+}

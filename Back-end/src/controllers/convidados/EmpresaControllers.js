@@ -29,19 +29,13 @@ module.exports = {
     },
 
     addEmpresa: async (req, res) => {
-        let json = { error: "", result: {} };
         let empresa = req.body.nome;
-
         try {
             await EmpresaService.addEmpresa(empresa);
-            json.result = {
-                empresa
-            };
+            res.status(201);
         } catch (error) {
-            json.error = "Campos não enviados";
+            res.status(500);
         }
-        res.status(201);
-        res.json(json);
     },
 
     updateEmpresa: async (req, res) => {

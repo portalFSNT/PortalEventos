@@ -30,27 +30,23 @@ export class CadEventosService {
 
   private getHeader(): HttpHeaders {
     const token = this.tokenService.returnToken();
-    let userId: number | undefined = this.userService.returnUser().value.id;
-    userId = userId !== undefined ? userId : 0;
+    const userId = this.userService.returnUser().value.id || 0;
   
     return new HttpHeaders().set('Authorization', `Bearer ${token}`).set('X-User-ID', userId.toString());
   }
 
-  // create(novoCampo: CadEventos) {
-  //   return this.http.post(`${API}/event`, novoCampo, { headers: this.header })
-  // }
-
   create(novoCampo: CadEventos) {
     const header = this.getHeader();
-
+  
     return this.userService.returnUser().pipe(
       take(1),
       switchMap(user => {
         const userId = user.id;
-
-    return this.http.post<any>(`${API}/event`, novoCampo, {headers: this.header})
-  })
-  );
+        const params = { ...novoCampo, id_usuario: userId }; // Adicione o id_usuario ao objeto novoCampo
+  
+        return this.http.post<any>(`${API}/event`, params, { headers: header }); // Use o header atualizado
+      })
+    );
   }
 
 

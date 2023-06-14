@@ -1,6 +1,6 @@
 
 import { Router } from '@angular/router';
-import { CadEventosService } from './cad-eventos.service';
+import { AltEventosService } from './alt-eventos.service';
 import { CadEventos } from './cad-eventos';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -23,7 +23,7 @@ export class AlterarEventoComponent implements OnInit {
   instituicoes: Instituicoes[] = [];
 
   constructor(private fb: FormBuilder,
-    private service: CadEventosService,
+    private service: AltEventosService,
     private router: Router) {
 
     this.form = this.fb.group({
@@ -33,8 +33,7 @@ export class AlterarEventoComponent implements OnInit {
       data_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       hora_inicio: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       hora_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      id_usuario: 5,
-      id_lugar: 1,
+      id_lugar: [],
       id_tipo: [],
       id_instituicao: [],
     });
@@ -53,24 +52,32 @@ export class AlterarEventoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.listarLugares().subscribe(({results}) => {
-      this.lugares = results
-      
-      console.log(results)
-      console.log(this.lugares)
-    });
-    this.service.listarInstituicoes().subscribe(({results}) => {
-      this.instituicoes = results
-      console.log(this.instituicoes)
-    });
-    this.service.listarTipos().subscribe(({results}) => {
-      this.tipos = results
-      console.log(this.tipos)
-    });
-    this.service.listarTipos().subscribe(({results}) => {
-      this.tipos = results
-      console.log(this.tipos)
-    });
+    this.service.listarLugares().subscribe(
+      (results) => {
+        this.lugares = results.result;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
+    this.service.listarTipos().subscribe(
+      (results) => {
+        this.tipos = results.results;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
+    this.service.listarInstituicoes().subscribe(
+      (results) => {
+        this.instituicoes = results.results;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   onSubmit() {
@@ -78,7 +85,7 @@ export class AlterarEventoComponent implements OnInit {
     console.log(this.form.value);
     if (this.form.valid) {
       console.log('Submit');
-      this.service.create(this.form.value).subscribe(
+      this.service.update(this.form.value).subscribe(
         sucess => console.log('Sucesso'),
         error => console.log('Error'),
         () => console.log('Rquest Completo')

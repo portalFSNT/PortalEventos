@@ -67,7 +67,6 @@ export class CadEventosService {
   // }
   
   listarLugares(): Observable<any> {  
-    console.log(this.http.get<any[]>(this.API_BuscarLugares, { headers: this.header }))
     return this.http.get(this.API_BuscarLugares, { headers: this.header })
   }
 

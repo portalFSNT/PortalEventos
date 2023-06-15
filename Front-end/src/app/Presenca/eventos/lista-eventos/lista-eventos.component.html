@@ -9,7 +9,7 @@
 <div *ngFor="let evento of listaEvento">
 
 <!-- CARDS -->
-<div class="row" routerLink="/evento_convidados/{{evento.id_evento}}" *ngIf="listaEvento.length>0,else semEvento">
+<div class="row" routerLink="/lista-convidados" *ngIf="listaEvento.length>0,else semEvento">
 
   <div class="card"  >
     <h2 class="titulo-card"> {{evento.descricao}}</h2><br>

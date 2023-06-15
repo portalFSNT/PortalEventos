@@ -7,6 +7,7 @@ module.exports = {
 
     for (let i in convidados) {
         json.result.push({
+            id: convidados[i].id,
             nome: convidados[i].nome,
             cargo: convidados[i].cargo,
             empresa:convidados[i].nome_empresa,

@@ -26,8 +26,8 @@
       <td>{{pessoa.empresa}}</td>
       <td>{{pessoa.email}}</td>
       <td>{{pessoa.telefone}}</td>
-      <td><img (click)="edit(pessoa.nome,pessoa.cargo,pessoa.empresa,pessoa.email,pessoa.telefone)" src="../../../../assets/icon-presenca/icon _edit 2_.svg"></td>
-      <td><img (click)="delet(pessoa.nome)" src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></td>
+      <td><img (click)="updatePessoa(pessoa)" src="../../../../assets/icon-presenca/icon _edit 2_.svg"></td>
+      <td><img (click)="delet(pessoa.id)" src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></td>
     </tr>
   </tbody>
     <div >

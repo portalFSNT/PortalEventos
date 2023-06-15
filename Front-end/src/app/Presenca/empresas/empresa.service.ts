@@ -29,11 +29,12 @@ export class EmpresaService {
     return this.http.post(`${this.API}`,novaEmpresa,{headers: this.header});
   }
 
-  edit(empresa: any, editaEmpresa: any): Observable<any> {
-    return this.http.put<any>(`${this.API}/${empresa}`, editaEmpresa,{headers: this.header});
+  updateEmpresa(id: number, nome: any): Observable<any> {
+    console.log(id);
+    return this.http.patch<any>(`${this.API}/${id}`, nome,{headers: this.header});
   }
 
-  delet(empresa: any) {
-    return this.http.delete(`${this.API}/${empresa}`,{headers: this.header});
+  delet(id: number) {
+    return this.http.delete(`${this.API}/${id}`,{headers: this.header});
   }
 }

@@ -1,20 +1,22 @@
+import { ModalController } from '@ionic/angular';
 import { EmpresaService } from './../empresa.service';
 
-import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit,Input } from '@angular/core';
 import { Empresa } from '../nova-empresa/empresa';
+
 
 @Component({
   selector: 'app-editar-empresa',
   templateUrl: './editar-empresa.component.html',
-  styleUrls: ['./editar-empresa.component.scss']
+  styleUrls: ['./editar-empresa.component.scss', '../../styles/styles.scss']
 })
 export class EditarEmpresaComponent implements OnInit {
 
-  editarEmpresaForm!:FormGroup;
+form!:FormGroup;
+list: string[] = [];
 
 
 @Input() empresa:any
@@ -22,31 +24,44 @@ export class EditarEmpresaComponent implements OnInit {
 
 output:any;
 
- 
   constructor(
-    private formBuilder:FormBuilder,
-
+    private fb : FormBuilder,
     private router:Router,
     private modalController:ModalController,
     private service:EmpresaService
   ) { }
 
-  ngOnInit(): void {
-    console.log(this.editarEmpresaForm)
-    this.editarEmpresaForm=this.formBuilder.group({empresa:this.empresa})
-    }
+  ngOnInit(){
+    this.form = this.fb.group({
+      id: this.list[0],
+      nome:['',[Validators.required, Validators.minLength(3), Validators.maxLength(80)]]
+    });
+  }
    
-  
   editar(){
-    if(this.editarEmpresaForm.valid){
-      const editaEmpresa = this.editarEmpresaForm.getRawValue() as Empresa;
-      this.service.edit(this.empresa,editaEmpresa).subscribe(()=>{this.router.navigate(['empresas'])})
+    if(this.form.valid){
+      this.service.updateEmpresa(this.empresa, this.form.value).subscribe(()=>{this.router.navigate(['empresas'])})
     }
-  
   }
 
+  updateEmpresa(id: number){
+    if(this.form.valid){
 
-  salvar(){    this.modalController.dismiss();}
+      const reqBody = {
+        nome: this.form.value.nome
+      }
 
-  cancelar(){    this.modalController.dismiss();}
+      console.log('Submit');
+      this.service.updateEmpresa(id, reqBody).subscribe(
+        success => console.log('Sucesso'),
+        error => console.log('Error'),
+        () => console.log('Requisição completa.')  
+      );
+      window.location.reload();
+    }
+  }
+
+  // salvar(){  this.modalController.dismiss(); }
+
+  // cancelar(){ this.modalController.dismiss(); }
 }

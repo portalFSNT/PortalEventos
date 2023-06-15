@@ -35,6 +35,19 @@ export class NovaEmpresaComponent implements OnInit {
 
   }
 
+  cadastrar(){
+    if (this.form.valid){
+      this.novaEmpresa.cadEmpresa(this.form.value).subscribe;
+    }
+  }
+
+  adicionar(){
+    this.modalController.dismiss();
+  }
+  cancelar(){
+    this.modalController.dismiss();
+  
+  }
   onSubmit() {
     this.submitted = true;
     console.log(this.form.value);
@@ -47,14 +60,6 @@ export class NovaEmpresaComponent implements OnInit {
       );
       window.location.reload();
     }
-  }
-
-  adicionar(){
-    this.modalController.dismiss();
-  }
-  cancelar(){
-    this.modalController.dismiss();
-  
   }
   
 }

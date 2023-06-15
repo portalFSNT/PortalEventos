@@ -6,8 +6,8 @@ import { NovaEmpresaComponent } from "./../nova-empresa/nova-empresa.component";
 import { Component, OnInit } from "@angular/core";
 import { Empresa } from "../empresa";
 
-import { ModalController } from "@ionic/angular";
-import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
+import { ModalController,} from "@ionic/angular";
+import { BsModalRef, BsModalService, ModalOptions } from "ngx-bootstrap/modal";
 
 @Component({
   selector: "app-lista-empresas",
@@ -40,28 +40,46 @@ export class ListaEmpresasComponent implements OnInit {
     await modal.present();
   }
 
-  async edit(empresa: any, empresas: any) {
-    console.log(empresa, empresas);
-    const modal = await this.modalController.create({
-      component: EditarEmpresaComponent,
-      componentProps: { empresa, empresas },
-      cssClass: "modal",
-    });
-    await modal.present();
-  }
+  // async edit(empresa: string, empresas: string) {
+  //   console.log(empresa, empresas);
+  //   const modal = await this.modalController.create({
+  //     component: EditarEmpresaComponent,
+  //     componentProps: { empresa, empresas },
+  //     cssClass: "modal",
+  //   });
+  //   console.log("modal")
+  //   await modal.present();
+  // }
 
-  delet(empresa: any) {
-    this.service.delet(empresa).subscribe(
+  delet(id: number) {
+    this.service.delet(id).subscribe(
       () => {
         this.router.navigate(["/empresas"]);
       },
       (error) => console.log(error)
     );
+    window.location.reload();
   }
   
 bsModalRef?: BsModalRef;
 novoEmpresa(){
   this.bsModalRef = this.modalService.show(NovaEmpresaComponent);
   this.bsModalRef.content.closeBtnName = 'Close';
+}
+
+editarEmpresa(id: number){
+  const id_empresa = id;
+  const initialState: ModalOptions = {
+    initialState:{
+      list: [
+        id_empresa,
+      ],
+      title: 'Modal Update Empresa'
+    }
+  };
+
+  this.bsModalRef = this.modalService.show(EditarEmpresaComponent, initialState);
+  this.bsModalRef.content.closeBtnName = 'Close';
+  return id;
 }
 }

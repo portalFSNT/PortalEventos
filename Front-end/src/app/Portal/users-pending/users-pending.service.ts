@@ -15,10 +15,10 @@ export class UsersPendingService {
   private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
 
   listUsersPending(): Observable<any> {
-    return this.http.get<any>(API, {headers: this.header});
+    return this.http.get<any>(`${API}/userstatus`, {headers: this.header});
   }
   changeStatus(): Observable<any> {
-    return this.http.get<any>(API, {headers: this.header});
+    return this.http.get<any>(`${API}/userstatus`, {headers: this.header});
   }
 
 }

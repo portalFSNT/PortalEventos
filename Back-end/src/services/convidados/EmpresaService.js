@@ -4,7 +4,7 @@ module.exports = {
 
     getAll: () => {
         return new Promise((acepted, rejected) => {
-            db.query("SELECT nome FROM empresa", (error, results) => {
+            db.query("SELECT id, nome FROM empresa", (error, results) => {
                 if(error){
                     rejected(error);
                     return;
@@ -16,7 +16,7 @@ module.exports = {
 
     getById: (empresa) => {
         return new Promise((acepted, rejected) => {
-          db.query("SELECT nome FROM empresa WHERE id = ?",[empresa],(error, results) => {
+          db.query("SELECT id, nome FROM empresa WHERE id = ?",[empresa],(error, results) => {
               if (error) {
                 rejected(error);
                 return;
@@ -43,9 +43,9 @@ module.exports = {
         });
     },
 
-    updateEmpresa: (empresa,id_empresa) => {
+    updateEmpresa: (nome,id) => {
         return new Promise((acepted, rejected) => {
-            db.query("UPDATE empresa SET nome=? WHERE id =?",[empresa,id_empresa],(error, results) => {
+            db.query("UPDATE empresa SET nome=? WHERE id =?",[nome,id],(error, results) => {
               if (error) {
                 rejected(error);
                 return;
@@ -55,9 +55,9 @@ module.exports = {
         });
     },
 
-    delEmpresa: (id_empresa) => {
+    delEmpresa: (id) => {
         return new Promise((acepted, rejected) => {
-            db.query("DELETE FROM empresa WHERE id =?",[id_empresa],(error,results)=>{
+            db.query("DELETE FROM empresa WHERE id =?",[id],(error,results)=>{
                 if (error) {
                     rejected(error);
                     return;

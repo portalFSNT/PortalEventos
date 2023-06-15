@@ -2,7 +2,7 @@ import { EmpresaService } from './../../empresas/empresa.service';
 import { PessoaService } from "./../pessoa.service";
 import { ModalController } from "@ionic/angular";
 import { Router } from "@angular/router";
-import { FormGroup, FormBuilder } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Component, Input, OnInit } from "@angular/core";
 import { Pessoa } from "../pessoa";
 import { Empresa } from "../nova-pessoa/empresa";
@@ -13,22 +13,12 @@ import { Empresa } from "../nova-pessoa/empresa";
   styleUrls: ["./editar-pessoa.component.scss"],
 })
 export class EditarPessoaComponent implements OnInit {
-  editarPessoaForm!: FormGroup;
+  form!: FormGroup;
   listaPessoa:Empresa[]=[];
+  list: string[] = [];
 
-  @Input() nome: any;
-
-  @Input() cargo: any;
-
-  @Input() empresa: any;
-
-  @Input() email: any;
-
-  @Input() telefone: any;
-  output: any;
   constructor(
-    private formBuilder: FormBuilder,
-
+    private fb: FormBuilder,
     private router: Router,
     private modalController: ModalController,
     private service: PessoaService,
@@ -39,22 +29,45 @@ export class EditarPessoaComponent implements OnInit {
     this.empresaService.listar().subscribe((event)=>{
       this.listaPessoa=event.result as Empresa[];
     })
-    this.editarPessoaForm = this.formBuilder.group({
-      nome: this.nome,
-      cargo: this.cargo,
-      empresa: this.empresa,
-      email: this.email,
-      telefone: this.telefone,
+    this.form = this.fb.group({
+      id: this.list[0],
+      nome:[this.list[1], [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      email:[this.list[2],[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      cargo :[this.list[3],[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      telefone:[this.list[4],[Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+      empresa:[this.list[5]]
     });
+    console.log(this.list[0]);
   }
-  editar() {
-    if (this.editarPessoaForm.valid) {
-      const editaPessoa = this.editarPessoaForm.getRawValue() as Pessoa;
-      this.service
-        .edit(this.nome, editaPessoa)
-        .subscribe(() => this.router.navigate(["/convidados"]));
-      console.log(this.nome, editaPessoa);
+
+  // editar() {
+  //   if (this.form.valid) {
+  //     const editaPessoa = this.form.getRawValue() as Pessoa;
+  //     this.service
+  //       .edit(this.nome, editaPessoa)
+  //       .subscribe(() => this.router.navigate(["/convidados"]));
+  //     console.log(this.nome, editaPessoa);
+  //   }
+  // }
+
+  updatePessoa(id:number) {
+    if(this.form.valid){
+      const reqBody = {
+        nome: this.form.value.nome,
+        email: this.form.value.email,
+        cargo: this.form.value.cargo,
+        telefone: this.form.value.telefone,
+        empresa:  this.form.value.empresa,
+      }
+
+      console.log('Submit');
+      this.service.updatePessoa(id, reqBody).subscribe(
+        sucess => console.log('Sucesso'),
+        error => console.log('Error'),
+        () => console.log('Requisição completa.')
+      )
     }
+    window.location.reload();
   }
 
   salvar() {

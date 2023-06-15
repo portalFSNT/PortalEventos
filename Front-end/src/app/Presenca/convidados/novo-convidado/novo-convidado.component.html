@@ -1,18 +1,17 @@
-
-
 <div class="modal-modal">
     <div class="modal-top">
         <label class="modal-title">Adicionar convidado</label>
      <a>   <img (click)="cancelar()" src="../../../../assets/icon-presenca/x.svg"></a>
     </div>
     <form [formGroup]="novoConvidadoForm" (submit)="cadastrar()">
-        <div class="modal-label"><label>Nome</label>
+        <div class="modal-label">
+            <label>Nome</label>
         </div>
-        <select   formControlName="nome" class="modal-input">
+
+        <select formControlName="nome" class="modal-input">
             <option *ngFor="let c of listaConvidado">{{c.nome}}</option>
-                    </select>
+        </select>
                     
-       
         <div class="modal-label opcao1"><label>Status</label>
             <select  formControlName="condicao">
                 <option>Confirmado</option>
@@ -33,10 +32,9 @@
                 <option>Não</option>
                 <option>Sim</option>
             </select> 
-        </div>
-                
+        </div>      
         
         <button class="modal-button" (click)="salvar()" class="btn btn-primary"> Adicionar </button>
     </form>
-    </div>
+</div>
     

@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.prod';
 import { Injectable } from '@angular/core';
+import { TokenService } from 'src/app/authentication/token.service';
 
 const API = environment;
 @Injectable({
@@ -11,8 +12,10 @@ export class ConvidadoService {
 private readonly API= `${API}`
 
   constructor(
+    private tokenservice: TokenService,
     private http:HttpClient
   ) { }
+  
   listarStatus(id_evento:any):Observable<any>{
     return this.http.get<any>(`${API}/evento/${id_evento}`)
   }

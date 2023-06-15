@@ -10,7 +10,7 @@ import { Empresa } from "../nova-pessoa/empresa";
 @Component({
   selector: "app-editar-pessoa",
   templateUrl: "./editar-pessoa.component.html",
-  styleUrls: ["./editar-pessoa.component.scss"],
+  styleUrls: ["./editar-pessoa.component.scss", '../../styles/styles.scss'],
 })
 export class EditarPessoaComponent implements OnInit {
   form!: FormGroup;
@@ -37,7 +37,6 @@ export class EditarPessoaComponent implements OnInit {
       telefone:[this.list[4],[Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       empresa:[this.list[5]]
     });
-    console.log(this.list[0]);
   }
 
   // editar() {

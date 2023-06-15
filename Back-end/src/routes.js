@@ -47,10 +47,10 @@ router.delete("/convidado/:id",roles.adminRole, ConvidadoController.delConvidado
 //EMPRESA -----
 const EmpresaController = require("./controllers/convidados/EmpresaControllers");
 router.get("/empresas",roles.adminRole, EmpresaController.getAll);
-router.get("/empresas/:id_empresa",roles.adminRole, EmpresaController.getById);
+router.get("/empresas/:id",roles.adminRole, EmpresaController.getById);
 router.post("/empresas",roles.adminRole, EmpresaController.addEmpresa);
-router.patch("/empresas/:id_empresa",roles.adminRole, EmpresaController.updateEmpresa);
-router.delete("/empresas/:id_empresa",roles.adminRole, EmpresaController.delEmpresa);
+router.patch("/empresas/:id",roles.adminRole, EmpresaController.updateEmpresa);
+router.delete("/empresas/:id",roles.adminRole, EmpresaController.delEmpresa);
 
 //EVENTO_PRESENCA -----
 const EventoPresencaController = require("./controllers/convidados/EventoPresencaControllers");

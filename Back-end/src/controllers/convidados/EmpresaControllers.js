@@ -6,24 +6,22 @@ module.exports = {
         let json = { error: "", result: [] };
         let empresas = await EmpresaService.getAll();
 
-        for (let i in empresas) {
-            json.result.push({
-                nome: empresas[i].nome,
-            });
+        if (empresas){
+            json.result=empresas    
         }
+        res.status(200);
         res.json(json);
     },
 
     getById: async (req, res) => {
         let json = { error: "", result: {} };
 
-        let empresa = req.params.id_empresa; 
+        let empresa = req.params.id; 
         let empresas = await EmpresaService.getById(empresa);
 
         if (empresas) {
           json.result = empresas;
         }
-
         res.status(200);
         res.json(json);
     },
@@ -39,27 +37,30 @@ module.exports = {
     },
 
     updateEmpresa: async (req, res) => {
-        let json = { error: "", result: {} };
-        let id_empresa = req.params.id_empresa;
+        let json = { result: {} };
+        let id = req.params.id;
         let empresa = req.body.nome;
 
         try {
-            await EmpresaService.updateEmpresa(empresa,id_empresa);
+            await EmpresaService.updateEmpresa(empresa,id);
             json.result = {
                 empresa,
             }; 
+            res.status(200);
+            res.json(json);
         } catch (error) {
-           res.json(error); 
+           res.status(500); 
         }
-        res.json(json);
+        
     },
 
     delEmpresa: async (req, res) => {
-        let json = { error: "", result: {} };
-
-        await EmpresaService.delEmpresa(req.params.id_empresa);
-        res.status(204);
-        res.json(json);
+        try {
+            await EmpresaService.delEmpresa(req.params.id);
+            res.status(204);
+        } catch (error) {
+            res.status(500);
+        }
     },
 
 }

@@ -3,7 +3,14 @@ const db = require('../../db');
 module.exports = {
     getAllEvents: () => {
         return new Promise((acepted, rejected) => {
-            db.query('SELECT * FROM evento_agenda', (error, results)=>{
+            db.query(`
+          SELECT evento_agenda.id, evento_agenda.nome as nome_evento, evento_agenda.descricao, evento_agenda.data_inicio, evento_agenda.data_termino, evento_agenda.hora_inicio, evento_agenda.hora_termino, evento_agenda.endereco, evento_agenda.id_usuario, evento_agenda.id_lugar, evento_agenda.id_tipo, lugar.nome as nome_lugar, tipo.tipo
+            FROM evento_agenda
+      INNER JOIN lugar 
+              ON (lugar.id = evento_agenda.id_lugar)
+      INNER JOIN tipo
+              ON (tipo.id = evento_agenda.id_tipo)
+        ORDER BY data_inicio`, (error, results)=>{
                 if(error) { rejected(error); return; }
                 acepted(results);
             });

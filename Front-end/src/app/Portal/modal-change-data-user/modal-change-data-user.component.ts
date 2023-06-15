@@ -1,8 +1,9 @@
 import { ModalChangeDataUserService } from './modal-change-data-user.service';
 import { Component, OnInit } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalChangePasswordComponent } from '../modal-change-password/modal-change-password.component';
 
 @Component({
   selector: 'app-modal-change-data-user',
@@ -19,7 +20,8 @@ export class ModalChangeDataUserComponent implements OnInit {
     private router: Router, 
     private fb: FormBuilder,
     private service: ModalChangeDataUserService,
-    public bsModalRef: BsModalRef
+    public bsModalRef: BsModalRef, 
+    private modalService: BsModalService
   ) {
     this.form = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
@@ -57,6 +59,10 @@ export class ModalChangeDataUserComponent implements OnInit {
       this.router.navigate(['/users']); 
       window.location.reload();
     }
+  }
+  openModalSenha(){
+    this.bsModalRef = this.modalService.show(ModalChangePasswordComponent);
+    this.bsModalRef.content.closeBtnName = 'Close';
   }
 
   ngOnInit(): void {

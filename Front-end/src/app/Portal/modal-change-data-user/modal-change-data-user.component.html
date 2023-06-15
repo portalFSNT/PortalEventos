@@ -18,7 +18,7 @@
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Telefone</label>
-                        <input type="text" formControlName="telefone" class="input-form">
+                        <input type="text" formControlName="telefone" class="input-form" [value]="form.get('telefone')!.value! | phone" appOnlyNumbers>
                     </div>
                     <!-- <div class="dados">
                         <label for="" class="tittle-form">Senha</label>
@@ -42,6 +42,7 @@
             </div>
             <div class="modal-footer">
                 <button class="button-register" (click)="updateUser(list[1])">Alterar</button>
+                <button class="button-senha" (click)="openModalSenha()">Redefinir Senha</button>
             </div>
     
         </div>

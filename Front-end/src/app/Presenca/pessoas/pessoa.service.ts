@@ -10,24 +10,24 @@ const API = environment.API;
   providedIn: "root",
 })
 export class PessoaService {
-  private readonly API = `${API}/convidados`;
+  private readonly API = `${API}/convidado`;
   constructor(private http: HttpClient, private tokenService : TokenService) {}
 
   private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
 
   listar(): Observable<any> {
-    return this.http.get<any>(this.API, { headers: this.header });
+    return this.http.get<any>(`${this.API}s`, { headers: this.header });
   }
 
-  cadastrarNovaPessoa(novaPessoa:Pessoa){
-    return this.http.post(`${API}/convidados`,novaPessoa);
+  cadPessoa(reqBody:Pessoa){
+    return this.http.post(`${this.API}`,reqBody, {headers: this.header});
   }
-  edit(nome:any,editaPessoa:any):Observable<any>{
-    console.log(nome)
-    return this.http.put<any>(`${API}/convidados/${nome}`,editaPessoa);
+  updatePessoa(id: number,reqBody: any):Observable<any>{
+    console.log(reqBody)
+    return this.http.patch<any>(`${this.API}/${id}`,reqBody, {headers: this.header});
   }
 
-  delet(nome:any){
-    return this.http.delete(`${API}/convidados/${nome}`)
+  delet(id:number){
+    return this.http.delete(`${this.API}/${id}`, {headers: this.header})
   }
 }

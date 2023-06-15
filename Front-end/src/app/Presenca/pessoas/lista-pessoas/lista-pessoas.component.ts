@@ -94,14 +94,13 @@ export class ListaPessoasComponent implements OnInit {
     this.bsModalRef.content.closeBtnName ='Close';
   }
 
-  delet(nome:any){
-    this.service.delet(nome).subscribe(
-      ()=>{
-        this.router.navigate(["/convidados"]);
-      },
-      (error) =>console.log(error)
+  delet(id:number){
+    this.service.delet(id).subscribe(
+      sucess => console.log('Sucesso'),
+      error => console.log('Error'),
+      () => console.log('Requisição completa.')
     );
-
+    window.location.reload();
   }
 
   bsModalRef?: BsModalRef;

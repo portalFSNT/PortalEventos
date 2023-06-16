@@ -8,6 +8,8 @@ export interface Evento {
     hora_termino: string;
     id_usuario:string;
     id_lugar:string;
+    nome_lugar:string;
     id_tipo:string;
     id_instituicao:string;
+    nome_instituicao:string;
 }

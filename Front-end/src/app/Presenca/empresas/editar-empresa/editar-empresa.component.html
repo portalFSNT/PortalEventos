@@ -2,7 +2,7 @@
 <div class="modal-modal">
     <div class="modal-top">
         <label class="modal-title">Editar empresa</label>
-     <a>   <img src="../../../../assets/icon-presenca/x.svg"></a>
+     <a (click)="cancelar()">   <img src="../../../../assets/icon-presenca/x.svg"></a>
     </div>
     <form [formGroup]="form" submit="updateEmpresa()">
         <div class="modal-label"><label>Nome da empresa</label>

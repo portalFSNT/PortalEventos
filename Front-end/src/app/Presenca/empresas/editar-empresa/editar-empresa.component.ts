@@ -63,5 +63,7 @@ output:any;
 
   // salvar(){  this.modalController.dismiss(); }
 
-  // cancelar(){ this.modalController.dismiss(); }
+  cancelar(){ 
+    window.location.reload();
+  }
 }

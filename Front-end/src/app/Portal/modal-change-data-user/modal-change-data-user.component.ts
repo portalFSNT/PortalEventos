@@ -1,3 +1,4 @@
+import { Instituicoes } from './../../Eventos/cad-eventos/instituicao';
 import { ModalChangeDataUserService } from './modal-change-data-user.service';
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -14,6 +15,7 @@ export class ModalChangeDataUserComponent implements OnInit {
   form: FormGroup;
   submitted = false;
   list: any[] = [];
+  instituicoes: Instituicoes[] = [];
 
   constructor(
     private router: Router, 
@@ -71,5 +73,13 @@ export class ModalChangeDataUserComponent implements OnInit {
         id_instituicao: this.list[7]
       });
     }
+    this.service.listarInstituicoes().subscribe(
+      (results) => {
+        this.instituicoes = results.results;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 }

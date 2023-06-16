@@ -62,6 +62,7 @@ import { NovoConvidadoComponent } from './Presenca/convidados/novo-convidado/nov
 import { NovaEmpresaComponent } from './Presenca/empresas/nova-empresa/nova-empresa.component';
 import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/editar-empresa.component';
 import { AlterarEventoComponent } from './Eventos/alterar-evento/alterar-evento.component';
+import { ModalChangePasswordComponent } from './Portal/modal-change-password/modal-change-password.component';
 
 
 @NgModule({
@@ -121,6 +122,7 @@ import { AlterarEventoComponent } from './Eventos/alterar-evento/alterar-evento.
     PhonePipe,
     OnlyNumbersDirective,
     AlterarEventoComponent,
+    ModalChangePasswordComponent,
 
 
   ],

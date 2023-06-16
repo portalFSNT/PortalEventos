@@ -9,7 +9,7 @@
   
           <div class="dados">
             <label for="" class="tittle-form">Nome do Evento</label>
-            <input formControlName="nome" id="input-cad-eventos" type="text" placeholder="Nome do Evento" class="input-form w704" >
+            <input formControlName="nome" id="input-cad-eventos" type="text" placeholder="Nome do Evento" class="input-form w704">
           </div>
           <div class="dados">
             <label for="" class="tittle-form">Tipo de Evento</label>
@@ -19,13 +19,13 @@
               <option *ngFor="let tipos of tipos" name="espaco" value={{tipos.id}}> {{ tipos.tipo }} </option>
             </select>
           </div>
-          <!-- <div class="dados">
+          <div class="dados">
             <label for="" class="tittle-form">Espaço</label>
             <select formControlName="id_lugar" name="text" class="select" id="select" class="input-form w704" placeholder="Nome do Evento">
               <option value="0"> Selecione um Espaço </option>
-              <option *ngFor="let lugar of lugares" name="espaco" value={{lugar.id}}> {{ lugar.nome }} </option>
+              <option *ngFor="let lugares of lugares" name="espaco" value={{lugares.id}}> {{ lugares.nome }} </option>
             </select>
-          </div> -->
+          </div>
           <div class="dados">
             <label for="" class="tittle-form">Instituição</label>
             <select formControlName="id_instituicao" name="text" class="select" id="select" class="input-form w704" placeholder="Nome do Evento">
@@ -35,7 +35,7 @@
           </div>
           <div class="dados">
             <label for="" class="tittle-form">Endereço</label>
-            <input type="text" placeholder="Endereço" class="input-form  w704" formControlName="nome">
+            <input type="text" placeholder="Endereço" class="input-form  w704" formControlName="endereco">
           </div>
           <div class="dados">
             <label for="" class="tittle-form">Descrição</label>
@@ -79,7 +79,7 @@
       <div class="buttons">
 
         <button type="button" class="button-cancel" (click)="onCancel()">Cancelar</button>
-        <button type="submit" class="button-register" (click)="onSubmit()">Cadastrar</button>
+        <button type="submit" class="button-register" (click)="onSubmit()">Atualizar</button>
       </div>
     </form>
   </section>

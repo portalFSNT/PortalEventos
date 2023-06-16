@@ -30,6 +30,7 @@ export class ModalAcceptDenyUserComponent {
       error => console.log('Error, não foi possível concluir a requisição.'),
       () => console.log('Requisição finalizada.')
     );
+    window.location.reload();
   }
 
   acceptUser(){ 
@@ -38,5 +39,6 @@ export class ModalAcceptDenyUserComponent {
       error => console.log('Error, não foi possivel concluir a requisição.'),
       () => console.log('Requisição finalizada.')
     );
+    window.location.reload();
   }
 }

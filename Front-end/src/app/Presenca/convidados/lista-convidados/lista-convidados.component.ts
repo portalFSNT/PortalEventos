@@ -23,6 +23,7 @@ export class ListaConvidadosComponent implements OnInit {
   listaEventos:Evento[]=[];
   listaStatus:Status[] = [];
   listaPessoas:Pessoa[]= [];
+
 listaEvento:any =[]
   constructor(
     private modalcontroller: ModalController,
@@ -36,8 +37,6 @@ listaEvento:any =[]
     this.route.params.subscribe(
       (params) => (this.id_evento = params["id_evento"])
           );
-       
-
   }
 
 
@@ -133,8 +132,5 @@ await modal.present();
       this.router.navigate([`evento_convidados/${this.id_evento}`]);
     },
     (error:any)=> console.log(error))
-  }
-  logout(){
-   // this.ser.logout()
   }
 }

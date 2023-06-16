@@ -15,7 +15,9 @@
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Telefone</label>
-                        <input type="text" placeholder="(14) 99999-9999" class="input-form" formControlName="telefone" [value]="form.get('telefone')!.value! | phone" appOnlyNumbers>
+
+                        <input maxlength="15" [value]="form.get('telefone')!.value! | phone" type="tel" placeholder="(99) 99999-9999" class="input-form" formControlName="telefone" appOnlyNumbers>
+
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Senha</label>
@@ -24,8 +26,11 @@
                 </div>
                 <div class="form-right">
                     <div class="dados">
-                        <label for="" class="tittle-form">Empresa</label>
-                        <input type="text" placeholder="Fundação FSNT"class="input-form" formControlName="instituicao">
+                        <label for="" class="tittle-form">Instituição</label>
+                        <select formControlName="id_instituicao" name="text" class="select" id="select" class="input-form w704" placeholder="Nome do Evento">
+                          <option value="0"> Selecione uma Instituiçao </option>
+                          <option *ngFor="let instituicoes of instituicoes" name="espaco" value={{instituicoes.id}}> {{ instituicoes.nome }} </option>
+                        </select>
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Cargo</label>

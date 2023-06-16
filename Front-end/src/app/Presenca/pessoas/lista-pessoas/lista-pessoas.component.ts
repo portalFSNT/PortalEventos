@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
 import { Pessoa } from "../pessoa";
-import { Component, OnInit } from "@angular/core";
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Component, Input,OnInit } from "@angular/core";
+import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: "app-lista-pessoas",
@@ -14,7 +14,11 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   styleUrls: ["./lista-pessoas.component.scss","../../navbar-adm.scss"],
 })
 export class ListaPessoasComponent implements OnInit {
+  
+  @Input() pessoa: any;
+
   listaPessoa: Pessoa[] = [];
+  
   constructor(
     private service: PessoaService,
     private modalController:ModalController,
@@ -37,37 +41,65 @@ export class ListaPessoasComponent implements OnInit {
     await modal.present();
   }
 
-  async edit(
-   
-    nome:any,
-    cargo:any,
-    empresa:any,
-    email:any,
-    telefone:any
-    ){
- 
-      const modal=await this.modalController.create({
-        component:EditarPessoaComponent,
-        componentProps:{
-       
-          nome,
-          cargo,
-          empresa,
-          email,
-          telefone
-        },
-        cssClass:"modal",
-      });
-      await modal.present();
-    }
-  delet(nome:any){
-    this.service.delet(nome).subscribe(
-      ()=>{
-        this.router.navigate(["/convidados"]);
-      },
-      (error) =>console.log(error)
-    );
+  // async edit(pessoa: any){
+  //   const id = pessoa.id;
+  //   const nome = pessoa.nome;
+  //   const email = pessoa.email;
+  //   const cargo = pessoa.cargo;
+  //   const empresa = pessoa.empresa;
+  //   const id_empresa = pessoa.id_empresa
 
+  //   const modal=await this.modalController.create({
+  //       component:EditarPessoaComponent,
+  //       componentProps:{
+  //         id,
+  //         nome,
+  //         email,
+  //         cargo,
+  //         empresa,
+  //         id_empresa,
+  //       },
+  //       cssClass:"modal",
+  //     });
+  //     await modal.present();
+  //   }
+  
+  updatePessoa(pessoa: any){
+    console.log(pessoa.id)
+    const id = pessoa.id;
+    const nome = pessoa.nome;
+    const email = pessoa.email;
+    const cargo = pessoa.cargo;
+    const telefone = pessoa.telefone;
+    const empresa = pessoa.empresa;
+    const id_empresa = pessoa.id_empresa
+
+    const initialState: ModalOptions = {
+      initialState: {
+        list: [
+          id,
+          nome,
+          email,
+          cargo,
+          telefone,
+          empresa,
+          id_empresa,
+        ],
+        title: 'Modal update pessoa',
+        cssClass:"modal",
+      }
+    };
+    this.bsModalRef = this.modalService.show(EditarPessoaComponent, initialState);
+    this.bsModalRef.content.closeBtnName ='Close';
+  }
+
+  delet(id:number){
+    this.service.delet(id).subscribe(
+      sucess => console.log('Sucesso'),
+      error => console.log('Error'),
+      () => console.log('Requisição completa.')
+    );
+    window.location.reload();
   }
 
   bsModalRef?: BsModalRef;

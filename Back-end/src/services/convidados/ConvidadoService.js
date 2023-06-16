@@ -4,7 +4,7 @@ module.exports = {
   
     getAll: () => {
         return new Promise((acepted, rejected) => {
-          db.query("SELECT convidado.nome, convidado.cargo, convidado.email, convidado.telefone, empresa.nome AS nome_empresa FROM convidado INNER JOIN empresa ON (convidado.id_empresa = empresa.id);", (error, results) => {         
+          db.query("SELECT convidado.id, convidado.nome, convidado.cargo, convidado.email, convidado.telefone, empresa.nome AS nome_empresa FROM convidado INNER JOIN empresa ON (convidado.id_empresa = empresa.id);", (error, results) => {         
             if (error) {
               rejected(error);
               return;

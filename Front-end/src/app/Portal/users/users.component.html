@@ -1,58 +1,60 @@
-<app-header></app-header>
+  <app-header></app-header>
 
-<div class="container">
-  <section id="body">
-    <div class="tittle">
-      <div class="botoes">
-        <section id="buttons">
-          <h3>Lista de Usuários</h3>
-          <div class="buttons">
-            <button class="users" routerLink="/users">Usuários</button>
-            <button class="pending" routerLink="/users-pending">
-              Pendente
-            </button>
-            <button class="register-adm" routerLink="/register-adm">
-              Cadastrar Adiministrador
-            </button>
+  <div class="container">
+    <section id="body">
+      <div class="tittle">
+        <div class="botoes">
+          <section id="buttons">
+            <h3>Lista de Usuários</h3>
+            <div class="buttons">
+              <button class="users" routerLink="/users">Usuários</button>
+              <button class="pending" routerLink="/users-pending">
+                Pendente
+              </button>
+              <button class="register-adm" routerLink="/register-adm">
+                Cadastrar Adiministrador
+              </button>
+            </div>
+          </section>
+          <div class="right">
+            <!-- <div class="tipo">
+              <select name="select">
+                <option value="" selected>Tipo</option>
+                <option value="valor1">Solicitante</option>
+                <option value="valor2">visualizador</option>
+                <option value="valor3">Administrador</option>
+              </select>
+            </div>
+            <div class="search-box">
+              <input type="text" class="search-text" placeholder="Pesquisar..." />
+              <a href="" class="search-btn">
+                <img src="../../assets/Portal/icon-lupa.svg" alt="" />
+              </a>
+            </div> -->
           </div>
-        </section>
-        <div class="right">
-          <!-- <div class="tipo">
-            <select name="select">
-              <option value="" selected>Tipo</option>
-              <option value="valor1">Solicitante</option>
-              <option value="valor2">visualizador</option>
-              <option value="valor3">Administrador</option>
-            </select>
-          </div>
-          <div class="search-box">
-            <input type="text" class="search-text" placeholder="Pesquisar..." />
-            <a href="" class="search-btn">
-              <img src="../../assets/Portal/icon-lupa.svg" alt="" />
-            </a>
-          </div> -->
         </div>
       </div>
-    </div>
-    <div class="lista">
+      <div class="lista">
 
-      <table class="tabela">
-        <tr class="principal">
-          <td class="table-nome title-table">NOME</td>
-          <td class="title-table">INSTITUIÇÃO</td>
-          <td class="title-table">E-MAIL</td>
-          <td class="title-table">CONTATO</td>
-          <td class="title-table">TIPO</td>
-        </tr>
-  
-        <tr class="dados" *ngFor="let user of table">
-          <td>{{ user.nome }}</td>
-          <td>{{ user.nome_instituicao }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.telefone | phone }}</td>
-          <td (click)="openModalWithComponent(user)">{{ user.nivel_acesso }}</td>
-        </tr>
-      </table>
-    </div>
-  </section>
-</div>
+        <table class="tabela">
+          <tr class="principal">
+            <td class="table-nome title-table">NOME</td>
+            <td class="title-table">INSTITUIÇÃO</td>
+            <td class="title-table">E-MAIL</td>
+            <td class="title-table">CONTATO</td>
+            <td class="title-table">TIPO</td>
+          </tr>
+    
+          <tr class="dados" *ngFor="let user of table" (click)="openModalWithComponent(user)">
+            <td>{{ user.nome }}</td>
+            <td>{{ user.nome_instituicao }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.telefone | phone }}</td>
+            <td [ngClass]="{'adm':adm === user.nivel_acesso, 'soli': soli===user.nivel_acesso}">
+              {{ user.nivel_acesso }}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>

@@ -1,24 +1,6 @@
 <app-header></app-header>
 
-<!-- NavBar com logo e Título-->
 <div id="navbar">
-  <!-- <div id="logo">
-     <img src="../../../assets/images/logo.png">
-   </div> -->
-   <!-- <div id="navbar-adm">
-     <a routerLink='/lista-eventos' ><img src="../../../../assets/icon-presenca/home.svg">
-       <p routerLink='/lista-eventos' > Home</p></a>  
-      <a routerLink='/lista-empresas'   ><img src="../../../../assets/icon-presenca/briefcase.svg"> 
-      <p routerLink='/lista-empresas' >Empresas</p></a>    
-      
-     <a routerLink='/lista-convidados'><img src="../../../../assets/icon-presenca/user.svg">
-     <p routerLink='/lista-convidados'>Convidados</p></a>
-     <a routerLink='/lista-usuario'><img src="../../../../assets/icon-presenca/settings.svg">
-     <p routerLink='/lista-usuario'>Usuário</p></a>
-     <a routerLink='/'  (click)="logout()"><img src="../../../../assets/icon-presenca/log-out.svg">
-     <p routerLink='/' (click)="logout()" >Sair</p></a>
-   </div> -->
-
    
 <div id="conteudo">
 
@@ -27,8 +9,9 @@
     <div class="comands">
       <button (click)="add()" class="btn btn-primary"><img src="../../../../assets/icon-presenca/plus-circle.svg" alt=""> Convidado</button>
       <button (click)="edit()" class="btn btn-edit"><img src="../../../../assets/icon-presenca/edit-2.svg" alt=""> Editar evento</button>
-      <button (click)="delet()" class="btn btn-delet"><img src="../../../../assets/icon-presenca/trash-2.svg">Apagar evento</button>
+      <button (click)="delet()" class="btn btn-delet"><img src="../../../../assets/icon-presenca/trash-2.svg" alt="">Apagar evento</button>
     </div>
+
 </div>
 
 
@@ -41,584 +24,53 @@
 
   <div class="pi">
     <p>{{s.total}}
-    <img class="invite " src="../../../assets/icon/invite-line.svg"></p>
+    <img class="invite " src="../../../../assets/icon-presenca/invite-line.svg"></p>
     <p class="p2">Convidados Total</p>
   </div>
   <div class="pi">
     <p>{{s.confirmados}}
-    <img src="../../../assets/icon/icon_check.svg"></p>
+    <img src="../../../../assets/icon-presenca/icon_check.svg"></p>
     <p class="p2 ">Confirmados</p>
   </div>
   <div class="pi">
     <p>{{s.nao_respondeu}}
-    <img class="time" src="../../../assets/icon/icon_time.svg"></p>
+    <img class="time" src="../../../../assets/icon-presenca/icon_time.svg"></p>
     <p class="p2 ">Pendentes</p>
   </div>
   <div>
     <p>{{s.nao_confirmados}}
-    <img class="x" src="../../../assets/icon/icon_x.svg"></p>
+    <img class="x" src="../../../../assets/icon-presenca/icon_x.svg"></p>
     <p class="p2">Recusados</p>
   </div>
 </div> 
 
-  <table >
-    <thead>
-      <tr>
-        <th>Usuários</th>
-        <th>Cargo</th>
-        <th>Empresa</th>
-        <th>E-mail</th>
-        <th>Telefone</th>
-        <th>Status</th>
-        <th>Anunciado</th>
-        <th>Presença</th>
-        <th>Editar</th>
-        <th>Excluir</th>
-        
-      </tr>
-    </thead>
-    <tbody> 
-
-  <!-- <tr *ngFor="let convidado of listaPessoas">
- <td>{{convidado.nome}}</td>
- <td>{{convidado.cargo}}</td>
- <td>{{convidado.empresa}}</td>
- <td>{{convidado.email}}</td>
- <td>{{convidado.telefone}}</td>
- <td>{{convidado.condicao}}</td>
- <td>{{convidado.anunciados}}</td>
- <td>{{convidado.presenca}}<td>
- <td><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
- <td><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
-</tr>   -->
-
-    
-    <!--  <tr *ngFor="let convidado of listaPessoas">
-        <td>{{convidado.nome}}</td>
-        <td>{{convidado.cargo}}</td>
-        <td>{{convidado.empresa}}</td>
-        <td>{{convidado.email}}</td>
-        <td>{{convidado.telefone}}</td>
-        <td>{{convidado.condicao}}</td>
-        <td>{{convidado.anunciados}}</td>
-        <td>{{convidado.presenca}}</td>
-        <td><a><img (click)="editP(convidado.id_evento,convidado.nome,convidado.condicao ,convidado.anunciados,convidado.presenca)" src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
-        <td><a><img (click)="deletP(convidado.nome,convidado.id_evento)" src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
-      </tr> -->
-
-      <tr>
-        <td>Ana Queila Martins</td>
-        <td>Diretora Jatus Mobile</td>
-        <td>Jatus Mobile</td>
-        <td>ana@jatusmobile.com</td>
-        <td>(14) 965324578</td>
-        <td>Pendente</td>
-        <td>Sim</td>
-        <td>Não</td>
-        <td><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
-        <td><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
-      </tr>
-
-      <tr>
-        <td>Caio Garpin</td>
-        <td>Acessor Marilas</td>
-        <td>Marilas</td>
-        <td>caio@marilas.com</td>
-        <td>(16) 956897548</td>
-        <td>Confirmado</td>
-        <td>Não</td>
-        <td>Não</td>
-        <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-        <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-      </tr>
-
-      <tr>
-        <td>Vilma Ribeiro</td>
-        <td>Pesquisadora Rifel</td>
-        <td>Rifel</td>
-        <td>vilma@rifel.com</td>
-        <td>(19) 947582536</td>
-        <td>Confirmada</td>
-        <td>Não</td>
-        <td>Não</td>
-        <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-        <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-      </tr>
-
-            
-      <tr>
-        <td>Jefferson Antunes</td>
-        <td>Presidente Corpus Vill</td>
-        <td>Corpus Vill</td>
-        <td>jefferson@corpusvill.com</td>
-        <td>(19) 947582536</td>
-        <td>Confirmada</td>
-        <td>Não</td>
-        <td>Não</td>
-        <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-        <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-      </tr>
-
-      <tr>
-        <td>Gabriela Carvalho</td>
-        <td>Cofundadora MarkeTickas</td>
-        <td>MarkeTickas</td>
-        <td>gabriela@titicas.com</td>
-        <td>(14) 958654123</td>
-        <td>Pendente</td>
-        <td>Não</td>
-        <td>Não</td>
-        <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-        <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-      </tr>
-
-      <tr>
-        <td>Daniela Galvao Peres</td>
-        <td>Gestora de trafego Pago</td>
-        <td>LucraMais</td>
-        <td>dani@lucra.com</td>
-        <td>(20) 925458596</td>
-        <td>Recusou</td>
-        <td>Não</td>
-        <td>Não</td>
-        <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-        <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-      </tr>
-      <tr>
-        <td>Lucas Rasfin Gugu</td>
-        <td>Redator Folha Sul</td>
-        <td>Folha</td>
-        <td>lucas@folha.com</td>
-        <td>(14) 914258965</td>
-        <td>Recusou</td>
-        <td>Não</td>
-        <td>Não</td>
-        <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-        <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-      </tr>
-      <tr>
-        <td>Benedito Ulhoa</td>
-        <td>Recrutador GH Agricola</td>
-        <td>GH Agricola</td>
-        <td>benedito@hotmail.com</td>
-        <td>(23) 925458596</td>
-        <td>Confirmada</td>
-        <td>Não</td>
-        <td>Não</td>
-        <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-        <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-      </tr>
-      <tr>
-        <td>Carina Macena</td>
-        <td>Diretora Financeira LKT</td>
-        <td>LKT Logistica</td>
-        <td>carina@hotmail.com</td>
-        <td>(53) 925485756</td>
-        <td>Confirmada</td>
-        <td>Não</td>
-        <td>Não</td>
-        <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-        <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-      </tr>
-
-      <tr>
-        <td>Donato Meirelles</td>
-        <td>Pesquisador LKT</td>
-        <td>LKT Logistica</td>
-        <td>donato@oficial.com</td>
-        <td>(22) 925458596</td>
-        <td>Confirmada</td>
-        <td>Não</td>
-        <td>Não</td>
-        <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-        <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-      </tr>
-
-      <tr>
-        <td>Eduardo Cotrim</td>
-        <td> RH Nestle</td>
-        <td>Nestle</td>
-        <td>Eduardo@oficial.com</td>
-        <td>(25) 925689542</td>
-        <td>Recusou</td>
-        <td>Não</td>
-        <td>Não</td>
-        <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-        <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-      </tr>
-
-      <tr>
-        <td>Fernanda Garrau</td>
-        <td>Diretora Intel</td>
-        <td>Intel</td>
-        <td>fernanda@oficial.com</td>
-        <td>(14) 925689542</td>
-        <td>Recusou</td>
-        <td>Não</td>
-        <td>Não</td>
-        <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-        <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-      </tr>
-
-
-<tr>
-  <td>Rafaela Camargo</td>
-  <td>Diretora Academica Cief</td>
-  <td>Cief</td>
-  <td>rafaela@cief.com</td>
-  <td>(14) 996969852</td>
-  <td>Confirmada</td>
-  <td>Sim</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-<tr>
-  <td>Maria Fernanda Rocha</td>
-  <td>RH PetsLife</td>
-  <td>PetsLife</td>
-  <td>maria@petslife.com</td>
-  <td>(14) 963254875</td>
-  <td>Confirmada</td>
-  <td>Sim</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Ana Queila Martins</td>
-  <td>Diretora Jatus Mobile</td>
-  <td>Jatus Mobile</td>
-  <td>ana@jatusmobile.com</td>
-  <td>(14) 965324578</td>
-  <td>Pendente</td>
-  <td>Sim</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Caio Garpin</td>
-  <td>Acessor Marilas</td>
-  <td>Marilas</td>
-  <td>caio@marilas.com</td>
-  <td>(16) 956897548</td>
-  <td>Confirmado</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Vilma Ribeiro</td>
-  <td>Pesquisadora Rifel</td>
-  <td>Rifel</td>
-  <td>vilma@rifel.com</td>
-  <td>(19) 947582536</td>
-  <td>Confirmada</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-      
-<tr>
-  <td>Jefferson Antunes</td>
-  <td>Presidente Corpus Vill</td>
-  <td>Corpus Vill</td>
-  <td>jefferson@corpusvill.com</td>
-  <td>(19) 947582536</td>
-  <td>Confirmada</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Gabriela Carvalho</td>
-  <td>Cofundadora MarkeTickas</td>
-  <td>MarkeTickas</td>
-  <td>gabriela@titicas.com</td>
-  <td>(14) 958654123</td>
-  <td>Pendente</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Daniela Galvao Peres</td>
-  <td>Gestora de trafego Pago</td>
-  <td>LucraMais</td>
-  <td>dani@lucra.com</td>
-  <td>(20) 925458596</td>
-  <td>Recusou</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-<tr>
-  <td>Lucas Rasfin Gugu</td>
-  <td>Redator Folha Sul</td>
-  <td>Folha</td>
-  <td>lucas@folha.com</td>
-  <td>(14) 914258965</td>
-  <td>Recusou</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-<tr>
-  <td>Benedito Ulhoa</td>
-  <td>Recrutador GH Agricola</td>
-  <td>GH Agricola</td>
-  <td>benedito@hotmail.com</td>
-  <td>(23) 925458596</td>
-  <td>Confirmada</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-<tr>
-  <td>Carina Macena</td>
-  <td>Diretora Financeira LKT</td>
-  <td>LKT Logistica</td>
-  <td>carina@hotmail.com</td>
-  <td>(53) 925485756</td>
-  <td>Confirmada</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Donato Meirelles</td>
-  <td>Pesquisador LKT</td>
-  <td>LKT Logistica</td>
-  <td>donato@oficial.com</td>
-  <td>(22) 925458596</td>
-  <td>Confirmada</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Eduardo Cotrim</td>
-  <td> RH Nestle</td>
-  <td>Nestle</td>
-  <td>Eduardo@oficial.com</td>
-  <td>(25) 925689542</td>
-  <td>Recusou</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Fernanda Garrau</td>
-  <td>Diretora Intel</td>
-  <td>Intel</td>
-  <td>fernanda@oficial.com</td>
-  <td>(14) 925689542</td>
-  <td>Recusou</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-<!-- repeat-->
-<!--      
-<tr>
-  <td>Rafaela Camargo</td>
-  <td>Diretora Academica Cief</td>
-  <td>Cief</td>
-  <td>rafaela@cief.com</td>
-  <td>(14) 996969852</td>
-  <td>Confirmada</td>
-  <td>Sim</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-<tr>
-  <td>Maria Fernanda Rocha</td>
-  <td>RH PetsLife</td>
-  <td>PetsLife</td>
-  <td>maria@petslife.com</td>
-  <td>(14) 963254875</td>
-  <td>Confirmada</td>
-  <td>Sim</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Ana Queila Martins</td>
-  <td>Diretora Jatus Mobile</td>
-  <td>Jatus Mobile</td>
-  <td>ana@jatusmobile.com</td>
-  <td>(14) 965324578</td>
-  <td>Pendente</td>
-  <td>Sim</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Caio Garpin</td>
-  <td>Acessor Marilas</td>
-  <td>Marilas</td>
-  <td>caio@marilas.com</td>
-  <td>(16) 956897548</td>
-  <td>Confirmado</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Vilma Ribeiro</td>
-  <td>Pesquisadora Rifel</td>
-  <td>Rifel</td>
-  <td>vilma@rifel.com</td>
-  <td>(19) 947582536</td>
-  <td>Confirmada</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-      
-<tr>
-  <td>Jefferson Antunes</td>
-  <td>Presidente Corpus Vill</td>
-  <td>Corpus Vill</td>
-  <td>jefferson@corpusvill.com</td>
-  <td>(19) 947582536</td>
-  <td>Confirmada</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Gabriela Carvalho</td>
-  <td>Cofundadora MarkeTickas</td>
-  <td>MarkeTickas</td>
-  <td>gabriela@titicas.com</td>
-  <td>(14) 958654123</td>
-  <td>Pendente</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Daniela Galvao Peres</td>
-  <td>Gestora de trafego Pago</td>
-  <td>LucraMais</td>
-  <td>dani@lucra.com</td>
-  <td>(20) 925458596</td>
-  <td>Recusou</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-<tr>
-  <td>Lucas Rasfin Gugu</td>
-  <td>Redator Folha Sul</td>
-  <td>Folha</td>
-  <td>lucas@folha.com</td>
-  <td>(14) 914258965</td>
-  <td>Recusou</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-<tr>
-  <td>Benedito Ulhoa</td>
-  <td>Recrutador GH Agricola</td>
-  <td>GH Agricola</td>
-  <td>benedito@hotmail.com</td>
-  <td>(23) 925458596</td>
-  <td>Confirmada</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-<tr>
-  <td>Carina Macena</td>
-  <td>Diretora Financeira LKT</td>
-  <td>LKT Logistica</td>
-  <td>carina@hotmail.com</td>
-  <td>(53) 925485756</td>
-  <td>Confirmada</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Donato Meirelles</td>
-  <td>Pesquisador LKT</td>
-  <td>LKT Logistica</td>
-  <td>donato@oficial.com</td>
-  <td>(22) 925458596</td>
-  <td>Confirmada</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Eduardo Cotrim</td>
-  <td> RH Nestle</td>
-  <td>Nestle</td>
-  <td>Eduardo@oficial.com</td>
-  <td>(25) 925689542</td>
-  <td>Recusou</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr>
-
-<tr>
-  <td>Fernanda Garrau</td>
-  <td>Diretora Intel</td>
-  <td>Intel</td>
-  <td>fernanda@oficial.com</td>
-  <td>(14) 925689542</td>
-  <td>Recusou</td>
-  <td>Não</td>
-  <td>Não</td>
-  <td><a><img src="../../../assets/icon/icon _edit 2_.svg"></a></td>
-  <td><a><img src="../../../assets/icon/icon _trash 2_.svg"></a></td>
-</tr> -->
-    </tbody>
-    
-  </table>
+<table >
+  <thead>
+    <tr>
+      <th>Usuários</th>
+      <th>Cargo</th>
+      <th>Empresa</th>
+      <th>E-mail</th>
+      <th>Telefone</th>
+      <th>Status</th>
+      <th>Anunciado</th>
+      <th>Presença</th>
+      <th>Editar</th>
+      <th>Excluir</th>  
+    </tr>
+  </thead>
+  <tbody> 
+    <tr *ngFor="let convidado of listaPessoas">
+      <td>{{convidado.nome}}</td>
+      <td>{{convidado.cargo}}</td>
+      <td>{{convidado.empresa}}</td>
+      <td>{{convidado.email}}</td>
+      <td>{{convidado.telefone}}</td>
+      <td>{{convidado.condicao}}</td>
+      <td>{{convidado.anunciados}}</td>
+      <td>{{convidado.presenca}}<td>
+      <td><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
+      <td><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
+    </tr>  
+  </tbody>    
+</table>

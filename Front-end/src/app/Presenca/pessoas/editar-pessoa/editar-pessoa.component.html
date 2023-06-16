@@ -1,32 +1,36 @@
-
 <div class="modal-modal">
     <div class="modal-top">
-        <label class="modal-title">Editar Convidado </label>
+        <label class="modal-title">Editar Pessoas </label>
      <a>   <img (click)="cancelar()" src="../../../../assets/icon-presenca/x.svg"></a>
     </div>
-    <form [formGroup]="editarPessoaForm" (submit)="editar()">
+    <form [formGroup]="form">
         <div class="modal-label"><label>Nome</label>
         </div>
-        <input formControlName="nome" class="modal-input" type="text" name="email" >
+        <input formControlName="nome" class="modal-input" type="text" placeholder="Nome" >
         
-        <div class="modal-label"><label>Cargo</label>
+        <div class="modal-label">
+            <label>Cargo</label>
         </div>
-        <input formControlName="cargo" class="modal-input" type="text" name="email" >
-        <div class="modal-label"><label>Empresa</label>
+        <input formControlName="cargo" class="modal-input" type="text" placeholder="Cargo"  >
+        
+        <div  class="modal-label">
+            <label>Empresa</label>
         </div>
-        <select formControlName="empresa" 
-         class="modal-input" type="text"  >
-         <option  *ngFor="let empresa of listaPessoa" >{{empresa.empresa}}</option>
-         </select>
-        <div class="modal-label"><label>E-mail</label>
+        <select formControlName="empresa" class="modal-input" type="text" >
+            <option placeholder="Empresas" *ngFor="let empresa of listaPessoa" [value]="empresa.id">{{empresa.nome}}</option>
+        </select>
+
+        <div class="modal-label">
+            <label>E-mail</label>
         </div>
-        <input formControlName="email" class="modal-input" type="text" name="email" >
-        <div class="modal-label"><label>Telefone</label>
+        <input type="email" placeholder="example@example.com" formControlName="email" class="modal-input" />
+        
+        <div class="modal-label">
+            <label>Telefone</label>
         </div>
-        <input formControlName="telefone" class="modal-input" type="text" name="email" >
+        <input maxlength="15" [value]="form.get('telefone')!.value! | phone" type="tel" placeholder="(99) 99999-9999" formControlName="telefone" class="modal-input" appOnlyNumbers />
         
     
-        <button class="modal-button" (click)="salvar()" class="btn btn-primary"> Salvar alterações </button>
+        <button class="modal-button" (click)="updatePessoa(this.form.value.id)" class="btn btn-primary"> Cadastrar </button>
     </form>
-    </div>
-    
+</div>

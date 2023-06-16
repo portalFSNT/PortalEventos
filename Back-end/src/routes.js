@@ -113,7 +113,7 @@ router.delete("/tipo/:id",roles.adminRole, TipoController.delTipo);
 
 // INSTITUICAO -----
 const InstituicaoController = require("./controllers/evento/InstituicaoController");
-router.get("/instituicoes",roles.adminRole, InstituicaoController.getAll);
+router.get("/instituicoes", InstituicaoController.getAll);
 router.get("/instituicao/:id",roles.adminRole, InstituicaoController.getById);
 router.post("/instituicao",roles.adminRole, InstituicaoController.addInstituicao);
 router.patch("/instituicao/:id",roles.adminRole, InstituicaoController.updateInstituicao);

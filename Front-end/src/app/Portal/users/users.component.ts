@@ -17,6 +17,9 @@ export class UsersComponent {
   @Input() user: any;
 
   table:Users[] = [];
+  
+  adm: string = 'Administrador';
+  soli: string = 'Solicitante';
 
   bsModalRef?: BsModalRef;
   constructor(
@@ -31,7 +34,6 @@ export class UsersComponent {
       })
   }
 
- 
   openModalWithComponent(user: any) {
     const nome = user.nome;
     const email = user.email;

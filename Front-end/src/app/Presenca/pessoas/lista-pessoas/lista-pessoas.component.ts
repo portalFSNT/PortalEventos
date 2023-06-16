@@ -1,4 +1,3 @@
-import { TestBed } from '@angular/core/testing';
 import { PessoaService } from './../pessoa.service';
 import { EditarPessoaComponent } from './../editar-pessoa/editar-pessoa.component';
 import { NovaPessoaComponent } from './../nova-pessoa/nova-pessoa.component';

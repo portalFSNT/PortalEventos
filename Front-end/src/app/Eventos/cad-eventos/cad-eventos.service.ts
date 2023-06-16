@@ -42,9 +42,9 @@ export class CadEventosService {
       take(1),
       switchMap(user => {
         const userId = user.id;
-        const params = { ...novoCampo, id_usuario: userId }; // Adicione o id_usuario ao objeto novoCampo
+        const params = { ...novoCampo, id_usuario: userId }; 
   
-        return this.http.post<any>(`${API}/event`, params, { headers: header }); // Use o header atualizado
+        return this.http.post<any>(`${API}/event`, params, { headers: header });
       })
     );
   }

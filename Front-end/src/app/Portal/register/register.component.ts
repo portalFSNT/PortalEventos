@@ -1,5 +1,6 @@
+import { Instituicoes } from './../../Eventos/cad-eventos/instituicao';
 import { RegisterService } from './register.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -8,13 +9,17 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
 
   form: FormGroup;
   submitted = false;
+  instituicoes: Instituicoes[] = [];
 
-  constructor(private router: Router, private fb: FormBuilder,
-    private service: RegisterService){
+  constructor(
+    private router: Router, 
+    private fb: FormBuilder,
+    private service: RegisterService
+  ){
     this.form = this.fb.group({
       nome: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       email: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
@@ -25,10 +30,6 @@ export class RegisterComponent {
       statusUsuario: 0,
       instituicao: 1
     });
-  }
-
-  irParaLogin() {
-    this.router.navigate(['/login']);
   }
 
   onSubmit() {
@@ -44,10 +45,26 @@ export class RegisterComponent {
       this.router.navigate(['/login']);
     }
   }
+
   onCancel() {
     this.submitted = false;
     this.form.reset();
     // console.log("Cancel")
+  }
+
+  irParaLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  ngOnInit(){
+    this.service.listarInstituicoes().subscribe(
+      (results) => {
+        this.instituicoes = results.results;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
 }

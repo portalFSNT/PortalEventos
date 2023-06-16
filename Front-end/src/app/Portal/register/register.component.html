@@ -15,7 +15,7 @@
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Telefone</label>
-                        <input type="text" placeholder="(14) 99999-9999" class="input-form" formControlName="telefone">
+                        <input maxlength="15" [value]="form.get('telefone')!.value! | phone" type="tel" placeholder="(99) 99999-9999" class="input-form" formControlName="telefone" appOnlyNumbers>
                     </div>
                     <div class="dados">
                         <label for="" class="tittle-form">Senha</label>

@@ -2,14 +2,14 @@
 <div class="modal-modal">
     <div class="modal-top">
         <label class="modal-title">Editar empresa</label>
-     <a (click)="cancelar()">   <img src="../../../../assets/icon-presenca/x.svg"></a>
+     <a (click)="cancelar()">   <img src="../../../../assets/Icons/icon-x-red.svg"></a>
     </div>
     <form [formGroup]="form" submit="updateEmpresa()">
         <div class="modal-label"><label>Nome da empresa</label>
         </div>
-        <input formControlName="nome" [value]="empresa" class="modal-input" type="text" name="empresa" >
+        <input formControlName="nome" class="modal-input" type="text" name="empresa">
     
-        <button class="modal-button" (click)="updateEmpresa(form.value.id)" class="btn btn-primary"> Salvar alterações </button>     
+        <button class="modal-button" (click)="updateEmpresa(form.value.id)"> Alterar </button>     
     </form>
 </div>
     

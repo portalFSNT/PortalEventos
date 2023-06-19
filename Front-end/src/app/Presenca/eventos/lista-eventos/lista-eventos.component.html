@@ -6,7 +6,7 @@
 </div>
 
 <section class="cards">
-  <div class="card" *ngFor="let evento of listaEvento">
+  <div class="card" *ngFor="let evento of listaEvento" routerLink="/lista-convidados">
     <h2 class="titleCard">
       {{evento.descricao}}
     </h2>

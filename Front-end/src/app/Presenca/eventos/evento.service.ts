@@ -1,9 +1,10 @@
-import { Observable } from 'rxjs';
+import { Observable, switchMap, take } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Evento } from './evento';
 import { TokenService } from 'src/app/authentication/token.service';
+import { UserService } from 'src/app/authentication/user/user.service';
 
 
 const API = environment.API;
@@ -14,21 +15,61 @@ const API = environment.API;
 export class EventoService {
 
   private readonly API=`${API}/evento`;
-  constructor(private http: HttpClient, private tokenService : TokenService) { }
 
-  private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
+  constructor(
+    private http: HttpClient, 
+    private tokenService : TokenService,
+    private userService: UserService 
+  ) { }
+
+  private getHeader(): HttpHeaders {
+    const token = this.tokenService.returnToken();
+    let id_usuario: number | undefined = this.userService.returnUser().value.id;
+    id_usuario = id_usuario !== undefined ? id_usuario : 0;
+  
+    return new HttpHeaders().set('Authorization', `Bearer ${token}`).set('X-User-ID', id_usuario.toString());
+  }
+
+  private header = this.getHeader();
 
   listar():Observable<any>{
     return this.http.get<any>(this.API, { headers: this.header });
   }
   listarUm(id_evento:any):Observable<any>{
-    return this.http.get(`${API}/evento/${id_evento}`)
+    return this.http.get(`${API}/${id_evento}`, { headers: this.header })
   }
   edit(id_evento:any,editarEvento:any){
-    return this.http.put<any>(`${API}/evento/${id_evento}`,editarEvento)
+    return this.http.put<any>(`${API}/${id_evento}`,editarEvento, { headers: this.header })
   }
 
-  cadastrarNovoEvento(id_evento:any,novoEvento:Evento){
-    return this.http.post(`${API}/evento/1`,novoEvento)
+  addEvent(form:any){
+    return this.userService.returnUser().pipe(
+      take(1),
+      switchMap(user => {
+        const id_usuario = user.id;
+      
+    const reqBody = [{
+      nome: form.nome,
+      data_hora: form.data_hora,
+      descricao: form.descricao,
+      id_usuario: id_usuario
+    }]
+
+    console.log(reqBody);
+    console.log(this.header);
+
+    return this.http.post(this.API,{
+      nome: form.nome,
+      data_hora: form.data_hora,
+      descricao: form.descricao,
+      id_usuario: id_usuario
+    }, { headers: this.header});
+    
+    })
+    )
+  }
+
+  cadastrarNovoEvento(reqBody:Evento){
+    return this.http.post(`${API}`,reqBody, { headers: this.header });
   }
 }

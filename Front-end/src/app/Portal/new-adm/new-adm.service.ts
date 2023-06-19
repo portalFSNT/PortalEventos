@@ -16,7 +16,7 @@ const API = environment.API;
 export class NewAdmService {
   
   private readonly API_users = `${API}/user`;
-  private readonly API_BuscarEmpresas = `${API}/empresas`;
+  private readonly API_BuscarEmpresas = `${API}/instituicoes`;
   private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
 
 

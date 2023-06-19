@@ -36,7 +36,7 @@ export class NewAdmComponent implements OnInit {
   ngOnInit() {
     this.service.listarEmpresas().subscribe(
       (results) => {
-        this.empresa = results.result;
+        this.empresa = results.results;
       },
       (error) => {
         console.error(error);

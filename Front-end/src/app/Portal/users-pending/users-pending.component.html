@@ -1,39 +1,42 @@
 <app-header></app-header>
 <div class="container">
     <section id="body">
-        <h3>Usuário Pendentes</h3>
+        <h3>Usuários Pendentes</h3>
         <div class="buttons">
             <button class="users" routerLink="/users">Usuários</button>
             <button class="pending" routerLink="/users-pending">Pendente</button>
-            <button class="register-adm" routerLink="/register-adm">Cadastrar Adiministrador</button>
+            <button class="register-adm" routerLink="/register-adm">Cadastrar Administrador</button>
         </div>
     </section>
 
     <section id="list">
-      <table class="tabela">
-        <thead>
+        <ng-container *ngIf="table.length > 0; else noUsers">
+            <table class="tabela">
+                <thead>
+                    <tr class="principal">
+                        <th class="table-nome title-table">ID</th>
+                        <th class="table-nome title-table">NOME</th>
+                        <th class="title-table">INSTITUIÇÃO</th>
+                        <th class="title-table">E-MAIL</th>
+                        <th class="title-table">CONTATO</th>
+                        <th class="title-table">TIPO</th>
+                        <th class="title-table">STATUS</th>
+                    </tr>
+                </thead>
 
-          <tr class="principal">
-            <th class="table-nome title-table">ID</th>
-            <th class="table-nome title-table">NOME</th>
-            <th class="title-table">INSTITUIÇÃO</th>
-            <th class="title-table">E-MAIL</th>
-            <th class="title-table">CONTATO</th>
-            <th class="title-table">TIPO</th>
-            <th class="title-table">STATUS</th>
-          </tr>
-        </thead>
-  
-        <tr class="dados" *ngFor="let user of table">
-          <td>{{ user.id }}</td>
-          <td>{{ user.nome }}</td>
-          <td>{{ user.nome_instituicao }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.telefone | phone }}</td>
-          <td>{{ user.nivel_acesso }}</td>
-          <td (click)="openModalWithComponent(user)">Pendente</td> 
-        </tr>        
-        
-      </table>
+                <tr class="dados" *ngFor="let user of table">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.nome }}</td>
+                    <td>{{ user.nome_instituicao }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.telefone | phone }}</td>
+                    <td>{{ user.nivel_acesso }}</td>
+                    <td (click)="openModalWithComponent(user)">Pendente</td>
+                </tr>
+            </table>
+        </ng-container>
+        <ng-template #noUsers>
+            <p class="noUsers">Nenhum usuário pendente.</p>
+        </ng-template>
     </section>
 </div>

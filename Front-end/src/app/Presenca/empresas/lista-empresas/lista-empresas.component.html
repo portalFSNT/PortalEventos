@@ -12,9 +12,9 @@
 
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Editar</th>
-      <th>Excluir</th>
+      <th>NOME</th>
+      <th>EDITAR</th>
+      <th>EXCLUIR</th>
     </tr>
   </thead>
 
@@ -22,9 +22,9 @@
     <tr *ngFor="let empresa of listaEmpresa">
       <td> {{empresa.nome}}</td>
       <!-- <td><img (click)="edit(empresa.nome,empresa.nome)" src="../../../../assets/icon-presenca/caneta_black.svg"></td> -->
-      <td><img (click)="editarEmpresa(empresa.id)" src="../../../../assets/icon-presenca/caneta_black.svg"></td>
+      <td><img (click)="editarEmpresa(empresa.id)" src="../../../../assets/Icons/icon-pencil-black.svg" class="icon-funcion"></td>
 
-      <td><img (click)="delet(empresa.id)" src="../../../../assets//icon-presenca/🦆 icon _trash 2_black.svg"></td>
+      <td><img (click)="delet(empresa.id)" src="../../../../assets/Icons/icon-lixeira-white.svg" class="icon-funcion"></td>
     </tr>
   </tbody>
 

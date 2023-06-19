@@ -34,7 +34,7 @@ output:any;
   ngOnInit(){
     this.form = this.fb.group({
       id: this.list[0],
-      nome:['',[Validators.required, Validators.minLength(3), Validators.maxLength(80)]]
+      nome: this.list[1]
     });
   }
    
@@ -63,5 +63,7 @@ output:any;
 
   // salvar(){  this.modalController.dismiss(); }
 
-  // cancelar(){ this.modalController.dismiss(); }
+  cancelar(){ 
+    window.location.reload();
+  }
 }

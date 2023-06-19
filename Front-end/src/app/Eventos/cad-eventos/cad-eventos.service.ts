@@ -22,6 +22,7 @@ export class CadEventosService {
   private readonly API_BuscarTipos = `${API}/tipos`;
   private readonly API_BuscarInstituicoes = `${API}/instituicoes`;
   private readonly API_BuscarLugares = `${API}/lugar`;
+  private readonly API_Imagem = `${API}/image`;
 
 
   constructor(private http: HttpClient, private tokenService : TokenService, private userService: UserService) { }
@@ -58,18 +59,27 @@ export class CadEventosService {
     return this.http.get<MarransatoMode<Instituicoes[]>>(this.API_BuscarInstituicoes, { headers: this.header })
   }
 
-  // listarTipos(): Observable<any> {
-  //   return this.http.get(this.API_BuscarTipos, { headers: this.header })
-  // }
-
-  // listarInstituicoes(): Observable<any> {  
-  //   return this.http.get(this.API_BuscarInstituicoes, { headers: this.header })
-  // }
   
   listarLugares(): Observable<any> {  
     return this.http.get(this.API_BuscarLugares, { headers: this.header })
   }
 
+  
+  uploadImage(file: File) {
+    const formData = new FormData();
+    formData.append('imagem', file);
+
+    this.http.post(this.API_Imagem, formData, { headers: this.header }).subscribe(
+      (response) => {
+        console.log('Upload bem-sucedido!', response);
+        // Faça algo com a resposta da API, se necessário
+      },
+      (error) => {
+        console.error('Erro ao fazer upload da imagem:', error);
+        // Lide com o erro adequadamente
+      }
+    );
+  }
 
 
  

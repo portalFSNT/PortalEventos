@@ -55,6 +55,7 @@ export class AlterarEventoComponent implements OnInit {
     // });
   }
 
+
   ngOnInit() {
 
     this.route.paramMap.subscribe(paramMap => {

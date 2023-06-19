@@ -46,6 +46,7 @@ module.exports = {
             console.log(error)
         }
         res.json(json);
+        
     },
 
     updateImage: async (req, res) => {

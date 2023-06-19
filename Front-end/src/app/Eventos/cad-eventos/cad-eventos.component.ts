@@ -114,4 +114,11 @@ export class CadEventosComponent implements OnInit {
     this.form.reset();
     this.router.navigate(['/eventos']);
   }
+  
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    this.service.uploadImage(file);
+  }
+
+  
 }

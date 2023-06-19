@@ -17,22 +17,29 @@ export class UsersComponent {
   @Input() user: any;
 
   table:Users[] = [];
+  filteredTable: Users[] = [];
+
   
   adm: string = 'Administrador';
   soli: string = 'Solicitante';
-
+  
   bsModalRef?: BsModalRef;
   constructor(
     private service: UsersService, 
     private modalService: BsModalService
-  ) {}
-
-  ngOnInit() {
+    ) {}
+    
+    
+    ngOnInit() {
       this.service.listUsers().subscribe((event) => {
-        this.table = event.result as Users[]
-        console.log(this.table);
-      })
-  }
+        this.table = event.result as Users[];
+        this.filterTable();
+        console.log(this.filteredTable);
+      });
+    }
+    filterTable() {
+      this.filteredTable = this.table.filter((user) => user.status_usuario > 0);
+    }
 
   openModalWithComponent(user: any) {
     const nome = user.nome;
@@ -62,5 +69,8 @@ export class UsersComponent {
     this.bsModalRef = this.modalService.show(ModalChangeDataUserComponent, initialState);
     this.bsModalRef.content.closeBtnName = 'Close';
     return user; 
-  }   
+  }
+
+
+  
 }

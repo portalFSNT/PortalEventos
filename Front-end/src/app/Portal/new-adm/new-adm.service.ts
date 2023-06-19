@@ -2,9 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, take } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Empresas } from './empresa.interface';
 import { TokenService } from 'src/app/authentication/token.service';
-import { MarransatoMode } from 'src/app/shared/MaranssatoMode.interface';
 
 
 

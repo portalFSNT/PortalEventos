@@ -8,7 +8,7 @@ import { Component, OnInit,Input } from '@angular/core';
 @Component({
   selector: 'app-novo-convidado',
   templateUrl: './novo-convidado.component.html',
-  styleUrls: ['./novo-convidado.component.scss']
+  styleUrls: ['./novo-convidado.component.scss', '../../styles/styles.scss']
 })
 export class NovoConvidadoComponent implements OnInit {
   novoConvidadoForm!:FormGroup;

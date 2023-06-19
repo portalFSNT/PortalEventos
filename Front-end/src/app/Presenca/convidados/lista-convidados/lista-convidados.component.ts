@@ -11,79 +11,81 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Status } from "./status";
 import { Pessoa } from "./pessoa";
 import { Evento } from 'src/app/Presenca/eventos/evento';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: "app-lista-convidados",
   templateUrl: "./lista-convidados.component.html",
-  styleUrls: ["./lista-convidados.component.scss","../../navbar-adm.scss"],
+  styleUrls: ["./lista-convidados.component.scss", "../../navbar-adm.scss"],
 })
 export class ListaConvidadosComponent implements OnInit {
   public id_evento: any;
 
-  listaEventos:Evento[]=[];
-  listaStatus:Status[] = [];
-  listaPessoas:Pessoa[]= [];
+  listaEventos: Evento[] = [];
+  listaStatus: Status[] = [];
+  listaPessoas: Pessoa[] = [];
 
-listaEvento:any =[]
+  listaEvento: any = []
   constructor(
     private modalcontroller: ModalController,
     private route: ActivatedRoute,
     private service: ConvidadoService,
-    
+
     private router: Router,
-    private eventoService:EventoService,
+    private eventoService: EventoService,
+    private modalService: BsModalService
     //private ser:UsuarioService
   ) {
     this.route.params.subscribe(
       (params) => (this.id_evento = params["id_evento"])
-          );
+    );
   }
 
 
   ngOnInit(): void {
     this.service.listarStatus(this.id_evento).subscribe((event) => {
       console.log(event.result)
-      if(event.result[0].total!=='0'){
+      if (event.result[0].total !== '0') {
 
-    
-      this.listaStatus = event.result as any;
 
-      this.service.listPessoa(this.id_evento).subscribe((event) => {
-        this.listaPessoas = event.result as any;
-      });
-    }
+        this.listaStatus = event.result as any;
 
-    this.eventoService.listarUm(this.id_evento).subscribe((event)=>{
-      this.listaEvento = event.result;
-      console.log(event.result)
-  })
+        this.service.listPessoa(this.id_evento).subscribe((event) => {
+          this.listaPessoas = event.result as any;
+        });
+      }
+
+      this.eventoService.listarUm(this.id_evento).subscribe((event) => {
+        this.listaEvento = event.result;
+        console.log(event.result)
+      })
       console.log(this.listaPessoas);
       console.log(this.id_evento);
       console.log(this.listaStatus);
     });
-    this.eventoService.listarUm(this.id_evento).subscribe((event)=>{
-      this.listaEventos=event.result as any;
-      })
-  }  
-
-
-  async edit( 
-
-  ){
-    const modal = await this.modalcontroller.create({
-      component:EditarEventoComponent,
-  //  id_eventos:any = this.id_evento,
-      componentProps:{
-       id_evento: this.id_evento
-    
-      },
-      
-      cssClass:"modal",
-   
-    });
-    console.log(`o id 'e ${this.id_evento}`)
-    await modal.present();
+    this.eventoService.listarUm(this.id_evento).subscribe((event) => {
+      this.listaEventos = event.result as any;
+    })
   }
+
+
+  // async edit(
+
+  // ) {
+  //   const modal = await this.modalcontroller.create({
+  //     component: EditarEventoComponent,
+  //     //  id_eventos:any = this.id_evento,
+  //     componentProps: {
+  //       id_evento: this.id_evento
+
+  //     },
+
+  //     cssClass: "modal",
+
+  //   });
+  //   console.log(`o id 'e ${this.id_evento}`)
+  //   await modal.present();
+  // }
   // async edit(){
   //   const modal= await this.modalcontroller.create({
   //     component:EditarEventoComponent,
@@ -96,29 +98,21 @@ listaEvento:any =[]
   //   await modal.present();
 
   // }
-  async editP( id_evento:any,nome:any, condicao:any ,anunciados:any ,presenca:any){
+  async editP(id_evento: any, nome: any, condicao: any, anunciados: any, presenca: any) {
     const modal = await this.modalcontroller.create({
-      component:EditarConvidadoComponent,
-      cssClass:"modal",
-      componentProps:{id_evento,nome,
-        condicao,anunciados,presenca
+      component: EditarConvidadoComponent,
+      cssClass: "modal",
+      componentProps: {
+        id_evento, nome,
+        condicao, anunciados, presenca
 
       }
-      
+
     })
-    
-await modal.present();
-  }
-  async add() {
-    const modal = await this.modalcontroller.create({
-      component: NovoConvidadoComponent,
-      componentProps:{
-          id_evento:this.id_evento
-      },
-      cssClass: "modal",
-    });
+
     await modal.present();
   }
+
 
   delet() {
     console.log(this.id_evento);
@@ -127,10 +121,20 @@ await modal.present();
       this.router.navigate(["/eventos"]);
     });
   }
-  deletP(nome:any,id_evento:any){
-    this.service.deletP(nome,id_evento).subscribe(()=>{
+  deletP(nome: any, id_evento: any) {
+    this.service.deletP(nome, id_evento).subscribe(() => {
       this.router.navigate([`evento_convidados/${this.id_evento}`]);
     },
-    (error:any)=> console.log(error))
+      (error: any) => console.log(error))
+  }
+
+  bsModalRef?: BsModalRef;
+  add() {
+    this.bsModalRef = this.modalService.show(NovoConvidadoComponent);
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
+  edit() {
+    this.bsModalRef = this.modalService.show(EditarConvidadoComponent);
+    this.bsModalRef.content.closeBtnName = 'Close';
   }
 }

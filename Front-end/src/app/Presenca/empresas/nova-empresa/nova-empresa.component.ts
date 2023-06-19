@@ -43,9 +43,8 @@ export class NovaEmpresaComponent implements OnInit {
   adicionar(){
     this.modalController.dismiss();
   }
-  cancelar(){
-    this.modalController.dismiss();
-  
+  cancelar(){ 
+    window.location.reload();
   }
   onSubmit() {
     this.submitted = true;

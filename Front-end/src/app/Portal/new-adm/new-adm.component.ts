@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewAdmService } from './new-adm.service';
 import { Router } from '@angular/router';
+import { Empresas } from './empresa.interface';
+import { Component, OnInit } from '@angular/core';
+
 
 
 @Component({
@@ -9,10 +11,12 @@ import { Router } from '@angular/router';
   templateUrl: './new-adm.component.html',
   styleUrls: ['./new-adm.component.scss']
 })
-export class NewAdmComponent {
+export class NewAdmComponent implements OnInit {
 
   form: FormGroup;
   submitted = false;
+  empresa: Empresas[] = [];
+
 
   constructor(private fb: FormBuilder,
     private service: NewAdmService,
@@ -27,6 +31,18 @@ export class NewAdmComponent {
       statusUsuario: 1,
       instituicao: 1,
     });
+  }
+
+  ngOnInit() {
+    this.service.listarEmpresas().subscribe(
+      (results) => {
+        this.empresa = results.result;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+    
   }
 
   onSubmit() {
@@ -46,4 +62,6 @@ export class NewAdmComponent {
     this.form.reset();
     this.router.navigate(['/users']);
   }
+
+
 }

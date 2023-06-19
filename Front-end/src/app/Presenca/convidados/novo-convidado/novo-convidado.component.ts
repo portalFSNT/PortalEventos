@@ -21,14 +21,11 @@ export class NovoConvidadoComponent implements OnInit {
     private router:Router,
     private modalController:ModalController,
     private route:ActivatedRoute
-
-
   ) {
   }
 
   ngOnInit(): void {this.servie.listar().subscribe((event)=>{
     this.listaConvidado=event.result as any[];
-
   })
   this.novoConvidadoForm=this.formBuilder.group({
     nome:[''],

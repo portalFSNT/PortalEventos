@@ -18,21 +18,21 @@ export class ModalAceitarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  fecharModal(): void {
-    this.modalcontroler.dismiss() //Fecha o Modal
+  fecharModal() {
+    window.location.reload()
   }
 
-  deniSolicitacao(id: number): void {
+  deniSolicitacao(id: number) {
     this.service.deniSolicitacao(id).subscribe((event) => {
       console.log(event)
-      this.fecharModal()
     });
+    window.location.reload()
   }
 
-  aceptSolicitacao(id: number): void {
+  aceptSolicitacao(id: number) {
     this.service.aceptSolicitacao(id).subscribe((event) => {
       console.log(event)
-      this.fecharModal()
     });
+    window.location.reload()
   }
 } 

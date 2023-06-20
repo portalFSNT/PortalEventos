@@ -45,13 +45,15 @@
             <td class="title-table">TIPO</td>
           </tr>
     
-          <tr class="dados" *ngFor="let user of table" (click)="openModalWithComponent(user)">
+          <tr class="dados" *ngFor="let user of filteredTable" (click)="openModalWithComponent(user)">
             <td>{{ user.nome }}</td>
             <td>{{ user.nome_instituicao }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.telefone | phone }}</td>
-            <td [ngClass]="{'adm':adm === user.nivel_acesso, 'soli': soli===user.nivel_acesso}">
-              {{ user.nivel_acesso }}
+            <td>
+              <div [ngClass]="{'adm':adm === user.nivel_acesso, 'soli': soli===user.nivel_acesso}">
+                {{ user.nivel_acesso }}
+              </div>
             </td>
           </tr>
         </table>

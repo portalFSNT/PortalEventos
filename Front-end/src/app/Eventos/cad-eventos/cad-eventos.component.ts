@@ -54,18 +54,6 @@ export class CadEventosComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.service.listarLugares().subscribe(({results}) => {
-    //   this.lugares = results;
-    //   console.log(this.lugares);
-    // });
-    // this.service.listarInstituicoes().subscribe(({results}) => {
-    //   this.instituicoes = results
-    //   console.log(this.instituicoes)
-    // });
-    // this.service.listarTipos().subscribe(({results}) => {
-    //   this.tipos = results
-    //   console.log(this.tipos)
-    // });
 
     this.service.listarLugares().subscribe(
       (results) => {

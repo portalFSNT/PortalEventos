@@ -43,9 +43,8 @@ export class NovaEmpresaComponent implements OnInit {
   adicionar(){
     this.modalController.dismiss();
   }
-  cancelar(){
-    this.modalController.dismiss();
-  
+  cancelar(){ 
+    window.location.reload();
   }
   onSubmit() {
     this.submitted = true;
@@ -55,7 +54,7 @@ export class NovaEmpresaComponent implements OnInit {
       this.novaEmpresa.cadEmpresa(this.form.value).subscribe(
         sucess => console.log('Sucesso'),
         error => console.log('Error'),
-        () => console.log('Rquest Completo')
+        () => console.log('Request Completo')
       );
       window.location.reload();
     }

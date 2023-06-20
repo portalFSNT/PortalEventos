@@ -16,25 +16,43 @@
   }
   
   .modal-label {
-    margin-bottom: 10px;
-    justify-content: left;
-    color: #898989;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: rgba(47, 48, 51, 0.6);
+    margin-left: 33px;
+    margin-bottom: 8px;
   }
   
   .modal-input {
-    box-sizing: border-box;
-    width: 100%;
+    width: 392px;
     height: 40px;
-    background: #fcfcfc;
-    border: 1px solid rgba(0, 0, 0, 0.37);
-    border-radius: 10px;
-    margin-bottom: 35px;
-    padding: 0px 16px;
+    background: #F1F0F5;
+    border-radius: 50px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 24px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    color: #2F3033;
   }
   
   .modal-button {
-    margin: 0 auto;
+    background: #FF9F10;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    color: #FFFFFF;
+    height: 56px;
+    width: 154px;
+    border: none;
+    margin-top: 32px;
 
    
   }
   
+  .dados{
+    margin-bottom: 20px;
+  }

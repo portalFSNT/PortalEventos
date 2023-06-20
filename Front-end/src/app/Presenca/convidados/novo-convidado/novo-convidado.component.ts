@@ -8,7 +8,7 @@ import { Component, OnInit,Input } from '@angular/core';
 @Component({
   selector: 'app-novo-convidado',
   templateUrl: './novo-convidado.component.html',
-  styleUrls: ['./novo-convidado.component.scss']
+  styleUrls: ['./novo-convidado.component.scss', '../../styles/styles.scss']
 })
 export class NovoConvidadoComponent implements OnInit {
   novoConvidadoForm!:FormGroup;
@@ -21,14 +21,11 @@ export class NovoConvidadoComponent implements OnInit {
     private router:Router,
     private modalController:ModalController,
     private route:ActivatedRoute
-
-
   ) {
   }
 
   ngOnInit(): void {this.servie.listar().subscribe((event)=>{
     this.listaConvidado=event.result as any[];
-
   })
   this.novoConvidadoForm=this.formBuilder.group({
     nome:[''],

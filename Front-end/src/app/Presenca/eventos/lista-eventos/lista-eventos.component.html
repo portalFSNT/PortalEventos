@@ -5,15 +5,46 @@
   <button (click)="novoEvento()" class="btn btn-primary"><img src="../../../../assets/icon-presenca/plus-circle.svg">Novo Evento</button>
 </div>
 
+<section class="cards">
+  <div class="card" *ngFor="let evento of listaEvento" routerLink="/lista-convidados">
+    <h2 class="titleCard">
+      {{evento.descricao}}
+    </h2>
+    <p class="date">
+      {{evento.data_hora | date:'dd/MM/yyyy'}}
+    </p>
 
-<div *ngFor="let evento of listaEvento">
+    <div class="status">
+      <div class="statu">
+        <img class="img-convidado" src="../../../../assets/icon-presenca/invite-line.svg" alt="" />
+        <div class="info">
+          <p class="negrito">
+            {{evento.total}}
+          </p>
+          <p>Convidados</p>
+        </div>
+      </div>
+      <div class="statu">
+        <img class="img-confirmado" src="../../../../assets/icon-presenca/check-box.svg" alt="" />
+        <div class="info">
+          <p class="negrito">
+            {{evento.confirmados}}
+          </p>
+          <p>Confirmados</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- CARDS -->
+
+<!-- <div *ngFor="let evento of listaEvento">
+
 <div class="row" routerLink="/lista-convidados" *ngIf="listaEvento.length>0,else semEvento">
 
   <div class="card"  >
     <h2 class="titulo-card"> {{evento.descricao}}</h2><br>
-    <p>{{evento.data_hora | date:'dd/MM/yyyy'}}</p>
+    <p class="date">{{evento.data_hora | date:'dd/MM/yyyy'}}</p>
     <br><br>
     <div class="posicao-img">
       <div class="qnt-confirmado">
@@ -31,4 +62,4 @@
   </div>
 </div>
 </div>
-<ng-template #semEvento> <p>Não há eventos cadastrados</p></ng-template>
+<ng-template #semEvento> <p>Não há eventos cadastrados</p></ng-template> -->

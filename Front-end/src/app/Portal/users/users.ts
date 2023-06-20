@@ -7,7 +7,7 @@ export interface Users {
     cargo?: string;
     telefone?: string;
     nivel_acesso?: string;
-    status_usuario?: string;
+    status_usuario: number;
     nome_instituicao?: string;
     nomeTipo?: string;
 }

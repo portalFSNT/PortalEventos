@@ -1,10 +1,11 @@
 import { Instituicoes } from './../../Eventos/cad-eventos/instituicao';
 import { ModalChangeDataUserService } from './modal-change-data-user.service';
 import { Component, OnInit } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalChangePasswordComponent } from '../modal-change-password/modal-change-password.component';
+import { UpdateUsers } from './updateUser'
 
 @Component({
   selector: 'app-modal-change-data-user',
@@ -13,6 +14,7 @@ import { ModalChangePasswordComponent } from '../modal-change-password/modal-cha
 })
 export class ModalChangeDataUserComponent implements OnInit {
 
+  user: UpdateUsers[] = [];
   form: FormGroup;
   submitted = false;
   list: any[] = [];
@@ -39,6 +41,8 @@ export class ModalChangeDataUserComponent implements OnInit {
   updateUser(emails: string) {
     this.submitted = true;
 
+    //console.log("EMAIL: "+emails);
+
     const user = {
       nome: this.form.value.nome,
       email: this.form.value.email,
@@ -62,9 +66,18 @@ export class ModalChangeDataUserComponent implements OnInit {
       window.location.reload();
     }
   }
-  openModalSenha(){
-    this.bsModalRef = this.modalService.show(ModalChangePasswordComponent);
+  openModalSenha(user: any) {
+    console.log("TESTE: "+user);
+  
+    const initialState: ModalOptions = {
+      initialState: {
+        email: user
+      }
+    };
+  
+    this.bsModalRef = this.modalService.show(ModalChangePasswordComponent, initialState);
     this.bsModalRef.content.closeBtnName = 'Close';
+    return user;
   }
 
   ngOnInit(): void {

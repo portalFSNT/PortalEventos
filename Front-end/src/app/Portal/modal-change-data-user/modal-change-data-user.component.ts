@@ -66,20 +66,15 @@ export class ModalChangeDataUserComponent implements OnInit {
       window.location.reload();
     }
   }
-  openModalSenha(user: any){
-
-    const email = user.email;
-    console.log(user);
-
+  openModalSenha(user: any) {
+    console.log("TESTE: "+user);
+  
     const initialState: ModalOptions = {
       initialState: {
-        list: [
-          email,
-        ],
-        title: 'Modal with component'
+        email: user
       }
     };
-
+  
     this.bsModalRef = this.modalService.show(ModalChangePasswordComponent, initialState);
     this.bsModalRef.content.closeBtnName = 'Close';
     return user;

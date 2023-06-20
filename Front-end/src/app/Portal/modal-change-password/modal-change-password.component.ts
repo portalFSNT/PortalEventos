@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ModalChangePasswordService } from './modal-change-password.service';
@@ -12,6 +12,7 @@ export class ModalChangePasswordComponent implements OnInit {
 
   form: FormGroup;
   submitted = false;
+  @Input() email?: string;
   list: any[] = [];
 
   constructor(
@@ -26,36 +27,31 @@ export class ModalChangePasswordComponent implements OnInit {
     });
   }
 
-  updateSenha(emails: string) {
+  updateSenha() {
     this.submitted = true;
-
     const senha = this.form.value.senha;
 
-    console.log("SENHA: "+senha);
-    console.log("EMAIL: "+emails);
-    console.log("LISTA: "+this.list[1])
+    //console.log("SENHA: " + senha);
+    //console.log("EMAIL: " + this.email);
 
-    if (this.form.valid) {
+    if (this.form.valid && this.email) {
       console.log('Submit');
-      this.service.updateSenha(emails, senha).subscribe(
+      this.service.updateSenha(this.email, senha).subscribe(
         success => { console.log('Sucesso') },
-        error => {console.log('Error', error) },
+        error => { console.log('Error', error) },
         () => console.log('Request Completo')
       );
-      // this.router.navigate(['/users']); 
-      // window.location.reload()
+      this.router.navigate(['/users']); 
+      window.location.reload()
     }
   }
 
   ngOnInit(): void {
-    if (this.list && this.list.length > 0) {
+    console.log("AQUI: "+this.email)
+    if (this.email) {
       this.form.patchValue({
-        email: this.list[1],
+        email: this.email,
       });
-
-      console.log("LISTA: "+this.list[1])
-
     }
   }
-
 }

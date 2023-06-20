@@ -22,7 +22,7 @@ export class ModalChangePasswordService {
     // }
 
     updateSenha(email: string, senha: string): Observable<any> {
-        const body = { senha: senha };
+        var body = { senha: senha };
         console.log("BODY: " + senha);
         return this.http.patch(`${this.API}/${email}`, body, { headers: this.header }).pipe(take(1));
     }

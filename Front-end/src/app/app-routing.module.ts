@@ -41,6 +41,7 @@ import { ListaPessoasComponent } from './Presenca/pessoas/lista-pessoas/lista-pe
 import { ListaEmpresasComponent } from './Presenca/empresas/lista-empresas/lista-empresas.component';
 import { ListaConvidadosComponent } from './Presenca/convidados/lista-convidados/lista-convidados.component';
 import { NovoEventoComponent } from './Presenca/eventos/novo-evento/novo-evento.component';
+import { UserGuardGuard } from './guard/user-guard.guard';
 
 
 
@@ -51,7 +52,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'type-register', component: TypeRegisterComponent },
-  { path: 'home', component: HomeComponent},
+  { path: 'home', component: HomeComponent, canActivate: [UserGuardGuard], 
+  data: { 
+    expectedRole: ['Administrador', 'Solicitante']
+  } },
   { path: 'users', component: UsersComponent},
   { path: 'users-pending', component: UsersPendingComponent},
   { path: 'register-adm', component: NewAdmComponent},

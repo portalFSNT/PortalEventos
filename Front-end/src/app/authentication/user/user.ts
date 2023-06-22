@@ -4,4 +4,5 @@ export interface User {
     senha?: string,
     status_usuario?: number,
     nivel_acesso?: string
+    nivelAcesso?: string
 }

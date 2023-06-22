@@ -11,7 +11,7 @@ import jwt_decode from 'jwt-decode';
 @Injectable({
   providedIn: 'root'
 })
-export class UserGuardGuard implements CanActivate {
+export class UserAdm implements CanActivate {
 
   
   constructor(public auth: AuthService, public router: Router, private userService: UserService, private tokenService: TokenService,
@@ -20,7 +20,7 @@ export class UserGuardGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot): boolean {
     // this will be passed from the route config
     // on the data property
-    const expectedRole:any = route.data['expectedRole'];
+    const expectedRole:[] = route.data['expectedRole'];
     // const token = localStorage.getItem('token');
     // decode the token to get its payload
     // const tokenPayload = this.userService.decodeJWT0();
@@ -28,16 +28,18 @@ export class UserGuardGuard implements CanActivate {
     const user = jwt_decode(token) as User;
 
     console.log(user)
-    console.log(expectedRole)
+    console.log(expectedRole.find((element:any) => element === user["nivelAcesso"])
+    )
 
     if (
       // !this.auth.isAuthenticated() || 
-      user["nivelAcesso"] !== expectedRole
+      expectedRole.find((element:any) => element === user["nivelAcesso"])
     ) {
-      this.router.navigate(['login']);
-      return false;
+
+      return true;
     }
-    return true;
+    this.router.navigate(['/home']);
+    return false;
   }
 
   

@@ -36,8 +36,8 @@ export class ConvidadoService {
     return this.http.delete(`${this.API}/evento/${id_evento}`,{ headers: this.header})
   }
   
-  edit(id_evento:any,evento:any):Observable<any>{
-    return this.http.put<any>(`${this.API}/evento/${id_evento}`,evento,{ headers: this.header})
+  edit(id_evento:any,evento:any):Observable<MarransatoMode<Pessoa[]>>{
+    return this.http.put<MarransatoMode<Pessoa[]>>(`${this.API}/evento/${id_evento}`,evento,{ headers: this.header})
   }
 
   //REQUISIÇÕES_DE_EVENTO-CONVIDADOS -----

@@ -16,6 +16,7 @@ import { EditarEventoComponent } from "./../../eventos/editar-evento/editar-even
 import { Status } from "./status";
 import { Pessoa } from "./pessoa";
 import { Evento } from 'src/app/Presenca/eventos/evento';
+import { filter } from "rxjs";
 
 
 @Component({
@@ -30,6 +31,7 @@ export class ListaConvidadosComponent implements OnInit {
   listaEventos: Evento[] = [];
   listaStatus: Status[] = []; 
   listConvidados: Pessoa[] = [];
+  filteredListConvidados: Pessoa[] = [];
 
   public id_evento: any;
 
@@ -51,18 +53,10 @@ export class ListaConvidadosComponent implements OnInit {
       console.log('ID do Evento: '+this.id_evento);
     })
 
-    this.service.listOneConvidado(this.id_evento).subscribe((res) => {
-
-      this.listConvidados = res.result;
-
-      // this.listConvidados = JSON.parse(this.listConvidados);
-
-      console.log('----- Listar Convidados -----');
-      console.log('API Response: '+(res.result));
-      console.log('Lista de Convidados: '+this.listConvidados);
-
-    },(err) =>{
-      console.error(err)
+    this.service.listConvidado().subscribe((event) => {
+      this.listConvidados = event.result as Pessoa[];
+      this.filterList();
+      console.log(this.filteredListConvidados);
     });
 
     this.service.listarStatus(this.id_evento).subscribe((event) => {
@@ -70,8 +64,7 @@ export class ListaConvidadosComponent implements OnInit {
         console.log('----- Listar Status -----');
         console.log('API Response: '+event.results);
         console.log('Status: '+this.listaStatus); 
-      }
-    )
+    });
 
     // this.service.listarStatus(this.id_evento).subscribe((event) => {
     //   console.log(event.result)
@@ -96,6 +89,10 @@ export class ListaConvidadosComponent implements OnInit {
     // this.eventoService.listarUm(this.id_evento).subscribe((event) => {
     //   this.listaEventos = event.result as any;
     // })
+  }
+
+  filterList(){
+    this.filteredListConvidados = this.listConvidados.filter((convidado) => convidado.id_presenca == this.id_evento);
   }
 
 

@@ -27,7 +27,7 @@ module.exports = {
             }
             res.status(200);
             res.json(json);
-            console.log(json);
+            console.log(json.result);
         } catch (error) {
             res.status(500);
         }

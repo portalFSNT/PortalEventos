@@ -175,4 +175,9 @@ export class ListaConvidadosComponent implements OnInit {
     this.bsModalRef = this.modalService.show(EditarConvidadoComponent);
     this.bsModalRef.content.closeBtnName = 'Close';
   }
+
+  getStatusLabel(valor: number): string {
+    return valor === 1 ? 'Sim' : 'Não';
+  }
+  
 }

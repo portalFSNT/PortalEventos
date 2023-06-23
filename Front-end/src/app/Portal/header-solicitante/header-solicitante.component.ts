@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-solicitante.component.scss']
 })
 export class HeaderSolicitanteComponent {
-
+  logout():any{
+    this.tokenService.deleteToken();
+    this.router.navigate(['/login']);
+  }
 }

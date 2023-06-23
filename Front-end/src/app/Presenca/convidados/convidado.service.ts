@@ -55,6 +55,7 @@ export class ConvidadoService {
   }
 
   cadastrarConvidado(novoConvidado:any){
+    console.log(novoConvidado);
    return this.http.post(`${this.API}/evento_convidado`,novoConvidado,{ headers: this.header})
   }
 

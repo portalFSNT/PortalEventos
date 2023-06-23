@@ -35,7 +35,7 @@ export class NovoConvidadoComponent implements OnInit {
     }
 
     this.form=this.fb.group({
-      condicao: 0,
+      condicao: 'Pendente',
       anunciados: [Number],
       presenca: 0,
       id_convidado: [Number],
@@ -64,7 +64,7 @@ export class NovoConvidadoComponent implements OnInit {
         error => console.log('Error'),
         () => console.log('Requisição Finalizada.')
       );
-      // window.location.reload();
+      window.location.reload();
     }
   }
 

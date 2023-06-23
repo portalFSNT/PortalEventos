@@ -2,7 +2,7 @@ export interface Pessoa {
     id_presenca:number,
     id_convidado:number,
     condicao:string,
-    anunciados:number,
+    anunciado:number,
     presenca:number
     nome:string,
     cargo:string,

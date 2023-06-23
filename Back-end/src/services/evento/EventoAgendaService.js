@@ -19,14 +19,38 @@ module.exports = {
         });
     },
 
+    // getEventById: (id_evento) => {
+    //     return new Promise((acepted, rejected) => {
+    //         db.query(`SELECT evento_agenda.id, evento_agenda.nome, evento_agenda.descricao, evento_agenda.data_inicio, evento_agenda.data_termino, evento_agenda.hora_inicio, evento_agenda.hora_termino, evento_agenda.endereco, evento_agenda.id_usuario, evento_agenda.id_lugar, evento_agenda.id_tipo, evento_agenda.id_instituicao, lugar.nome as nome_lugar, tipo.tipo
+    //         FROM evento_agenda
+    //   INNER JOIN lugar 
+    //           ON (lugar.id = evento_agenda.id_lugar)
+    //   INNER JOIN tipo
+    //           ON (tipo.id = evento_agenda.id_tipo)
+    //   INNER JOIN instituicao
+    //           ON (instituicao.id = evento_agenda.id_instituicao)
+    //        WHERE evento_agenda.id = ?`, [id_evento], (error, results) => {
+    //             if(error) { rejected(error); return; }
+    //             if(results.length > 0) {
+    //                 acepted(results[0]);
+    //             }else{
+    //                 acepted = (false);
+    //             }
+                
+    //           });
+    //     });
+    // },
+
     getEventById: (id_evento) => {
         return new Promise((acepted, rejected) => {
-            db.query(`SELECT evento_agenda.id, evento_agenda.nome as nome_evento, evento_agenda.descricao, evento_agenda.data_inicio, evento_agenda.data_termino, evento_agenda.hora_inicio, evento_agenda.hora_termino, evento_agenda.endereco, evento_agenda.id_usuario, evento_agenda.id_lugar, evento_agenda.id_tipo, lugar.nome as nome_lugar, tipo.tipo
+            db.query(`SELECT evento_agenda.nome, evento_agenda.descricao, evento_agenda.data_inicio, evento_agenda.data_termino, evento_agenda.hora_inicio, evento_agenda.hora_termino, evento_agenda.endereco, evento_agenda.id_lugar, evento_agenda.id_tipo, evento_agenda.id_instituicao
             FROM evento_agenda
       INNER JOIN lugar 
               ON (lugar.id = evento_agenda.id_lugar)
       INNER JOIN tipo
               ON (tipo.id = evento_agenda.id_tipo)
+      INNER JOIN instituicao
+              ON (instituicao.id = evento_agenda.id_instituicao)
            WHERE evento_agenda.id = ?`, [id_evento], (error, results) => {
                 if(error) { rejected(error); return; }
                 if(results.length > 0) {

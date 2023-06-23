@@ -23,6 +23,7 @@ export class AlterarEventoComponent implements OnInit {
   instituicoes: Instituicoes[] = [];
   eventId: string | null | undefined;
   id_evento: any;
+  evento: any;
 
   constructor(private fb: FormBuilder,
     private service: AltEventosService,
@@ -30,13 +31,13 @@ export class AlterarEventoComponent implements OnInit {
     private route: ActivatedRoute) {
 
     this.form = this.fb.group({
-      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      descricao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      data_inicio: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      data_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      hora_inicio: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      hora_termino: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      endereco: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]],
+      nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      descricao: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(1000)]],
+      data_inicio: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      data_termino: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      hora_inicio: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      hora_termino: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+      endereco: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(120)]],
       id_lugar: [],
       id_tipo: [],
       id_instituicao: [],
@@ -56,64 +57,61 @@ export class AlterarEventoComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.route.paramMap.subscribe(paramMap => {
       this.id_evento = paramMap.get('id');
-    
+
       console.log("Event Id: " + this.id_evento);
 
       this.service.buscarEventoPorId(this.id_evento).subscribe(
-        (evento: CadEventos) => {
-          this.form.patchValue({
-            nome: evento.nome,
-            descricao: evento.descricao,
-            data_inicio: evento.data_inicio,
-            data_termino: evento.data_termino,
-            hora_inicio: evento.hora_inicio,
-            hora_termino: evento.hora_termino,
-            endereco: evento.endereco,
-            id_lugar: evento.id_lugar,
-            id_tipo: evento.id_tipo,
-            id_instituicao: evento.id_instituicao
-          });
+        (res) => {
+          const evento = res.result;
+          if (evento) {
+            this.evento = evento;
+            console.log(evento);
+            console.log(evento.nome);
+            this.form.setValue(this.evento);
+          }
         },
         (error: any) => {
           console.error(error);
+        },
+        () => {
+            this.service.listarLugares().subscribe(
+            (results) => {
+              this.lugares = results.result;
+            },
+            (error) => {
+              console.error(error);
+            }
+          );
+      
+          this.service.listarTipos().subscribe(
+            (results) => {
+              this.tipos = results.results;
+            },
+            (error) => {
+              console.error(error);
+            }
+          );
+      
+          this.service.listarInstituicoes().subscribe(
+            (results) => {
+              this.instituicoes = results.results;
+            },
+            (error) => {
+              console.error(error);
+            }
+          );
         }
       );
-
-    this.service.listarLugares().subscribe(
-      (results) => {
-        this.lugares = results.result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-
-    this.service.listarTipos().subscribe(
-      (results) => {
-        this.tipos = results.results;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-
-    this.service.listarInstituicoes().subscribe(
-      (results) => {
-        this.instituicoes = results.results;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  });}
+    });
+  }
 
   onSubmit() {
     console.log('Oi')
     this.submitted = true;
     console.log(this.form.valid);
+    console.log(this.form);
     if (this.form.valid) {
       const eventId = +this.route.snapshot.params['id'];
       const campoAtualizado: CadEventos = this.form.value;

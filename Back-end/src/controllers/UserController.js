@@ -137,9 +137,12 @@ module.exports = {
 
         let email = req.params.email;
         let senha = req.body.senha;
+        console.log(senha);
 
         try{
             const hashedPassword = await bcrypt.hash(senha, 8);
+            console.log(hashedPassword);
+            console.log(email);
             await UserService.updateSenha(email, hashedPassword);
             json.result = {
                 hashedPassword

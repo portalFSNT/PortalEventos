@@ -16,7 +16,7 @@ export class UserService {
         }
     }
 
-    private decodeJWT(){
+    decodeJWT(){
         const token = this.tokenService.returnToken();
         const user = jwt_decode(token) as User;
         this.userSubject.next(user);

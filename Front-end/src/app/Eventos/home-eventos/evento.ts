@@ -6,6 +6,7 @@ export interface Evento {
     data_termino: string;
     hora_inicio: string;
     hora_termino: string;
+    endereco: string;
     id_usuario:string;
     id_lugar:string;
     nome_lugar:string;

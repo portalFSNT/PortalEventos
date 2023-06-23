@@ -38,10 +38,18 @@
         </div>
       </div>
       <div class="form-right">
-        <div class="dados">
+        <!-- <div class="dados">
           <label for="" class="tittle-form">Empresa</label>
           <input type="text" placeholder="Fundação FSNT" class="input-form" formControlName="instituicao"/>
           
+        </div> -->
+        <div class="dados">
+          <label for="" class="tittle-form">Instituição</label>
+          <select formControlName="instituicao" name="text" class="select" id="select" class="input-form w704"
+            placeholder="Nome do Evento">
+            <option value="0"> Selecione uma Instituiçao </option>
+            <option *ngFor="let empresa of empresa" name="empresa" value={{empresa.id}}> {{empresa.nome }} </option>
+          </select>
         </div>
         <div class="dados">
           <label for="" class="tittle-form">Cargo</label>

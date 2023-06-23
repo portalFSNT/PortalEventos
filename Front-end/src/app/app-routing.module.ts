@@ -141,9 +141,6 @@ const routes: Routes = [
       expectedRole: ['Administrador']
     }
   },
-
-
-  // ROTAS DO SISTEMA DE PRESENÇA
   {
     path: 'lista-eventos', component: ListaEventosComponent, canActivate: [UserAdm],
     data: {
@@ -163,7 +160,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'lista-convidados', component: ListaConvidadosComponent, canActivate: [UserAdm],
+    path: 'lista-convidados/:id', component: ListaConvidadosComponent, canActivate: [UserAdm],
     data: {
       expectedRole: ['Administrador']
     }
@@ -174,9 +171,6 @@ const routes: Routes = [
       expectedRole: ['Administrador']
     }
   },
-
-
-
 ];
 
 @NgModule({

@@ -38,11 +38,10 @@
 </section>
 
 
-<!-- <div *ngFor="let evento of listaEvento">
+<div class="row" *ngIf="listaEvento.length>0,else semEvento">
 
-<div class="row" routerLink="/lista-convidados" *ngIf="listaEvento.length>0,else semEvento">
 
-  <div class="card"  >
+  <div class="card"  (click)="editar(evento.id_evento)">
     <h2 class="titulo-card"> {{evento.descricao}}</h2><br>
     <p class="date">{{evento.data_hora | date:'dd/MM/yyyy'}}</p>
     <br><br>

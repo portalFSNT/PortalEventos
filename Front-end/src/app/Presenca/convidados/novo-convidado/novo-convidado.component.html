@@ -3,38 +3,40 @@
         <label class="modal-title">Adicionar convidado</label>
      <a>   <img (click)="cancelar()" src="../../../../assets/icon-presenca/x.svg"></a>
     </div>
-    <form [formGroup]="novoConvidadoForm" (submit)="cadastrar()">
+    <form [formGroup]="form">
         <div class="modal-label">
             <label>Nome</label>
         </div>
 
-        <select formControlName="nome" class="modal-input">
-            <option *ngFor="let c of listaConvidado">{{c.nome}}</option>
+        <select formControlName="id_convidado" class="modal-input">
+            <option *ngFor="let convidado of pessoa" name="nome" value={{convidado.id}}>
+                {{convidado.nome}}
+            </option>
         </select>
                     
-        <div class="modal-label opcao1"><label>Status</label>
+        <!-- <div class="modal-label opcao1"><label>Status</label>
             <select  formControlName="condicao">
-                <option>Confirmado</option>
-                <option>Pendente</option>
-                <option>Negado</option>
+                <option value=1>Confirmado</option>
+                <option value=0>Pendente</option>
+                <option value=2>Negado</option>
             </select> 
-        </div>
+        </div> -->
 
         <div class="modal-label opcao1"><label>Anunciado</label>
             <select  formControlName="anunciados">
-                <option>Não</option>
-                <option>Sim</option>
+                <option value=0>Não</option>
+                <option value=1>Sim</option>
             </select>
         </div>
 
-        <div class="modal-label opcao1"><label>Presença</label>
+        <!-- <div class="modal-label opcao1"><label>Presença</label>
             <select  formControlName="presenca">
                 <option>Não</option>
                 <option>Sim</option>
             </select> 
-        </div>      
+        </div>       -->
         
-        <button class="modal-button" (click)="salvar()" class="btn btn-primary"> Adicionar </button>
+        <button class="modal-button" (click)="onSubmit()" class="btn btn-primary"> Adicionar </button>
     </form>
 </div>
     

@@ -6,7 +6,12 @@
       justify-content: space-between;
   
       .modal-title {
+        color: var(--gray-100, #5F5C6B);
+        /* Título/h2 bold */
         font-size: 24px;
+        font-family: Montserrat;
+        font-weight: 600;
+        line-height: 100%;
         margin-bottom: 24px;
       }
     }

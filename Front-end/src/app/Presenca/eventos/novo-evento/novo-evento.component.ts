@@ -57,14 +57,11 @@ export class NovoEventoComponent implements OnInit {
         error => console.log('Error'),
         () => console.log('Request Completo')
       )
+      window.location.reload();
     }
   }
 
-
-  adicionar() {
-    this.modalController.dismiss();
-  }
   fecharModal(): void {
-    this.modalController.dismiss() //Fecha o Modal
+    window.location.reload();
   }
 }

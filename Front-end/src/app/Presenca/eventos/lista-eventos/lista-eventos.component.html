@@ -7,7 +7,7 @@
 
 <section class="cards">
   <div class="card" *ngFor="let evento of listaEvento" routerLink="/lista-convidados">
-    <h2 class="titleCard">
+    <!-- <h2 class="titleCard">
       {{evento.descricao}}
     </h2>
     <p class="date">
@@ -33,9 +33,8 @@
           <p>Confirmados</p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </div> -->
+
 
 
 <div class="row" *ngIf="listaEvento.length>0,else semEvento">
@@ -61,4 +60,6 @@
   </div>
 </div>
 </div>
-<ng-template #semEvento> <p>Não há eventos cadastrados</p></ng-template> -->
+</section>
+<!-- </div> -->
+<ng-template #semEvento> <p>Não há eventos cadastrados</p></ng-template>

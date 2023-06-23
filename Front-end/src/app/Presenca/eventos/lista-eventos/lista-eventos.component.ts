@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from "@ionic/angular";
 import { Evento } from '../evento';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { DatePipe } from 'src/app/pipes/date.pipe';
 
 
 @Component({

@@ -16,7 +16,7 @@
 
 
 <!-- Status dos convidados -->
-<div id="status" *ngFor="let s of listaStatus">
+<!-- <div id="status" *ngFor="let s of listaStatus">
   <div>
     <p>Status</p>
     <p>Convidados</p>
@@ -42,12 +42,12 @@
     <img class="x" src="../../../../assets/icon-presenca/icon_x.svg"></p>
     <p class="p2">Recusados</p>
   </div>
-</div> 
+</div>  -->
 
-<table >
+<table>
   <thead>
     <tr>
-      <th>Usuários</th>
+      <th>Convidado</th>
       <th>Cargo</th>
       <th>Empresa</th>
       <th>E-mail</th>
@@ -60,15 +60,15 @@
     </tr>
   </thead>
   <tbody> 
-    <tr *ngFor="let convidado of listaPessoas">
-      <td>{{convidado.nome}}</td>
-      <td>{{convidado.cargo}}</td>
-      <td>{{convidado.empresa}}</td>
-      <td>{{convidado.email}}</td>
-      <td>{{convidado.telefone}}</td>
-      <td>{{convidado.condicao}}</td>
-      <td>{{convidado.anunciados}}</td>
-      <td>{{convidado.presenca}}<td>
+    <tr *ngFor="let listConvidados of listConvidados">
+      <td>{{listConvidados.nome}}</td>
+      <td>{{listConvidados.cargo}}</td>
+      <td>{{listConvidados.nome_empresa}}</td>
+      <td>{{listConvidados.email}}</td>
+      <td>{{listConvidados.telefone}}</td>
+      <td>{{listConvidados.condicao}}</td>
+      <td>{{listConvidados.anunciados}}</td>
+      <td>{{listConvidados.presenca}}<td>
       <td><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
       <td><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
     </tr>  

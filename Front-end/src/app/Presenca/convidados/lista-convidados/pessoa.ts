@@ -1,11 +1,13 @@
 export interface Pessoa {
-    id_evento:number,
-    nome:string,
-    cargo:string,
-    empresa:string,
-    email:string,
-    telefone:string,
+    id_presenca:number,
+    id_convidado:number,
     condicao:string,
     anunciados:number,
     presenca:number
+    nome:string,
+    cargo:string,
+    email:string,
+    telefone:string,
+    id_empresa: number,
+    nome_empresa:string,
 }

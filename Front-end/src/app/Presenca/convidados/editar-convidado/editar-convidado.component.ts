@@ -29,8 +29,8 @@ listaConvidado:Pessoa[]=[];
 
   
   ngOnInit(): void {
-    this.convidadoService.listarUmConvidado(this.id_evento,this.nome).subscribe((event)=>{
-      this.listaConvidado=event.result as Pessoa[];
+    this.convidadoService.listOneConvidado(this.id_evento).subscribe((event)=>{
+      this.listaConvidado=event.results as Pessoa[];
     })
     this.editarConvidadoForm = this.formBuilder.group({
   
@@ -50,10 +50,10 @@ listaConvidado:Pessoa[]=[];
         this.router.navigate([`evento_convidados/${this.id_evento}`])
       })
     }
-    
   }
-cancelar(){ this.modalController.dismiss()}
-salvar(){
-  this.modalController.dismiss()
-}
+
+  cancelar(){ this.modalController.dismiss()}
+  salvar(){
+    this.modalController.dismiss()
+  }
 }

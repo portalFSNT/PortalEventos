@@ -1,58 +1,68 @@
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment.prod';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { TokenService } from 'src/app/authentication/token.service';
+import { MarransatoMode } from 'src/app/shared/MaranssatoMode.interface';
+import { Pessoa } from './lista-convidados/pessoa';
+import { Status } from './lista-convidados/status';
+import { Convidado } from './convidado';
 
-const API = environment;
+const API = environment.API;
 @Injectable({
   providedIn: 'root'
 })
 export class ConvidadoService {
-private readonly API= `${API}`
-
+  
   constructor(
-    private tokenservice: TokenService,
+    private tokenService: TokenService,
     private http:HttpClient
   ) { }
   
-  listarStatus(id_evento:any):Observable<any>{
-    return this.http.get<any>(`${API}/evento/${id_evento}`)
-  }
-  listPessoa(id_evento:any):Observable<any>{
-    return this.http.get<any>(`${API}/evento_convidados/${id_evento}`)
-  }
-  listar():Observable<any>{
-    return this.http.get<any>(`${this.API}/convidados`)
-  }
-  listarUmConvidado(id_evento:any,nome:any):Observable<any>{
-    return this.http.get<any>(`${API}/evento_convidados/${id_evento}`,nome)
+  private readonly API= `${API}`
+  private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
+
+  //REQUISIÇÕES_DE_CONVIDADOS -----
+  listPessoa():Observable<any>{
+    return this.http.get<any>(`${this.API}/convidados`,{ headers: this.header})
   }
 
+  //REQUISIÇÕES_DE_EVENTO -----
+  listarStatus(id_evento:number):Observable<MarransatoMode<Status[]>>{
+    return this.http.get<MarransatoMode<Status[]>>(`${this.API}/evento/${id_evento}`,{ headers: this.header})
+  }
 
+  delet(id_evento:number){
+    return this.http.delete(`${this.API}/evento/${id_evento}`,{ headers: this.header})
+  }
+  
   edit(id_evento:any,evento:any):Observable<any>{
-    return this.http.put<any>(`${API}/evento/${id_evento}`,evento)
-
+    return this.http.put<any>(`${this.API}/evento/${id_evento}`,evento,{ headers: this.header})
   }
+
+  //REQUISIÇÕES_DE_EVENTO-CONVIDADOS -----
+  listConvidado():Observable<any>{
+    return this.http.get<any>(`${this.API}/evento_convidado`,{ headers: this.header})
+  }
+
+  listOneConvidado(id_evento:number):Observable<any>{
+    return this.http.get(`${this.API}/evento_convidado/${id_evento}`,{ headers: this.header})
+  }
+
   editP(id_evento:any,editarConvidado:any){
-    return this.http.put(`${API}/evento_convidados/${id_evento}`,editarConvidado)
-
-  }
-  cadastrarconvidado(id_evento:any,novoConvidado:any){
-   return this.http.post(`${API}/evento_convidados/${id_evento}`,novoConvidado)
-  }
-
- buscar:any=(id_evento:any)=>{
-    return this.buscar(`${API}/${id_evento}`)
+    return this.http.put(`${this.API}/evento_convidado/${id_evento}`,editarConvidado,{ headers: this.header})
 
   }
 
-
-
-  delet(id_evento:any){
-    return this.http.delete(`${API}/evento/${id_evento}`)
+  cadastrarConvidado(novoConvidado:any){
+   return this.http.post(`${this.API}/evento_convidado`,novoConvidado,{ headers: this.header})
   }
+
   deletP(nome:any,id_evento:any){
-    return this.http.delete(`${API}/evento_convidados/${id_evento}`,{body:{nome}})
+    return this.http.delete(`${this.API}/evento_convidados/${id_evento}`,{body:{nome}})
   }
+
+  // buscar:any=(id_evento:any)=>{
+  //   return this.buscar(`${this.API}/${id_evento}`,{ headers: this.header})
+  // }
 }

@@ -3,9 +3,14 @@ const db = require("../../db");
 module.exports = {
     getAll: () => {
         return new Promise((acepted, rejected) => {
-            db.query(`SELECT e.descricao, e.data_hora, c.nome, c.email, c.cargo,c.telefone,ec.condicao,ec.anunciado,ec.presenca  
-            FROM evento_convidado ec, convidado c, evento_presenca e 
-            WHERE ec.id_presenca = e.id AND ec.id_convidado=c.id;`,(error, results)=>{
+            db.query(`SELECT evento_convidado.id_presenca, evento_convidado.id_convidado, evento_convidado.condicao, evento_convidado.anunciado, evento_convidado.presenca, convidado.nome, convidado.cargo, convidado.email, convidado.telefone, convidado.id_empresa, empresa.nome as nome_empresa 
+            FROM evento_convidado
+      INNER JOIN convidado   
+              ON convidado.id = evento_convidado.id_convidado 
+      INNER JOIN evento_presenca 
+              ON evento_presenca.id = evento_presenca.id 
+      INNER JOIN empresa
+              ON empresa.id = convidado.id_empresa`,(error, results)=>{
                 if(error){
                     rejected(error);
                     return;
@@ -17,8 +22,15 @@ module.exports = {
 
     getById: (id_evento) => {
         return new Promise((acepted, rejected) => {
-            db.query(`SELECT ec.id_presenca, ec.id_convidado, ec.condicao, ec.anunciado, ec.presenca FROM evento_convidado ec INNER JOIN convidado c  ON c.id=ec.id_convidado 
-            INNER JOIN  evento_presenca e ON e.id = ec.id_presenca WHERE e.id=?`,[id_evento], (error, results) => {
+            db.query(`SELECT evento_convidado.id_presenca, evento_convidado.id_convidado, evento_convidado.condicao, evento_convidado.anunciado, evento_convidado.presenca, convidado.nome, convidado.cargo, convidado.email, convidado.telefone, convidado.id_empresa, empresa.nome as nome_empresa 
+            FROM evento_convidado
+      INNER JOIN convidado   
+              ON convidado.id = evento_convidado.id_convidado 
+      INNER JOIN evento_presenca 
+              ON evento_presenca.id = evento_presenca.id 
+      INNER JOIN empresa
+              ON empresa.id = convidado.id_empresa
+           WHERE evento_convidado.id_presenca=?`,[id_evento], (error, results) => {
                 if(error) { rejected(error); return; }
                 if(results.length > 0){ 
                     acepted(results[0]);

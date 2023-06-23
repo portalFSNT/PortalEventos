@@ -77,7 +77,7 @@ const routes: Routes = [
   {path: 'lista-eventos', component: ListaEventosComponent},
   {path: 'lista-pessoas', component: ListaPessoasComponent},
   {path: 'lista-empresas', component: ListaEmpresasComponent},
-  {path: 'lista-convidados', component: ListaConvidadosComponent},
+  {path: 'lista-convidados/:id', component: ListaConvidadosComponent},
   {path: 'novo-evento', component: NovoEventoComponent},
   
   

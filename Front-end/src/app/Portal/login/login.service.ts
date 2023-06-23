@@ -14,8 +14,8 @@ export class Login {
 
   private readonly API = `${API}/login`;
   
-  doLogin():{
-    return this.http.post(${API/login, newLogin});
-  }
+  // doLogin():{
+  //   return this.http.post(${API/login, newLogin});
+  // }
 
 }

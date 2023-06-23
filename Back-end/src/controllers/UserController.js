@@ -14,6 +14,7 @@ module.exports = {
             json.result = users;
         }
         res.json(json);
+        console.log(json.result);
     },
 
     getById: async (req, res) => {

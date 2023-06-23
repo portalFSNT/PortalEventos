@@ -1,12 +1,14 @@
 <app-header></app-header>
-      
+
 <div id="conteudo">
   <h1>Lista de Eventos</h1>
-  <button (click)="novoEvento()" class="btn btn-primary"><img src="../../../../assets/icon-presenca/plus-circle.svg">Novo Evento</button>
+  <button (click)="novoEvento()" class="btn btn-primary">
+    <img src="../../../../assets/icon-presenca/plus-circle.svg" />Novo Evento
+  </button>
 </div>
 
 <section class="cards">
-  <div class="card" *ngFor="let evento of listaEvento" routerLink="/lista-convidados">
+  <div class="card" *ngFor="let evento of listaEvento" (click)="editar(evento.id_evento)">
     <h2 class="titleCard">
       {{evento.descricao}}
     </h2>
@@ -36,30 +38,7 @@
     </div>
   </div>
 </section>
-
-
-<!-- <div *ngFor="let evento of listaEvento">
-
-<div class="row" routerLink="/lista-convidados" *ngIf="listaEvento.length>0,else semEvento">
-
-  <div class="card"  >
-    <h2 class="titulo-card"> {{evento.descricao}}</h2><br>
-    <p class="date">{{evento.data_hora | date:'dd/MM/yyyy'}}</p>
-    <br><br>
-    <div class="posicao-img">
-      <div class="qnt-confirmado">
-        <p class="titulo">{{evento.confirmados}}</p><br>
-        <p>Confirmado</p>
-      </div>
-      <img class="img-confirmado" src="../../../../assets/icon-presenca/check-box.svg" alt="" />
-
-      <img class="img-convidado" src="../../../../assets/icon-presenca/invite-line.svg" alt="" />
-      <div class="qnt-convidado">
-        <p class="titulo">{{evento.total}}</p><br>
-        <p>Convidado</p>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<ng-template #semEvento> <p>Não há eventos cadastrados</p></ng-template> -->
+<!-- </div> -->
+<ng-template #semEvento>
+  <p>Não há eventos cadastrados</p>
+</ng-template>

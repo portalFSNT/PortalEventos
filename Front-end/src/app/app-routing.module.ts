@@ -41,7 +41,9 @@ import { ListaPessoasComponent } from './Presenca/pessoas/lista-pessoas/lista-pe
 import { ListaEmpresasComponent } from './Presenca/empresas/lista-empresas/lista-empresas.component';
 import { ListaConvidadosComponent } from './Presenca/convidados/lista-convidados/lista-convidados.component';
 import { NovoEventoComponent } from './Presenca/eventos/novo-evento/novo-evento.component';
-
+import { UserAdm } from './guard/user-guard.guard';
+import { RoleGuard } from './guard/role.guard';
+ 
 
 
 
@@ -51,44 +53,132 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'type-register', component: TypeRegisterComponent },
-  { path: 'home', component: HomeComponent},
-  { path: 'users', component: UsersComponent},
-  { path: 'users-pending', component: UsersPendingComponent},
-  { path: 'register-adm', component: NewAdmComponent},
+
+
+  {
+    path: 'home', component: HomeComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+
+  {
+    path: 'users', component: UsersComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+
+  {
+    path: 'users-pending', component: UsersPendingComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+  {
+    path: 'register-adm', component: NewAdmComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
 
 
 
   // -----ROTAS DO EVENTOS --------
 
-  {path: 'eventos',component: HomeEventosComponent},
-  {path: 'cad-eventos', component: CadEventosComponent},
+  {
+    path: 'eventos', component: HomeEventosComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+  {
+    path: 'cad-eventos', component: CadEventosComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
 
   // ROTAS DO SISTEMA DE ESPAÇOS
-  { path: 'solicitar', component: SolicitarComponent},
-  { path: 'visualizar', component: VisualizarComponent},
-  { path: 'solicitacoes', component: SolicitacoesComponent},
-  { path: 'espacos', component: EspacosComponent  },
-  { path: 'espacos-novo', component: EspacosNovoComponent},
-  { path: 'solicitacoes-confirmadas', component: SolicitacoesConfirmadasComponent},
-  { path: 'alterar-evento/:id', component: AlterarEventoComponent},
-
-
-  // ROTAS DO SISTEMA DE PRESENÇA
-  {path: 'lista-eventos', component: ListaEventosComponent},
-  {path: 'lista-pessoas', component: ListaPessoasComponent},
-  {path: 'lista-empresas', component: ListaEmpresasComponent},
-  {path: 'lista-convidados', component: ListaConvidadosComponent},
-  {path: 'novo-evento', component: NovoEventoComponent},
-  
-  
-
+  {
+    path: 'solicitar', component: SolicitarComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador', 'Solicitante']
+    }
+  },
+  {
+    path: 'visualizar', component: VisualizarComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador', 'Solicitante']
+    }
+  },
+  {
+    path: 'solicitacoes', component: SolicitacoesComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+  {
+    path: 'espacos', component: EspacosComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+  {
+    path: 'espacos-novo', component: EspacosNovoComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+  {
+    path: 'solicitacoes-confirmadas', component: SolicitacoesConfirmadasComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+  {
+    path: 'alterar-evento/:id', component: AlterarEventoComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+  {
+    path: 'lista-eventos', component: ListaEventosComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+  {
+    path: 'lista-pessoas', component: ListaPessoasComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+  {
+    path: 'lista-empresas', component: ListaEmpresasComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+  {
+    path: 'lista-convidados/:id', component: ListaConvidadosComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
+  {
+    path: 'novo-evento', component: NovoEventoComponent, canActivate: [UserAdm, RoleGuard],
+    data: {
+      expectedRole: ['Administrador']
+    }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { 
+export class AppRoutingModule {
 
 
 }

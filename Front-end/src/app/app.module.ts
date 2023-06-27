@@ -63,6 +63,7 @@ import { NovaEmpresaComponent } from './Presenca/empresas/nova-empresa/nova-empr
 import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/editar-empresa.component';
 import { AlterarEventoComponent } from './Eventos/alterar-evento/alterar-evento.component';
 import { ModalChangePasswordComponent } from './Portal/modal-change-password/modal-change-password.component';
+import { ModalAvisoComponent } from './Portal/modal-aviso/modal-aviso.component';
 
 
 @NgModule({
@@ -123,6 +124,7 @@ import { ModalChangePasswordComponent } from './Portal/modal-change-password/mod
     OnlyNumbersDirective,
     AlterarEventoComponent,
     ModalChangePasswordComponent,
+    ModalAvisoComponent,
 
 
   ],

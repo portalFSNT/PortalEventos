@@ -69,7 +69,7 @@ export class ListaConvidadosComponent implements OnInit {
 
   //EVENTO -----
   edit() {
-    this.bsModalRef = this.modalService.show(EditarConvidadoComponent);
+    this.bsModalRef = this.modalService.show(EditarEventoComponent);
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 

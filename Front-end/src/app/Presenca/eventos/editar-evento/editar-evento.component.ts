@@ -10,7 +10,7 @@ import { Evento } from "../evento";
 @Component({
   selector: "app-editar-evento",
   templateUrl: "./editar-evento.component.html",
-  styleUrls: ["./editar-evento.component.scss"],
+  styleUrls: ["./editar-evento.component.scss","../../styles/styles.scss"],
 })
 export class EditarEventoComponent implements OnInit {
 

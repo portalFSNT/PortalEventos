@@ -4,7 +4,7 @@
         <label class="modal-title">Editar evento</label>
      <a>   <img (click)="cancelar()" src="../../../../assets/icon-presenca/x.svg"></a>
      </div>
-    <form  [formGroup]="editarEventoForm" (submit)="editar()"> 
+    <form  [formGroup]="form" (submit)="editar()"> 
         <div class="modal-label"><label>Nome do evento</label>
         </div>
         <input formControlName="descricao"  class="modal-input" type="text"  >

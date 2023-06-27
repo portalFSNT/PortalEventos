@@ -1,10 +1,12 @@
 //ANGULAR -----
-import { ActivatedRoute } from '@angular/router';
-import { ModalController } from '@ionic/angular';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ConvidadoService } from './../convidado.service';
 import { Component, OnInit,Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+//MODAL -----
+import { ModalController } from '@ionic/angular';
+//SERVICE -----
+import { ConvidadoService } from './../convidado.service';
 //INTERFACES -----
 import { Convidado } from '../convidado';
 import { Pessoa } from '../lista-convidados/pessoa';
@@ -35,8 +37,8 @@ export class NovoConvidadoComponent implements OnInit {
     }
 
     this.form=this.fb.group({
-      condicao: 0,
-      anunciados: [Number],
+      condicao: 'Pendente',
+      anunciado: 0,
       presenca: 0,
       id_convidado: [Number],
       id_presenca: this.id_evento,
@@ -68,6 +70,14 @@ export class NovoConvidadoComponent implements OnInit {
     }
   }
 
+  salvar(){
+    this.onSubmit();
+    this.modalController.dismiss();
+  }
+  cancelar(){ this.modalController.dismiss()}
+}
+
+//PROJETO_ORIGINAL -----
   // cadastrar(){
   //   if(this.form.valid){
   //     const novoConvidado= this.form.getRawValue();
@@ -78,6 +88,3 @@ export class NovoConvidadoComponent implements OnInit {
   //       }
   //     )
   // }}
-  salvar(){this.modalController.dismiss()}
-  cancelar(){ this.modalController.dismiss()}
-}

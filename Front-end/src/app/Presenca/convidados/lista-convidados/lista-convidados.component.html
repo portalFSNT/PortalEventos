@@ -16,7 +16,7 @@
 
 
 <!-- Status dos convidados -->
-<!-- <div id="status" *ngFor="let s of listaStatus">
+<div id="status" *ngFor="let s of listaStatus">
   <div>
     <p>Status</p>
     <p>Convidados</p>
@@ -42,7 +42,7 @@
     <img class="x" src="../../../../assets/icon-presenca/icon_x.svg"></p>
     <p class="p2">Recusados</p>
   </div>
-</div>  -->
+</div> 
 
 <table>
   <thead>
@@ -60,17 +60,17 @@
     </tr>
   </thead>
   <tbody> 
-    <tr *ngFor="let listConvidados of filteredListConvidados">
-      <td>{{listConvidados.nome}}</td>
-      <td>{{listConvidados.cargo}}</td>
-      <td>{{listConvidados.nome_empresa}}</td>
-      <td>{{listConvidados.email}}</td>
-      <td>{{listConvidados.telefone}}</td>
-      <td>{{listConvidados.condicao}}</td>
-      <td>{{getStatusLabel(listConvidados.anunciado)}}</td>
-      <td>{{getStatusLabel(listConvidados.presenca)}}<td>
-      <td><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
-      <td><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
+    <tr *ngFor="let convidados of filteredListConvidados">
+      <td>{{convidados.nome}}</td>
+      <td>{{convidados.cargo}}</td>
+      <td>{{convidados.nome_empresa}}</td>
+      <td>{{convidados.email}}</td>
+      <td>{{convidados.telefone}}</td>
+      <td>{{convidados.condicao}}</td>
+      <td>{{getStatusLabel(convidados.anunciado)}}</td>
+      <td>{{getStatusLabel(convidados.presenca)}}</td>
+      <td (click)="updateConvidado(convidados)"><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
+      <td (click)="deletConvidado(convidados.id_convidado)"><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
     </tr>  
   </tbody>    
 </table>

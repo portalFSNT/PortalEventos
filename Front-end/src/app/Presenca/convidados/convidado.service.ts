@@ -49,17 +49,17 @@ export class ConvidadoService {
     return this.http.get(`${this.API}/evento_convidado/${id_evento}`,{ headers: this.header})
   }
 
-  editP(id_evento:any,editarConvidado:any){
+  editConvidado(id_evento:any,editarConvidado:any){
     return this.http.put(`${this.API}/evento_convidado/${id_evento}`,editarConvidado,{ headers: this.header})
 
   }
 
   cadastrarConvidado(novoConvidado:any){
-   return this.http.post(`${this.API}/evento_convidado`,novoConvidado,{ headers: this.header})
+   return this.http.post(`${this.API}/evento_convidado`,novoConvidado,{ headers: this.header});
   }
 
-  deletP(nome:any,id_evento:any){
-    return this.http.delete(`${this.API}/evento_convidados/${id_evento}`,{body:{nome}})
+  deletConvidado(id_convidado:number,id_evento:number){
+    return this.http.delete(`${this.API}/evento_convidado/${id_evento}`,{body:{id_convidado}, headers: this.header})
   }
 
   // buscar:any=(id_evento:any)=>{

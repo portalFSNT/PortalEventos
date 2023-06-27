@@ -4,15 +4,18 @@ module.exports = {
     getAll: async(req, res) => {
         // console.log(req);
         let json = {error: '', result: []};
-        let evento_convidados = await EventoConvidadoService.getAll();
+            
+        try {
+            let evento_convidados = await EventoConvidadoService.getAll();
+            
+            json.result = evento_convidados  
 
-        if(evento_convidados){
-            json.result = evento_convidados;
+            res.status(200);
+            res.json(json);
+        } catch (error) {
+            res.status(500);
         }
-
-        res.status(200);
-        res.json(json);
-        console.log('Json getAll Convidados: '+json);
+        console.log('Json getAll Convidados: '+JSON.stringify(json));
     },
 
     getById: async(req, res) => {
@@ -31,6 +34,7 @@ module.exports = {
         } catch (error) {
             res.status(500);
         }
+        console.log('Convidado: '+res.json);
     },
 
     addEventoConvidado: async(req,res) => {
@@ -60,10 +64,9 @@ module.exports = {
             res.status(201);
             res.json(json);
         } catch (error) {
-            res.status(400);
-            res.json({error: "Campos não enviados ou inválidos."});
+            res.status(500);
+            res.json({error: error});
         }
-
     },
 
     updateEventoConvidado: async(req, res) => {
@@ -98,12 +101,18 @@ module.exports = {
 
 
     delEventoConvidado: async(req, res) => {
-        let json = { error: "", result: [] };
         let id_evento = req.params.id_evento;
         let id_convidado = req.body.id_convidado;
 
-        await EventoConvidadoService.delEventoConvidado(id_evento, id_convidado);
-        res.status(204);
-        res.json(json); 
+        try {
+            await EventoConvidadoService.delEventoConvidado(id_evento, id_convidado);
+            console.log('Convidado excluido do evento.');
+            res.status(204);   
+        } catch (error) {
+            console.error(error);
+            res.status(500);
+            res.error(error);
+        }
+         
     },
 }

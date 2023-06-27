@@ -1,47 +1,6 @@
 <app-header-solicitante></app-header-solicitante>
 
 <div class="container">
-  <!-- <div class="sidebar">
-      <div class="componentes-sidebar">
-        <div class="logo-img">
-          <img src="../../assets/logo.png" class="logo"> 
-          
-        </div>
-    <hr>
-    <ul class="lists">
-      <li class="list">
-        <a [routerLink]="['/solicitar']" class="nav-link">
-          <img src="../../assets/Vector.png"  class="icon">
-          <span class="link">Solicitar Espaço</span>
-        </a>
-      </li>
-
-      <li class="list">
-        <a [routerLink]="['/visualizar']" class="nav-link">
-          <img src="../../assets/calendar-clear-outline.png" class="icon">
-          <span class="material-symbols-outlined">
-           
-            </span>
-        <span class="link">Visualizar Agendamentos</span>
-        </a>
-      </li>
-    </ul>
-
-    <div class="outside">
-      <li class="list">
-      <a href="" class="nav-link">
-        <img src="../../assets/log-out.png"  class="icon">
-          <span class="link">Sair</span>
-        </a>
-      </li>
-    </div>
-      
-    
-
-      </div>
-
-  </div> -->
-
   <div class="form">
     <!--Ínicio do header-->
     <div class="titulo">
@@ -62,8 +21,8 @@
         </thead>
         <tbody>
           <tr *ngFor="let rows of solicitacoes">
-            <td>{{ rows.data_inicio }}</td>
-            <td>{{ rows.hora_inicio }}</td>
+            <td>{{ rows.data_inicio | date : "dd/MM/yyyy" }}</td>
+            <td>{{ rows.hora_inicio | timeFormat }}</td>
             <td>{{ rows.espaco_nome }}</td>
           </tr>
         </tbody>

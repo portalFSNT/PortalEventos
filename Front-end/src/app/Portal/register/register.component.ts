@@ -3,6 +3,8 @@ import { RegisterService } from './register.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalAvisoComponent } from '../modal-aviso/modal-aviso.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +20,8 @@ export class RegisterComponent implements OnInit{
   constructor(
     private router: Router, 
     private fb: FormBuilder,
-    private service: RegisterService
+    private service: RegisterService,
+    private modalService: BsModalService
   ){
     this.form = this.fb.group({
       nome: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
@@ -32,6 +35,8 @@ export class RegisterComponent implements OnInit{
     });
   }
 
+  bsModalRef?: BsModalRef;
+
   onSubmit() {
     this.submitted = true;
     console.log(this.form.value);
@@ -42,7 +47,7 @@ export class RegisterComponent implements OnInit{
         error => console.log('Error'),
         () => console.log('Rquest Completo')
       );
-      this.router.navigate(['/login']);
+      this.openModalWithComponent()
     }
   }
 
@@ -65,6 +70,11 @@ export class RegisterComponent implements OnInit{
         console.error(error);
       }
     );
+  }
+
+  openModalWithComponent() {
+    this.bsModalRef = this.modalService.show(ModalAvisoComponent);
+    this.bsModalRef.content.closeBtnName = 'Close';
   }
 
 }

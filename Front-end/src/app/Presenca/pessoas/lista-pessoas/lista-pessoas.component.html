@@ -1,39 +1,41 @@
 <app-header></app-header>
 
-<div id="navbar">
 
-<div id="conteudo">
-  <h1>Lista de Pessoas</h1>
-  <button (click)="novoPessoa()" class="btn btn-primary"><img src="../../../../assets/icon-presenca/plus-circle.svg">Adicionar Novo</button>
-</div>
+<div class="container">
 
-<table *ngIf="listaPessoa.length>0 , else semPessoa">
-  <thead>
-    <tr>
-      <th>NOME</th>
-      <th>CARGO</th>
-      <th>EMPRESA</th>
-      <th>E-MAIL</th>
-      <th>TELEFONE</th>
-      <th>EDITAR</th>
-      <th>EXCLUIR</th>
-      </tr>
-  </thead>
-  <tbody >
-    <tr *ngFor="let pessoa of listaPessoa" >
-      <td>{{pessoa.nome}}</td>
-      <td>{{pessoa.cargo}}</td>
-      <td>{{pessoa.empresa}}</td>
-      <td>{{pessoa.email}}</td>
-      <td>{{pessoa.telefone}}</td>
-      <td><img (click)="updatePessoa(pessoa)" src="../../../../assets/icon-presenca/icon _edit 2_.svg"></td>
-      <td><img (click)="delet(pessoa.id)" src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></td>
-    </tr>
-  </tbody>
-  <div > 
+  <div id="conteudo">
+    <h1>Lista de Pessoas</h1>
+    <button (click)="novoPessoa()" class="btn btn-primary"><img src="../../../../assets/icon-presenca/plus-circle.svg">Adicionar Novo</button>
   </div>
-</table>
-
-<ng-template #semPessoa>
-  <p>Ainda não há usuários cadastrados</p>
-</ng-template>
+  
+  <table *ngIf="listaPessoa.length>0 , else semPessoa">
+    <thead>
+      <tr>
+        <th>NOME</th>
+        <th>CARGO</th>
+        <th>EMPRESA</th>
+        <th>E-MAIL</th>
+        <th>TELEFONE</th>
+        <th>EDITAR</th>
+        <th>EXCLUIR</th>
+        </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let pessoa of listaPessoa" >
+        <td>{{pessoa.nome}}</td>
+        <td>{{pessoa.cargo}}</td>
+        <td>{{pessoa.empresa}}</td>
+        <td>{{pessoa.email}}</td>
+        <td>{{pessoa.telefone}}</td>
+        <td><img (click)="updatePessoa(pessoa)" src="../../../../assets/Icons/icon-pencil-black.svg"></td>
+        <td><img (click)="delet(pessoa.id)" src="../../../../assets/Icons/icon-lixeira-white.svg"></td>
+      </tr>
+    </tbody>
+    <div > 
+    </div>
+  </table>
+  
+  <ng-template #semPessoa>
+    <p>Ainda não há usuários cadastrados</p>
+  </ng-template>
+</div>

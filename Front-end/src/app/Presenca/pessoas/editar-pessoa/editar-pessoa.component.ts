@@ -74,6 +74,6 @@ export class EditarPessoaComponent implements OnInit {
   }
 
   cancelar() {
-    this.modalController.dismiss();
+    window.location.reload();
   }
 }

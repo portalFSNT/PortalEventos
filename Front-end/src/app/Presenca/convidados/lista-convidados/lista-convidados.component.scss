@@ -126,3 +126,23 @@ margin-bottom: 60px;
   margin-right: 20px; 
   margin-top: 30px;
 }
+
+#conteudo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 90px;
+  width: 1300px;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+button{
+  margin: 0;
+}

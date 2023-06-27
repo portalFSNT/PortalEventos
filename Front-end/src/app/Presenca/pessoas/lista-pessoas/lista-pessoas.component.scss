@@ -1,13 +1,13 @@
-h1 {
-  text-align: center;
-  margin-top: 50px;
-  font-family: "Montserrat", sans-serif;
+h1{
+  color: var(--gray-100, #4E4B59);
+    font-size: 40px;
+    font-family: Montserrat;
+    font-weight: 700;
 }
 
 button {
   position: absolute;
   right: 220px;
-  margin-top: 30px;
   border-radius: 25px;
   background-color: #00a54e;
 }
@@ -57,4 +57,24 @@ tr:nth-child(even) {
 
 tr:hover {
   background-color: #e6e6e6;
+}
+
+#conteudo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 90px;
+  width: 1300px;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+button{
+  margin: 0;
 }

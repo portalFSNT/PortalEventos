@@ -4,15 +4,18 @@
      <a>   <img (click)="cancelar()" src="../../../../assets/icon-presenca/x.svg"></a>
     </div>
     <form [formGroup]="form">
-        <div class="modal-label">
-            <label>Nome</label>
-        </div>
+        <div class="dados">
 
-        <select formControlName="id_convidado" class="modal-input">
-            <option *ngFor="let convidado of pessoa" name="nome" value={{convidado.id}}>
-                {{convidado.nome}}
-            </option>
-        </select>
+            <div class="modal-label">
+                <label>Nome</label>
+            </div>
+    
+            <select formControlName="id_convidado" class="modal-input">
+                <option *ngFor="let convidado of pessoa" name="nome" value={{convidado.id}}>
+                    {{convidado.nome}}
+                </option>
+            </select>
+        </div>
                     
         <!-- <div class="modal-label opcao1"><label>Status</label>
             <select  formControlName="condicao">
@@ -36,6 +39,6 @@
             </select> 
         </div>       -->
         
-        <button class="modal-button" (click)="onSubmit()" class="btn btn-primary"> Adicionar </button>
+        <button class="modal-button" (click)="onSubmit()"> Adicionar </button>
     </form>
 </div>

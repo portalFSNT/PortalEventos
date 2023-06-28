@@ -63,7 +63,7 @@ list: string[] = [];
     window.location.reload();
   }
 
-  cancelar(){ this.modalController.dismiss()}
+  cancelar(){ window.location.reload();}
   
   salvar(){ this.onSubmit() }
 }

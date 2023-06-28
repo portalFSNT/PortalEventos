@@ -47,16 +47,16 @@
 <table>
   <thead>
     <tr>
-      <th>Convidado</th>
-      <th>Cargo</th>
-      <th>Empresa</th>
-      <th>E-mail</th>
-      <th>Telefone</th>
-      <th>Status</th>
-      <th>Anunciado</th>
-      <th>Presença</th>
-      <th>Editar</th>
-      <th>Excluir</th>  
+      <th>CONVIDADO</th>
+      <th>CARGO</th>
+      <th>EMPRESA</th>
+      <th>E-MAIL</th>
+      <th>TELEFONE</th>
+      <th>STATUS</th>
+      <th>ANUNCIADO</th>
+      <th>PRESENÇA</th>
+      <th>EDITAR</th>
+      <th>EXCLUIR</th>  
     </tr>
   </thead>
   <tbody> 
@@ -70,8 +70,8 @@
       <td>{{convidados.condicao}}</td>
       <td>{{getStatusLabel(convidados.anunciado)}}</td>
       <td>{{getStatusLabel(convidados.presenca)}}</td>
-      <td (click)="updateConvidado(convidados)"><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
-      <td (click)="deletConvidado(convidados.id_convidado)"><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
+      <td (click)="updateConvidado(convidados)"><a><img src="../../../../assets/Icons/icon-pencil-black.svg"></a></td>
+      <td (click)="deletConvidado(convidados.id_convidado)"><a><img src="../../../../assets/Icons/icon-lixeira-white.svg"></a></td>
 
     </tr>  
   </tbody>    

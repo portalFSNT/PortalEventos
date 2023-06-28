@@ -66,7 +66,7 @@ export class NovoConvidadoComponent implements OnInit {
         error => console.log('Error'),
         () => console.log('Requisição Finalizada.')
       );
-      // window.location.reload();
+      window.location.reload();
     }
   }
 

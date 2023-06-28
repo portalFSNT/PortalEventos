@@ -58,6 +58,7 @@ export class EditarEventoComponent implements OnInit {
         error => console.log('Error'),
         () => console.log('Requisição Finalizada')
       )
+      window.location.reload();
     }
   }
 
@@ -65,7 +66,7 @@ export class EditarEventoComponent implements OnInit {
     this.onSubmit();
   }
 
-  cancelar() {this.modalController.dismiss()}
+  cancelar() {window.location.reload();}
 }
 
 //IMPORT_DO_PROJETO_ORIGINAL -----

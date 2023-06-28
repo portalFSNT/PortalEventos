@@ -11,7 +11,7 @@ import { EventoService } from './../evento.service';
 // INTERFACE -----
 import { Evento } from '../evento';
 // PIPE -----
-import { DatePipe } from 'src/app/pipes/date.pipe';
+import { DatePipe } from 'src/pipes/date.pipe';
 
 @Component({
   selector: 'app-lista-eventos',

@@ -41,8 +41,8 @@ import { ListaPessoasComponent } from './Presenca/pessoas/lista-pessoas/lista-pe
 import { ListaEmpresasComponent } from './Presenca/empresas/lista-empresas/lista-empresas.component';
 import { ListaConvidadosComponent } from './Presenca/convidados/lista-convidados/lista-convidados.component';
 import { NovoEventoComponent } from './Presenca/eventos/novo-evento/novo-evento.component';
-import { UserAdm } from './guard/user-guard.guard';
-import { RoleGuard } from './guard/role.guard';
+import { UserAdm } from '../guard/user-guard.guard';
+import { RoleGuard } from '../guard/role.guard';
  
 
 

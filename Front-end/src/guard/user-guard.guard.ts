@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../authentication/authentication.service';
-import { UserService } from '../authentication/user/user.service';
-import { TokenService } from '../authentication/token.service';
-import { User } from '../authentication/user/user';
+import { AuthService } from '../app/authentication/authentication.service';
+import { UserService } from '../app/authentication/user/user.service';
+import { TokenService } from '../app/authentication/token.service';
+import { User } from '../app/authentication/user/user';
 import jwt_decode from 'jwt-decode';
 
 

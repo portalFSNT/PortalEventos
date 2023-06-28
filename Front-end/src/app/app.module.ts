@@ -42,9 +42,9 @@ import { UsersPendingComponent } from './Portal/users-pending/users-pending.comp
 import { ModalAcceptDenyUserComponent } from './Portal/modal-accept-deny-user/modal-accept-deny-user.component';
 import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
 import { LoginComponent } from './Portal/login/login.component';
-import { PhonePipe } from './pipes/phone.pipe';
+import { PhonePipe } from '../pipes/phone.pipe';
 import { OnlyNumbersDirective } from './shared/only-numbers/only-numbers.directive';
-import { TimeFormatPipe } from './pipes/timeFormat.pipe';
+import { TimeFormatPipe } from '../pipes/timeFormat.pipe';
 
 
 //============== imports de presença ===============

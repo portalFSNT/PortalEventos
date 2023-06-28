@@ -40,29 +40,32 @@ export class EditarPessoaComponent implements OnInit {
       email:[this.list[2],[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       cargo :[this.list[3],[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       telefone:[this.list[4],[Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-      empresa:[this.list[5]]
+      empresa:[this.list[5],[Validators.required, Validators.minLength(1)]]
     });
     
   }
 
   updatePessoa(id:number) {
-    if(this.form.valid){
-      const reqBody = {
-        nome: this.form.value.nome,
-        email: this.form.value.email,
-        cargo: this.form.value.cargo,
-        telefone: this.form.value.telefone,
-        empresa:  this.form.value.empresa,
+    if(!this.form.value.empresa){
+      if(this.form.valid){
+        const reqBody = {
+          nome: this.form.value.nome,
+          email: this.form.value.email,
+          cargo: this.form.value.cargo,
+          telefone: this.form.value.telefone,
+          empresa:  this.form.value.empresa,
+        }
+        console.log('Submit');
+        this.service.updatePessoa(id, reqBody).subscribe(
+          sucess => console.log('Sucesso'),
+          error => console.log('Error'),
+          () => console.log('Requisição completa.')
+        )
+        window.location.reload();
       }
-
-      console.log('Submit');
-      this.service.updatePessoa(id, reqBody).subscribe(
-        sucess => console.log('Sucesso'),
-        error => console.log('Error'),
-        () => console.log('Requisição completa.')
-      )
-    }
-    window.location.reload();
+    }else{
+      alert('Por favor, preencha todos os campos do formulário.')
+    } 
   }
 
   salvar() {

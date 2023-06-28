@@ -10,6 +10,7 @@ module.exports = {
             for(let i in evento){
                 json.result.push({
                     id_evento: evento[i].id,
+                    nome: evento[i].nome,
                     descricao: evento[i].descricao,
                     data_hora: evento[i].data_hora.toGMTString(),
                     confirmados:evento[i].confirmados,

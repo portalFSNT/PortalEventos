@@ -1,11 +1,14 @@
-import { Observable, switchMap, take } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+//ANGULAR -----
 import { Injectable } from '@angular/core';
-import { Evento } from './evento';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable, switchMap, take } from 'rxjs';
+//SERVICE -----
 import { TokenService } from 'src/app/authentication/token.service';
 import { UserService } from 'src/app/authentication/user/user.service';
-
+//INTERFACE -----
+import { Evento } from './evento';
+//IMPORTS -----
+import { environment } from 'src/environments/environment';
 
 const API = environment.API;
 
@@ -38,8 +41,8 @@ export class EventoService {
   listarUm(id_evento:any):Observable<any>{
     return this.http.get(`${API}/evento/${id_evento}`, { headers: this.header })
   }
-  edit(id_evento:any,editarEvento:any){
-    return this.http.put<any>(`${API}/${id_evento}`,editarEvento, { headers: this.header })
+  edit(id_evento:number,reqBody:any){
+    return this.http.patch<any>(`${this.API}/${id_evento}`,reqBody, { headers: this.header })
   }
 
   addEvent(form:any){

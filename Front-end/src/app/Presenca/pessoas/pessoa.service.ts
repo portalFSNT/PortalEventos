@@ -1,9 +1,13 @@
-import { environment } from 'src/environments/environment';
-import { Observable } from "rxjs";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+// ANGULAR -----
 import { Injectable } from "@angular/core";
-import { Pessoa } from "./pessoa";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs";
+// SERVICE -----
 import { TokenService } from 'src/app/authentication/token.service';
+// INTERFACE -----
+import { Pessoa } from "./pessoa";
+// IMPORTS -----
+import { environment } from 'src/environments/environment';
 
 const API = environment.API;
 @Injectable({

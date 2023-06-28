@@ -4,14 +4,14 @@
         <label class="modal-title">Editar evento</label>
      <a>   <img (click)="cancelar()" src="../../../../assets/icon-presenca/x.svg"></a>
      </div>
-    <form  [formGroup]="editarEventoForm" (submit)="editar()"> 
-        <div class="modal-label"><label>Nome do evento</label>
+    <form  [formGroup]="form"> 
+        <div class="modal-label"><label>Descrição do Evento</label>
         </div>
-        <input formControlName="descricao"  class="modal-input" type="text"  >
+        <input formControlName="descricao" [value]="form.value.descricao"class="modal-input" type="text">
         
     
         <div class="modal-label"><label>Data</label> </div>
-        <input formControlName="data_hora" [value]="" class="modal-input" type="date"> 
+        <input formControlName="data_hora" [value]="form.value.data_hora" class="modal-input" type="date"> 
     
         
     

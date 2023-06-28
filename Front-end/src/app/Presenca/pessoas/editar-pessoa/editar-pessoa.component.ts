@@ -1,9 +1,13 @@
-import { EmpresaService } from './../../empresas/empresa.service';
-import { PessoaService } from "./../pessoa.service";
-import { ModalController } from "@ionic/angular";
+// ANGULAR -----
 import { Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Component, Input, OnInit } from "@angular/core";
+// MODAL -----
+import { ModalController } from "@ionic/angular";
+// SERVICE -----
+import { EmpresaService } from './../../empresas/empresa.service';
+import { PessoaService } from "./../pessoa.service";
+// INTERFACE -----
 import { Pessoa } from "../pessoa";
 import { Empresa } from "../nova-pessoa/empresa";
 
@@ -29,6 +33,7 @@ export class EditarPessoaComponent implements OnInit {
     this.empresaService.listar().subscribe((event)=>{
       this.listaPessoa=event.result as Empresa[];
     })
+
     this.form = this.fb.group({
       id: this.list[0],
       nome:[this.list[1], [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
@@ -37,17 +42,8 @@ export class EditarPessoaComponent implements OnInit {
       telefone:[this.list[4],[Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       empresa:[this.list[5]]
     });
+    
   }
-
-  // editar() {
-  //   if (this.form.valid) {
-  //     const editaPessoa = this.form.getRawValue() as Pessoa;
-  //     this.service
-  //       .edit(this.nome, editaPessoa)
-  //       .subscribe(() => this.router.navigate(["/convidados"]));
-  //     console.log(this.nome, editaPessoa);
-  //   }
-  // }
 
   updatePessoa(id:number) {
     if(this.form.valid){
@@ -77,3 +73,14 @@ export class EditarPessoaComponent implements OnInit {
     this.modalController.dismiss();
   }
 }
+
+// PROJETO_ORIGINAL -----
+    // editar() {
+    //   if (this.form.valid) {
+    //     const editaPessoa = this.form.getRawValue() as Pessoa;
+    //     this.service
+    //       .edit(this.nome, editaPessoa)
+    //       .subscribe(() => this.router.navigate(["/convidados"]));
+    //     console.log(this.nome, editaPessoa);
+    //   }
+    // }

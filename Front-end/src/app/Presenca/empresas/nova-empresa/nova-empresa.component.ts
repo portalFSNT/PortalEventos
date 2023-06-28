@@ -1,9 +1,12 @@
-import { EmpresaService } from './../empresa.service';
-import { ModalController } from '@ionic/angular';
+// ANGULAR -----
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-
+// MODAL -----
+import { ModalController } from '@ionic/angular';
+// SERVICE -----
+import { EmpresaService } from './../empresa.service';
+// INTERFACE -----
 import { Empresa } from '../empresa';
 
 @Component({

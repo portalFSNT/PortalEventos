@@ -1,13 +1,18 @@
-import { EditarEmpresaComponent } from "./../editar-empresa/editar-empresa.component";
+// ANGULAR ----- 
 import { Router } from "@angular/router";
-import { EmpresaService } from "./../empresa.service";
-import { NovaEmpresaComponent } from "./../nova-empresa/nova-empresa.component";
-
 import { Component, OnInit } from "@angular/core";
-import { Empresa } from "../empresa";
-
+// MODAL ----- 
 import { ModalController,} from "@ionic/angular";
 import { BsModalRef, BsModalService, ModalOptions } from "ngx-bootstrap/modal";
+// COMPONENT -----
+import { EditarEmpresaComponent } from "./../editar-empresa/editar-empresa.component";
+import { NovaEmpresaComponent } from "./../nova-empresa/nova-empresa.component";
+// SERVICE -----
+import { EmpresaService } from "./../empresa.service";
+// INTERFACE -----
+import { Empresa } from "../empresa";
+
+
 
 @Component({
   selector: "app-lista-empresas",

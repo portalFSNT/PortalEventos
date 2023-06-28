@@ -1,6 +1,7 @@
 //ANGULAR -----
 import { Component, Input, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { filter } from "rxjs";
 //MODALS -----
 import { ModalOptions } from 'ngx-bootstrap/modal';
 import { ModalController } from "@ionic/angular";
@@ -16,7 +17,6 @@ import { EditarEventoComponent } from "./../../eventos/editar-evento/editar-even
 import { Status } from "./status";
 import { Pessoa } from "./pessoa";
 import { Evento } from 'src/app/Presenca/eventos/evento';
-import { filter } from "rxjs";
 
 
 @Component({
@@ -28,7 +28,7 @@ export class ListaConvidadosComponent implements OnInit {
 
   @Input() convidado: any;
 
-  listaEventos: Evento[] = [];
+  evento!: Evento[];
   listaStatus: Status[] = []; 
   listConvidados: Pessoa[] = [];
   filteredListConvidados: Pessoa[] = [];
@@ -37,9 +37,10 @@ export class ListaConvidadosComponent implements OnInit {
 
   bsModalRef?: BsModalRef;
   constructor(
-    private modalcontroller: ModalController,
+    // private modalcontroller: ModalController,
     private route: ActivatedRoute,
     private service: ConvidadoService,
+    private eventService: EventoService,
     private router: Router,
     private modalService: BsModalService
     //private ser:UsuarioService
@@ -48,17 +49,20 @@ export class ListaConvidadosComponent implements OnInit {
 
   ngOnInit(): void {
 
+//PEGA_ID_DA_URL -----
     this.route.paramMap.subscribe(paramMap => {
       this.id_evento = paramMap.get('id');
       console.log('ID do Evento: '+this.id_evento);
     })
 
+//LISTA_OS_CONVIDADOS_DO_EVENTO -----
     this.service.listConvidado().subscribe((event) => {
       this.listConvidados = event.result as Pessoa[];
       this.filterList();
-      console.log(this.filteredListConvidados);
+      console.log('Lista de convidados: '+JSON.stringify(this.filteredListConvidados));
     });
 
+//LISTA_STATUS -----
     this.service.listarStatus(this.id_evento).subscribe((event) => {
         this.listaStatus = event.results as Status[];
         console.log('----- Listar Status -----');
@@ -66,6 +70,98 @@ export class ListaConvidadosComponent implements OnInit {
         console.log('Status: '+this.listaStatus); 
     });
 
+//PEGA_OS_REGISTROS_D0_EVENTO -----
+    this.eventService.listarUm(this.id_evento).subscribe((event)=>{
+      this.evento = event.result as Evento[];
+      console.log('Evento: '+JSON.stringify(this.evento));
+    })
+
+  }
+
+// FUNÇÕES - EVENTO -----
+  updateEvento(edtEvento: any) {
+    const id = this.id_evento;
+    const data_hora = edtEvento.data_hora;
+    const descricao = edtEvento.descricao;
+
+    const initialState:ModalOptions = {
+      initialState:{
+        list:[
+          id,
+          data_hora,
+          descricao,
+        ],
+      }
+    }
+
+    //console.log('Evento: '+JSON.stringify(initialState));
+
+    this.bsModalRef = this.modalService.show(EditarEventoComponent, initialState);
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
+
+  deletEvento() {
+    console.log(this.id_evento);
+    console.log(`o id 'e ${this.id_evento}`)
+    this.service.delet(this.id_evento).subscribe(() => {
+      this.router.navigate(["/eventos"]);
+    });
+  }
+
+// FUNÇÕES - EVENTO_CONVIDADO -----
+  filterList(){
+    this.filteredListConvidados = this.listConvidados.filter((convidado) => convidado.id_presenca == this.id_evento);
+  }
+
+  getStatusLabel(valor: number): string {
+    return valor === 1 ? 'Sim' : 'Não';
+  }  
+
+  addConvidado() {
+    const id_evento = this.id_evento;
+
+    const initialState:ModalOptions = {
+      initialState: {
+        id_evento,
+      }
+    }
+    this.bsModalRef = this.modalService.show(NovoConvidadoComponent, initialState);
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
+
+  updateConvidado(convidado: Pessoa){
+    const id_evento = convidado.id_presenca;
+    const id_convidado = convidado.id_convidado;
+    const condicao = convidado.condicao;
+    const anunciado = convidado.anunciado;
+    const presenca = convidado.presenca;
+
+    const initialState:ModalOptions = {
+      initialState:{
+        list:[
+          id_evento,
+          id_convidado,
+          condicao,
+          anunciado,
+          presenca,
+        ]
+      }
+    }
+
+    this.bsModalRef = this.modalService.show(EditarConvidadoComponent, initialState);
+    this.bsModalRef.content.closeBtnName = 'Close'
+  }
+
+  deletConvidado(id_convidado: number) {
+    this.service.deletConvidado(id_convidado, this.id_evento).subscribe(() => {
+      this.router.navigate([`evento_convidados/${this.id_evento}`]);
+    },
+    (error: any) => console.log(error))
+    window.location.reload();
+  }
+}
+
+//PROJETO_ORIGINAL - DENTRO DO ngOnInit(){} ------
     // this.service.listarStatus(this.id_evento).subscribe((event) => {
     //   console.log(event.result)
     //   if (event.result[0].total !== '0') {
@@ -89,95 +185,49 @@ export class ListaConvidadosComponent implements OnInit {
     // this.eventoService.listarUm(this.id_evento).subscribe((event) => {
     //   this.listaEventos = event.result as any;
     // })
-  }
 
-  filterList(){
-    this.filteredListConvidados = this.listConvidados.filter((convidado) => convidado.id_presenca == this.id_evento);
-  }
+//PROJETO_ORIGINAL - MODAL_EDITAR_EVENTO -----
+    // async edit(
+    // ) {
+    //   const modal = await this.modalcontroller.create({
+    //     component: EditarEventoComponent,
+    //     //  id_eventos:any = this.id_evento,
+    //     componentProps: {
+    //       id_evento: this.id_evento
 
+    //     },
 
-  // async edit(
+    //     cssClass: "modal",
 
-  // ) {
-  //   const modal = await this.modalcontroller.create({
-  //     component: EditarEventoComponent,
-  //     //  id_eventos:any = this.id_evento,
-  //     componentProps: {
-  //       id_evento: this.id_evento
+    //   });
+    //   console.log(`o id 'e ${this.id_evento}`)
+    //   await modal.present();
+    // }
+    // async edit(){
+    //   const modal= await this.modalcontroller.create({
+    //     component:EditarEventoComponent,
 
-  //     },
+    //     componentProps:{this.id_evento,this.evento,
 
-  //     cssClass: "modal",
+    //     },
+    //     cssClass:"modal",
+    //   });
+    //   await modal.present();
 
-  //   });
-  //   console.log(`o id 'e ${this.id_evento}`)
-  //   await modal.present();
-  // }
-  // async edit(){
-  //   const modal= await this.modalcontroller.create({
-  //     component:EditarEventoComponent,
+    // }
 
-  //     componentProps:{this.id_evento,this.evento,
-
-  //     },
-  //     cssClass:"modal",
-  //   });
-  //   await modal.present();
-
-  // }
-
-  async editP(id_evento: any, nome: any, condicao: any, anunciados: any, presenca: any) {
-    const modal = await this.modalcontroller.create({
-      component: EditarConvidadoComponent,
-      cssClass: "modal",
-      componentProps: {
-        id_evento, nome,
-        condicao, anunciados, presenca
-
-      }
-
-    })
-
-    await modal.present();
-  }
-
-
-  delet() {
-    console.log(this.id_evento);
-    console.log(`o id 'e ${this.id_evento}`)
-    this.service.delet(this.id_evento).subscribe(() => {
-      this.router.navigate(["/eventos"]);
-    });
-  }
-  deletP(nome: any, id_evento: any) {
-    this.service.deletP(nome, id_evento).subscribe(() => {
-      this.router.navigate([`evento_convidados/${this.id_evento}`]);
-    },
-      (error: any) => console.log(error))
-  }
-
-
-  //MODAL_PARA_ADICIONAR_CONVIDADO -----
-  add() {
-    const id_evento = this.id_evento;
-
-    const initialState:ModalOptions = {
-      initialState: {
-        id_evento,
-      }
-    }
-    this.bsModalRef = this.modalService.show(NovoConvidadoComponent, initialState);
-    this.bsModalRef.content.closeBtnName = 'Close';
-  }
-
-  //MODAL_PARA_EDITAR_CONVIDADO -----
-  edit() {
-    this.bsModalRef = this.modalService.show(EditarConvidadoComponent);
-    this.bsModalRef.content.closeBtnName = 'Close';
-  }
-
-  getStatusLabel(valor: number): string {
-    return valor === 1 ? 'Sim' : 'Não';
-  }
-  
-}
+//PROJETO_ORIGINAL - MODAL_EDITAR_CONVIDADO -----
+    // async editConvidado(id_evento:number, id_convidado:number, condicao:string, anunciado:number, presenca:number) {
+    //   const modal = await this.modalcontroller.create({
+    //     component: EditarConvidadoComponent,
+    //     cssClass: "modal",
+    //     componentProps: {
+    //         id_evento: id_evento,
+    //         id_convidado: id_convidado,
+    //         condicao: condicao,
+    //         anunciado: anunciado,
+    //         presenca: presenca,
+    //     }
+    //   })
+    //   await modal.present();
+    // }

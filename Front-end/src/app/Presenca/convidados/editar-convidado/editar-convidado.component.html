@@ -1,11 +1,9 @@
-
-
 <div class="modal-modal">
     <div class="modal-top">
         <label class="modal-title">Editar convidado</label>
      <a>   <img (click)="cancelar()" src="../../../../assets/icon-presenca/x.svg"></a>
     </div>
-    <form [formGroup]="editarConvidadoForm" (submit)="editar()">
+    <form [formGroup]="form">
      
         <div class="modal-label opcao1"><label>Status</label>
             <select  formControlName="condicao">
@@ -16,7 +14,7 @@
         </div>
 
         <div class="modal-label opcao1"><label>Anunciado</label>
-            <select  formControlName="anunciados">
+            <select  formControlName="anunciado">
                 <option value="0">Não</option>
                 <option value="1">Sim</option>
             </select>
@@ -27,10 +25,7 @@
                 <option value="0">Não</option>
                 <option value="1">Sim</option>
             </select> 
-        </div>
-                
-        
+        </div>   
         <button class="modal-button" (click)="salvar()" class="btn btn-primary"> Salvar alterações  </button>
     </form>
-    </div>
-    
+</div>    

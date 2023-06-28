@@ -1,12 +1,17 @@
+// ANGULAR -----
 import { Router, ActivatedRoute } from '@angular/router';
-import { EventoService } from './../evento.service';
-import { NovoEventoComponent } from './../novo-evento/novo-evento.component';
 import { Component, OnInit } from '@angular/core';
+// MODAL -----
 import { ModalController } from "@ionic/angular";
-import { Evento } from '../evento';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+// COMPONENT ------
+import { NovoEventoComponent } from './../novo-evento/novo-evento.component';
+// SERVICE -----
+import { EventoService } from './../evento.service';
+// INTERFACE -----
+import { Evento } from '../evento';
+// PIPE -----
 import { DatePipe } from 'src/app/pipes/date.pipe';
-
 
 @Component({
   selector: 'app-lista-eventos',

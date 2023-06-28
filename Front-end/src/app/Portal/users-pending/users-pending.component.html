@@ -14,8 +14,8 @@
             <table class="tabela">
                 <thead>
                     <tr class="principal">
-                        <th class="table-nome title-table">ID</th>
-                        <th class="table-nome title-table">NOME</th>
+                        <th class="title-table table-id">ID</th>
+                        <th class="title-table">NOME</th>
                         <th class="title-table">INSTITUIÇÃO</th>
                         <th class="title-table">E-MAIL</th>
                         <th class="title-table">CONTATO</th>
@@ -24,14 +24,18 @@
                     </tr>
                 </thead>
 
-                <tr class="dados" *ngFor="let user of table">
-                    <td>{{ user.id }}</td>
+                <tr class="dados" *ngFor="let user of table" (click)="openModalWithComponent(user)">
+                    <td class="table-id">{{ user.id }}</td>
                     <td>{{ user.nome }}</td>
                     <td>{{ user.nome_instituicao }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.telefone | phone }}</td>
-                    <td>{{ user.nivel_acesso }}</td>
-                    <td (click)="openModalWithComponent(user)">Pendente</td>
+                    <td>
+                        <div [ngClass]="{'adm':adm === user.nivel_acesso, 'soli': soli===user.nivel_acesso}">
+                          {{ user.nivel_acesso }}
+                        </div>
+                      </td>
+                    <td>Pendente</td>
                 </tr>
             </table>
         </ng-container>

@@ -46,7 +46,7 @@
           </tr>
     
           <tr class="dados" *ngFor="let user of filteredTable" (click)="openModalWithComponent(user)">
-            <td>{{ user.nome }}</td>
+            <td class="table-id">{{ user.nome }}</td>
             <td>{{ user.nome_instituicao }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.telefone | phone }}</td>

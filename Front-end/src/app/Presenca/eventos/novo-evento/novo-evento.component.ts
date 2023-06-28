@@ -61,7 +61,9 @@ export class NovoEventoComponent implements OnInit {
         error => console.log('Error'),
         () => console.log('Request Completo')
       )
+      window.location.reload();
     }
+
   }
 
 

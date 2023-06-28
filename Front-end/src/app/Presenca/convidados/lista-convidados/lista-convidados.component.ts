@@ -104,7 +104,7 @@ export class ListaConvidadosComponent implements OnInit {
     console.log(this.id_evento);
     console.log(`o id 'e ${this.id_evento}`)
     this.service.delet(this.id_evento).subscribe(() => {
-      this.router.navigate(["/eventos"]);
+      this.router.navigate(["/-lista-eventos"]);
     });
   }
 

@@ -17,6 +17,7 @@
             <th>Data</th>
             <th>Horário</th>
             <th>Local</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@
             <td>{{ rows.data_inicio | date : "dd/MM/yyyy" }}</td>
             <td>{{ rows.hora_inicio | timeFormat }}</td>
             <td>{{ rows.espaco_nome }}</td>
+            <td>{{ getStatus(rows.status_solicitacao) }}</td>
           </tr>
         </tbody>
       </table>

@@ -14,6 +14,8 @@ export class UsersPendingComponent implements OnInit {
 
   table: UsersPending[] = [];
   filteredTable: UsersPending[] = [];
+  adm: string = 'Administrador';
+  soli: string = 'Solicitante';
 
   constructor(private service: UsersPendingService, private modalService: BsModalService) { }
 

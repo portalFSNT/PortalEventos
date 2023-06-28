@@ -55,6 +55,7 @@ export class NewAdmComponent implements OnInit {
         error => console.log('Error'),
         () => console.log('Rquest Completo')
         );
+        this.router.navigate(['/users']);
     }
   }
   onCancel() {

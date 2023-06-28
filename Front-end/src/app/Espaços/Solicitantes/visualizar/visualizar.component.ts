@@ -19,5 +19,8 @@ export class VisualizarComponent implements OnInit {
       console.log(this.solicitacoes);
     })
 }
+getStatus(valor: number): string {
+  return valor === 1 ? 'Aceito' : 'Pendente';
+}
 
 }

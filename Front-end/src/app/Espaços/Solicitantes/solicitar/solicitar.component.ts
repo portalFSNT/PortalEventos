@@ -3,6 +3,7 @@ import { ModalController} from '@ionic/angular';
 import { Modal1Component } from '../modal1/modal1.component';
 import { SolicitarService } from './solicitar.service';
 import { Espaco } from './espaco';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-solicitar',
@@ -17,8 +18,8 @@ export class SolicitarComponent implements OnInit {
   horario_entrada: string = ""
   horario_saida: string = ""
   descricao: string = ""
-  constructor(private modalcontroler:ModalController, private solicitarService: SolicitarService) { }
-
+  constructor(private modalcontroler:ModalController, private solicitarService: SolicitarService, private modalService: BsModalService) { }
+  bsModalRef?: BsModalRef;
   async openModal1(){
     const modal = await this.modalcontroler.create({
       component: Modal1Component, 
@@ -69,8 +70,13 @@ export class SolicitarComponent implements OnInit {
         
         // Abre o modal de confirmação
         console.log("Modal")
-        this.openModal1()
+        this.openModalWithComponent()
       }
     })
+  }
+
+  openModalWithComponent() {
+    this.bsModalRef = this.modalService.show(Modal1Component);
+    this.bsModalRef.content.closeBtnName = 'Close';
   }
 }

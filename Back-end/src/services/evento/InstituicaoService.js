@@ -4,7 +4,7 @@ module.exports = {
 
     getAll: () => {
         return new Promise((acepted, rejected) => {
-            db.query(`SELECT id, nome FROM instituicao`, (err, results) => {
+            db.query(`SELECT id, nome FROM instituicao  order by nome`, (err, results) => {
                 if(err){ rejected(err); return; }
                 acepted( results );
             });

@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './modal1.component.html',
   styleUrls: ['./modal1.component.scss']
 })
-export class Modal1Component implements OnInit {
+export class Modal1Component {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  // Recarregar a página quando fechar o modal
+  fecharModal(){
+    window.location.reload();
   }
 
 }

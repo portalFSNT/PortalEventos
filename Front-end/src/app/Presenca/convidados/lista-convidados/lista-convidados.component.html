@@ -60,6 +60,7 @@
     </tr>
   </thead>
   <tbody> 
+
     <tr *ngFor="let convidados of filteredListConvidados">
       <td>{{convidados.nome}}</td>
       <td>{{convidados.cargo}}</td>
@@ -71,6 +72,7 @@
       <td>{{getStatusLabel(convidados.presenca)}}</td>
       <td (click)="updateConvidado(convidados)"><a><img src="../../../../assets/icon-presenca/caneta_black.svg"></a></td>
       <td (click)="deletConvidado(convidados.id_convidado)"><a><img src="../../../../assets/icon-presenca/🦆 icon _trash 2_black.svg"></a></td>
+
     </tr>  
   </tbody>    
 </table>

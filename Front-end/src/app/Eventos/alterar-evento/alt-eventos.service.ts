@@ -34,9 +34,9 @@ export class AltEventosService {
     return new HttpHeaders().set('Authorization', `Bearer ${token}`);
   }
 
-  buscarEventoPorId(eventId: number): Observable<CadEventos> {
+  buscarEventoPorId(eventId: number): Observable<{result: CadEventos}> {
     const header = this.getHeader();
-    return this.http.get<CadEventos>(`${API}/event/${eventId}`, { headers: header });
+    return this.http.get<{result: CadEventos}>(`${API}/event/${eventId}`, { headers: header });
   }
 
   updateEvento(eventId: number, campoAtualizado: CadEventos): Observable<any> {

@@ -70,7 +70,6 @@ module.exports = {
     },
 
     updateEventoConvidado: async(req, res) => {
-        let json = { error: "", result: [] };
         let id_evento = req.params.id_evento;
         let id_convidado = req.body.id_convidado;
         let condicao  = req.body.condicao;
@@ -92,10 +91,10 @@ module.exports = {
                 anunciado,
                 presenca,
             };
-            res.json(json);
+            res.status(200);
         } catch (error) {
-            res.status(400);
-            res.json({ error: error });
+            res.status(500);
+            console.log(error);
         }
     },
 

@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 //MODALS -----
 import { ModalController } from '@ionic/angular';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-//SERVICE -----
-import { PessoaService } from './../pessoa.service';
 //COMPONENT -----
 import { EditarPessoaComponent } from './../editar-pessoa/editar-pessoa.component';
 import { NovaPessoaComponent } from './../nova-pessoa/nova-pessoa.component';
+//SERVICE -----
+import { PessoaService } from './../pessoa.service';
 //INTERFACE -----
 import { Pessoa } from "../pessoa";
 

@@ -17,15 +17,12 @@ import { Pessoa } from '../lista-convidados/pessoa';
 export class EditarConvidadoComponent implements OnInit {
 
 form!:FormGroup;
+submitted = false;
 listaConvidado:Pessoa[]=[];
-  @Input() id_evento:any
-  @Input() id_convidado:any
-  @Input() condicao:any
-  @Input() anunciados:any
-  @Input() presenca:any
- 
+list: string[] = [];
+
   constructor(
-    private convidadoService:ConvidadoService,
+    private service:ConvidadoService,
     private fb:FormBuilder,
     private router:Router,
     private modalController:ModalController
@@ -33,30 +30,62 @@ listaConvidado:Pessoa[]=[];
 
   
   ngOnInit(): void {
-    this.convidadoService.listOneConvidado(this.id_evento).subscribe((event)=>{
-      this.listaConvidado=event.results as Pessoa[];
-    })
+
     this.form = this.fb.group({
-      id_evento:this.id_evento,
-      id_convidado:this.id_convidado,
-      condicao:this.condicao,
-      anunciados:this.anunciados,
-      presenca:this.presenca,
+      id_evento:this.list[0],
+      id_convidado:this.list[1],
+      condicao:this.list[2],
+      anunciado:this.list[3],
+      presenca:this.list[3],
      
     })
-    console.log(this.id_evento,this.id_evento,this.condicao,this.anunciados,this.presenca)
+    console.log(this.list);
   }
-  editar(){
-    if(this.form.valid){
-      const editarConvidado = this.form.getRawValue() as Pessoa;
-      this.convidadoService.editConvidado(this.id_evento,editarConvidado).subscribe(()=>{
-        this.router.navigate([`evento_convidados/${this.id_evento}`])
-      })
+
+  onSubmit(){
+    this.submitted = true
+
+    const reqBody = {
+      id_convidado: this.form.value.id_convidado,
+      condicao: this.form.value.condicao,
+      anunciado: this.form.value.anunciado,
+      presenca: this.form.value.presenca,
     }
+    console.log(reqBody);
+
+    if(this.form.valid){
+      this.service.editConvidado(this.form.value.id_evento, reqBody).subscribe(
+        success => console.log('Sucesso'),
+        error => console.log('Error'),
+        () => console.log('Requisição Finalizada')
+      )
+    }
+    window.location.reload();
   }
 
   cancelar(){ this.modalController.dismiss()}
-  salvar(){
-    this.modalController.dismiss()
-  }
+  
+  salvar(){ this.onSubmit() }
 }
+
+// PROJETO_ORIGINAL  -----
+    // @Input() id_evento:any
+    // @Input() id_convidado:any
+    // @Input() condicao:any
+    // @Input() anunciados:any
+    // @Input() presenca:any
+
+// PROJETO_ORIGINAL - DENTRO DO ngOnInit(){} -----
+    // this.convidadoService.listOneConvidado(this.id_evento).subscribe((event)=>{
+    //   this.listaConvidado=event.results as Pessoa[];
+    // })
+
+// PROJETO_ORIGINAL - FUNÇÃO_EDITAR_CONVIDADO -----
+    // editar(){
+    //   if(this.form.valid){
+    //     const editarConvidado = this.form.getRawValue() as Pessoa;
+    //     this.convidadoService.editConvidado(this.id_evento,editarConvidado).subscribe(()=>{
+    //       this.router.navigate([`evento_convidados/${this.id_evento}`])
+    //     })
+    //   }
+    // }

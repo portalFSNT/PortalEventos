@@ -56,8 +56,8 @@ module.exports = {
 
     updateEventoConvidado: (id_evento, id_convidado, condicao, anunciado, presenca) => {
         return new Promise((acepted, rejected) => {
-            db.query(`UPDATE evento_convidado SET id_convidado=?,condicao=?,anunciado=?,presenca=? WHERE id_presenca=?`,
-            [id_convidado, condicao, anunciado, presenca, id_evento], (error, results) => {
+            db.query(`UPDATE evento_convidado SET condicao=?,anunciado=?,presenca=? WHERE id_presenca=?  AND id_convidado =?`,
+            [ condicao, anunciado, presenca, id_evento, id_convidado], (error, results) => {
                 if(error){ 
                     rejected(error); 
                     return(error); 

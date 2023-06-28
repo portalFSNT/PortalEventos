@@ -1,12 +1,13 @@
-import { ModalController } from '@ionic/angular';
-import { EmpresaService } from './../empresa.service';
-
+// ANGULAR -----
 import { Router } from '@angular/router';
-
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit,Input } from '@angular/core';
+// MODAL -----
+import { ModalController } from '@ionic/angular';
+// SERVICE -----
+import { EmpresaService } from './../empresa.service';
+// INTERFACE -----
 import { Empresa } from '../nova-empresa/empresa';
-
 
 @Component({
   selector: 'app-editar-empresa',

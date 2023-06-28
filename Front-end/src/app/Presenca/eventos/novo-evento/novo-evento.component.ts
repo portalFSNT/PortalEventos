@@ -1,10 +1,14 @@
-import { EventoService } from './../evento.service';
-import { CadastrarEventoComponent } from './../../components/evento/cadastrar-evento/cadastrar-evento.component';
-
+// ANGULAR -----
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
 import { Component, OnInit, Input } from '@angular/core';
+// MODAL -----
+import { ModalController } from '@ionic/angular';
+// COMPONENT -----
+import { CadastrarEventoComponent } from './../../components/evento/cadastrar-evento/cadastrar-evento.component';
+// SERVICE
+import { EventoService } from './../evento.service';
+// INTERFACE
 import { Evento } from '../evento';
 
 

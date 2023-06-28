@@ -148,7 +148,7 @@ export class ListaConvidadosComponent implements OnInit {
       }
     }
 
-    this.bsModalRef = this.modalService.show(EditarConvidadoComponent), initialState;
+    this.bsModalRef = this.modalService.show(EditarConvidadoComponent, initialState);
     this.bsModalRef.content.closeBtnName = 'Close'
   }
 

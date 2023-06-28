@@ -1,8 +1,12 @@
-import { Observable } from 'rxjs';
+// ANGULAR -----
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
+// DEPENDECE -----
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+// SERVICE -----
 import { TokenService } from 'src/app/authentication/token.service';
+// INTERFACE -----
 import { MarransatoMode } from 'src/app/shared/MaranssatoMode.interface';
 import { Pessoa } from './lista-convidados/pessoa';
 import { Status } from './lista-convidados/status';
@@ -22,12 +26,12 @@ export class ConvidadoService {
   private readonly API= `${API}`
   private header = new HttpHeaders().set('Authorization', `Bearer ${this.tokenService.returnToken()}`);
 
-  //REQUISIÇÕES_DE_CONVIDADOS -----
+//REQUISIÇÕES_DE_CONVIDADOS -----
   listPessoa():Observable<any>{
     return this.http.get<any>(`${this.API}/convidados`,{ headers: this.header})
   }
 
-  //REQUISIÇÕES_DE_EVENTO -----
+//REQUISIÇÕES_DE_EVENTO -----
   listarStatus(id_evento:number):Observable<MarransatoMode<Status[]>>{
     return this.http.get<MarransatoMode<Status[]>>(`${this.API}/evento/${id_evento}`,{ headers: this.header})
   }
@@ -40,7 +44,7 @@ export class ConvidadoService {
     return this.http.put<MarransatoMode<Pessoa[]>>(`${this.API}/evento/${id_evento}`,evento,{ headers: this.header})
   }
 
-  //REQUISIÇÕES_DE_EVENTO-CONVIDADOS -----
+//REQUISIÇÕES_DE_EVENTO-CONVIDADOS -----
   listConvidado():Observable<any>{
     return this.http.get<any>(`${this.API}/evento_convidado`,{ headers: this.header})
   }
@@ -49,9 +53,8 @@ export class ConvidadoService {
     return this.http.get(`${this.API}/evento_convidado/${id_evento}`,{ headers: this.header})
   }
 
-  editConvidado(id_evento:any,editarConvidado:any){
-    return this.http.put(`${this.API}/evento_convidado/${id_evento}`,editarConvidado,{ headers: this.header})
-
+  editConvidado(id_evento:any,reqBody:any){
+    return this.http.patch(`${this.API}/evento_convidado/${id_evento}`,reqBody,{ headers: this.header})
   }
 
   cadastrarConvidado(novoConvidado:any){
@@ -62,7 +65,9 @@ export class ConvidadoService {
     return this.http.delete(`${this.API}/evento_convidado/${id_evento}`,{body:{id_convidado}, headers: this.header})
   }
 
-  // buscar:any=(id_evento:any)=>{
-  //   return this.buscar(`${this.API}/${id_evento}`,{ headers: this.header})
-  // }
 }
+
+// PROJETO_ANTIGO -----
+    // buscar:any=(id_evento:any)=>{
+    //   return this.buscar(`${this.API}/${id_evento}`,{ headers: this.header})
+    // }

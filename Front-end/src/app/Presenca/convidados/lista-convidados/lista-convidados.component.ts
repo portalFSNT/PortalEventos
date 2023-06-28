@@ -28,7 +28,7 @@ export class ListaConvidadosComponent implements OnInit {
 
   @Input() convidado: any;
 
-  listaEventos: Evento[] = [];
+  evento!: Evento[];
   listaStatus: Status[] = []; 
   listConvidados: Pessoa[] = [];
   filteredListConvidados: Pessoa[] = [];
@@ -37,9 +37,10 @@ export class ListaConvidadosComponent implements OnInit {
 
   bsModalRef?: BsModalRef;
   constructor(
-    private modalcontroller: ModalController,
+    // private modalcontroller: ModalController,
     private route: ActivatedRoute,
     private service: ConvidadoService,
+    private eventService: EventoService,
     private router: Router,
     private modalService: BsModalService
     //private ser:UsuarioService
@@ -48,32 +49,58 @@ export class ListaConvidadosComponent implements OnInit {
 
   ngOnInit(): void {
 
+//PEGA_ID_DA_URL -----
     this.route.paramMap.subscribe(paramMap => {
       this.id_evento = paramMap.get('id');
       console.log('ID do Evento: '+this.id_evento);
     })
 
+//LISTA_OS_CONVIDADOS_DO_EVENTO -----
     this.service.listConvidado().subscribe((event) => {
       this.listConvidados = event.result as Pessoa[];
       this.filterList();
       console.log('Lista de convidados: '+JSON.stringify(this.filteredListConvidados));
     });
 
+//LISTA_STATUS -----
     this.service.listarStatus(this.id_evento).subscribe((event) => {
         this.listaStatus = event.results as Status[];
         console.log('----- Listar Status -----');
         console.log('API Response: '+event.results);
         console.log('Status: '+this.listaStatus); 
     });
+
+//PEGA_OS_REGISTROS_D0_EVENTO -----
+    this.eventService.listarUm(this.id_evento).subscribe((event)=>{
+      this.evento = event.result as Evento[];
+      console.log('Evento: '+JSON.stringify(this.evento));
+    })
+
   }
 
-  //EVENTO -----
-  edit() {
-    this.bsModalRef = this.modalService.show(EditarEventoComponent);
+// FUNÇÕES - EVENTO -----
+  updateEvento(edtEvento: any) {
+    const id = this.id_evento;
+    const data_hora = edtEvento.data_hora;
+    const descricao = edtEvento.descricao;
+
+    const initialState:ModalOptions = {
+      initialState:{
+        list:[
+          id,
+          data_hora,
+          descricao,
+        ],
+      }
+    }
+
+    //console.log('Evento: '+JSON.stringify(initialState));
+
+    this.bsModalRef = this.modalService.show(EditarEventoComponent, initialState);
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 
-  delet() {
+  deletEvento() {
     console.log(this.id_evento);
     console.log(`o id 'e ${this.id_evento}`)
     this.service.delet(this.id_evento).subscribe(() => {
@@ -81,7 +108,7 @@ export class ListaConvidadosComponent implements OnInit {
     });
   }
 
-  //EVENTO_CONVIDADO -----
+// FUNÇÕES - EVENTO_CONVIDADO -----
   filterList(){
     this.filteredListConvidados = this.listConvidados.filter((convidado) => convidado.id_presenca == this.id_evento);
   }
@@ -90,7 +117,7 @@ export class ListaConvidadosComponent implements OnInit {
     return valor === 1 ? 'Sim' : 'Não';
   }  
 
-  add() {
+  addConvidado() {
     const id_evento = this.id_evento;
 
     const initialState:ModalOptions = {

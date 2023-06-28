@@ -41,8 +41,8 @@ export class EventoService {
   listarUm(id_evento:any):Observable<any>{
     return this.http.get(`${API}/evento/${id_evento}`, { headers: this.header })
   }
-  edit(id_evento:any,editarEvento:any){
-    return this.http.put<any>(`${API}/${id_evento}`,editarEvento, { headers: this.header })
+  edit(id_evento:number,reqBody:any){
+    return this.http.patch<any>(`${this.API}/${id_evento}`,reqBody, { headers: this.header })
   }
 
   addEvent(form:any){

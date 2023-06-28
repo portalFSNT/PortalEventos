@@ -29,6 +29,7 @@ export class EditarPessoaComponent implements OnInit {
     this.empresaService.listar().subscribe((event)=>{
       this.listaPessoa=event.result as Empresa[];
     })
+
     this.form = this.fb.group({
       id: this.list[0],
       nome:[this.list[1], [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
@@ -37,17 +38,8 @@ export class EditarPessoaComponent implements OnInit {
       telefone:[this.list[4],[Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       empresa:[this.list[5]]
     });
+    
   }
-
-  // editar() {
-  //   if (this.form.valid) {
-  //     const editaPessoa = this.form.getRawValue() as Pessoa;
-  //     this.service
-  //       .edit(this.nome, editaPessoa)
-  //       .subscribe(() => this.router.navigate(["/convidados"]));
-  //     console.log(this.nome, editaPessoa);
-  //   }
-  // }
 
   updatePessoa(id:number) {
     if(this.form.valid){
@@ -77,3 +69,14 @@ export class EditarPessoaComponent implements OnInit {
     this.modalController.dismiss();
   }
 }
+
+//VERSÃO_INICIAL_DO_PROJETO -----
+    // editar() {
+    //   if (this.form.valid) {
+    //     const editaPessoa = this.form.getRawValue() as Pessoa;
+    //     this.service
+    //       .edit(this.nome, editaPessoa)
+    //       .subscribe(() => this.router.navigate(["/convidados"]));
+    //     console.log(this.nome, editaPessoa);
+    //   }
+    // }

@@ -1,11 +1,15 @@
-import { ModalController } from '@ionic/angular';
-import { FormGroup, FormBuilder } from "@angular/forms";
-import { EventoService } from "./../evento.service";
-import { ActivatedRoute, Router } from "@angular/router";
+//ANGULAR -----
 import { Component, OnInit,Input } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router, ActivatedRoute } from "@angular/router";
+//MODAL -----
+import { ModalController } from '@ionic/angular';
+//SERVICE -----
+import { EventoService } from "./../evento.service";
+//INTERFACE -----
 import { EventoEdit } from "./eventoedit";
 import { Evento } from "../evento";
-//import * as dayjs from 'dayjs'
+
 
 @Component({
   selector: "app-editar-evento",
@@ -17,25 +21,57 @@ export class EditarEventoComponent implements OnInit {
   form!: FormGroup;
   submitted = false;
   updateEvento: EventoEdit[] = [];
-  list: any[] = [];
+  list: string[] = [];
 
   @Input() id_evento:any
   constructor(
     private modalController:ModalController,
-    // private route: ActivatedRoute,
+    private route: ActivatedRoute,
     private router: Router,
     private service: EventoService,
     private fb: FormBuilder
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      data_hora: [],
-      descricao: [],
+      id: this.list[0],
+      data_hora: this.list[1],
+      descricao: this.list[2],
     })
 
+    console.log('Evento: '+this.list);
+  }
 
+  onSubmit(){
+    this.submitted = true
+
+    const reqBody = {
+      data_hora: this.form.value.data_hora,
+      descricao: this.form.value.descricao,
+    }
+
+    console.log(reqBody);
+
+    if(this.form.valid){
+      this.service.edit(this.form.value.id, reqBody).subscribe(
+        success => console.log('Sucesso'),
+        error => console.log('Error'),
+        () => console.log('Requisição Finalizada')
+      )
+    }
+  }
+
+  salvar() {
+    this.onSubmit();
+  }
+
+  cancelar() {this.modalController.dismiss()}
+}
+
+//IMPORT_DO_PROJETO_ORIGINAL -----
+    // import * as dayjs from 'dayjs'
+
+//PROJETO_ORIGINAL - DENTRO DO ngOnInit(){} ------
     // console.log(this.id_evento)
     // this.editarEventoForm = this.formBuilder.group({
     //   descricao: [''],
@@ -52,19 +88,16 @@ export class EditarEventoComponent implements OnInit {
 
     //   })
     // })
-  }
 
-  editar() {
-    if (this.form.valid) {
-      const editarEvento = this.form.getRawValue() as EventoEdit;
-      this.service
-        .edit(this.id_evento, editarEvento)
-       
-        .subscribe(() => this.router.navigate([`evento_convidados/${this.id_evento}`])
-        );
-        console.log(this.id_evento,editarEvento);
-    }
-  }
-  salvar() {}
-  cancelar() {this.modalController.dismiss()}
-}
+//PROJETO_ORIGINAL - FUNÇÃO_EDITAR_EVENTO -----
+    // editar() {
+    //   if (this.form.valid) {
+    //     const editarEvento = this.form.getRawValue() as EventoEdit;
+    //     this.service
+    //       .edit(this.id_evento, editarEvento)
+        
+    //       .subscribe(() => this.router.navigate([`evento_convidados/${this.id_evento}`])
+    //       );
+    //       console.log(this.id_evento,editarEvento);
+    //   }
+    // }

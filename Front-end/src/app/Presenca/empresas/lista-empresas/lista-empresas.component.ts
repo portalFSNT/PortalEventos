@@ -72,12 +72,14 @@ novoEmpresa(){
   this.bsModalRef.content.closeBtnName = 'Close';
 }
 
-editarEmpresa(id: number){
-  const id_empresa = id;
+editarEmpresa(empresa: any){
+  const id_empresa = empresa.id;
+  const nome = empresa.nome
   const initialState: ModalOptions = {
     initialState:{
       list: [
         id_empresa,
+        nome,
       ],
       title: 'Modal Update Empresa'
     }
@@ -85,6 +87,6 @@ editarEmpresa(id: number){
 
   this.bsModalRef = this.modalService.show(EditarEmpresaComponent, initialState);
   this.bsModalRef.content.closeBtnName = 'Close';
-  return id;
+  return id_empresa;
 }
 }

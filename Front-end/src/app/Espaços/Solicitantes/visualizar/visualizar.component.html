@@ -1,17 +1,19 @@
 <app-header-solicitante></app-header-solicitante>
 
 <div class="container">
-  <div class="form">
-    <!--Ínicio do header-->
-    <div class="titulo">
-      <h2>Olá, Solicitante.</h2>
-      <h3 class="solicitante">Visualize aqui o espaço que foi agendado</h3>
-    </div>
+    <section id="title">
+      <h2>Vizualizar Socilitações</h2>
+      <div class="buttons">
+        <button class="btn1" routerLink="/solicitar">
+          Solicitar
+        </button>
+      </div>
+    </section>
 
     <!--Início da tabela-->
 
-    <div class="table">
-      <table class="content-table">
+    <section id="list">
+      <table>
         <thead>
           <tr>
             <th>Data</th>
@@ -20,8 +22,8 @@
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let rows of solicitacoes">
+        <tbody *ngFor="let rows of solicitacoes">
+          <tr >
             <td>{{ rows.data_inicio | date : "dd/MM/yyyy" }}</td>
             <td>{{ rows.hora_inicio | timeFormat }}</td>
             <td>{{ rows.espaco_nome }}</td>
@@ -29,6 +31,5 @@
           </tr>
         </tbody>
       </table>
-    </div>
+    </section>
   </div>
-</div>

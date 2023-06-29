@@ -1,47 +1,58 @@
 <app-header-solicitante></app-header-solicitante>
-<div class="container">  
-  <div class="form">
-    <!--Ínicio do header-->
-      <div class="titulo">
-        <h2>Olá, Solicitante.</h2>
-        <h3 class="solicitante">Solicite aqui o espaço que precisa</h3>
-      </div>
+<div class="container">
+  <section id="title">
+    <h2>Solicitar Espaço</h2>
+    <div class="buttons">
+      <button class="btn1" routerLink="/visualizar">
+        Ver Solicitações
+      </button>
+    </div>
+  </section>
 
-
+  <section id="body">
     <!--Início dos inputs-->
-    <div class="campo-cadastro">
+    <div class="inicio">
 
-        <select [(ngModel)]="espacoSelecionado">
-          <option value="0"> Selecione um Espaço </option>
-          <option *ngFor="let espaco of espacos" name="espaco" value={{espaco.id}}> {{ espaco.nome }} </option>
-        </select>
-        
-        <!-- <input type="text" name="data" placeholder="Data" class="input" [(ngModel)]="data"> -->
-        <input type="text" name="data" placeholder="Data" onfocus="(this.type='date')" onblur="(this.type='text')" class="input" [(ngModel)]="data">
-
-        
-    </div>
-
-    <div class="campo-cadastro">
-      
-     
-      <input type="text" name="horario_entrada" placeholder="Horário entrada" onfocus="(this.type='time')" onblur="(this.type='text')" class="input" [(ngModel)]="horario_entrada">
-      <input type="text" name="horario_saida" placeholder="Horário saída " onfocus="(this.type='time')" onblur="(this.type='text')" class="input" [(ngModel)]="horario_saida">
-      
-        
-    </div>
-
-    <div class="campo-cadastro">
-      
-     
-      <input type="text" name="descricao" placeholder="Descrição: Preciso de notebook e datashow. " class="input" id="description" [(ngModel)]="descricao">
-      
+      <div class="inputs">
+        <div class="dados">
+          <label class="tittle-form">Selecione Um Espaço</label>
     
-      
-  </div>
+          <select [(ngModel)]="espacoSelecionado" class="input-form w392">
+            <option *ngFor="let espaco of espacos" name="espaco" value={{espaco.id}}> {{ espaco.nome }} </option>
+          </select>
+        </div>
+        <div class="dados">
+          <label for="" class="tittle-form">Data</label>
+          <input type="text" name="data" placeholder="Data" onfocus="(this.type='date')" onblur="(this.type='text')"
+          class="input-form w392" [(ngModel)]="data">
+        </div>
+        
+        <div class="dados">
+          <label for="" class="tittle-form">Hora Entrada</label>
+          
+          
+          <input type="text" name="horario_entrada" placeholder="Horário entrada" onfocus="(this.type='time')"
+          onblur="(this.type='text')" class="input-form w392" [(ngModel)]="horario_entrada">
+        </div>
+        <div class="dados">
+          <label for="" class="tittle-form">Hora Saída</label>
+          
+          <input type="text" name="horario_saida" placeholder="Horário saída " onfocus="(this.type='time')"
+          onblur="(this.type='text')" class="input-form w392" [(ngModel)]="horario_saida">
+        </div>
   
-  <div class="botao">
-  <button (click)="solicitar()" >Enviar</button>
-  </div>   
-  </div>
-</div>
+      </div>
+      
+      <div class="dados">
+        
+        <label for="" class="tittle-form">Descrição</label>
+        <textarea type="text" name="descricao" placeholder="Descrição: Preciso de notebook e datashow. " class="input-form descric" id="description" [(ngModel)]="descricao"></textarea>
+      </div>
+    </div>
+    
+
+    <div class="botao">
+      <button class="btn2" (click)="solicitar()">Enviar</button>
+
+    </div>
+  </section>

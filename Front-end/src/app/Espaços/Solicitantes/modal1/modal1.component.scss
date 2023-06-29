@@ -19,14 +19,7 @@
         align-items: center;
         gap: 159px;
 
-        h1{
-            color: #5F5C6B;
-            /* Título/h1 bold */
-            font-size: 32px;
-            font-family: Montserrat;
-            font-weight: 600;
-            line-height: 100%;
-        }
+
 
         img{
             width: 30px;
@@ -38,7 +31,7 @@
         color: var(--escala-de-cinza-300, #5F5C6B);
         text-align: center;
         /* Título/h2 */
-        font-size: 24px;
+        font-size: 16px;
         font-family: Montserrat;
         line-height: 100%;
     }

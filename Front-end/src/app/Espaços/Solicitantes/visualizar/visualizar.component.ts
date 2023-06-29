@@ -5,7 +5,7 @@ import { VisualizarService } from './visualizar.service';
 @Component({
   selector: 'app-visualizar',
   templateUrl: './visualizar.component.html',
-  styleUrls: ['./visualizar.component.scss', '../../style.scss']
+  styleUrls: ['./visualizar.component.scss','../../../../styles.scss' ]
 })
 export class VisualizarComponent implements OnInit {
 

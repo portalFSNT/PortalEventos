@@ -8,7 +8,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-solicitar',
   templateUrl: './solicitar.component.html',
-  styleUrls: ['./solicitar.component.scss', '../../style.scss']
+  styleUrls: ['../../../../styles.scss', './solicitar.component.scss']
 })
 
 export class SolicitarComponent implements OnInit {

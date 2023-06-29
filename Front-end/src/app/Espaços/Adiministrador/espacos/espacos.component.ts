@@ -7,7 +7,7 @@ import { EspacosService } from './espacos.service';
 @Component({
   selector: 'app-espacos',
   templateUrl: './espacos.component.html',
-  styleUrls: ['./espacos.component.scss', '../../style.scss']
+  styleUrls: ['./espacos.component.scss', '../../../../styles.scss']
 })
 export class EspacosComponent implements OnInit {
 

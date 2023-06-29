@@ -5,7 +5,7 @@ import { SolicitacoesConfirmadas } from './solicitacoes-confirmadas';
 @Component({
   selector: 'app-solicitacoes-confirmadas',
   templateUrl: './solicitacoes-confirmadas.component.html',
-  styleUrls: ['./solicitacoes-confirmadas.component.scss','../../style.scss']
+  styleUrls: ['./solicitacoes-confirmadas.component.scss', '../../../../styles.scss']
 })
 export class SolicitacoesConfirmadasComponent implements OnInit {
 

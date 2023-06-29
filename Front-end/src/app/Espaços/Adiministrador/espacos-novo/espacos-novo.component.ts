@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-espacos-novo',
   templateUrl: './espacos-novo.component.html',
-  styleUrls: ['./espacos-novo.component.scss', '../../style.scss']
+  styleUrls: ['./espacos-novo.component.scss', '../../../../styles.scss']
 })
 export class EspacosNovoComponent implements OnInit {
 

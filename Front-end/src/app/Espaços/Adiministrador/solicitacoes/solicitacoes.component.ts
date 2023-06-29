@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-solicitacoes',
   templateUrl: './solicitacoes.component.html',
-  styleUrls: ['./solicitacoes.component.scss', '../../style.scss']
+  styleUrls: ['./solicitacoes.component.scss', '../../../../styles.scss']
 })
 export class SolicitacoesComponent implements OnInit {
 

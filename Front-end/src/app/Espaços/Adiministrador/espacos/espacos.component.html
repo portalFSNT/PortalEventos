@@ -1,43 +1,39 @@
 <app-header></app-header>
 <div class="body">
   <div class="container">
-     <div class="form">
-      <!--Ínicio do header-->
-      <div class="cabecalho">
-        <div class="titulo">
-          <h2>Olá, Administrador(a)</h2>
-          <h3 class="solicitante">Veja aqui seus espaços!</h3>
-        </div>
-        <a routerLink="/espacos-novo">
-          <button class="cadastro_novo">cadastrar</button>
-        </a>
+    <section id="title">
+      <h2>Lista de Espaços</h2>
+      <div class="buttons">
+        <button class="btn1" routerLink="/espacos-novo">
+          Novo Espaço
+        </button>
       </div>
-  
-      <!--Início da tabela-->
-  
-      <div class="table">
-        <table class="content-table">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Proximidade</th>
-              <th>Descrição</th>
-              <th>Ações</th>
-            </tr>
-  
-          </thead>
-          <tbody>
-  
-            <tr *ngFor="let rows of table">
-              <td>{{ rows.nome }}</td>
-              <td>{{ rows.ponto_referencia }}</td>
-              <td>{{ rows.descricao }}</td>
-              <td (click)="openModal_deletar_espaco(rows)"><img src="../../../../assets/Icons/icon-lixeira-white.svg" alt=""></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    </section>
 
-    </div>
+    <!--Início da tabela-->
+
+    <section id="body">
+      <table>
+        <thead>
+          <tr>
+            <th>NOME</th>
+            <th>PROXIMIDADE</th>
+            <th>DESCRIÇÃO</th>
+            <th>AÇÕES</th>
+          </tr>
+
+        </thead>
+        <tbody *ngFor="let rows of table">
+
+          <tr >
+            <td>{{ rows.nome }}</td>
+            <td>{{ rows.ponto_referencia }}</td>
+            <td class="max200">{{ rows.descricao }}</td>
+            <td class="center" (click)="openModal_deletar_espaco(rows)"><img src="../../../../assets/Icons/icon-lixeira-white.svg"
+                alt=""></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </div>
 </div>

@@ -3,7 +3,7 @@
     <div class="title">
 
       <h2>Aprovação</h2>
-      <img class="exit" src="../../../../assets/Espacos/exit.png" (click)="fecharModal()"/>
+      <img class="exit" src="../../../../assets/Espacos/x-circle.svg" (click)="fecharModal()" />
     </div>
 
     <div class="list">
@@ -20,8 +20,7 @@
         <span class="link">
           {{ exibirSolicitacao.data_inicio | date : "dd/MM/yyyy" }} das
           {{ exibirSolicitacao.hora_inicio | timeFormat }} ás
-          {{ exibirSolicitacao.hora_termino | timeFormat }}</span
-        >
+          {{ exibirSolicitacao.hora_termino | timeFormat }}</span>
       </div>
       <div class="informacoes">
         <img class="icon" src="../../../../assets/Icons/icons-espacos/pointer.svg" alt="" />
@@ -30,10 +29,10 @@
     </div>
     <div class="buttons">
 
-      <button class="not" (click)="deniSolicitacao(exibirSolicitacao.id)">
+      <button class="btn2 red" (click)="deniSolicitacao(exibirSolicitacao.id)">
         Negar
       </button>
-      <button class="yes" (click)="aceptSolicitacao(exibirSolicitacao.id)">
+      <button class="btn2 green" (click)="aceptSolicitacao(exibirSolicitacao.id)">
         Aceitar
       </button>
     </div>

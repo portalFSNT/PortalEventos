@@ -2,22 +2,29 @@
 <div class="container">
   <div class="form">
     <!--Ínicio do header-->
-    <div class="titulo">
-      <h2>Olá, Administrador(a)</h2>
-      <h3 class="solicitante">Veja aqui seus agendamentos confirmados</h3>
-    </div>
+    <section id="title">
+      <h2>Lista de Agendamentos Confirmados</h2>
+      <div class="buttons">
+        <button class="btn1" routerLink="/solicitacoes">
+          Solicitações Pendentestes
+        </button>
+        <button class="btn1 yellow" routerLink="/espacos">
+          Espacos
+        </button>
+      </div>
+    </section>
 
     <!--Início da tabela-->
 
-    <div class="table">
+    <section id="body">
       <table class="content-table">
         <thead>
           <tr>
-            <th>Data</th>
-            <th>Horário</th>
-            <th>Local</th>
-            <th>Solicitante</th>
-            <th>Status</th>
+            <th>DATA</th>
+            <th>HORÁRIO</th>
+            <th>LOCAL</th>
+            <th>SOLICITANTE</th>
+            <th>STATUS</th>
           </tr>
         </thead>
         <tbody *ngFor="let rows of table">
@@ -30,17 +37,6 @@
           </tr>
         </tbody>
       </table>
-    </div>
-
-    <footer>
-      <hr class="line" />
-      <div class="rodape">
-        <img src="../../../../assets/Espacos/logo_transparente.png" class="logo_fsnt" />
-        <h3 class="subtitulo">Dúvidas? entre em contato</h3>
-
-        <p class="num1">comunicacao@fsnt.com.br</p>
-        <p class="num2">(14) 3405-2033</p>
-      </div>
-    </footer>
+    </section>
   </div>
 

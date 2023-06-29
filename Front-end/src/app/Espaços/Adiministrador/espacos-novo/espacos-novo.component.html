@@ -1,32 +1,41 @@
 <app-header></app-header>
 <div class="container">
-  <div class="form">
-    <!--Ínicio do header-->
-    <div class="titulo">
-      <h2>Olá, Administrador</h2>
-      <h3 class="solicitante">Cadastre aqui o seu novo espaço</h3>
+  <section id="title">
+    <h2>Cadastrar Novo Espaços</h2>
+    <div class="buttons">
+      <button class="btn1" routerLink="/espacos">
+        Voltar
+      </button>
     </div>
+  </section>
 
     <!--Início dos inputs-->
-    <div class="campo-cadastro">
-      <input type="text" placeholder="Nome" class="input" [(ngModel)]="espaco.nome" />
-      <input type="text" placeholder="Proximidade" class="input" [(ngModel)]="espaco.ponto_referencia" />
-    </div>
-    <div class="campo-cadastro">
-      <textarea type="text" placeholder="Descrição" class="input descricao-novo" id="description" [(ngModel)]="espaco.descricao"></textarea>
-    </div>
-    <div class="botao">
-      <button (click)="cadastrarEspaco()">Cadastrar</button>
-    </div>
+    <section id="body">
+      <div class="inputs">
 
-    <footer>
-      <hr class="line" />
-      <div class="rodape">
-        <img src="../../../../assets/Espacos/logo_transparente.png" class="logo_fsnt" />
-        <h3 class="subtitulo">Dúvidas? entre em contato</h3>
-        <p class="num1">comunicacao@fsnt.com.br</p>
-        <p class="num2">(14) 3405-2033</p>
+        <div class="campo-cadastro">
+          <div class="dados">
+            <label for="" class="tittle-form">Nome do Espaço</label>
+            <input placeholder="Nome" class="input-form w392"  [(ngModel)]="espaco.nome" />
+          </div>
+          <div class="dados">
+            <label for="" class="tittle-form">Proximidade</label>
+            <input placeholder="Proximidade" class="input-form w392"  [(ngModel)]="espaco.ponto_referencia" />
+          </div>
+        </div>
+        <div class="campo-cadastro">
+          <div class="dados">
+            <label for="" class="tittle-form">Descrição</label>
+            <textarea type="text" placeholder="Descrição" class="input-form descri" id="description" [(ngModel)]="espaco.descricao"></textarea>
+          </div>
+        </div>
       </div>
-    </footer>
+      <div class="botao">
+        <button (click)="cadastrarEspaco()" class="btn2">Cadastrar</button>
+      </div>
+    </section>
+
+    
+
+
   </div>
-</div>

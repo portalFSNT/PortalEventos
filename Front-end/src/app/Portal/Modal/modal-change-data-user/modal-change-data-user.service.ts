@@ -1,5 +1,5 @@
-import { Instituicoes } from './../../Eventos/alterar-evento/instituicao';
-import { MarransatoMode } from './../../shared/MaranssatoMode.interface';
+import { Instituicoes } from '../../../Eventos/alterar-evento/instituicao';
+import { MarransatoMode } from '../../../../shared/MaranssatoMode.interface';
 import { HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, take } from 'rxjs';

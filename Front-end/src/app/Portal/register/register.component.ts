@@ -3,7 +3,7 @@ import { RegisterService } from './register.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalAvisoComponent } from '../modal-aviso/modal-aviso.component';
+import { ModalAvisoComponent } from '../Modal/modal-aviso/modal-aviso.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({

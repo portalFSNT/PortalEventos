@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-new-adm',
   templateUrl: './new-adm.component.html',
-  styleUrls: ['./new-adm.component.scss']
+  styleUrls: ['./new-adm.component.scss',  '../../../../styles.scss']
 })
 export class NewAdmComponent implements OnInit {
 
@@ -29,7 +29,7 @@ export class NewAdmComponent implements OnInit {
       telefone: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       nivelAcesso: "Administrador",
       statusUsuario: 1,
-      instituicao: 1,
+      instituicao: [],
     });
   }
 

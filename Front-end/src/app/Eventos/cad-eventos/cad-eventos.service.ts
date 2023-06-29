@@ -7,7 +7,7 @@ import { Observable, switchMap, take } from 'rxjs';
 import { TipoEvento } from './tipo';
 import { Lugares } from './lugar';
 import { Instituicoes } from './instituicao';
-import { MarransatoMode } from 'src/app/shared/MaranssatoMode.interface';
+import { MarransatoMode } from 'src/shared/MaranssatoMode.interface';
 import { UserService } from 'src/app/authentication/user/user.service';
 
 

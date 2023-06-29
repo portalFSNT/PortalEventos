@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-import { ModalAcceptDenyUserComponent } from '../modal-accept-deny-user/modal-accept-deny-user.component';
+import { ModalAcceptDenyUserComponent } from '../../Modal/modal-accept-deny-user/modal-accept-deny-user.component';
 import { UsersPending } from './users-pending';
 import { UsersPendingService } from './users-pending.service';
 
 @Component({
   selector: 'app-users-pending',
   templateUrl: './users-pending.component.html',
-  styleUrls: ['./users-pending.component.scss']
+  styleUrls: ['./users-pending.component.scss', '../../../../styles.scss']
 })
 export class UsersPendingComponent implements OnInit {
   @Input() user: any;

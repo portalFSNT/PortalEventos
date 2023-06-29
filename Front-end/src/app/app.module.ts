@@ -9,17 +9,17 @@ import { IonicModule } from '@ionic/angular';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { HeaderComponent } from './Portal/header/header.component';
+import { HeaderComponent } from './Portal/Headers/header/header.component';
 import { HomeComponent } from './Portal/home/home.component';
 import { RegisterComponent } from './Portal/register/register.component';
 
 
-import { FuncionsEventosComponent } from './Portal/header/funcions-eventos/funcions-eventos.component';
-import { FuncionsConvidadosComponent } from './Portal/header/funcions-convidados/funcions-convidados.component';
-import { FuncionsEspacosComponent } from './Portal/header/funcions-espacos/funcions-espacos.component';
+import { FuncionsEventosComponent } from './Portal/Headers/header/funcions-eventos/funcions-eventos.component';
+import { FuncionsConvidadosComponent } from './Portal/Headers/header/funcions-convidados/funcions-convidados.component';
+import { FuncionsEspacosComponent } from './Portal/Headers/header/funcions-espacos/funcions-espacos.component';
 import { TypeRegisterComponent } from './Portal/type-register/type-register.component';
-import { UsersComponent } from './Portal/users/users.component';
-import { ModalChangeDataUserComponent } from './Portal/modal-change-data-user/modal-change-data-user.component';
+import { UsersComponent } from './Portal/Usuários/users/users.component';
+import { ModalChangeDataUserComponent } from './Portal/Modal/modal-change-data-user/modal-change-data-user.component';
 import { CadEventosComponent } from './Eventos/cad-eventos/cad-eventos.component';
 import { HomeEventosComponent } from './Eventos/home-eventos/home-eventos.component';
 
@@ -30,7 +30,7 @@ import { SolicitarComponent } from './Espaços/Solicitantes/solicitar/solicitar.
 import { VisualizarComponent } from './Espaços/Solicitantes/visualizar/visualizar.component';
 import { Modal1Component } from './Espaços/Solicitantes/modal1/modal1.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { HeaderSolicitanteComponent } from './Portal/header-solicitante/header-solicitante.component';
+import { HeaderSolicitanteComponent } from './Portal/Headers/header-solicitante/header-solicitante.component';
 import { ModalAceitarComponent } from './Espaços/Adiministrador/modal-aceitar/modal-aceitar.component';
 import { SolicitacoesComponent } from './Espaços/Adiministrador/solicitacoes/solicitacoes.component';
 import { SolicitacoesConfirmadasComponent } from './Espaços/Adiministrador/solicitacoes-confirmadas/solicitacoes-confirmadas.component';
@@ -38,12 +38,12 @@ import { EspacosComponent } from './Espaços/Adiministrador/espacos/espacos.comp
 import { ModalDeletarEspacoComponent } from './Espaços/Adiministrador/modal-deletar-espaco/modal-deletar-espaco.component';
 import { EspacosNovoComponent } from './Espaços/Adiministrador/espacos-novo/espacos-novo.component';
 import { Modal4Component } from './Espaços/Adiministrador/modal4/modal4.component';
-import { UsersPendingComponent } from './Portal/users-pending/users-pending.component';
-import { ModalAcceptDenyUserComponent } from './Portal/modal-accept-deny-user/modal-accept-deny-user.component';
-import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
+import { UsersPendingComponent } from './Portal/Usuários/users-pending/users-pending.component';
+import { ModalAcceptDenyUserComponent } from './Portal/Modal/modal-accept-deny-user/modal-accept-deny-user.component';
+import { NewAdmComponent } from './Portal/Usuários/new-adm/new-adm.component';
 import { LoginComponent } from './Portal/login/login.component';
 import { PhonePipe } from '../pipes/phone.pipe';
-import { OnlyNumbersDirective } from './shared/only-numbers/only-numbers.directive';
+import { OnlyNumbersDirective } from '../shared/only-numbers/only-numbers.directive';
 import { TimeFormatPipe } from '../pipes/timeFormat.pipe';
 
 
@@ -62,8 +62,9 @@ import { NovoConvidadoComponent } from './Presenca/convidados/novo-convidado/nov
 import { NovaEmpresaComponent } from './Presenca/empresas/nova-empresa/nova-empresa.component';
 import { EditarEmpresaComponent } from './Presenca/empresas/editar-empresa/editar-empresa.component';
 import { AlterarEventoComponent } from './Eventos/alterar-evento/alterar-evento.component';
-import { ModalChangePasswordComponent } from './Portal/modal-change-password/modal-change-password.component';
-import { ModalAvisoComponent } from './Portal/modal-aviso/modal-aviso.component';
+import { ModalChangePasswordComponent } from './Portal/Modal/modal-change-password/modal-change-password.component';
+import { ModalAvisoComponent } from './Portal/Modal/modal-aviso/modal-aviso.component';
+import { FuncionsUsersComponent } from './Portal/Headers/header/funcions-users/funcions-users.component';
 
 
 @NgModule({
@@ -125,6 +126,7 @@ import { ModalAvisoComponent } from './Portal/modal-aviso/modal-aviso.component'
     AlterarEventoComponent,
     ModalChangePasswordComponent,
     ModalAvisoComponent,
+    FuncionsUsersComponent,
 
 
   ],

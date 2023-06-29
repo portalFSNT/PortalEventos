@@ -1,15 +1,15 @@
 import { ModalController } from '@ionic/angular';
-import { ModalChangeDataUserComponent } from '../modal-change-data-user/modal-change-data-user.component';
+import { ModalChangeDataUserComponent } from '../../Modal/modal-change-data-user/modal-change-data-user.component';
 import { Component, Input, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 import { Users } from './users';
 import { UsersService } from './users.service';
-import { ModalChangeDataUserService } from '../modal-change-data-user/modal-change-data-user.service';
+import { ModalChangeDataUserService } from '../../Modal/modal-change-data-user/modal-change-data-user.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss'],
+  styleUrls: ['./users.component.scss', '../../../../styles.scss'],
   providers: [ModalController]
 })
 export class UsersComponent {

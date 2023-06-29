@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 // SERVICE -----
 import { TokenService } from 'src/app/authentication/token.service';
 // INTERFACE -----
-import { MarransatoMode } from 'src/app/shared/MaranssatoMode.interface';
+import { MarransatoMode } from 'src/shared/MaranssatoMode.interface';
 import { Pessoa } from './lista-convidados/pessoa';
 import { Status } from './lista-convidados/status';
 import { Convidado } from './convidado';

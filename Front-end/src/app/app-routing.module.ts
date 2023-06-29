@@ -8,9 +8,9 @@ import { LoginComponent } from './Portal/login/login.component';
 import { RegisterComponent } from './Portal/register/register.component';
 import { HomeComponent } from './Portal/home/home.component';
 import { TypeRegisterComponent } from './Portal/type-register/type-register.component';
-import { UsersComponent } from './Portal/users/users.component';
-import { UsersPendingComponent } from './Portal/users-pending/users-pending.component';
-import { NewAdmComponent } from './Portal/new-adm/new-adm.component';
+import { UsersComponent } from './Portal/Usuários/users/users.component';
+import { UsersPendingComponent } from './Portal/Usuários/users-pending/users-pending.component';
+import { NewAdmComponent } from './Portal/Usuários/new-adm/new-adm.component';
 
 
 

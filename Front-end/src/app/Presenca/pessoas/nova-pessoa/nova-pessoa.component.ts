@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Pessoa } from '../pessoa';
 import { Empresa } from './empresa';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-nova-pessoa',
@@ -24,7 +25,9 @@ export class NovaPessoaComponent implements OnInit {
     private pessoaService:PessoaService,
     private empresaService:EmpresaService,
     private router:Router,
-    private modalController:ModalController
+    private modalController:ModalController,
+    public bsModalRef: BsModalRef,
+
   ) {}
 
   ngOnInit(): void {

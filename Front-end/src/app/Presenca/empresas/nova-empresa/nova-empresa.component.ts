@@ -8,6 +8,7 @@ import { ModalController } from '@ionic/angular';
 import { EmpresaService } from './../empresa.service';
 // INTERFACE -----
 import { Empresa } from '../empresa';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-nova-empresa',
@@ -23,7 +24,8 @@ export class NovaEmpresaComponent implements OnInit {
     private fb:FormBuilder,
     private novaEmpresa:EmpresaService,
     private router:Router,
-    private modalController:ModalController
+    private modalController:ModalController,
+    public bsModalRef: BsModalRef,
   ){ 
     this.form = this.fb.group({
       nome: String,

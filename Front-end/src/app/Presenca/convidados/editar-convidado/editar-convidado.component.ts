@@ -8,6 +8,7 @@ import { ModalController } from '@ionic/angular';
 import { ConvidadoService } from './../convidado.service';
 //INTERFACE -----
 import { Pessoa } from '../lista-convidados/pessoa';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-editar-convidado',
@@ -25,7 +26,8 @@ list: string[] = [];
     private service:ConvidadoService,
     private fb:FormBuilder,
     private router:Router,
-    private modalController:ModalController
+    private modalController:ModalController,
+    public bsModalRef: BsModalRef,
   ) { }
 
   

@@ -8,6 +8,7 @@ import { ModalController } from '@ionic/angular';
 import { EmpresaService } from './../empresa.service';
 // INTERFACE -----
 import { Empresa } from '../nova-empresa/empresa';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-editar-empresa',
@@ -29,7 +30,8 @@ output:any;
     private fb : FormBuilder,
     private router:Router,
     private modalController:ModalController,
-    private service:EmpresaService
+    private service:EmpresaService,
+    public bsModalRef: BsModalRef,
   ) { }
 
   ngOnInit(){

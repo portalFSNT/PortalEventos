@@ -10,6 +10,7 @@ import { PessoaService } from "./../pessoa.service";
 // INTERFACE -----
 import { Pessoa } from "../pessoa";
 import { Empresa } from "../nova-pessoa/empresa";
+import { BsModalRef } from "ngx-bootstrap/modal";
 
 @Component({
   selector: "app-editar-pessoa",
@@ -24,9 +25,9 @@ export class EditarPessoaComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private modalController: ModalController,
     private service: PessoaService,
     private empresaService:EmpresaService,
+    public bsModalRef: BsModalRef,
   ) {}
 
   ngOnInit(): void {
@@ -65,13 +66,6 @@ export class EditarPessoaComponent implements OnInit {
     window.location.reload();
   }
 
-  salvar() {
-    this.modalController.dismiss();
-  }
-
-  cancelar() {
-    this.modalController.dismiss();
-  }
 }
 
 // PROJETO_ORIGINAL -----

@@ -10,6 +10,7 @@ import { ConvidadoService } from './../convidado.service';
 //INTERFACES -----
 import { Convidado } from '../convidado';
 import { Pessoa } from '../lista-convidados/pessoa';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-novo-convidado',
@@ -28,6 +29,7 @@ export class NovoConvidadoComponent implements OnInit {
     private fb:FormBuilder,
     private service:ConvidadoService,
     private modalController:ModalController,
+    public bsModalRef: BsModalRef,
   ) { }
 
   ngOnInit(){

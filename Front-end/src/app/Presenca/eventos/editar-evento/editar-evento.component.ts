@@ -9,6 +9,7 @@ import { EventoService } from "./../evento.service";
 //INTERFACE -----
 import { EventoEdit } from "./eventoedit";
 import { Evento } from "../evento";
+import { BsModalRef } from "ngx-bootstrap/modal";
 
 
 @Component({
@@ -29,7 +30,9 @@ export class EditarEventoComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private service: EventoService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public bsModalRef: BsModalRef,
+
   ) {}
 
   ngOnInit(): void {

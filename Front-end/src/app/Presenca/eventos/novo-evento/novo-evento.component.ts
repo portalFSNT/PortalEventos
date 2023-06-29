@@ -10,6 +10,7 @@ import { CadastrarEventoComponent } from './../../components/evento/cadastrar-ev
 import { EventoService } from './../evento.service';
 // INTERFACE
 import { Evento } from '../evento';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 
 @Component({
@@ -27,7 +28,9 @@ export class NovoEventoComponent implements OnInit {
     private fb: FormBuilder,
     private eventService: EventoService,
     private router: Router,
-    private modalController: ModalController) { }
+    private modalController: ModalController,
+    public bsModalRef: BsModalRef,
+    ) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({

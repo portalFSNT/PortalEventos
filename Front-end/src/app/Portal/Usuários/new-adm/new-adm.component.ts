@@ -27,7 +27,7 @@ export class NewAdmComponent implements OnInit {
       senha: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       cargo: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       telefone: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      nivelAcesso: "Administrador",
+      nivelAcesso:  [null,[Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
       statusUsuario: 1,
       instituicao: [],
     });

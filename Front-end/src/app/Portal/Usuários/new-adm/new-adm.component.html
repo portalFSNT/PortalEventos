@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container">
   <section id="title">
-    <h2>Novo Adiministrador</h2>
+    <h2>Cadastrar Novo Usuário</h2>
     <div class="buttons">
       <button class="btn1" routerLink="/users">Usuários</button>
       <button class="btn1 yellow" routerLink="/users-pending">Pendente</button>
@@ -25,6 +25,14 @@
           <div class="dados">
             <label for="" class="tittle-form">Senha</label>
             <input type="password" placeholder="*************" class="input-form w392" formControlName="senha" />
+          </div>
+          <div class="dados">
+            <label for="" class="tittle-form">Tipo de Usuário</label>
+            <select formControlName="nivelAcesso" name="text" class="select" id="select" class="input-form w392 "
+              placeholder="Nome do Evento">
+              <option value="Administrador" > Administrador </option>
+              <option value="Solicitante" > Solicitante </option>
+            </select>
           </div>
         </div>
         <div class="form-right">

@@ -24,7 +24,7 @@
             <div  class="modal-label">
                 <label>Empresa</label>
             </div>
-            <select formControlName="empresa" class="modal-input" type="text" >
+            <select formControlName="empresa" class="modal-input" type="text" aria-placeholder="form.value.empresa">
                 <option placeholder="Empresas" *ngFor="let empresa of listaPessoa" [value]="empresa.id">{{empresa.nome}}</option>
             </select>
         </div>

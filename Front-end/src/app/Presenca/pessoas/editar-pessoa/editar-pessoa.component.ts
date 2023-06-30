@@ -47,7 +47,7 @@ export class EditarPessoaComponent implements OnInit {
   }
 
   updatePessoa(id:number) {
-    if(!this.form.value.empresa){
+    if(!!this.form.value.empresa){
       if(this.form.valid){
         const reqBody = {
           nome: this.form.value.nome,

@@ -12,7 +12,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-nova-pessoa',
   templateUrl: './nova-pessoa.component.html',
-  styleUrls: ['./nova-pessoa.component.scss', '../../styles/styles.scss']
+  styleUrls: ['./nova-pessoa.component.scss', '../../styles/stylespresenca.scss']
 })
 export class NovaPessoaComponent implements OnInit {
 

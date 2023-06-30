@@ -15,7 +15,7 @@ import { BsModalRef } from "ngx-bootstrap/modal";
 @Component({
   selector: "app-editar-evento",
   templateUrl: "./editar-evento.component.html",
-  styleUrls: ["./editar-evento.component.scss","../../styles/styles.scss"],
+  styleUrls: ["./editar-evento.component.scss","../../styles/stylespresenca.scss"],
 })
 export class EditarEventoComponent implements OnInit {
 

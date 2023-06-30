@@ -13,7 +13,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-editar-convidado',
   templateUrl: './editar-convidado.component.html',
-  styleUrls: ['./editar-convidado.component.scss', '../../styles/styles.scss']
+  styleUrls: ['./editar-convidado.component.scss', '../../styles/stylespresenca.scss']
 })
 export class EditarConvidadoComponent implements OnInit {
 

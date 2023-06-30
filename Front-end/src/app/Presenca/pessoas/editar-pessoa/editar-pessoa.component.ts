@@ -15,7 +15,7 @@ import { BsModalRef } from "ngx-bootstrap/modal";
 @Component({
   selector: "app-editar-pessoa",
   templateUrl: "./editar-pessoa.component.html",
-  styleUrls: ["./editar-pessoa.component.scss", '../../styles/styles.scss'],
+  styleUrls: ["./editar-pessoa.component.scss", '../../styles/stylespresenca.scss'],
 })
 export class EditarPessoaComponent implements OnInit {
   form!: FormGroup;

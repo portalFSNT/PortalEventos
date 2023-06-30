@@ -15,7 +15,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-novo-convidado',
   templateUrl: './novo-convidado.component.html',
-  styleUrls: ['./novo-convidado.component.scss', '../../styles/styles.scss']
+  styleUrls: ['./novo-convidado.component.scss', '../../styles/stylespresenca.scss']
 })
 export class NovoConvidadoComponent implements OnInit {
 

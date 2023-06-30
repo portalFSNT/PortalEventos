@@ -13,7 +13,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-editar-empresa',
   templateUrl: './editar-empresa.component.html',
-  styleUrls: ['./editar-empresa.component.scss', '../../styles/styles.scss']
+  styleUrls: ['./editar-empresa.component.scss', '../../styles/stylespresenca.scss']
 })
 export class EditarEmpresaComponent implements OnInit {
 
